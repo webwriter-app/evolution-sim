@@ -2,6 +2,8 @@ import { assert, describe, expect, it } from "vitest";
 import { reproduceActionDefinition } from "./reproduce";
 import { SIMULATION_WORLD_SIZE } from "@/simulation/constants";
 import { AgentState } from "@/simulation/agent/state";
+import { spawnAgent } from "@/simulation/agent/agent";
+import { initializeGenome } from "@/simulation/genetics/genome";
 import { ACTION_ERRORS } from "../actionErrors";
 
 describe("reproduce action", () => {
@@ -27,6 +29,12 @@ describe("reproduce action", () => {
         me,
         foodSources: [],
         otherAgents: [],
+        spawnAgent: () =>
+          spawnAgent({
+            position: me.position,
+            genome: initializeGenome(),
+            parentIds: [],
+          }),
       },
       undefined as never,
     );
@@ -50,6 +58,12 @@ describe("reproduce action", () => {
         me,
         foodSources: [],
         otherAgents: [],
+        spawnAgent: () =>
+          spawnAgent({
+            position: me.position,
+            genome: initializeGenome(),
+            parentIds: [],
+          }),
       },
       undefined as never,
     );

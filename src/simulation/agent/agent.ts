@@ -9,6 +9,7 @@ import { Genome } from "../genetics/genome";
 
 export interface Agent {
   id: string;
+  parentIds: string[];
   genome: Genome;
   phenotype: Phenotype;
   strategy: Strategy;
@@ -19,9 +20,11 @@ export interface Agent {
 export function spawnAgent({
   position,
   genome,
+  parentIds,
 }: {
   position: Vec2;
   genome: Genome;
+  parentIds: string[];
 }): Agent {
   const id = uid();
 
@@ -38,6 +41,7 @@ export function spawnAgent({
 
   return {
     id,
+    parentIds: [...parentIds],
     genome,
     phenotype,
     actionMap,

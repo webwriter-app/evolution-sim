@@ -73,7 +73,7 @@ export function addAgent(simulation: Simulation, position: Vec2): Simulation {
     ...simulation,
     agents: [
       ...simulation.agents,
-      spawnAgent({ position, genome: initializeGenome() }),
+      spawnAgent({ position, genome: initializeGenome(), parentIds: [] }),
     ],
   };
 }
@@ -146,6 +146,7 @@ function getAgentContext(agent: Agent, simulation: Simulation): AgentContext {
           parentGenome: agent.genome,
           mutationRate: simulation.metadata.mutationRate,
         }),
+        parentIds: [agent.id],
       }),
   };
 }
