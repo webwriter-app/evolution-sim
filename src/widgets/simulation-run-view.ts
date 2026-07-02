@@ -6,6 +6,7 @@ import { SimulationControlsBar } from "./simulation-controls-bar";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { useSimulationStore } from "@/composables/simulationStore";
 import { SimulationManualTools } from "./simulation-manual-tools";
+import { SimulationMutationRateEditor } from "./simulation-mutation-rate-editor";
 import { SimulationEntityView } from "./simulation-entity-view";
 import {
   DEFAULT_GRAPH_OPTIONS,
@@ -40,6 +41,7 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
     "simulation-state-render": SimulationStateRender,
     "simulation-controls-bar": SimulationControlsBar,
     "simulation-manual-tools": SimulationManualTools,
+    "simulation-mutation-rate-editor": SimulationMutationRateEditor,
     "simulation-entity-view": SimulationEntityView,
     "simulation-analysis-view": SimulationAnalysisView,
     "sl-tab": SlTab,
@@ -72,10 +74,15 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
 
     simulation-entity-view,
     simulation-controls-bar,
+    simulation-mutation-rate-editor,
     simulation-analysis-view {
       width: 100%;
     }
   `;
+
+  private getMutationRateLocked() {
+    return this.configuration?.initOptions?.mutationRate?.locked ?? false;
+  }
 
   private renderSimulationTabContent() {
     return html`
@@ -85,6 +92,9 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
           .widgetId=${this.widgetId}
         ></simulation-state-render>
         <div id="bottom-bar">
+          <simulation-mutation-rate-editor
+            .locked=${this.getMutationRateLocked()}
+          ></simulation-mutation-rate-editor>
           <simulation-manual-tools
             .widgetId=${this.widgetId}
           ></simulation-manual-tools>

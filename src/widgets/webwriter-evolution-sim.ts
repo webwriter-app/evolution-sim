@@ -12,6 +12,7 @@ import {
   SimulationPreConfigurationAside,
 } from "./simulation-pre-configuration-aside";
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
+import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { isEqual } from "lodash-es";
 
 /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
@@ -68,6 +69,7 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
       },
       initialAgentsAmount: initOptions.initialAgentsAmount.value,
       initialFoodSourcesAmount: initOptions.initialFoodSourcesAmount.value,
+      mutationRate: initOptions.mutationRate?.value ?? DEFAULT_MUTATION_RATE,
     };
   }
 

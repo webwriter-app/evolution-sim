@@ -235,6 +235,15 @@ async function setSimulationSpeed(speed: number) {
   await SimulationWorker.setTickInterval(DEFAULT_TICK_INTERVAL / speed);
 }
 
+async function setMutationRate(mutationRate: number) {
+  if (!hasValue(currentSnapshot.get())) {
+    return;
+  }
+
+  const metadata = await SimulationWorker.setMutationRate(mutationRate);
+  simulationMetadata.set(metadata);
+}
+
 export function useSimulationStore() {
   return {
     initializeNewSimulation,
@@ -246,6 +255,7 @@ export function useSimulationStore() {
     stopSimulation,
     resetSimulation,
     setSimulationSpeed,
+    setMutationRate,
     selectEntity,
     selectEntityAt,
     currentSelection,

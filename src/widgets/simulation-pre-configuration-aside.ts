@@ -1,4 +1,5 @@
 import { css } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SlCard, SlInput, SlSwitch } from "@shoelace-style/shoelace";
@@ -8,6 +9,7 @@ import { createInputHandler } from "@/utils/handleInput";
 import { DEFAULT_GRAPH_OPTIONS, GraphConfig } from "./simulation-analysis-view";
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import {
+  DEFAULT_MUTATION_RATE,
   SIMULATION_FOOD_AMOUNT,
   SIMULATION_INITIAL_AGENT_COUNT,
   SIMULATION_WORLD_SIZE,
@@ -47,6 +49,10 @@ export const DEFAULT_SIMULATION_CONFIGURATION: SimulationConfiguration = {
     initialFoodSourcesAmount: {
       locked: false,
       value: SIMULATION_FOOD_AMOUNT,
+    },
+    mutationRate: {
+      locked: false,
+      value: DEFAULT_MUTATION_RATE,
     },
     worldSize: {
       locked: false,
@@ -183,7 +189,10 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
     label: string,
     option: keyof SimulationConfiguration["initOptions"],
   ) {
-    const currentOption = this.configuration.initOptions[option];
+    const currentOption =
+      this.configuration.initOptions[option] ??
+      DEFAULT_SIMULATION_CONFIGURATION.initOptions[option];
+    const isMutationRateOption = option === "mutationRate";
 
     return html`
       <div class="init-option">
@@ -204,6 +213,9 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
         <sl-input
           type="${option === "seed" ? "text" : "number"}"
           aria-label="${label}"
+          min=${ifDefined(isMutationRateOption ? "0" : undefined)}
+          max=${ifDefined(isMutationRateOption ? "1" : undefined)}
+          step=${ifDefined(isMutationRateOption ? "0.01" : undefined)}
           .value="${String(currentOption.value)}"
           @input="${createInputHandler((e) =>
             this.updateConfiguration(
@@ -280,6 +292,10 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
             ${this.renderInitOptionConfiguration(
               "Initial Agents",
               "initialAgentsAmount",
+            )}
+            ${this.renderInitOptionConfiguration(
+              "Mutation Rate",
+              "mutationRate",
             )}
           </div>
         </sl-card>

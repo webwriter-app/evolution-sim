@@ -1,8 +1,12 @@
 import { css } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { SimulationConfiguration } from "./simulation-pre-configuration-aside";
+import {
+  DEFAULT_SIMULATION_CONFIGURATION,
+  SimulationConfiguration,
+} from "./simulation-pre-configuration-aside";
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { cloneDeep, set } from "lodash-es";
 import { SlButton, SlDialog, SlIcon, SlInput } from "@shoelace-style/shoelace";
@@ -96,11 +100,18 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
     label: string,
     option: Exclude<keyof SimulationInitOptions, "worldSize">,
   ) {
-    const configurationValue = this.simulationConfiguration.initOptions[option];
+    const configurationValue =
+      this.simulationConfiguration.initOptions[option] ??
+      DEFAULT_SIMULATION_CONFIGURATION.initOptions[option];
+    const isMutationRateOption = option === "mutationRate";
+
     return html`
       <sl-input
         type=${option === "seed" ? "text" : "number"}
         label=${label}
+        min=${ifDefined(isMutationRateOption ? "0" : undefined)}
+        max=${ifDefined(isMutationRateOption ? "1" : undefined)}
+        step=${ifDefined(isMutationRateOption ? "0.01" : undefined)}
         .value=${String(configurationValue.value)}
         ?disabled=${configurationValue.locked}
         @input=${createInputHandler((value) =>
@@ -178,6 +189,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
             "Initial Agents",
             "initialAgentsAmount",
           )}
+          ${this.renderOptionConfigurator("Mutation Rate", "mutationRate")}
         </div>
         <div slot="footer" class="footer">
           <sl-button @click=${() => (this.open = false)}>Cancel</sl-button>
