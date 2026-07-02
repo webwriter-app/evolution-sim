@@ -19,6 +19,7 @@ export interface Simulation {
 
 export interface SimulationMetadata {
   worldSize: Vec2;
+  mutationRate: number;
 }
 
 export function addFoodSource(
@@ -141,7 +142,10 @@ function getAgentContext(agent: Agent, simulation: Simulation): AgentContext {
     spawnAgent: () =>
       spawnAgent({
         position: agent.state.position,
-        genome: getGenomeFromReproduction({ parentGenome: agent.genome }),
+        genome: getGenomeFromReproduction({
+          parentGenome: agent.genome,
+          mutationRate: simulation.metadata.mutationRate,
+        }),
       }),
   };
 }

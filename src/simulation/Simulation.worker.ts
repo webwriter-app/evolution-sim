@@ -19,6 +19,7 @@ export interface SimulationInitOptions {
   worldSize: Vec2;
   initialAgentsAmount: number;
   initialFoodSourcesAmount: number;
+  mutationRate: number;
 }
 
 export interface SimulationRunner {
@@ -42,6 +43,7 @@ export interface SimulationRunner {
   ) => void;
   stopSimulation: () => void;
   setTickInterval: (intervalMs: number) => void;
+  setMutationRate: (mutationRate: number) => SimulationMetadata;
 }
 
 const DEFAULT_TICK_INTERVAL = 100;
@@ -160,12 +162,31 @@ function setTickInterval(intervalMs: number) {
   tickInterval = Math.max(1, intervalMs);
 }
 
+function setMutationRate(mutationRate: number): SimulationMetadata {
+  if (hasNoValue(simulation)) {
+    throw new Error("No active simulation to update");
+  }
+
+  const updatedMetadata = {
+    ...simulation.metadata,
+    mutationRate,
+  };
+
+  simulation = {
+    ...simulation,
+    metadata: updatedMetadata,
+  };
+
+  return updatedMetadata;
+}
+
 export const SimulationRunner: SimulationRunner = {
   initializeNewSimulation,
   resetSimulation,
   startSimulation,
   stopSimulation,
   setTickInterval,
+  setMutationRate,
   addFoodSource: addFoodSourceToSimulation,
   addAgent: addAgentToSimulation,
   removeEntityAt: removeEntityAtPosition,

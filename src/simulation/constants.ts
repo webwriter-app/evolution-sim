@@ -16,4 +16,4 @@ export const SIMULATION_WORLD_SIZE: Vec2 = { x: 50, y: 25 };
 export const SIMULATION_FOOD_AMOUNT = 20;
 export const SIMULATION_INITIAL_AGENT_COUNT = 5;
 
-export const MUTATION_RATE = 0.3;
+export const DEFAULT_MUTATION_RATE = 0.3;

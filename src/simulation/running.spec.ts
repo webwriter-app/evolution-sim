@@ -54,6 +54,7 @@ describe("running simulation", () => {
       foodSources: [],
       metadata: {
         worldSize: { x: 10, y: 10 },
+        mutationRate: 0.3,
       },
     };
 

@@ -40,10 +40,12 @@ export function initializeSimulation({
   worldSize,
   initialAgentsAmount,
   initialFoodSourcesAmount,
+  mutationRate,
 }: {
   worldSize: Vec2;
   initialAgentsAmount: number;
   initialFoodSourcesAmount: number;
+  mutationRate: number;
 }): Simulation {
   const agents = spawnNewAgents({
     worldSize,
@@ -58,6 +60,7 @@ export function initializeSimulation({
   return {
     metadata: {
       worldSize,
+      mutationRate,
     },
     agents,
     foodSources,
