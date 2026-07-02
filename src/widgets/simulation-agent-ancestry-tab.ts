@@ -1,6 +1,7 @@
 import { LitFlow } from "@ghchinoy/litflow";
 
 import { css } from "lit";
+import { keyed } from "lit/directives/keyed.js";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
@@ -42,6 +43,21 @@ export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
     }
   `;
 
+  private readonly selectClickedAgent = (
+    event: CustomEvent<{ nodes?: { id: string; selected?: boolean }[] }>,
+  ) => {
+    const selectedNode = event.detail.nodes?.find(
+      (node) => node.selected === true && node.id !== this.agentId,
+    );
+
+    if (selectedNode) {
+      this.simulationStore.selectEntity({
+        entityId: selectedNode.id,
+        entityType: "agent",
+      });
+    }
+  };
+
   render() {
     const ancestry = getImmediateAgentAncestry(
       this.agentId,
@@ -57,18 +73,22 @@ export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
     return html`
       <div class="ancestry-tab">
         <div class="flow-frame">
-          <lit-flow
-            show-controls
-            show-grid
-            auto-fit
-            .nodes=${flowModel.nodes}
-            .edges=${flowModel.edges}
-            .layoutDirection=${"TB"}
-            .nodesDraggable=${false}
-            .nodesConnectable=${false}
-            .panOnDrag=${true}
-            .zoomOnScroll=${true}
-          ></lit-flow>
+          ${keyed(
+            this.agentId,
+            html`<lit-flow
+              show-controls
+              show-grid
+              auto-fit
+              .nodes=${flowModel.nodes}
+              .edges=${flowModel.edges}
+              .layoutDirection=${"TB"}
+              .nodesDraggable=${false}
+              .nodesConnectable=${false}
+              .panOnDrag=${true}
+              .zoomOnScroll=${true}
+              @change=${this.selectClickedAgent}
+            ></lit-flow>`,
+          )}
         </div>
       </div>
     `;
