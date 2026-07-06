@@ -7,7 +7,7 @@ import {
   ManualSimulationTool,
   useSimulationStore,
 } from "@/composables/simulationStore";
-import { AgentSpriteData, FoodSourceSpriteData } from "./assets";
+import { AgentPreviewSpriteData, FoodSourceSpriteData } from "./assets";
 import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
 
 @customElement("simulation-manual-tools")
@@ -156,7 +156,7 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
         ${this.renderSpriteToolButton({
           label: "Agent",
           tool: "add-agent",
-          spriteSource: AgentSpriteData,
+          spriteSource: AgentPreviewSpriteData,
         })}
         ${this.renderRemoveToolButton()}
       </div>

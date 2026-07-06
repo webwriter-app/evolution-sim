@@ -11,7 +11,7 @@ import {
   SimulationSnapshot,
 } from "@/simulation/serialization";
 import { hasNoValue, hasValue } from "@/utils/typeGuards";
-import { Textures } from "./assets";
+import { loadTextures, Textures } from "./assets";
 import { SimulationMetadata } from "@/simulation/running";
 import { scaleVector, Vec2 } from "@/simulation/position";
 import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
@@ -19,6 +19,7 @@ import { SIMULATION_ENTITY_LAYERS } from "@/simulation/entityPresentation";
 import { useSimulationStore } from "@/composables/simulationStore";
 import { SignalWatcher } from "@lit-labs/signals";
 import { effect } from "signal-utils/subtle/microtask-effect";
+import { GenomeRenderer } from "./utils/geneRendering";
 
 /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
 import LOCALIZE from '../localization/generated'
@@ -38,14 +39,8 @@ class BackgroundRenderer {
   readonly backgroundTilesSprite: TilingSprite;
 
   constructor() {
-    const tileScale: Vec2 = {
-      x: SIMULATION_TILE_SIZE / Textures.backgroundTile.width,
-      y: SIMULATION_TILE_SIZE / Textures.backgroundTile.height,
-    };
-
     this.backgroundTilesSprite = new TilingSprite({
       texture: Textures.backgroundTile,
-      tileScale,
     });
 
     this.root = new Container();
@@ -54,6 +49,12 @@ class BackgroundRenderer {
   }
 
   update(worldSize: Vec2) {
+    this.backgroundTilesSprite.texture = Textures.backgroundTile;
+    this.backgroundTilesSprite.tileScale = {
+      x: SIMULATION_TILE_SIZE / Textures.backgroundTile.width,
+      y: SIMULATION_TILE_SIZE / Textures.backgroundTile.height,
+    };
+
     const backgroundTileSize = {
       width: SIMULATION_TILE_SIZE * worldSize.x,
       height: SIMULATION_TILE_SIZE * worldSize.y,
@@ -62,27 +63,27 @@ class BackgroundRenderer {
     this.backgroundTilesSprite.setSize(backgroundTileSize);
   }
 }
+
 class AgentRenderer implements EntitySnapshotRenderer<AgentSnapshot> {
   readonly root: Container;
-  readonly bodySprite: Sprite;
+  genomeRenderer?: GenomeRenderer;
 
   constructor() {
     this.root = new Container({
       zIndex: SIMULATION_ENTITY_LAYERS.agent,
     });
-    this.bodySprite = new Sprite({
-      texture: Textures.agent,
-      width: SIMULATION_TILE_SIZE,
-      height: SIMULATION_TILE_SIZE,
-    });
-    this.root.addChild(this.bodySprite);
   }
 
   update(agentSnapshot: AgentSnapshot) {
+    if (hasNoValue(this.genomeRenderer)) {
+      this.genomeRenderer = new GenomeRenderer(agentSnapshot.genome);
+      this.root.addChild(this.genomeRenderer.root);
+    }
+
     const tilePosition = toTilePosition(agentSnapshot.state.position);
 
-    this.bodySprite.x = tilePosition.x;
-    this.bodySprite.y = tilePosition.y;
+    this.root.x = tilePosition.x;
+    this.root.y = tilePosition.y;
   }
 }
 
@@ -334,6 +335,8 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   }
 
   private async setupCanvas() {
+    await loadTextures();
+
     const app = new Application();
 
     await app.init({ resizeTo: this.canvasContainer, background: "#FFFFFF" });

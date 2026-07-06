@@ -2,13 +2,18 @@ import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { html } from "@lit-labs/signals";
-import { AgentSpriteData, FoodSourceSpriteData } from "./assets";
+import { FoodSourceSpriteData } from "./assets";
 import { EntitySelection } from "./utils/entityInspection";
+import { SimulationAgentGenomePreview } from "./simulation-agent-genome-preview";
 
 @customElement("simulation-entity-aside")
 export class SimulationEntityAside extends LitElementWw {
   @property({ attribute: false })
   accessor selection: EntitySelection | null = null;
+
+  static readonly scopedElements = {
+    "simulation-agent-genome-preview": SimulationAgentGenomePreview,
+  };
 
   static readonly styles = css`
     aside {
@@ -119,6 +124,20 @@ export class SimulationEntityAside extends LitElementWw {
     }
   }
 
+  private renderEntityImage(selection: EntitySelection, entityLabel: string) {
+    if (selection.type === "agent") {
+      return html`<simulation-agent-genome-preview
+        .genome=${selection.latestSnapshot.genome}
+      ></simulation-agent-genome-preview>`;
+    }
+
+    return html`<img
+      class="entity-image"
+      src=${FoodSourceSpriteData}
+      alt="${entityLabel} sprite"
+    />`;
+  }
+
   render() {
     if (!this.selection) {
       return null;
@@ -126,17 +145,12 @@ export class SimulationEntityAside extends LitElementWw {
 
     const isAgent = this.selection.type === "agent";
     const entityLabel = isAgent ? "Agent" : "Food Source";
-    const spriteSource = isAgent ? AgentSpriteData : FoodSourceSpriteData;
 
     return html`
       <aside aria-label="Selected entity metadata">
         <h2 class="entity-title">${entityLabel} ${this.selection.entityId}</h2>
         <div class="entity-image-frame">
-          <img
-            class="entity-image"
-            src=${spriteSource}
-            alt="${entityLabel} sprite"
-          />
+          ${this.renderEntityImage(this.selection, entityLabel)}
         </div>
         <h3 class="section-title">State</h3>
         ${this.renderState(this.selection)}
