@@ -5,7 +5,9 @@ import { SIMULATION_WORLD_SIZE } from "@/simulation/constants";
 import { AgentState } from "@/simulation/agent/state";
 import { ACTION_ERRORS } from "../actionErrors";
 import { spawnAgent } from "@/simulation/agent/agent";
+import { initializeGenome } from "@/simulation/genetics/genome";
 import { err } from "neverthrow";
+import { AgentContext } from "@/simulation/agentContext";
 
 describe("move action", () => {
   function buildAction() {
@@ -17,6 +19,20 @@ describe("move action", () => {
     });
   }
 
+  function createContext(
+    overrides: Partial<AgentContext> & Pick<AgentContext, "me">,
+  ): AgentContext {
+    return {
+      worldSize: SIMULATION_WORLD_SIZE,
+      foodSources: [],
+      otherAgents: [],
+      spawnAgent: () => {
+        throw new Error("Move action should not spawn agents");
+      },
+      ...overrides,
+    };
+  }
+
   it("agent is able to move to a new position if it has enough energy", () => {
     const sut = buildAction();
     const me: AgentState = {
@@ -24,15 +40,7 @@ describe("move action", () => {
       currentEnergy: 20,
     };
 
-    const result = sut.execute(
-      {
-        worldSize: SIMULATION_WORLD_SIZE,
-        me,
-        foodSources: [],
-        otherAgents: [],
-      },
-      Directions.Down,
-    );
+    const result = sut.execute(createContext({ me }), Directions.Down);
 
     assert(result.isOk());
     expect(result.value.me?.position).toEqual({ x: 0, y: 1 });
@@ -46,15 +54,7 @@ describe("move action", () => {
       currentEnergy: 0,
     };
 
-    const result = sut.execute(
-      {
-        worldSize: SIMULATION_WORLD_SIZE,
-        me,
-        foodSources: [],
-        otherAgents: [],
-      },
-      Directions.Down,
-    );
+    const result = sut.execute(createContext({ me }), Directions.Down);
 
     assert(result.isErr());
     expect(result.error).toBe(ACTION_ERRORS.ERR_NOT_ENOUGH_ENERGY);
@@ -71,15 +71,13 @@ describe("move action", () => {
     };
 
     const result = sut.execute(
-      {
+      createContext({
         worldSize: {
           x: 1,
           y: 1,
         },
         me,
-        foodSources: [],
-        otherAgents: [],
-      },
+      }),
       Directions.Up,
     );
 
@@ -97,15 +95,13 @@ describe("move action", () => {
     };
 
     const result = sut.execute(
-      {
+      createContext({
         worldSize: {
           x: 1,
           y: 1,
         },
         me,
-        foodSources: [],
-        otherAgents: [],
-      },
+      }),
       Directions.Down,
     );
 
@@ -123,15 +119,13 @@ describe("move action", () => {
     };
 
     const result = sut.execute(
-      {
+      createContext({
         worldSize: {
           x: 1,
           y: 1,
         },
         me,
-        foodSources: [],
-        otherAgents: [],
-      },
+      }),
       Directions.Left,
     );
 
@@ -149,15 +143,13 @@ describe("move action", () => {
     };
 
     const result = sut.execute(
-      {
+      createContext({
         worldSize: {
           x: 1,
           y: 1,
         },
         me,
-        foodSources: [],
-        otherAgents: [],
-      },
+      }),
       Directions.Right,
     );
 
@@ -172,15 +164,12 @@ describe("move action", () => {
     };
     const otherAgent = spawnAgent({
       position: { x: 0, y: 1 },
+      genome: initializeGenome(),
+      parentIds: [],
     });
 
     const result = sut.execute(
-      {
-        worldSize: SIMULATION_WORLD_SIZE,
-        me,
-        foodSources: [],
-        otherAgents: [otherAgent],
-      },
+      createContext({ me, otherAgents: [otherAgent] }),
       Directions.Down,
     );
 

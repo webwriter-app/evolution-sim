@@ -8,6 +8,7 @@ import { Simulation } from "./running";
 
 export interface AgentSnapshot {
   id: string;
+  parentIds: string[];
   state: AgentState;
   phenotype: Phenotype;
   genome: Genome;
@@ -16,6 +17,7 @@ export interface AgentSnapshot {
 function recordAgentSnapshot(agent: Agent): AgentSnapshot {
   return {
     id: agent.id,
+    parentIds: agent.parentIds,
     state: agent.state,
     phenotype: agent.phenotype,
     genome: agent.genome,

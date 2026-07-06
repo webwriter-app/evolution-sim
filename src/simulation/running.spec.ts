@@ -24,6 +24,7 @@ describe("running simulation", () => {
     const agent = spawnAgent({
       position: VEC_0,
       genome: initializeGenome(),
+      parentIds: [],
     });
     agent.state = {
       ...defaultState,
@@ -75,6 +76,20 @@ describe("running simulation", () => {
 
     expect(updatedSimulation.agents).toHaveLength(0);
   });
+  it("tracks reproduced agent parents on the child", () => {
+    const parent = createTestAgent({ currentEnergy: 1000 });
+    const simulation = createTestSimulation({ agents: [parent] });
+
+    const updatedSimulation = runSimulation(simulation);
+
+    const child = updatedSimulation.agents.find(
+      (agent) => agent.id !== parent.id,
+    );
+
+    assert(hasValue(child));
+    expect(child.parentIds).toEqual([parent.id]);
+  });
+
   it("updates food sources with correct recovery ticks", () => {
     const testTicksTillRecovery = 1;
     const foodSource = createTestFoodSource({
@@ -147,6 +162,7 @@ describe("running simulation", () => {
     expect(updatedSimulation.agents).toHaveLength(1);
     expect(updatedSimulation.agents[0]?.state.position).toEqual(position);
     expect(updatedSimulation.agents[0]?.genome).toEqual(initializeGenome());
+    expect(updatedSimulation.agents[0]?.parentIds).toEqual([]);
   });
 
   it("does not add an agent outside negative bounds", () => {

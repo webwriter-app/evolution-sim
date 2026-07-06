@@ -17,7 +17,7 @@ function spawnNewAgents({
   });
 
   return spawnPositions.map((position) =>
-    spawnAgent({ position, genome: initializeGenome() }),
+    spawnAgent({ position, genome: initializeGenome(), parentIds: [] }),
   );
 }
 

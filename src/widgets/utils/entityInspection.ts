@@ -35,7 +35,7 @@ export type EntityType = "agent" | "foodSource";
 
 export function extractAgentSelectionFromHistory(
   agentId: string,
-  history: SimulationSnapshot[],
+  history: readonly SimulationSnapshot[],
 ): AgentSelection | null {
   const entityHistory = history
     .map((snapshot) => ({
@@ -60,7 +60,7 @@ export function extractAgentSelectionFromHistory(
 
 export function extractFoodSourceSelectionFromHistory(
   foodSourceId: string,
-  history: SimulationSnapshot[],
+  history: readonly SimulationSnapshot[],
 ): FoodSourceSelection | null {
   const entityHistory = history
     .map((snapshot) => ({

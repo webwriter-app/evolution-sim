@@ -7,6 +7,7 @@ import { FoodSource } from "@/simulation/foodSource";
 import { first } from "lodash-es";
 import { uid } from "uid";
 import { ACTION_ERRORS } from "../actionErrors";
+import { AgentContext } from "@/simulation/agentContext";
 
 describe("eat action", () => {
   function buildAction() {
@@ -16,6 +17,20 @@ describe("eat action", () => {
       moveCost: 10,
       visionRange: 5,
     });
+  }
+
+  function createContext(
+    overrides: Partial<AgentContext> & Pick<AgentContext, "me">,
+  ): AgentContext {
+    return {
+      worldSize: SIMULATION_WORLD_SIZE,
+      foodSources: [],
+      otherAgents: [],
+      spawnAgent: () => {
+        throw new Error("Eat action should not spawn agents");
+      },
+      ...overrides,
+    };
   }
 
   it("agent should be able to eat from a food source and gain energy if it is in range", () => {
@@ -33,12 +48,7 @@ describe("eat action", () => {
     };
 
     const result = sut.execute(
-      {
-        worldSize: SIMULATION_WORLD_SIZE,
-        me,
-        foodSources: [foodSource],
-        otherAgents: [],
-      },
+      createContext({ me, foodSources: [foodSource] }),
       foodSource,
     );
 
@@ -64,12 +74,7 @@ describe("eat action", () => {
     };
 
     const result = sut.execute(
-      {
-        worldSize: SIMULATION_WORLD_SIZE,
-        me,
-        foodSources: [foodSource],
-        otherAgents: [],
-      },
+      createContext({ me, foodSources: [foodSource] }),
       foodSource,
     );
 
@@ -92,12 +97,7 @@ describe("eat action", () => {
     };
 
     const result = sut.execute(
-      {
-        worldSize: SIMULATION_WORLD_SIZE,
-        me,
-        foodSources: [foodSource],
-        otherAgents: [],
-      },
+      createContext({ me, foodSources: [foodSource] }),
       foodSource,
     );
 
@@ -120,12 +120,7 @@ describe("eat action", () => {
     };
 
     const result = sut.execute(
-      {
-        worldSize: SIMULATION_WORLD_SIZE,
-        me,
-        foodSources: [foodSource],
-        otherAgents: [],
-      },
+      createContext({ me, foodSources: [foodSource] }),
       foodSource,
     );
 
