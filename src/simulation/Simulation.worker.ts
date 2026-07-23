@@ -48,6 +48,8 @@ export interface SimulationRunner {
 
 const DEFAULT_TICK_INTERVAL = 100;
 
+let seed: string | null = null;
+
 let currentTick: number = -1;
 let simulation: Simulation | null = null;
 let initialSimulation: Simulation | null = null;
@@ -58,7 +60,8 @@ let tickInterval = DEFAULT_TICK_INTERVAL;
 function initializeNewSimulation(options: SimulationInitOptions) {
   console.log("INFO - Initializing new simulation with options", options);
   stopSimulation();
-  setRandomSeed(options.seed);
+  seed = options.seed;
+  setRandomSeed(seed);
 
   const newSimulation = initializeSimulation(options);
   simulation = newSimulation;
@@ -77,7 +80,7 @@ function resetSimulation() {
   }
 
   stopSimulation();
-
+  setRandomSeed(seed ?? "");
   simulation = cloneDeep(initialSimulation);
   currentTick = 0;
 
