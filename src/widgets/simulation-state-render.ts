@@ -196,6 +196,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   app: Application | null = null;
   renderer = useSimulationRenderer();
   unwatch: (() => void) | null = null;
+  private resizeObserver: ResizeObserver | null = null;
   private currentWorldSize: Vec2 | null = null;
 
   private readonly handleKeyDown = (event: KeyboardEvent) => {
@@ -335,6 +336,12 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
 
     this.app = app;
     app.stage.addChild(this.renderer.root);
+
+    this.resizeObserver = new ResizeObserver(() => {
+      this.app?.resize();
+      this.fitSimulationToCanvas();
+    });
+    this.resizeObserver.observe(this.canvasContainer);
   }
 
   /** Register the classes of custom elements to use in the Shadow DOM here.
@@ -413,10 +420,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
           previousWorldSize.x !== data.metadata.worldSize.x ||
           previousWorldSize.y !== data.metadata.worldSize.y
         ) {
-          this.updateComplete.then(() => {
-            this.app?.resize();
-            this.fitSimulationToCanvas();
-          });
+          this.fitSimulationToCanvas();
         }
       }
     });
@@ -425,6 +429,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   disconnectedCallback() {
     super.disconnectedCallback();
 
+    this.resizeObserver?.disconnect();
     this.app?.destroy();
     this.unwatch?.();
     window.removeEventListener("keydown", this.handleKeyDown);
