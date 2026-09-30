@@ -11,11 +11,11 @@
       </trans-unit>
       <trans-unit id="s490384fb302b3764">
         <source>Tick</source>
-        <target>Kukac</target>
+        <target>Tick</target>
       </trans-unit>
       <trans-unit id="sefc8e08d71b8530f">
         <source>Agents</source>
-        <target>Ügynökök</target>
+        <target>Ágensek</target>
       </trans-unit>
       <trans-unit id="s759b0a17d494a75c">
         <source>Available food</source>
@@ -63,7 +63,7 @@
       </trans-unit>
       <trans-unit id="saddfb13d00ae9e55">
         <source>History window</source>
-        <target>Történeti ablak</target>
+        <target>Időszak</target>
       </trans-unit>
       <trans-unit id="sc5343d7a7a98dd5a">
         <source>Full history may lag during long simulations.</source>
@@ -115,11 +115,11 @@
       </trans-unit>
       <trans-unit id="s6ac670086eb137c6">
         <source>Recovery</source>
-        <target>Helyreállítás</target>
+        <target>Regenerálódás</target>
       </trans-unit>
       <trans-unit id="s7fd9266c6a3e25b5">
         <source>ticks</source>
-        <target>kattintások</target>
+        <target>tick</target>
       </trans-unit>
       <trans-unit id="s9a9afbef4f7b48cb">
         <source>Food Source sprite</source>
@@ -175,7 +175,7 @@
       </trans-unit>
       <trans-unit id="s4f27f6b48a68b5c2">
         <source>Lock</source>
-        <target>Zár</target>
+        <target>Zárolás</target>
       </trans-unit>
       <trans-unit id="s17cff5f101712ef8">
         <source>World Size</source>
@@ -199,7 +199,7 @@
       </trans-unit>
       <trans-unit id="sfd33bc6d839533b3">
         <source>Initial Agents</source>
-        <target>Kezdeti kórokozók</target>
+        <target>Kezdeti ágensek</target>
       </trans-unit>
       <trans-unit id="sb3ea3e951f441e44">
         <source>Mutation Rate</source>
@@ -243,7 +243,7 @@
       </trans-unit>
       <trans-unit id="s95416925fd51a346">
         <source>Agent</source>
-        <target>Ügynök</target>
+        <target>Ágens</target>
       </trans-unit>
       <trans-unit id="s59564c1a37e11220">
         <source>Vision Range</source>
@@ -251,7 +251,7 @@
       </trans-unit>
       <trans-unit id="sc52f2a1b6d5ddff9">
         <source>How far the agent can perceive nearby agents and food sources.</source>
-        <target>Az ügynök milyen távolságig képes észlelni a közeli ügynököket és élelmiszerforrásokat.</target>
+        <target>Az ágens milyen távolságig képes észlelni a közeli ágenseket és élelmiszerforrásokat.</target>
       </trans-unit>
       <trans-unit id="s08e69a3bb96b795b">
         <source>Energy Capacity</source>
@@ -259,7 +259,7 @@
       </trans-unit>
       <trans-unit id="sf9cb2ac6821de9c6">
         <source>The maximum amount of energy the agent can store.</source>
-        <target>Az a maximális energiamennyiség, amelyet az ügynök tárolni tud.</target>
+        <target>Az a maximális energiamennyiség, amelyet az ágens tárolni tud.</target>
       </trans-unit>
       <trans-unit id="sc892fa54f1de1674">
         <source>Last 50 ticks</source>
@@ -279,12 +279,12 @@
       </trans-unit>
       <trans-unit id="saf64054c86023237">
         <source>H</source>
-        <target>H</target>
+        <target>M</target>
         <note>Short label for height</note>
       </trans-unit>
       <trans-unit id="saf640a4c86023ab6">
         <source>W</source>
-        <target>W</target>
+        <target>Sz</target>
         <note>Short label for width</note>
       </trans-unit>
     </body>

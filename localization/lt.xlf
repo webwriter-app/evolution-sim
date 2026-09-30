@@ -11,7 +11,7 @@
       </trans-unit>
       <trans-unit id="s490384fb302b3764">
         <source>Tick</source>
-        <target>Varnelė</target>
+        <target>Žingsnis</target>
       </trans-unit>
       <trans-unit id="sefc8e08d71b8530f">
         <source>Agents</source>
@@ -63,7 +63,7 @@
       </trans-unit>
       <trans-unit id="saddfb13d00ae9e55">
         <source>History window</source>
-        <target>Istorijos langas</target>
+        <target>Laikotarpis</target>
       </trans-unit>
       <trans-unit id="sc5343d7a7a98dd5a">
         <source>Full history may lag during long simulations.</source>
@@ -119,7 +119,7 @@
       </trans-unit>
       <trans-unit id="s7fd9266c6a3e25b5">
         <source>ticks</source>
-        <target>žymės</target>
+        <target>žingsnių</target>
       </trans-unit>
       <trans-unit id="s9a9afbef4f7b48cb">
         <source>Food Source sprite</source>
@@ -131,7 +131,7 @@
       </trans-unit>
       <trans-unit id="se8eec06cd8e0d6e0">
         <source>Selected entity metadata</source>
-        <target>Pasirinktos entitetų metaduomenys</target>
+        <target>Pasirinkto objekto metaduomenys</target>
       </trans-unit>
       <trans-unit id="sae239213b7c70376">
         <source>State</source>
@@ -191,7 +191,7 @@
       </trans-unit>
       <trans-unit id="s5788d224d55d340c">
         <source>Seed</source>
-        <target>Sėklos</target>
+        <target>Pradinė reikšmė</target>
       </trans-unit>
       <trans-unit id="s8333f81521a31b93">
         <source>Initial Food Sources</source>
@@ -215,7 +215,7 @@
       </trans-unit>
       <trans-unit id="s60e08599bc9fb7ab">
         <source>Show Population Graph</source>
-        <target>Rodyti gyventojų skaičiaus grafiką</target>
+        <target>Rodyti populiacijos grafiką</target>
       </trans-unit>
       <trans-unit id="s3c7cbb8e22971e03">
         <source>Show Food Availability Graph</source>
@@ -235,11 +235,11 @@
       </trans-unit>
       <trans-unit id="s4eb514ebcb80553d">
         <source>Parent</source>
-        <target>Tėvai</target>
+        <target>Protėvis</target>
       </trans-unit>
       <trans-unit id="s21e31bdc9713e7fd">
         <source>Child</source>
-        <target>Vaikas</target>
+        <target>Palikuonis</target>
       </trans-unit>
       <trans-unit id="s95416925fd51a346">
         <source>Agent</source>
@@ -279,12 +279,12 @@
       </trans-unit>
       <trans-unit id="saf64054c86023237">
         <source>H</source>
-        <target>H</target>
+        <target>A</target>
         <note>Short label for height</note>
       </trans-unit>
       <trans-unit id="saf640a4c86023ab6">
         <source>W</source>
-        <target>W</target>
+        <target>P</target>
         <note>Short label for width</note>
       </trans-unit>
     </body>

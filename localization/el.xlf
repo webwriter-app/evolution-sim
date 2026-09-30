@@ -7,7 +7,7 @@
       </trans-unit>
       <trans-unit id="s9d7490af50ad3f3f">
         <source>Agent genome preview</source>
-        <target>Προεπισκόπηση γονιδιώματος του παράγοντα</target>
+        <target>Προεπισκόπηση γονιδιώματος του πράκτορα</target>
       </trans-unit>
       <trans-unit id="s490384fb302b3764">
         <source>Tick</source>
@@ -15,7 +15,7 @@
       </trans-unit>
       <trans-unit id="sefc8e08d71b8530f">
         <source>Agents</source>
-        <target>Παράγοντες</target>
+        <target>Πράκτορες</target>
       </trans-unit>
       <trans-unit id="s759b0a17d494a75c">
         <source>Available food</source>
@@ -63,7 +63,7 @@
       </trans-unit>
       <trans-unit id="saddfb13d00ae9e55">
         <source>History window</source>
-        <target>Παράθυρο ιστορικού</target>
+        <target>Χρονικό διάστημα</target>
       </trans-unit>
       <trans-unit id="sc5343d7a7a98dd5a">
         <source>Full history may lag during long simulations.</source>
@@ -115,7 +115,7 @@
       </trans-unit>
       <trans-unit id="s6ac670086eb137c6">
         <source>Recovery</source>
-        <target>Ανάκτηση</target>
+        <target>Αναγέννηση</target>
       </trans-unit>
       <trans-unit id="s7fd9266c6a3e25b5">
         <source>ticks</source>
@@ -199,7 +199,7 @@
       </trans-unit>
       <trans-unit id="sfd33bc6d839533b3">
         <source>Initial Agents</source>
-        <target>Αρχικοί παράγοντες</target>
+        <target>Αρχικοί πράκτορες</target>
       </trans-unit>
       <trans-unit id="sb3ea3e951f441e44">
         <source>Mutation Rate</source>
@@ -279,12 +279,12 @@
       </trans-unit>
       <trans-unit id="saf64054c86023237">
         <source>H</source>
-        <target>H</target>
+        <target>Υ</target>
         <note>Short label for height</note>
       </trans-unit>
       <trans-unit id="saf640a4c86023ab6">
         <source>W</source>
-        <target>W</target>
+        <target>Π</target>
         <note>Short label for width</note>
       </trans-unit>
     </body>

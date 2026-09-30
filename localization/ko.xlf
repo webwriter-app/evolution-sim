@@ -31,7 +31,7 @@
       </trans-unit>
       <trans-unit id="s72cf82f7f6bc6dd5">
         <source>Current share</source>
-        <target>현재 점유율</target>
+        <target>현재 비율</target>
       </trans-unit>
       <trans-unit id="s6144a4a2c984c772">
         <source>Population</source>
@@ -63,7 +63,7 @@
       </trans-unit>
       <trans-unit id="saddfb13d00ae9e55">
         <source>History window</source>
-        <target>기록 창</target>
+        <target>표시 기간</target>
       </trans-unit>
       <trans-unit id="sc5343d7a7a98dd5a">
         <source>Full history may lag during long simulations.</source>
@@ -279,12 +279,12 @@
       </trans-unit>
       <trans-unit id="saf64054c86023237">
         <source>H</source>
-        <target>H</target>
+        <target>높이</target>
         <note>Short label for height</note>
       </trans-unit>
       <trans-unit id="saf640a4c86023ab6">
         <source>W</source>
-        <target>W</target>
+        <target>너비</target>
         <note>Short label for width</note>
       </trans-unit>
     </body>

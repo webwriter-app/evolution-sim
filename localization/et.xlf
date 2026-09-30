@@ -11,7 +11,7 @@
       </trans-unit>
       <trans-unit id="s490384fb302b3764">
         <source>Tick</source>
-        <target>Kastike</target>
+        <target>Tikk</target>
       </trans-unit>
       <trans-unit id="sefc8e08d71b8530f">
         <source>Agents</source>
@@ -63,7 +63,7 @@
       </trans-unit>
       <trans-unit id="saddfb13d00ae9e55">
         <source>History window</source>
-        <target>Ajalooaken</target>
+        <target>Ajavahemik</target>
       </trans-unit>
       <trans-unit id="sc5343d7a7a98dd5a">
         <source>Full history may lag during long simulations.</source>
@@ -87,7 +87,7 @@
       </trans-unit>
       <trans-unit id="s255857544a9d5ec0">
         <source>Reset</source>
-        <target>Tühista</target>
+        <target>Lähtesta</target>
       </trans-unit>
       <trans-unit id="sb32e400c09253d64">
         <source>Create Simulation</source>
@@ -119,7 +119,7 @@
       </trans-unit>
       <trans-unit id="s7fd9266c6a3e25b5">
         <source>ticks</source>
-        <target>ticks</target>
+        <target>tikki</target>
       </trans-unit>
       <trans-unit id="s9a9afbef4f7b48cb">
         <source>Food Source sprite</source>
@@ -199,7 +199,7 @@
       </trans-unit>
       <trans-unit id="sfd33bc6d839533b3">
         <source>Initial Agents</source>
-        <target>Esialgsed mõjurid</target>
+        <target>Esialgsed agendid</target>
       </trans-unit>
       <trans-unit id="sb3ea3e951f441e44">
         <source>Mutation Rate</source>
@@ -263,15 +263,15 @@
       </trans-unit>
       <trans-unit id="sc892fa54f1de1674">
         <source>Last 50 ticks</source>
-        <target>Viimased 50 tiki</target>
+        <target>Viimased 50 tikki</target>
       </trans-unit>
       <trans-unit id="se24aaede0913ba34">
         <source>Last 100 ticks</source>
-        <target>Viimased 100 tiki</target>
+        <target>Viimased 100 tikki</target>
       </trans-unit>
       <trans-unit id="s34712a303ac50684">
         <source>Last 250 ticks</source>
-        <target>Viimased 250 tiki</target>
+        <target>Viimased 250 tikki</target>
       </trans-unit>
       <trans-unit id="s92b0af76573d4394">
         <source>Full history</source>
@@ -279,12 +279,12 @@
       </trans-unit>
       <trans-unit id="saf64054c86023237">
         <source>H</source>
-        <target>H</target>
+        <target>K</target>
         <note>Short label for height</note>
       </trans-unit>
       <trans-unit id="saf640a4c86023ab6">
         <source>W</source>
-        <target>W</target>
+        <target>L</target>
         <note>Short label for width</note>
       </trans-unit>
     </body>

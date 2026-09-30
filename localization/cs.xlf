@@ -11,7 +11,7 @@
       </trans-unit>
       <trans-unit id="s490384fb302b3764">
         <source>Tick</source>
-        <target>Zaškrtněte</target>
+        <target>Tik</target>
       </trans-unit>
       <trans-unit id="sefc8e08d71b8530f">
         <source>Agents</source>
@@ -63,7 +63,7 @@
       </trans-unit>
       <trans-unit id="saddfb13d00ae9e55">
         <source>History window</source>
-        <target>Okno historie</target>
+        <target>Časové období</target>
       </trans-unit>
       <trans-unit id="sc5343d7a7a98dd5a">
         <source>Full history may lag during long simulations.</source>
@@ -279,12 +279,12 @@
       </trans-unit>
       <trans-unit id="saf64054c86023237">
         <source>H</source>
-        <target>H</target>
+        <target>V</target>
         <note>Short label for height</note>
       </trans-unit>
       <trans-unit id="saf640a4c86023ab6">
         <source>W</source>
-        <target>W</target>
+        <target>Š</target>
         <note>Short label for width</note>
       </trans-unit>
     </body>
