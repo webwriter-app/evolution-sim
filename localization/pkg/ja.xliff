@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="ja">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>餌を探し、繁殖し、変異した遺伝子を次世代に受け継ぐエージェントを用いて、進化をシミュレートします。個々のエージェントを観察し、集団や遺伝子の分布をグラフで分析します。</target></segment></unit>
+</file>
+</xliff>

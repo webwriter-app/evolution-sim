@@ -34,7 +34,7 @@
     "zh-hans",
     "zh-hant"
   ],
-  "tsConfig": "./tsconfig.json",
+  "tsConfig": "./tsconfig.app.json",
   "output": {
     "mode": "runtime",
     "outputDir": "./localization/generated",

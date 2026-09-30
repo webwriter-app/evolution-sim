@@ -14,17 +14,11 @@ import {
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { isEqual } from "lodash-es";
-
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
+import LOCALIZE from "../../localization/generated";
 
 @customElement("webwriter-evolution-sim")
 export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
+  localize = LOCALIZE;
 
   simulationStore = useSimulationStore();
 

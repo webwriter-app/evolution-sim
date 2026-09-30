@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="ko">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>먹이를 찾고, 번식하며, 돌연변이 유전자를 전달하는 에이전트를 통해 진화를 시뮬레이션해 보세요. 개별 에이전트를 살펴보고, 차트를 통해 개체군과 유전자 분포를 분석해 보세요.</target></segment></unit>
+</file>
+</xliff>
