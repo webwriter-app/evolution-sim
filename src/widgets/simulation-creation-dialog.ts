@@ -10,6 +10,7 @@ import {
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { cloneDeep, set } from "lodash-es";
 import { SlButton, SlDialog, SlIcon, SlInput } from "@shoelace-style/shoelace";
+import IconPlus from "bootstrap-icons/icons/plus.svg";
 import { createInputHandler } from "@/utils/handleInput";
 import { localized, msg } from "@lit/localize";
 
@@ -195,7 +196,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
               this.emitCreateNewSimulation(this.simulationConfiguration);
             }}
           >
-            <sl-icon name="plus" slot="prefix"></sl-icon>
+            <sl-icon src=${IconPlus} slot="prefix"></sl-icon>
             ${msg("Create")}
           </sl-button>
         </div>

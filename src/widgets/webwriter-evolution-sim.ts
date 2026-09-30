@@ -1,4 +1,6 @@
 import { css } from "lit";
+// @ts-expect-error: Shoelace import
+import "@shoelace-style/shoelace/dist/themes/light.css";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { SimulationRunView } from "./simulation-run-view";
@@ -123,13 +125,15 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
           }}
         ></simulation-creation-dialog>
 
-        <simulation-pre-configuration-aside
-          part="options"
-          .configuration=${this.simulationConfiguration}
-          @configuration-change="${(e: ConfigurationChangeEvent) => {
-            this.simulationConfiguration = e.detail;
-          }}"
-        ></simulation-pre-configuration-aside>
+        ${this.isContentEditable
+          ? html`<simulation-pre-configuration-aside
+              part="options"
+              .configuration=${this.simulationConfiguration}
+              @configuration-change="${(e: ConfigurationChangeEvent) => {
+                this.simulationConfiguration = e.detail;
+              }}"
+            ></simulation-pre-configuration-aside>`
+          : null}
 
         <simulation-run-view
           .configuration=${this.simulationConfiguration}

@@ -3,6 +3,7 @@ import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { SlButton, SlIcon } from "@shoelace-style/shoelace";
+import IconEraser from "bootstrap-icons/icons/eraser.svg";
 import {
   ManualSimulationTool,
   useSimulationStore,
@@ -140,7 +141,7 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
         @click=${() => this.toggleRemoveMode()}
       >
         <span class="tool-content">
-          <sl-icon name="eraser"></sl-icon>
+          <sl-icon src=${IconEraser}></sl-icon>
           <span>${msg("Remove")}</span>
         </span>
       </sl-button>

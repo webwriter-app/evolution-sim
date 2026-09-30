@@ -4,6 +4,7 @@
     "outDir": "tests",
   },
   "include": [
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "custom.d.ts"
   ]
 }

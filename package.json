@@ -28,6 +28,7 @@
     "@lit/localize": "^0.12.2",
     "@shoelace-style/shoelace": "^2.20.1",
     "@webwriter/lit": "^2.0.0",
+    "bootstrap-icons": "^1.13.1",
     "chart.js": "^4.5.1",
     "comlink": "^4.4.2",
     "lit": "^3.0.0",
