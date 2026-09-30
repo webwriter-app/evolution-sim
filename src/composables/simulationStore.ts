@@ -210,10 +210,10 @@ async function startSimulation() {
 }
 
 async function stopSimulation() {
-  await SimulationWorker.stopSimulation();
   simulationStatus.set(
     hasValue(currentSnapshot.get()) ? "paused" : "uninitialized",
   );
+  await SimulationWorker.stopSimulation();
 }
 
 async function resetSimulation() {

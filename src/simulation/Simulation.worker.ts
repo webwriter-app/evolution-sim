@@ -39,7 +39,7 @@ export interface SimulationRunner {
   removeEntityAt: (position: Vec2) => SimulationSnapshot;
 
   startSimulation: (
-    onTickFinished: (snapshot: SimulationSnapshot) => void,
+    onTickFinished: (snapshot: SimulationSnapshot) => void | Promise<void>,
   ) => void;
   stopSimulation: () => void;
   setTickInterval: (intervalMs: number) => void;
@@ -55,6 +55,7 @@ let simulation: Simulation | null = null;
 let initialSimulation: Simulation | null = null;
 
 let runTimeoutId: number | null;
+let runGeneration = 0;
 let tickInterval = DEFAULT_TICK_INTERVAL;
 
 function initializeNewSimulation(options: SimulationInitOptions) {
@@ -137,17 +138,22 @@ function removeEntityAtPosition(position: Vec2) {
 }
 
 function startSimulation(
-  onTickFinished: (snapshot: SimulationSnapshot) => void,
+  onTickFinished: (snapshot: SimulationSnapshot) => void | Promise<void>,
 ) {
   console.log("INFO - starting simulation");
   if (hasNoValue(simulation) || currentTick < 0) {
     throw new Error("No simulation to run");
   } else if (hasNoValue(runTimeoutId)) {
-    const runNextTick = () => {
+    const generation = ++runGeneration;
+
+    const runNextTick = async () => {
       console.log("INFO - running next tick");
       const snapshot = runSimulationTick();
-      onTickFinished(snapshot);
-      runTimeoutId = setTimeout(runNextTick, tickInterval);
+      await onTickFinished(snapshot);
+
+      if (generation === runGeneration) {
+        runTimeoutId = setTimeout(runNextTick, tickInterval);
+      }
     };
 
     runTimeoutId = setTimeout(runNextTick, tickInterval);
@@ -155,6 +161,7 @@ function startSimulation(
 }
 
 function stopSimulation() {
+  runGeneration++;
   if (hasValue(runTimeoutId)) {
     clearTimeout(runTimeoutId);
     runTimeoutId = null;
