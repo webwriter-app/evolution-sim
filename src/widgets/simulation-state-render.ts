@@ -197,6 +197,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   renderer = useSimulationRenderer();
   unwatch: (() => void) | null = null;
   private resizeObserver: ResizeObserver | null = null;
+  private unwatchPixelRatio: (() => void) | null = null;
   private currentWorldSize: Vec2 | null = null;
 
   private readonly handleKeyDown = (event: KeyboardEvent) => {
@@ -331,7 +332,12 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
 
     const app = new Application();
 
-    await app.init({ resizeTo: this.canvasContainer, background: "#FFFFFF" });
+    await app.init({
+      resizeTo: this.canvasContainer,
+      background: "#FFFFFF",
+      resolution: window.devicePixelRatio || 1,
+      autoDensity: true,
+    });
     this.canvasContainer.appendChild(app.canvas);
 
     this.app = app;
@@ -342,6 +348,29 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
       this.fitSimulationToCanvas();
     });
     this.resizeObserver.observe(this.canvasContainer);
+
+    this.watchPixelRatio();
+  }
+
+  private watchPixelRatio() {
+    const query = window.matchMedia(
+      `(resolution: ${window.devicePixelRatio}dppx)`,
+    );
+    const handleChange = () => {
+      query.removeEventListener("change", handleChange);
+
+      if (hasValue(this.app)) {
+        this.app.renderer.resolution = window.devicePixelRatio || 1;
+        this.app.resize();
+        this.fitSimulationToCanvas();
+      }
+
+      this.watchPixelRatio();
+    };
+
+    query.addEventListener("change", handleChange);
+    this.unwatchPixelRatio = () =>
+      query.removeEventListener("change", handleChange);
   }
 
   /** Register the classes of custom elements to use in the Shadow DOM here.
@@ -430,6 +459,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
     super.disconnectedCallback();
 
     this.resizeObserver?.disconnect();
+    this.unwatchPixelRatio?.();
     this.app?.destroy();
     this.unwatch?.();
     window.removeEventListener("keydown", this.handleKeyDown);
