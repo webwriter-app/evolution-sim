@@ -8,8 +8,6 @@ import { shouldMutate } from "../shouldMutate";
 
 export const energyCapacityGene = defineGene<"energy-capacity", number>({
   name: "energy-capacity",
-  label: "Energy Capacity",
-  description: "The maximum amount of energy the agent can store.",
   min: 1,
   max: MAX_ENERGY_CAPACITY,
   applyToPhenotype: (phenotype, allele) => {

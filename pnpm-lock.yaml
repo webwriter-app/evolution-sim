@@ -14,6 +14,9 @@ importers:
       '@lit-labs/signals':
         specifier: ^0.2.0
         version: 0.2.0
+      '@lit/localize':
+        specifier: ^0.12.2
+        version: 0.12.2
       '@shoelace-style/shoelace':
         specifier: ^2.20.1
         version: 2.20.1(@floating-ui/utils@0.2.11)(@types/react@19.2.14)

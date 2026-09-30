@@ -2,11 +2,13 @@ import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { html } from "@lit-labs/signals";
+import { localized, msg } from "@lit/localize";
 import { FoodSourceSpriteData } from "./assets";
 import { EntitySelection } from "./utils/entityInspection";
 import { SimulationAgentGenomePreview } from "./simulation-agent-genome-preview";
 
 @customElement("simulation-entity-aside")
+@localized()
 export class SimulationEntityAside extends LitElementWw {
   @property({ attribute: false })
   accessor selection: EntitySelection | null = null;
@@ -94,11 +96,11 @@ export class SimulationEntityAside extends LitElementWw {
       return html`
         <dl>
           <div class="state-row">
-            <dt>Position</dt>
+            <dt>${msg("Position")}</dt>
             <dd>${state.position.x}, ${state.position.y}</dd>
           </div>
           <div class="state-row">
-            <dt>Energy</dt>
+            <dt>${msg("Energy")}</dt>
             <dd>
               ${state.currentEnergy}
               <span class="limit-value">/ ${phenotype.energyCapacity}</span>
@@ -112,19 +114,19 @@ export class SimulationEntityAside extends LitElementWw {
       return html`
         <dl>
           <div class="state-row">
-            <dt>Position</dt>
+            <dt>${msg("Position")}</dt>
             <dd>${position.x}, ${position.y}</dd>
           </div>
           <div class="state-row">
-            <dt>Recovery</dt>
-            <dd>${ticksTillRecovery} ticks</dd>
+            <dt>${msg("Recovery")}</dt>
+            <dd>${ticksTillRecovery} ${msg("ticks")}</dd>
           </div>
         </dl>
       `;
     }
   }
 
-  private renderEntityImage(selection: EntitySelection, entityLabel: string) {
+  private renderEntityImage(selection: EntitySelection) {
     if (selection.type === "agent") {
       return html`<simulation-agent-genome-preview
         .genome=${selection.latestSnapshot.genome}
@@ -134,7 +136,7 @@ export class SimulationEntityAside extends LitElementWw {
     return html`<img
       class="entity-image"
       src=${FoodSourceSpriteData}
-      alt="${entityLabel} sprite"
+      alt=${msg("Food Source sprite")}
     />`;
   }
 
@@ -143,16 +145,16 @@ export class SimulationEntityAside extends LitElementWw {
       return null;
     }
 
-    const isAgent = this.selection.type === "agent";
-    const entityLabel = isAgent ? "Agent" : "Food Source";
+    const entityLabel =
+      this.selection.type === "agent" ? msg("Agent") : msg("Food Source");
 
     return html`
-      <aside aria-label="Selected entity metadata">
+      <aside aria-label=${msg("Selected entity metadata")}>
         <h2 class="entity-title">${entityLabel} ${this.selection.entityId}</h2>
         <div class="entity-image-frame">
-          ${this.renderEntityImage(this.selection, entityLabel)}
+          ${this.renderEntityImage(this.selection)}
         </div>
-        <h3 class="section-title">State</h3>
+        <h3 class="section-title">${msg("State")}</h3>
         ${this.renderState(this.selection)}
       </aside>
     `;

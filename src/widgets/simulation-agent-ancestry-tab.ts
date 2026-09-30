@@ -10,8 +10,10 @@ import {
   getImmediateAgentAncestry,
   getImmediateAncestryFlowModel,
 } from "./utils/agentAncestry";
+import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-agent-ancestry-tab")
+@localized()
 export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
   @property()
   accessor agentId = "";
@@ -65,7 +67,9 @@ export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
     );
 
     if (!ancestry) {
-      return html`<p class="empty-state">No ancestry data available.</p>`;
+      return html`<p class="empty-state">
+        ${msg("No ancestry data available.")}
+      </p>`;
     }
 
     const flowModel = getImmediateAncestryFlowModel(ancestry);

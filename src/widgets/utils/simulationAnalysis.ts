@@ -1,3 +1,4 @@
+import { msg } from "@lit/localize";
 import { GeneName } from "@/simulation/genetics/definitions";
 import { AgentSnapshot, SimulationSnapshot } from "@/simulation/serialization";
 import { hasValue } from "@/utils/typeGuards";
@@ -6,7 +7,7 @@ export type HistorySubsetPreset = "last-50" | "last-100" | "last-250" | "full";
 
 export interface HistorySubsetOption {
   value: HistorySubsetPreset;
-  label: string;
+  getLabel: () => string;
   limit: number | null;
   roundToMultipleOf?: number;
   mayLag?: boolean;
@@ -19,7 +20,6 @@ export interface ChartPoint {
 
 export interface AlleleShareSeries {
   allele: number;
-  label: string;
   data: ChartPoint[];
 }
 
@@ -32,23 +32,28 @@ export interface AlleleDistributionEntry {
 export const HISTORY_SUBSET_OPTIONS: HistorySubsetOption[] = [
   {
     value: "last-50",
-    label: "Last 50 ticks",
+    getLabel: () => msg("Last 50 ticks"),
     limit: 50,
     roundToMultipleOf: 10,
   },
   {
     value: "last-100",
-    label: "Last 100 ticks",
+    getLabel: () => msg("Last 100 ticks"),
     limit: 100,
     roundToMultipleOf: 20,
   },
   {
     value: "last-250",
-    label: "Last 250 ticks",
+    getLabel: () => msg("Last 250 ticks"),
     limit: 250,
     roundToMultipleOf: 50,
   },
-  { value: "full", label: "Full history", limit: null, mayLag: true },
+  {
+    value: "full",
+    getLabel: () => msg("Full history"),
+    limit: null,
+    mayLag: true,
+  },
 ];
 
 export const DEFAULT_HISTORY_SUBSET_PRESET: HistorySubsetPreset = "last-100";
@@ -184,7 +189,6 @@ export function createAlleleShareOverTimeSeries({
 }): AlleleShareSeries[] {
   return alleles.map((allele) => ({
     allele,
-    label: `Allele: ${allele}`,
     data: snapshots.map((snapshot) => ({
       x: snapshot.tick,
       y: getAlleleShareForSnapshot(snapshot, geneName, allele),

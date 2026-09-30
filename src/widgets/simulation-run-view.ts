@@ -14,17 +14,11 @@ import {
 } from "./simulation-analysis-view";
 import { SimulationConfiguration } from "./simulation-pre-configuration-aside";
 import { SlTab, SlTabGroup, SlTabPanel } from "@shoelace-style/shoelace";
-
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
+import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-run-view")
+@localized()
 export class SimulationRunView extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
   @property({ attribute: false })
   accessor configuration: Partial<SimulationConfiguration> | null = null;
 
@@ -124,8 +118,8 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
       return html`
         <div>
           <sl-tab-group>
-            <sl-tab slot="nav" panel="simulation">Simulation</sl-tab>
-            <sl-tab slot="nav" panel="graphs">Graphs</sl-tab>
+            <sl-tab slot="nav" panel="simulation">${msg("Simulation")}</sl-tab>
+            <sl-tab slot="nav" panel="graphs">${msg("Graphs")}</sl-tab>
 
             <sl-tab-panel name="simulation">
               ${this.renderSimulationTabContent()}

@@ -1,3 +1,4 @@
+import { msg } from "@lit/localize";
 import { AgentSnapshot, SimulationSnapshot } from "@/simulation/serialization";
 import { hasValue } from "@/utils/typeGuards";
 import { extractAgentSelectionFromHistory } from "./entityInspection";
@@ -87,8 +88,24 @@ export function getImmediateAgentAncestry(
   };
 }
 
-function formatAgentLabel(agent: AgentSnapshot, relation: string): string {
-  return `${relation} ${agent.id.slice(0, 8)}`;
+type AncestryRelation = "parent" | "child" | "self";
+
+function getRelationLabel(relation: AncestryRelation): string {
+  switch (relation) {
+    case "parent":
+      return msg("Parent");
+    case "child":
+      return msg("Child");
+    case "self":
+      return msg("Agent");
+  }
+}
+
+function formatAgentLabel(
+  agent: AgentSnapshot,
+  relation: AncestryRelation,
+): string {
+  return `${getRelationLabel(relation)} ${agent.id.slice(0, 8)}`;
 }
 
 function getCenteredX(index: number, rowLength: number): number {
@@ -102,7 +119,7 @@ function createRowNodes({
   y,
 }: {
   agents: readonly AgentSnapshot[];
-  relation: string;
+  relation: AncestryRelation;
   type: "input" | "output";
   y: number;
 }): AncestryFlowNode[] {
@@ -128,13 +145,13 @@ export function getImmediateAncestryFlowModel(
 ): AncestryFlowModel {
   const parentNodes = createRowNodes({
     agents: ancestry.parents,
-    relation: "Parent",
+    relation: "parent",
     type: "input",
     y: 0,
   });
   const childNodes = createRowNodes({
     agents: ancestry.children,
-    relation: "Child",
+    relation: "child",
     type: "output",
     y: ROW_GAP * 2,
   });
@@ -155,7 +172,7 @@ export function getImmediateAncestryFlowModel(
         orientation: "vertical",
         selected: true,
         data: {
-          label: formatAgentLabel(ancestry.self, "Agent"),
+          label: formatAgentLabel(ancestry.self, "self"),
         },
       },
       ...childNodes,

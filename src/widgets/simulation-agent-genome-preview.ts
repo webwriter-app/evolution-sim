@@ -9,11 +9,13 @@ import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
 import { hasNoValue } from "@/utils/typeGuards";
 import { loadTextures } from "./assets";
 import { GenomeRenderer } from "./utils/geneRendering";
+import { localized, msg } from "@lit/localize";
 
 const PREVIEW_SIZE = 96;
 const MAX_GENE_SCALE = 1.5;
 
 @customElement("simulation-agent-genome-preview")
+@localized()
 export class SimulationAgentGenomePreview extends LitElementWw {
   @property({ attribute: false })
   accessor genome: Genome = [];
@@ -59,7 +61,7 @@ export class SimulationAgentGenomePreview extends LitElementWw {
   render() {
     return html`<div
       id="preview-container"
-      aria-label="Agent genome preview"
+      aria-label=${msg("Agent genome preview")}
     ></div>`;
   }
 

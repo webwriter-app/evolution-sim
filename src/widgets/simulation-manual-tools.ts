@@ -9,8 +9,10 @@ import {
 } from "@/composables/simulationStore";
 import { AgentPreviewSpriteData, FoodSourceSpriteData } from "./assets";
 import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
+import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-manual-tools")
+@localized()
 export class SimulationManualTools extends SignalWatcher(LitElementWw) {
   simulationStore = useSimulationStore();
 
@@ -139,7 +141,7 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
       >
         <span class="tool-content">
           <sl-icon name="eraser"></sl-icon>
-          <span>Remove</span>
+          <span>${msg("Remove")}</span>
         </span>
       </sl-button>
     `;
@@ -149,12 +151,12 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
     return html`
       <div id="manual-tools-container">
         ${this.renderSpriteToolButton({
-          label: "Food Source",
+          label: msg("Food Source"),
           tool: "add-food-source",
           spriteSource: FoodSourceSpriteData,
         })}
         ${this.renderSpriteToolButton({
-          label: "Agent",
+          label: msg("Agent"),
           tool: "add-agent",
           spriteSource: AgentPreviewSpriteData,
         })}

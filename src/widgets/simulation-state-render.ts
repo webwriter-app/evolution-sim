@@ -21,11 +21,6 @@ import { SignalWatcher } from "@lit-labs/signals";
 import { effect } from "signal-utils/subtle/microtask-effect";
 import { GenomeRenderer } from "./utils/geneRendering";
 
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
-
 function toTilePosition(vec: Vec2): Vec2 {
   return scaleVector(vec, SIMULATION_TILE_SIZE);
 }
@@ -190,10 +185,6 @@ function useSimulationRenderer() {
 
 @customElement("simulation-state-render")
 export class SimulationStateRender extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
-
   simulationStore = useSimulationStore();
 
   @query("#simulation-container")

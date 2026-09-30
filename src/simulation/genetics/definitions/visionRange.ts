@@ -5,8 +5,6 @@ import { shouldMutate } from "../shouldMutate";
 
 export const visionRangeGene = defineGene<"vision-range", number>({
   name: "vision-range",
-  label: "Vision Range",
-  description: "How far the agent can perceive nearby agents and food sources.",
   min: 1,
   max: MAX_VISION_RANGE,
   applyToPhenotype: (phenotype, allele) => {

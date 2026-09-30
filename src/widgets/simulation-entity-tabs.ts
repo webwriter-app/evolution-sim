@@ -6,8 +6,10 @@ import { SlTab, SlTabGroup, SlTabPanel } from "@shoelace-style/shoelace";
 import { EntitySelection } from "./utils/entityInspection";
 import { SimulationAgentGeneticsTab } from "./simulation-agent-genetics-tab";
 import { SimulationAgentAncestryTab } from "./simulation-agent-ancestry-tab";
+import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-entity-tabs")
+@localized()
 export class SimulationEntityTabs extends LitElementWw {
   @property({ attribute: false })
   accessor selection: EntitySelection | null = null;
@@ -32,8 +34,8 @@ export class SimulationEntityTabs extends LitElementWw {
   ) {
     return html`
       <sl-tab-group>
-        <sl-tab slot="nav" panel="genetics">Genetics</sl-tab>
-        <sl-tab slot="nav" panel="ancestry">Ancestry</sl-tab>
+        <sl-tab slot="nav" panel="genetics">${msg("Genetics")}</sl-tab>
+        <sl-tab slot="nav" panel="ancestry">${msg("Ancestry")}</sl-tab>
         <sl-tab-panel name="genetics">
           <simulation-agent-genetics-tab
             .genome=${selection.latestSnapshot.genome}
@@ -57,6 +59,6 @@ export class SimulationEntityTabs extends LitElementWw {
       return this.renderAgentTabs(this.selection);
     }
 
-    return html`<p class="empty-state">No details available yet.</p>`;
+    return html`<p class="empty-state">${msg("No details available yet.")}</p>`;
   }
 }

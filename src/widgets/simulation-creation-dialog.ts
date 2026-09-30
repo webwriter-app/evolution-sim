@@ -11,18 +11,11 @@ import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { cloneDeep, set } from "lodash-es";
 import { SlButton, SlDialog, SlIcon, SlInput } from "@shoelace-style/shoelace";
 import { createInputHandler } from "@/utils/handleInput";
-
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
+import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-creation-dialog")
+@localized()
 export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
-
   /** Register the classes of custom elements to use in the Shadow DOM here.
    * @example
    * import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
@@ -130,11 +123,11 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
 
     return html`
       <div class="full-width">
-        <label>World Size</label>
+        <label>${msg("World Size")}</label>
         <div class="world-size-inputs">
           <sl-input
             type="number"
-            label="W"
+            label=${msg("W", { desc: "Short label for width" })}
             .value=${String(configurationValue.value.x)}
             ?disabled=${configurationValue.locked}
             @input=${createInputHandler((value) =>
@@ -146,7 +139,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
           ></sl-input>
           <sl-input
             type="number"
-            label="H"
+            label=${msg("H", { desc: "Short label for height" })}
             .value=${String(configurationValue.value.y)}
             ?disabled=${configurationValue.locked}
             @input=${createInputHandler((value) =>
@@ -165,7 +158,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
   render() {
     return html`
       <sl-dialog
-        label="Create Simulation"
+        label=${msg("Create Simulation")}
         .open=${this.open}
         @sl-hide=${() => {
           this.open = false;
@@ -176,23 +169,25 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
       >
         <div class="dialog-content">
           <p class="intro">
-            Create a new simulation with the following configuration:
+            ${msg("Create a new simulation with the following configuration:")}
           </p>
 
-          ${this.renderOptionConfigurator("Seed", "seed")}
+          ${this.renderOptionConfigurator(msg("Seed"), "seed")}
           ${this.renderWorldSizeConfigurator()}
           ${this.renderOptionConfigurator(
-            "Initial Food Sources",
+            msg("Initial Food Sources"),
             "initialFoodSourcesAmount",
           )}
           ${this.renderOptionConfigurator(
-            "Initial Agents",
+            msg("Initial Agents"),
             "initialAgentsAmount",
           )}
-          ${this.renderOptionConfigurator("Mutation Rate", "mutationRate")}
+          ${this.renderOptionConfigurator(msg("Mutation Rate"), "mutationRate")}
         </div>
         <div slot="footer" class="footer">
-          <sl-button @click=${() => (this.open = false)}>Cancel</sl-button>
+          <sl-button @click=${() => (this.open = false)}
+            >${msg("Cancel")}</sl-button
+          >
           <sl-button
             variant="primary"
             @click=${() => {
@@ -201,7 +196,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
             }}
           >
             <sl-icon name="plus" slot="prefix"></sl-icon>
-            Create
+            ${msg("Create")}
           </sl-button>
         </div>
       </sl-dialog>

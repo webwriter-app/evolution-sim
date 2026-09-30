@@ -5,19 +5,12 @@ import { useSimulationStore } from "@/composables/simulationStore";
 import { SlButtonGroup, SlButton, SlIcon } from "@shoelace-style/shoelace";
 import { when } from "lit/directives/when.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
-
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
+import { localized, msg } from "@lit/localize";
 
 export type OpenNewSimulationDialogEvent = CustomEvent<unknown>;
 @customElement("simulation-controls-bar")
+@localized()
 export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
-
   simulationStore = useSimulationStore();
 
   /** Register the classes of custom elements to use in the Shadow DOM here.
@@ -69,13 +62,13 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
             () => html`
               <sl-button @click=${() => this.simulationStore.stopSimulation()}>
                 <sl-icon name="pause"></sl-icon>
-                Pause
+                ${msg("Pause")}
               </sl-button>
             `,
             () => html`
               <sl-button @click=${() => this.simulationStore.startSimulation()}>
                 <sl-icon name="play"></sl-icon>
-                Start
+                ${msg("Start")}
               </sl-button>
             `,
           )}
@@ -84,7 +77,7 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
             @click=${() => this.simulationStore.runNextTick()}
           >
             <sl-icon name="skip-end"></sl-icon>
-            Step
+            ${msg("Step")}
           </sl-button>
         </sl-button-group>
         <sl-button-group>
@@ -93,14 +86,14 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
             @click=${() => this.openNewSimulationDialog()}
           >
             <sl-icon name="plus"></sl-icon>
-            New
+            ${msg("New")}
           </sl-button>
           <sl-button
             ?disabled=${!hasActiveSimulation}
             @click=${() => this.simulationStore.resetSimulation()}
           >
             <sl-icon name="arrow-clockwise"></sl-icon>
-            Reset
+            ${msg("Reset")}
           </sl-button>
         </sl-button-group>
         <sl-button-group>

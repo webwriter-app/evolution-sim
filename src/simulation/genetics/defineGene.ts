@@ -4,8 +4,6 @@ export type Allele = number;
 
 export interface GeneDefinition<TName extends string, TAllele extends Allele> {
   name: TName;
-  label: string;
-  description: string;
   min: number;
   max: number;
   applyToPhenotype(phenotype: Phenotype, allele: TAllele): Phenotype;
@@ -15,8 +13,6 @@ export interface GeneDefinition<TName extends string, TAllele extends Allele> {
 
 export function defineGene<const TName extends string, TAllele extends Allele>({
   name,
-  label,
-  description,
   min,
   max,
   applyToPhenotype,
@@ -24,8 +20,6 @@ export function defineGene<const TName extends string, TAllele extends Allele>({
   yieldNewAllele,
 }: {
   name: TName;
-  label: string;
-  description: string;
   min: number;
   max: number;
   applyToPhenotype: GeneDefinition<TName, TAllele>["applyToPhenotype"];
@@ -34,8 +28,6 @@ export function defineGene<const TName extends string, TAllele extends Allele>({
 }): GeneDefinition<TName, TAllele> {
   return {
     name,
-    label,
-    description,
     min,
     max,
     applyToPhenotype,
