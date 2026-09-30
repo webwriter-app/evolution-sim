@@ -1,14 +1,23 @@
 {
     "name": "@webwriter/evolution-sim",
     "version": "0.0.0",
+    "description": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
     "keywords": [
-        "webwriter-widget"
+        "webwriter-widget",
+        "widget-lang-en",
+        "widget-simulational",
+        "isced2011-2",
+        "isced2011-3",
+        "iscedf2013-05",
+        "evolution",
+        "genetics"
     ],
+    "repository": "github:webwriter-app/evolution-sim",
     "license": "MIT",
     "author": "Manuel Frohn (D4rkr34lm)",
     "scripts": {
         "clean": "rm -rf dist && rm -rf node_modules",
-        "prepublishOnly": "@webwriter/build",
+        "prepublishOnly": "npx @webwriter/build",
         "localize": "lit-localize extract && @webwriter/build localize && lit-localize build",
         "dev": "npx @webwriter/build dev",
         "test": "vitest"
@@ -53,6 +62,7 @@
         "./widgets/webwriter-evolution-sim.*": {
             "source": "./src/widgets/webwriter-evolution-sim.ts",
             "default": "./src/dist/widgets/webwriter-evolution-sim.*"
-        }
+        },
+        "./icon": "./icon.svg"
     }
 }
