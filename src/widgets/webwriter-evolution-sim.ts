@@ -16,30 +16,44 @@ import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { isEqual } from "lodash-es";
 import LOCALIZE from "../../localization/generated";
 
+/**
+ * Agent-based simulation of evolution: agents search for food, reproduce and
+ * pass on mutating genes. The widget renders the simulated world, lets users
+ * inspect individual agents and their ancestry, and charts the population and
+ * gene distribution over time.
+ *
+ * ### Agent behavior
+ *
+ * An agent's behavior is determined by its phenotype. From the phenotype, the
+ * agent's strategy, behaviors and actions are derived. The agent's strategy is
+ * the top level of an agent's behavioral pyramid. It consists of a set of
+ * states and transitions between those states. Each state holds a behavior,
+ * which is executed each tick as long as the agent is in that state. The
+ * transitions are based on the agent's inner and perceived external state. A
+ * behavior is a composition of actions and simple logic, based on the agent's
+ * inner and perceived external state. An action is the most basic unit of
+ * behavior.
+ *
+ * @fires {CustomEvent<SimulationConfiguration>} configuration-change - Fired when the configuration is changed in the options panel or when a new simulation is created. `detail` holds the new configuration.
+ */
 @customElement("webwriter-evolution-sim")
 export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
-  localize = LOCALIZE;
+  protected localize = LOCALIZE;
 
-  simulationStore = useSimulationStore();
+  private readonly simulationStore = useSimulationStore();
 
   private lastInitializedInitOptions: SimulationInitOptions | null = null;
 
   @state()
   private accessor isNewSimulationDialogOpen = false;
 
-  /** Register the classes of custom elements to use in the Shadow DOM here.
-   * @example
-   * import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
-   * ...
-   *   static scopedElements = {"sl-button": SlButton}
-   **/
+  /** @internal */
   static readonly scopedElements = {
     "simulation-run-view": SimulationRunView,
     "simulation-pre-configuration-aside": SimulationPreConfigurationAside,
     "simulation-creation-dialog": SimulationCreationDialog,
   };
 
-  /** Put the styles for your Shadow DOM (what is rendered through render()) here. */
   static readonly styles = css`
     #root {
       display: flex;
@@ -47,7 +61,13 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
     }
   `;
 
-  @property({ attribute: true })
+  /**
+   * Configuration of the simulation, serialized as JSON in the attribute.
+   *
+   * - `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.
+   * - `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).
+   */
+  @property({ type: Object, attribute: true })
   accessor simulationConfiguration: SimulationConfiguration =
     DEFAULT_SIMULATION_CONFIGURATION;
 
@@ -88,7 +108,6 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
     }
   }
 
-  /** Define your template here and return it. */
   render() {
     return html`
       <div id="root">
