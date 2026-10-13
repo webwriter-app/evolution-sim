@@ -69,7 +69,7 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
    * - `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.
    * - `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).
    */
-  @property({ type: Object, attribute: true })
+  @property({ type: Object, attribute: true, reflect: true })
   accessor simulationConfiguration: SimulationConfiguration =
     DEFAULT_SIMULATION_CONFIGURATION;
 

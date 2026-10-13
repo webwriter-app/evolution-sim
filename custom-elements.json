@@ -49,7 +49,8 @@
               },
               "default": "DEFAULT_SIMULATION_CONFIGURATION",
               "description": "Configuration of the simulation, serialized as JSON in the attribute.\n\n- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.\n- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).",
-              "attribute": "simulationConfiguration"
+              "attribute": "simulationConfiguration",
+              "reflects": true
             },
             {
               "kind": "method",
