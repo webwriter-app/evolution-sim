@@ -1,6 +1,5 @@
-import { getUniqueRandomArray } from "@/utils/random";
-import { hasValue } from "@/utils/typeGuards";
-import { values, zip } from "lodash-es";
+import { hasNoValue } from "@/utils/typeGuards";
+import { range, values } from "lodash-es";
 
 export interface Vec2 {
   x: number;
@@ -63,14 +62,63 @@ export function getUniqueRandomPositions({
   amount: number;
   max: Vec2;
 }) {
-  const xPositions = getUniqueRandomArray({ amount, max: max.x });
-  const yPositions = getUniqueRandomArray({ amount, max: max.y });
+  if (amount > max.x * max.y) {
+    throw new Error(
+      `Cannot place ${amount} unique positions in a world of size ${max.x}x${max.y}`,
+    );
+  }
 
-  return zip(xPositions, yPositions)
-    .filter(
-      (pos): pos is [number, number] => hasValue(pos[0]) && hasValue(pos[1]),
-    )
-    .map(([x, y]) => ({ x, y }));
+  const allTiles = range(max.y).flatMap((y) =>
+    range(max.x).map((x) => ({ x, y })),
+  );
+  const occupiedTiles = new Set<string>();
+  const isFree = ({ x, y }: Vec2) => !occupiedTiles.has(`${x},${y}`);
+
+  // A column or row is reused only once every column or row has been used.
+  let unusedColumns = new Set<number>();
+  let unusedRows = new Set<number>();
+  const positions: Vec2[] = [];
+
+  while (positions.length < amount) {
+    if (unusedColumns.size === 0) {
+      unusedColumns = new Set(range(max.x));
+    }
+    if (unusedRows.size === 0) {
+      unusedRows = new Set(range(max.y));
+    }
+
+    const freeTiles = allTiles.filter(isFree);
+    const inUnusedColumnAndRow = freeTiles.filter(
+      ({ x, y }) => unusedColumns.has(x) && unusedRows.has(y),
+    );
+    const inUnusedColumnOrRow = freeTiles.filter(
+      ({ x, y }) => unusedColumns.has(x) || unusedRows.has(y),
+    );
+
+    // Near a full world, no free tile may be left in an unused column and
+    // row, so fall back to the best remaining tiles.
+    const candidates = [
+      inUnusedColumnAndRow,
+      inUnusedColumnOrRow,
+      freeTiles,
+    ].find((tiles) => tiles.length > 0);
+    const position = pickRandom(candidates ?? []);
+
+    if (hasNoValue(position)) {
+      break;
+    }
+
+    positions.push(position);
+    occupiedTiles.add(`${position.x},${position.y}`);
+    unusedColumns.delete(position.x);
+    unusedRows.delete(position.y);
+  }
+
+  return positions;
+}
+
+function pickRandom<T>(items: readonly T[]): T | undefined {
+  return items[Math.floor(Math.random() * items.length)];
 }
 
 export function getRandomDirection(): Direction {
