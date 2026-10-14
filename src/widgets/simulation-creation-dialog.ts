@@ -1,7 +1,8 @@
 import { css } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
+import type { PropertyValues } from "lit";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import {
   DEFAULT_SIMULATION_CONFIGURATION,
@@ -67,6 +68,19 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
   @property({ attribute: false })
   accessor open = false;
 
+  @state()
+  private accessor draftConfiguration!: SimulationConfiguration;
+
+  protected willUpdate(changedProperties: PropertyValues<this>) {
+    const isOpening = changedProperties.has("open") && this.open;
+    const configurationChangedWhileClosed =
+      changedProperties.has("simulationConfiguration") && !this.open;
+
+    if (isOpening || configurationChangedWhileClosed) {
+      this.draftConfiguration = cloneDeep(this.simulationConfiguration);
+    }
+  }
+
   private emitCreateNewSimulation(configuration: SimulationConfiguration) {
     console.log(
       "INFO - Create new simulation with configuration (student)",
@@ -83,8 +97,8 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
   }
 
   updateConfiguration(target: string, value: unknown) {
-    this.simulationConfiguration = set(
-      cloneDeep(this.simulationConfiguration),
+    this.draftConfiguration = set(
+      cloneDeep(this.draftConfiguration),
       target,
       value,
     );
@@ -95,7 +109,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
     option: Exclude<keyof SimulationInitOptions, "worldSize">,
   ) {
     const configurationValue =
-      this.simulationConfiguration.initOptions[option] ??
+      this.draftConfiguration.initOptions[option] ??
       DEFAULT_SIMULATION_CONFIGURATION.initOptions[option];
     const isMutationRateOption = option === "mutationRate";
 
@@ -119,8 +133,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
   }
 
   renderWorldSizeConfigurator() {
-    const configurationValue =
-      this.simulationConfiguration.initOptions.worldSize;
+    const configurationValue = this.draftConfiguration.initOptions.worldSize;
 
     return html`
       <div class="full-width">
@@ -193,7 +206,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
             variant="primary"
             @click=${() => {
               this.open = false;
-              this.emitCreateNewSimulation(this.simulationConfiguration);
+              this.emitCreateNewSimulation(this.draftConfiguration);
             }}
           >
             <sl-icon src=${IconPlus} slot="prefix"></sl-icon>
