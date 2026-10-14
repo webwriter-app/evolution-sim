@@ -96,10 +96,10 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
     };
   }
 
-  private initializeSimulationFromConfiguration() {
+  private initializeSimulationFromConfiguration({ force = false } = {}) {
     const initOptions = this.getSimulationInitOptions();
 
-    if (isEqual(initOptions, this.lastInitializedInitOptions)) {
+    if (!force && isEqual(initOptions, this.lastInitializedInitOptions)) {
       return;
     }
 
@@ -145,6 +145,7 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
           @configuration-change="${(e: ConfigurationChangeEvent) => {
             this.simulationConfiguration = e.detail;
             this.isNewSimulationDialogOpen = false;
+            this.initializeSimulationFromConfiguration({ force: true });
           }}"
           @dialog-close=${() => {
             this.isNewSimulationDialogOpen = false;
