@@ -1,5 +1,5 @@
 import { SimulationMetadata } from "@/simulation/running";
-import { SimulationSnapshot } from "@/simulation/serialization";
+import { AgentSnapshot, SimulationSnapshot } from "@/simulation/serialization";
 import { computed, signal } from "@lit-labs/signals";
 import * as Comlink from "comlink";
 import { first, isEqual } from "lodash-es";
@@ -20,6 +20,10 @@ import {
   extractAgentSelectionFromHistory,
   extractFoodSourceSelectionFromHistory,
 } from "@/widgets/utils/entityInspection";
+import {
+  getImmediateAgentAncestry as computeImmediateAgentAncestry,
+  ImmediateAgentAncestry,
+} from "@/widgets/utils/agentAncestry";
 
 export type ManualSimulationTool =
   "add-food-source" | "add-agent" | "remove-entity";
@@ -74,6 +78,10 @@ export function createSimulationStore() {
 
   const currentSelection = signal<EntitySelection | null>(null);
 
+  const latestAgentSnapshots = new Map<string, AgentSnapshot>();
+  const childIdsByParentId = new Map<string, string[]>();
+  const lineageVersion = signal(0);
+
   function selectEntityAt(position: Vec2) {
     const snapshot = currentSnapshot.get();
 
@@ -122,23 +130,89 @@ export function createSimulationStore() {
     currentSelection.set(selection);
   }
 
-  function refreshCurrentSelection() {
+  function refreshCurrentSelection(snapshot: SimulationSnapshot) {
     const selection = currentSelection.get();
 
     if (!hasValue(selection)) {
       return;
     }
 
-    selectEntity({
-      entityId: selection.entityId,
-      entityType: selection.type,
-    });
+    if (selection.type === "agent") {
+      const agent = snapshot.agents.find(
+        (agent) => agent.id === selection.entityId,
+      );
+
+      if (!hasValue(agent)) {
+        return;
+      }
+
+      selection.history.push({ tick: snapshot.tick, snapshot: agent });
+      currentSelection.set({ ...selection, latestSnapshot: agent });
+    } else {
+      const foodSource = snapshot.foodSources.find(
+        (foodSource) => foodSource.id === selection.entityId,
+      );
+
+      if (!hasValue(foodSource)) {
+        return;
+      }
+
+      selection.history.push({ tick: snapshot.tick, snapshot: foodSource });
+      currentSelection.set({ ...selection, latestSnapshot: foodSource });
+    }
+  }
+
+  function updateLineageIndex(snapshot: SimulationSnapshot) {
+    let hasNewAgents = false;
+
+    for (const agent of snapshot.agents) {
+      if (!latestAgentSnapshots.has(agent.id)) {
+        hasNewAgents = true;
+
+        for (const parentId of agent.parentIds ?? []) {
+          const childIds = childIdsByParentId.get(parentId);
+
+          if (hasValue(childIds)) {
+            childIds.push(agent.id);
+          } else {
+            childIdsByParentId.set(parentId, [agent.id]);
+          }
+        }
+      }
+
+      latestAgentSnapshots.set(agent.id, agent);
+    }
+
+    if (hasNewAgents) {
+      lineageVersion.set(lineageVersion.get() + 1);
+    }
+  }
+
+  function clearHistory() {
+    simulationHistory.splice(0, simulationHistory.length);
+    latestAgentSnapshots.clear();
+    childIdsByParentId.clear();
+    lineageVersion.set(lineageVersion.get() + 1);
+    currentSelection.set(null);
   }
 
   function updateCurrentSnapshot(snapshot: SimulationSnapshot) {
     currentSnapshot.set(snapshot);
     simulationHistory.push(snapshot);
-    refreshCurrentSelection();
+    updateLineageIndex(snapshot);
+    refreshCurrentSelection(snapshot);
+  }
+
+  function getImmediateAgentAncestry(
+    agentId: string,
+  ): ImmediateAgentAncestry | null {
+    lineageVersion.get();
+
+    return computeImmediateAgentAncestry(
+      agentId,
+      latestAgentSnapshots,
+      childIdsByParentId,
+    );
   }
 
   const currentActiveSimulationData = computed(() => {
@@ -163,8 +237,7 @@ export function createSimulationStore() {
     const initResult = await getWorker().initializeNewSimulation(options);
 
     simulationMetadata.set(initResult.metadata);
-    simulationHistory.splice(0, simulationHistory.length);
-    currentSelection.set(null);
+    clearHistory();
     updateCurrentSnapshot(initResult.initialSnapshot);
     simulationStatus.set("ready");
   }
@@ -237,8 +310,7 @@ export function createSimulationStore() {
     try {
       const { initialSnapshot, metadata } = await getWorker().resetSimulation();
       simulationMetadata.set(metadata);
-      simulationHistory.splice(0, simulationHistory.length);
-      currentSelection.set(null);
+      clearHistory();
       updateCurrentSnapshot(initialSnapshot);
       simulationStatus.set("ready");
     } catch (error) {
@@ -271,8 +343,7 @@ export function createSimulationStore() {
 
     simulationMetadata.set(null);
     currentSnapshot.set(null);
-    simulationHistory.splice(0, simulationHistory.length);
-    currentSelection.set(null);
+    clearHistory();
     activeManualTool.set(null);
     simulationStatus.set("uninitialized");
   }
@@ -291,6 +362,7 @@ export function createSimulationStore() {
     setMutationRate,
     selectEntity,
     selectEntityAt,
+    getImmediateAgentAncestry,
     currentSelection,
     simulationHistory,
     currentActiveSimulationData,

@@ -1,7 +1,6 @@
 import { msg } from "@lit/localize";
-import { AgentSnapshot, SimulationSnapshot } from "@/simulation/serialization";
+import { AgentSnapshot } from "@/simulation/serialization";
 import { hasValue } from "@/utils/typeGuards";
-import { extractAgentSelectionFromHistory } from "./entityInspection";
 
 export interface ImmediateAgentAncestry {
   self: AgentSnapshot;
@@ -46,46 +45,37 @@ const NODE_HEIGHT = 72;
 
 export function getImmediateAgentAncestry(
   agentId: string,
-  history: readonly SimulationSnapshot[],
+  latestAgentSnapshots: ReadonlyMap<string, AgentSnapshot>,
+  childIdsByParentId: ReadonlyMap<string, readonly string[]>,
 ): ImmediateAgentAncestry | null {
-  const self =
-    extractAgentSelectionFromHistory(agentId, history)?.latestSnapshot ?? null;
+  const self = latestAgentSnapshots.get(agentId) ?? null;
 
   if (!hasValue(self)) {
     return null;
   }
 
   const parents = (self.parentIds ?? []).map(
-    (parentId) =>
-      extractAgentSelectionFromHistory(parentId, history)?.latestSnapshot ??
-      null,
+    (parentId) => latestAgentSnapshots.get(parentId) ?? null,
   );
 
   if (!parents.every(hasValue)) {
     return null;
   }
 
-  const children = Array.from(
-    new Set(
-      history.flatMap((snapshot) => snapshot.agents.map((agent) => agent.id)),
-    ),
-  )
-    .filter((knownAgentId) => knownAgentId !== agentId)
-    .map(
-      (knownAgentId) =>
-        extractAgentSelectionFromHistory(knownAgentId, history)
-          ?.latestSnapshot ?? null,
-    )
-    .filter(
-      (snapshot): snapshot is AgentSnapshot =>
-        hasValue(snapshot) && snapshot.parentIds?.includes(agentId) === true,
-    );
+  const children = (childIdsByParentId.get(agentId) ?? [])
+    .filter((childId) => childId !== agentId)
+    .map((childId) => latestAgentSnapshots.get(childId) ?? null)
+    .filter(hasValue);
 
   return {
     self,
     parents,
     children,
   };
+}
+
+export function getAncestryFlowModelKey(model: AncestryFlowModel): string {
+  return model.nodes.map((node) => `${node.id}:${node.data.label}`).join("|");
 }
 
 type AncestryRelation = "parent" | "child" | "self";
