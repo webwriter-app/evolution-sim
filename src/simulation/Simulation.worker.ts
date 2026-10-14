@@ -65,6 +65,7 @@ function initializeNewSimulation(options: SimulationInitOptions) {
   setRandomSeed(seed);
 
   const newSimulation = initializeSimulation(options);
+  setRandomSeed(seed);
   simulation = newSimulation;
   currentTick = 0;
   initialSimulation = cloneDeep(newSimulation);
