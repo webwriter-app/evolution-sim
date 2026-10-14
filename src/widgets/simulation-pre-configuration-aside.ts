@@ -15,6 +15,10 @@ import {
   SIMULATION_WORLD_SIZE,
 } from "@/simulation/constants";
 import { localized, msg } from "@lit/localize";
+import {
+  getInitOptionBounds,
+  getInvalidInitOptionFields,
+} from "./utils/configurationValidation";
 
 type LockableValue<T> = {
   locked: boolean;
@@ -162,6 +166,13 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
       width: 100%;
     }
 
+    sl-input.invalid {
+      --sl-input-border-color: var(--sl-color-danger-600);
+      --sl-input-border-color-hover: var(--sl-color-danger-600);
+      --sl-input-border-color-focus: var(--sl-color-danger-600);
+      --sl-input-focus-ring-color: var(--sl-color-danger-300);
+    }
+
     .init-option sl-switch {
       flex: 0 0 auto;
       white-space: nowrap;
@@ -185,7 +196,13 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
     const currentOption =
       this.configuration.initOptions[option] ??
       DEFAULT_SIMULATION_CONFIGURATION.initOptions[option];
-    const isMutationRateOption = option === "mutationRate";
+    const bounds =
+      option === "seed" || option === "worldSize"
+        ? undefined
+        : getInitOptionBounds(this.configuration.initOptions)[option];
+    const isInvalid = getInvalidInitOptionFields(
+      this.configuration.initOptions,
+    ).has(option);
 
     return html`
       <div class="init-option">
@@ -204,11 +221,12 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
           </sl-switch>
         </div>
         <sl-input
+          class=${isInvalid ? "invalid" : ""}
           type="${option === "seed" ? "text" : "number"}"
           aria-label="${label}"
-          min=${ifDefined(isMutationRateOption ? "0" : undefined)}
-          max=${ifDefined(isMutationRateOption ? "1" : undefined)}
-          step=${ifDefined(isMutationRateOption ? "0.01" : undefined)}
+          min=${ifDefined(bounds?.min)}
+          max=${ifDefined(bounds?.max)}
+          step=${ifDefined(bounds?.step)}
           .value="${String(currentOption.value)}"
           @input="${createInputHandler((e) =>
             this.updateConfiguration(
@@ -223,6 +241,10 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
 
   renderWorldSizeConfiguration() {
     const currentOption = this.configuration.initOptions.worldSize;
+    const invalidFields = getInvalidInitOptionFields(
+      this.configuration.initOptions,
+    );
+    const bounds = getInitOptionBounds(this.configuration.initOptions);
 
     return html`
       <div class="init-option">
@@ -242,7 +264,10 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
         </div>
         <div class="world-size-inputs">
           <sl-input
+            class=${invalidFields.has("worldSize.x") ? "invalid" : ""}
             type="number"
+            min=${bounds["worldSize.x"].min}
+            step=${bounds["worldSize.x"].step}
             label=${msg("W", { desc: "Short label for width" })}
             .value="${String(currentOption.value.x)}"
             @input="${createInputHandler((e) =>
@@ -253,7 +278,10 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
             )}"
           ></sl-input>
           <sl-input
+            class=${invalidFields.has("worldSize.y") ? "invalid" : ""}
             type="number"
+            min=${bounds["worldSize.y"].min}
+            step=${bounds["worldSize.y"].step}
             label=${msg("H", { desc: "Short label for height" })}
             .value="${String(currentOption.value.y)}"
             @input="${createInputHandler((e) =>
