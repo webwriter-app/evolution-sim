@@ -66,6 +66,7 @@
       "source": "./src/widgets/webwriter-evolution-sim.ts",
       "default": "./src/dist/widgets/webwriter-evolution-sim.*"
     },
+    "./snippets/island-evolution.html": "./src/snippets/island-evolution.html",
     "./icon": "./icon.svg",
     "./custom-elements.json": "./custom-elements.json"
   },
