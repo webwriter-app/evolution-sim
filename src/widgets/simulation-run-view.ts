@@ -4,7 +4,6 @@ import { customElement, property } from "lit/decorators.js";
 import { SimulationStateRender } from "./simulation-state-render";
 import { SimulationControlsBar } from "./simulation-controls-bar";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { useSimulationStore } from "@/composables/simulationStore";
 import { SimulationManualTools } from "./simulation-manual-tools";
 import { SimulationMutationRateEditor } from "./simulation-mutation-rate-editor";
 import { SimulationEntityView } from "./simulation-entity-view";
@@ -22,7 +21,6 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
   @property({ attribute: false })
   accessor configuration: Partial<SimulationConfiguration> | null = null;
 
-  simulationStore = useSimulationStore();
   private readonly widgetId = crypto.randomUUID();
 
   /** Register the classes of custom elements to use in the Shadow DOM here.

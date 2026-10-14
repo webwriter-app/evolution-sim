@@ -6,7 +6,11 @@ import { customElement, property, state } from "lit/decorators.js";
 import { SimulationRunView } from "./simulation-run-view";
 import { SimulationCreationDialog } from "./simulation-creation-dialog";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { useSimulationStore } from "@/composables/simulationStore";
+import { provide } from "@lit/context";
+import {
+  createSimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import {
   ConfigurationChangeEvent,
   DEFAULT_SIMULATION_CONFIGURATION,
@@ -16,6 +20,7 @@ import {
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { isEqual } from "lodash-es";
+import { hasValue } from "@/utils/typeGuards";
 import LOCALIZE from "../../localization/generated";
 
 /**
@@ -42,7 +47,9 @@ import LOCALIZE from "../../localization/generated";
 export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
   protected localize = LOCALIZE;
 
-  private readonly simulationStore = useSimulationStore();
+  /** @internal */
+  @provide({ context: simulationStoreContext })
+  private accessor simulationStore = createSimulationStore();
 
   private lastInitializedInitOptions: SimulationInitOptions | null = null;
 
@@ -104,6 +111,25 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
     this.initializeSimulationFromConfiguration();
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (this.hasUpdated && !hasValue(this.lastInitializedInitOptions)) {
+      this.initializeSimulationFromConfiguration();
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    queueMicrotask(() => {
+      if (!this.isConnected) {
+        this.simulationStore.dispose();
+        this.lastInitializedInitOptions = null;
+      }
+    });
+  }
+
   updated(changedProperties: Map<string, unknown>) {
     if (changedProperties.has("simulationConfiguration")) {
       this.initializeSimulationFromConfiguration();
@@ -125,15 +151,17 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
           }}
         ></simulation-creation-dialog>
 
-        ${this.isContentEditable
-          ? html`<simulation-pre-configuration-aside
-              part="options"
-              .configuration=${this.simulationConfiguration}
-              @configuration-change="${(e: ConfigurationChangeEvent) => {
-                this.simulationConfiguration = e.detail;
-              }}"
-            ></simulation-pre-configuration-aside>`
-          : null}
+        ${
+          this.isContentEditable
+            ? html`<simulation-pre-configuration-aside
+                part="options"
+                .configuration=${this.simulationConfiguration}
+                @configuration-change="${(e: ConfigurationChangeEvent) => {
+                  this.simulationConfiguration = e.detail;
+                }}"
+              ></simulation-pre-configuration-aside>`
+            : null
+        }
 
         <simulation-run-view
           .configuration=${this.simulationConfiguration}

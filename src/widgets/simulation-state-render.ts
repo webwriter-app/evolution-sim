@@ -1,3 +1,4 @@
+import { consume } from "@lit/context";
 import { html, css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property, query } from "lit/decorators.js";
@@ -16,7 +17,10 @@ import { SimulationMetadata } from "@/simulation/running";
 import { scaleVector, Vec2 } from "@/simulation/position";
 import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
 import { SIMULATION_ENTITY_LAYERS } from "@/simulation/entityPresentation";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import { SignalWatcher } from "@lit-labs/signals";
 import { effect } from "signal-utils/subtle/microtask-effect";
 import { GenomeRenderer } from "./utils/geneRendering";
@@ -185,7 +189,8 @@ function useSimulationRenderer() {
 
 @customElement("simulation-state-render")
 export class SimulationStateRender extends SignalWatcher(LitElementWw) {
-  simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   @query("#simulation-container")
   accessor canvasContainer!: HTMLDivElement;

@@ -1,3 +1,4 @@
+import { consume } from "@lit/context";
 import { LitFlow } from "@ghchinoy/litflow";
 
 import { css } from "lit";
@@ -5,7 +6,10 @@ import { keyed } from "lit/directives/keyed.js";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import {
   getImmediateAgentAncestry,
   getImmediateAncestryFlowModel,
@@ -18,7 +22,8 @@ export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
   @property()
   accessor agentId = "";
 
-  private readonly simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   static readonly scopedElements = {
     "lit-flow": LitFlow,

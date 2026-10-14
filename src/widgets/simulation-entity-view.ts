@@ -1,15 +1,20 @@
+import { consume } from "@lit/context";
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import { SimulationEntityExplorer } from "./simulation-entity-explorer";
 import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-entity-view")
 @localized()
 export class SimulationEntityView extends SignalWatcher(LitElementWw) {
-  simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   static readonly scopedElements = {
     "simulation-entity-explorer": SimulationEntityExplorer,
@@ -36,11 +41,13 @@ export class SimulationEntityView extends SignalWatcher(LitElementWw) {
 
     return html`
       <div id="entity-inspector-container">
-        ${selectedEntity
-          ? html`<simulation-entity-explorer
-              .selection=${selectedEntity}
-            ></simulation-entity-explorer>`
-          : html`<p class="empty-state">${msg("No entity selected.")}</p>`}
+        ${
+          selectedEntity
+            ? html`<simulation-entity-explorer
+                .selection=${selectedEntity}
+              ></simulation-entity-explorer>`
+            : html`<p class="empty-state">${msg("No entity selected.")}</p>`
+        }
       </div>
     `;
   }

@@ -1,3 +1,4 @@
+import { consume } from "@lit/context";
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
@@ -6,7 +7,8 @@ import { SlButton, SlIcon } from "@shoelace-style/shoelace";
 import IconEraser from "bootstrap-icons/icons/eraser.svg";
 import {
   ManualSimulationTool,
-  useSimulationStore,
+  SimulationStore,
+  simulationStoreContext,
 } from "@/composables/simulationStore";
 import { AgentPreviewSpriteData, FoodSourceSpriteData } from "./assets";
 import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
@@ -15,7 +17,8 @@ import { localized, msg } from "@lit/localize";
 @customElement("simulation-manual-tools")
 @localized()
 export class SimulationManualTools extends SignalWatcher(LitElementWw) {
-  simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   @property({ attribute: "widget-id" })
   accessor widgetId = "";

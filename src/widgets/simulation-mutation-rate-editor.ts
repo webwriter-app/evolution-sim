@@ -1,9 +1,13 @@
+import { consume } from "@lit/context";
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { SlInput, SlRange } from "@shoelace-style/shoelace";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { createInputHandler } from "@/utils/handleInput";
 import { localized, msg } from "@lit/localize";
@@ -11,7 +15,8 @@ import { localized, msg } from "@lit/localize";
 @customElement("simulation-mutation-rate-editor")
 @localized()
 export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
-  simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   @property({ type: Boolean })
   accessor locked = false;

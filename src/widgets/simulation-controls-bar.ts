@@ -1,7 +1,11 @@
+import { consume } from "@lit/context";
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement } from "lit/decorators.js";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import { SlButtonGroup, SlButton, SlIcon } from "@shoelace-style/shoelace";
 import IconPause from "bootstrap-icons/icons/pause.svg";
 import IconPlay from "bootstrap-icons/icons/play.svg";
@@ -16,7 +20,8 @@ export type OpenNewSimulationDialogEvent = CustomEvent<unknown>;
 @customElement("simulation-controls-bar")
 @localized()
 export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
-  simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   /** Register the classes of custom elements to use in the Shadow DOM here.
    * @example

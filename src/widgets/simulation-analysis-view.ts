@@ -1,3 +1,4 @@
+import { consume } from "@lit/context";
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
@@ -5,7 +6,10 @@ import { computed, html, signal, SignalWatcher } from "@lit-labs/signals";
 import { ChartData, ChartOptions } from "chart.js";
 import { SlCard, SlOption, SlSelect } from "@shoelace-style/shoelace";
 import { localized, msg } from "@lit/localize";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import { definedGenes, GeneName } from "@/simulation/genetics/definitions";
 import { ChartWrapper } from "./chart-wrapper";
 import { getGeneTexts } from "./utils/geneTexts";
@@ -154,7 +158,8 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
   @property({ attribute: false })
   accessor configuration: GraphConfig = DEFAULT_GRAPH_OPTIONS;
 
-  private readonly simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   private readonly selectedHistorySubsetPreset = signal<HistorySubsetPreset>(
     DEFAULT_HISTORY_SUBSET_PRESET,
@@ -446,11 +451,13 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
               `,
             )}
           </sl-select>
-          ${selectedHistorySubsetOption?.mayLag
-            ? html`<p class="warning">
-                ${msg("Full history may lag during long simulations.")}
-              </p>`
-            : null}
+          ${
+            selectedHistorySubsetOption?.mayLag
+              ? html`<p class="warning">
+                  ${msg("Full history may lag during long simulations.")}
+                </p>`
+              : null
+          }
         </div>
         <div class="chart-grid">${configuredGraphs}</div>
       </section>
