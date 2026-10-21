@@ -64,6 +64,15 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
   };
 
   static readonly styles = css`
+    :host {
+      display: block;
+      width: 100%;
+      border: solid 1px var(--sl-color-neutral-300);
+      border-radius: var(--sl-border-radius-medium);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
     #root {
       display: flex;
       flex-direction: column;
@@ -152,6 +161,13 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
           }}
         ></simulation-creation-dialog>
 
+        <simulation-run-view
+          .configuration=${this.simulationConfiguration}
+          @open-new-simulation-dialog=${() => {
+            this.isNewSimulationDialogOpen = true;
+          }}
+        ></simulation-run-view>
+
         ${
           this.isContentEditable
             ? html`<simulation-pre-configuration-aside
@@ -163,13 +179,6 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
               ></simulation-pre-configuration-aside>`
             : null
         }
-
-        <simulation-run-view
-          .configuration=${this.simulationConfiguration}
-          @open-new-simulation-dialog=${() => {
-            this.isNewSimulationDialogOpen = true;
-          }}
-        ></simulation-run-view>
       </div>
     `;
   }

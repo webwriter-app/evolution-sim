@@ -1,8 +1,13 @@
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
+import { when } from "lit/directives/when.js";
 import { SimulationStateRender } from "./simulation-state-render";
-import { SimulationControlsBar } from "./simulation-controls-bar";
+import {
+  ModeChangeEvent,
+  SimulationControlsBar,
+  SimulationViewMode,
+} from "./simulation-controls-bar";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { SimulationManualTools } from "./simulation-manual-tools";
 import { SimulationMutationRateEditor } from "./simulation-mutation-rate-editor";
@@ -12,8 +17,7 @@ import {
   SimulationAnalysisView,
 } from "./simulation-analysis-view";
 import { SimulationConfiguration } from "./simulation-pre-configuration-aside";
-import { SlTab, SlTabGroup, SlTabPanel } from "@shoelace-style/shoelace";
-import { localized, msg } from "@lit/localize";
+import { localized } from "@lit/localize";
 
 @customElement("simulation-run-view")
 @localized()
@@ -21,14 +25,11 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
   @property({ attribute: false })
   accessor configuration: Partial<SimulationConfiguration> | null = null;
 
+  @state()
+  private accessor mode: SimulationViewMode = "simulation";
+
   private readonly widgetId = crypto.randomUUID();
 
-  /** Register the classes of custom elements to use in the Shadow DOM here.
-   * @example
-   * import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
-   * ...
-   *   static scopedElements = {"sl-button": SlButton}
-   **/
   static scopedElements = {
     "simulation-state-render": SimulationStateRender,
     "simulation-controls-bar": SimulationControlsBar,
@@ -36,25 +37,21 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
     "simulation-mutation-rate-editor": SimulationMutationRateEditor,
     "simulation-entity-view": SimulationEntityView,
     "simulation-analysis-view": SimulationAnalysisView,
-    "sl-tab": SlTab,
-    "sl-tab-group": SlTabGroup,
-    "sl-tab-panel": SlTabPanel,
   };
 
-  /** Put the styles for your Shadow DOM (what is rendered through render()) here. */
   static styles = css`
-    #root {
+    simulation-controls-bar {
+      border-bottom: solid 1px var(--sl-color-neutral-300);
+    }
+
+    .content {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
 
-    .simulation-tab-content,
-    .graphs-tab-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
+    .content[hidden] {
+      display: none;
     }
 
     #bottom-bar {
@@ -65,7 +62,6 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
     }
 
     simulation-entity-view,
-    simulation-controls-bar,
     simulation-mutation-rate-editor,
     simulation-analysis-view {
       width: 100%;
@@ -76,10 +72,22 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
     return this.configuration?.initOptions?.mutationRate?.locked ?? false;
   }
 
-  private renderSimulationTabContent() {
+  render() {
+    const graphConfiguration =
+      this.configuration?.graphs ?? DEFAULT_GRAPH_OPTIONS;
+    const graphsEnabled = graphConfiguration.enabled;
+    const mode = graphsEnabled ? this.mode : "simulation";
+
     return html`
-      <div class="simulation-tab-content">
-        <simulation-controls-bar></simulation-controls-bar>
+      <simulation-controls-bar
+        .mode=${mode}
+        ?showModeSelect=${graphsEnabled}
+        @mode-change=${(e: ModeChangeEvent) => {
+          this.mode = e.detail;
+        }}
+      ></simulation-controls-bar>
+
+      <div class="content" ?hidden=${mode !== "simulation"}>
         <simulation-state-render
           .widgetId=${this.widgetId}
         ></simulation-state-render>
@@ -93,44 +101,17 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
           <simulation-entity-view></simulation-entity-view>
         </div>
       </div>
+
+      ${when(
+        graphsEnabled,
+        () => html`
+          <div class="content" ?hidden=${mode !== "graphs"}>
+            <simulation-analysis-view
+              .configuration=${graphConfiguration}
+            ></simulation-analysis-view>
+          </div>
+        `,
+      )}
     `;
-  }
-
-  private renderGraphsTabContent() {
-    return html`
-      <div class="graphs-tab-content">
-        <simulation-controls-bar></simulation-controls-bar>
-        <simulation-analysis-view
-          .configuration=${this.configuration?.graphs ?? DEFAULT_GRAPH_OPTIONS}
-        ></simulation-analysis-view>
-      </div>
-    `;
-  }
-
-  /** Define your template here and return it. */
-  render() {
-    const graphConfiguration =
-      this.configuration?.graphs ?? DEFAULT_GRAPH_OPTIONS;
-
-    if (graphConfiguration.enabled) {
-      return html`
-        <div>
-          <sl-tab-group>
-            <sl-tab slot="nav" panel="simulation">${msg("Simulation")}</sl-tab>
-            <sl-tab slot="nav" panel="graphs">${msg("Graphs")}</sl-tab>
-
-            <sl-tab-panel name="simulation">
-              ${this.renderSimulationTabContent()}
-            </sl-tab-panel>
-
-            <sl-tab-panel name="graphs">
-              ${this.renderGraphsTabContent()}
-            </sl-tab-panel>
-          </sl-tab-group>
-        </div>
-      `;
-    } else {
-      return html` <div id="root">${this.renderSimulationTabContent()}</div> `;
-    }
   }
 }
