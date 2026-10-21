@@ -149,10 +149,6 @@
         <source>No details available yet.</source>
         <target>Nu sunt încă disponibile detalii.</target>
       </trans-unit>
-      <trans-unit id="se615497e22544d08">
-        <source>No entity selected.</source>
-        <target>Nu a fost selectată nicio entitate.</target>
-      </trans-unit>
       <trans-unit id="sa550c327ea278753">
         <source>Allele within possible range</source>
         <target>Alelă în intervalul posibil</target>
@@ -286,6 +282,22 @@
         <source>W</source>
         <target>L</target>
         <note from="lit-localize">Short label for width</note>
+      </trans-unit>
+      <trans-unit id="sd049237343c44e47">
+        <source>Dead</source>
+        <target>Mort</target>
+      </trans-unit>
+      <trans-unit id="sdd3bedf6eb41e3db">
+        <source>Removed</source>
+        <target>Eliminat</target>
+      </trans-unit>
+      <trans-unit id="sad3e3c8146fc920f">
+        <source>Status</source>
+        <target>Stare</target>
+      </trans-unit>
+      <trans-unit id="s5e8250fb85d64c23">
+        <source>Close</source>
+        <target>Închide</target>
       </trans-unit>
     </body>
   </file>

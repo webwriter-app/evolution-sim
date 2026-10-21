@@ -114,6 +114,9 @@ function createCurrentDistributionOptions(): ChartOptions {
   return {
     responsive: true,
     maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+    },
     scales: {
       x: {
         title: {
@@ -228,11 +231,11 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
       datasets: createAlleleShareOverTimeSeries({
         snapshots: this.historySubset.get(),
         geneName: this.selectedHistoryGene.get(),
-      }).map((series, index) => ({
+      }).map((series) => ({
         label: `${msg("Allele")}: ${series.allele}`,
         data: series.data,
-        borderColor: getAlleleColor(series.allele, index),
-        backgroundColor: getAlleleColor(series.allele, index),
+        borderColor: getAlleleColor(series.allele),
+        backgroundColor: getAlleleColor(series.allele),
         fill: false,
         pointRadius: 0,
         tension: 0.2,
@@ -256,8 +259,8 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
         {
           label: msg("Current allele share"),
           data: distribution.map((entry) => entry.share),
-          backgroundColor: distribution.map((entry, index) =>
-            getAlleleColor(entry.allele, index),
+          backgroundColor: distribution.map((entry) =>
+            getAlleleColor(entry.allele),
           ),
         },
       ],

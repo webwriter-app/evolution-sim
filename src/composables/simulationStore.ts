@@ -134,6 +134,12 @@ export function createSimulationStore() {
     currentSelection.set(null);
   }
 
+  function markSelectionRemoved(selection: EntitySelection, tick: number) {
+    if (!hasValue(selection.removedAtTick)) {
+      currentSelection.set({ ...selection, removedAtTick: tick });
+    }
+  }
+
   function refreshCurrentSelection(snapshot: SimulationSnapshot) {
     const selection = currentSelection.get();
 
@@ -147,6 +153,7 @@ export function createSimulationStore() {
       );
 
       if (!hasValue(agent)) {
+        markSelectionRemoved(selection, snapshot.tick);
         return;
       }
 
@@ -158,6 +165,7 @@ export function createSimulationStore() {
       );
 
       if (!hasValue(foodSource)) {
+        markSelectionRemoved(selection, snapshot.tick);
         return;
       }
 

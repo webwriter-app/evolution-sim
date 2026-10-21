@@ -149,10 +149,6 @@
         <source>No details available yet.</source>
         <target>詳細はまだ利用できません。</target>
       </trans-unit>
-      <trans-unit id="se615497e22544d08">
-        <source>No entity selected.</source>
-        <target>エンティティが選択されていません。</target>
-      </trans-unit>
       <trans-unit id="sa550c327ea278753">
         <source>Allele within possible range</source>
         <target>許容範囲内の対立遺伝子</target>
@@ -286,6 +282,22 @@
         <source>W</source>
         <target>幅</target>
         <note from="lit-localize">Short label for width</note>
+      </trans-unit>
+      <trans-unit id="sd049237343c44e47">
+        <source>Dead</source>
+        <target>死亡</target>
+      </trans-unit>
+      <trans-unit id="sdd3bedf6eb41e3db">
+        <source>Removed</source>
+        <target>削除済み</target>
+      </trans-unit>
+      <trans-unit id="sad3e3c8146fc920f">
+        <source>Status</source>
+        <target>状態</target>
+      </trans-unit>
+      <trans-unit id="s5e8250fb85d64c23">
+        <source>Close</source>
+        <target>閉じる</target>
       </trans-unit>
     </body>
   </file>

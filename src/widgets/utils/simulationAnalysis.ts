@@ -228,6 +228,21 @@ export function createCurrentAlleleDistribution({
     .sort((a, b) => a.allele - b.allele);
 }
 
-export function getAlleleColor(allele: number, index: number) {
-  return `hsl(${(allele * 47 + index * 71) % 360}, 70%, 42%)`;
+const ALLELE_COLORS = [
+  "#1f77b4",
+  "#ff7f0e",
+  "#2ca02c",
+  "#d62728",
+  "#9467bd",
+  "#8c564b",
+  "#e377c2",
+  "#7f7f7f",
+  "#bcbd22",
+  "#17becf",
+];
+
+export function getAlleleColor(allele: number) {
+  const length = ALLELE_COLORS.length;
+  const index = ((Math.round(allele) % length) + length) % length;
+  return ALLELE_COLORS[index] ?? "#1f77b4";
 }

@@ -149,10 +149,6 @@
         <source>No details available yet.</source>
         <target>尚无详细信息。</target>
       </trans-unit>
-      <trans-unit id="se615497e22544d08">
-        <source>No entity selected.</source>
-        <target>未选择任何实体。</target>
-      </trans-unit>
       <trans-unit id="sa550c327ea278753">
         <source>Allele within possible range</source>
         <target>等位基因在可能范围内</target>
@@ -286,6 +282,22 @@
         <source>W</source>
         <target>宽</target>
         <note from="lit-localize">Short label for width</note>
+      </trans-unit>
+      <trans-unit id="sd049237343c44e47">
+        <source>Dead</source>
+        <target>已死亡</target>
+      </trans-unit>
+      <trans-unit id="sdd3bedf6eb41e3db">
+        <source>Removed</source>
+        <target>已移除</target>
+      </trans-unit>
+      <trans-unit id="sad3e3c8146fc920f">
+        <source>Status</source>
+        <target>状态</target>
+      </trans-unit>
+      <trans-unit id="s5e8250fb85d64c23">
+        <source>Close</source>
+        <target>关闭</target>
       </trans-unit>
     </body>
   </file>

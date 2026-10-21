@@ -1,6 +1,7 @@
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 import { html } from "@lit-labs/signals";
 import { localized, msg } from "@lit/localize";
 import { FoodSourceSpriteData } from "./assets";
@@ -87,25 +88,65 @@ export class SimulationEntityAside extends LitElementWw {
       color: var(--sl-color-neutral-500);
       font-weight: var(--sl-font-weight-normal);
     }
+
+    .removed-value {
+      color: var(--sl-color-danger-700);
+    }
+
+    .entity-image-frame.removed {
+      filter: grayscale(1);
+      opacity: 0.6;
+    }
   `;
 
+  private renderRemovedRow(selection: EntitySelection) {
+    if (selection.removedAtTick === null) {
+      return null;
+    }
+
+    const label = selection.type === "agent" ? msg("Dead") : msg("Removed");
+
+    return html`
+      <div class="state-row">
+        <dt>${msg("Status")}</dt>
+        <dd class="removed-value">
+          ${label}
+          <span class="limit-value">
+            (${msg("Tick")} ${selection.removedAtTick})
+          </span>
+        </dd>
+      </div>
+    `;
+  }
+
   private renderState(selection: EntitySelection) {
+    const isRemoved = selection.removedAtTick !== null;
+
     if (selection.type === "agent") {
       const { phenotype, state } = selection.latestSnapshot;
 
       return html`
         <dl>
+          ${this.renderRemovedRow(selection)}
           <div class="state-row">
             <dt>${msg("Position")}</dt>
             <dd>${state.position.x}, ${state.position.y}</dd>
           </div>
-          <div class="state-row">
-            <dt>${msg("Energy")}</dt>
-            <dd>
-              ${state.currentEnergy}
-              <span class="limit-value">/ ${phenotype.energyCapacity}</span>
-            </dd>
-          </div>
+          ${
+            isRemoved
+              ? null
+              : html`
+                  <div class="state-row">
+                    <dt>${msg("Energy")}</dt>
+                    <dd>
+                      ${state.currentEnergy}
+                      <span class="limit-value"
+                        >/ ${phenotype.energyCapacity}</span
+                      >
+                    </dd>
+                  </div>
+                `
+          }
         </dl>
       `;
     } else {
@@ -113,14 +154,21 @@ export class SimulationEntityAside extends LitElementWw {
 
       return html`
         <dl>
+          ${this.renderRemovedRow(selection)}
           <div class="state-row">
             <dt>${msg("Position")}</dt>
             <dd>${position.x}, ${position.y}</dd>
           </div>
-          <div class="state-row">
-            <dt>${msg("Recovery")}</dt>
-            <dd>${ticksTillRecovery} ${msg("ticks")}</dd>
-          </div>
+          ${
+            isRemoved
+              ? null
+              : html`
+                  <div class="state-row">
+                    <dt>${msg("Recovery")}</dt>
+                    <dd>${ticksTillRecovery} ${msg("ticks")}</dd>
+                  </div>
+                `
+          }
         </dl>
       `;
     }
@@ -151,7 +199,12 @@ export class SimulationEntityAside extends LitElementWw {
     return html`
       <aside aria-label=${msg("Selected entity metadata")}>
         <h2 class="entity-title">${entityLabel} ${this.selection.entityId}</h2>
-        <div class="entity-image-frame">
+        <div
+          class=${classMap({
+            "entity-image-frame": true,
+            removed: this.selection.removedAtTick !== null,
+          })}
+        >
           ${this.renderEntityImage(this.selection)}
         </div>
         <h3 class="section-title">${msg("State")}</h3>
