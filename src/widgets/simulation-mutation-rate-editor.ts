@@ -28,12 +28,9 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
 
   static styles = css`
     #mutation-rate-editor {
-      display: grid;
-      grid-template-columns: auto 7rem minmax(10rem, 18rem);
-      gap: 0.75rem;
+      display: flex;
+      gap: var(--sl-spacing-x-small);
       align-items: center;
-      justify-content: center;
-      width: 100%;
     }
 
     label {
@@ -42,9 +39,12 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
       white-space: nowrap;
     }
 
-    sl-input,
+    sl-input {
+      width: 5.5rem;
+    }
+
     sl-range {
-      width: 100%;
+      width: 10rem;
     }
   `;
 
@@ -61,6 +61,7 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
         <label for="mutation-rate-input">${msg("Mutation Rate")}</label>
         <sl-input
           id="mutation-rate-input"
+          size="small"
           aria-label=${msg("Mutation Rate")}
           type="number"
           min="0"

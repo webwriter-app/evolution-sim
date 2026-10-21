@@ -40,8 +40,22 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
   };
 
   static styles = css`
-    simulation-controls-bar {
+    simulation-controls-bar,
+    .tool-bar {
       border-bottom: solid 1px var(--sl-color-neutral-300);
+    }
+
+    .tool-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sl-spacing-x-small);
+      padding: var(--sl-spacing-x-small);
+    }
+
+    .tool-bar[hidden] {
+      display: none;
     }
 
     .content {
@@ -54,15 +68,7 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
       display: none;
     }
 
-    #bottom-bar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
     simulation-entity-view,
-    simulation-mutation-rate-editor,
     simulation-analysis-view {
       width: 100%;
     }
@@ -87,19 +93,20 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
         }}
       ></simulation-controls-bar>
 
+      <div class="tool-bar" ?hidden=${mode !== "simulation"}>
+        <simulation-manual-tools
+          .widgetId=${this.widgetId}
+        ></simulation-manual-tools>
+        <simulation-mutation-rate-editor
+          .locked=${this.getMutationRateLocked()}
+        ></simulation-mutation-rate-editor>
+      </div>
+
       <div class="content" ?hidden=${mode !== "simulation"}>
         <simulation-state-render
           .widgetId=${this.widgetId}
         ></simulation-state-render>
-        <div id="bottom-bar">
-          <simulation-mutation-rate-editor
-            .locked=${this.getMutationRateLocked()}
-          ></simulation-mutation-rate-editor>
-          <simulation-manual-tools
-            .widgetId=${this.widgetId}
-          ></simulation-manual-tools>
-          <simulation-entity-view></simulation-entity-view>
-        </div>
+        <simulation-entity-view></simulation-entity-view>
       </div>
 
       ${when(

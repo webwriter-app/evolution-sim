@@ -41,10 +41,15 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
       cursor: grab;
     }
 
-    .tool-content {
-      display: inline-flex;
+    sl-button::part(label) {
+      display: flex;
       align-items: center;
-      gap: 0.35rem;
+    }
+
+    sl-icon {
+      display: inline-block;
+      height: 1.5em;
+      width: 1.5em;
     }
 
     .tool-sprite {
@@ -124,10 +129,8 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
         }}
         @dragend=${() => this.endDrag()}
       >
-        <span class="tool-content">
-          <img class="tool-sprite" src=${spriteSource} alt="" />
-          <span>${label}</span>
-        </span>
+        <img class="tool-sprite" slot="prefix" src=${spriteSource} alt="" />
+        ${label}
       </sl-button>
     `;
   }
@@ -143,10 +146,8 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
         variant=${isActive ? "danger" : "default"}
         @click=${() => this.toggleRemoveMode()}
       >
-        <span class="tool-content">
-          <sl-icon src=${IconEraser}></sl-icon>
-          <span>${msg("Remove")}</span>
-        </span>
+        <sl-icon src=${IconEraser} slot="prefix"></sl-icon>
+        ${msg("Remove")}
       </sl-button>
     `;
   }
