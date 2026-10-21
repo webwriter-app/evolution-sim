@@ -185,6 +185,30 @@ class TileHoverRenderer {
   }
 }
 
+class SelectionRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .fill({ color: 0x0284c7, alpha: 0.2 })
+      .stroke({ color: 0x0284c7, width: 1.5, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER - 1;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
 function useSimulationRenderer() {
   const rootContainer = new Container({
     sortableChildren: true,
@@ -200,9 +224,26 @@ function useSimulationRenderer() {
   );
 
   const tileHoverRenderer = new TileHoverRenderer();
+  const selectionRenderer = new SelectionRenderer();
+  let currentSnapshot: SimulationSnapshot | null = null;
+  let selectedEntityId: string | null = null;
 
   rootContainer.addChild(backgroundRenderer.root);
   rootContainer.addChild(tileHoverRenderer.root);
+  rootContainer.addChild(selectionRenderer.root);
+
+  function updateSelection() {
+    const agent = currentSnapshot?.agents.find(
+      (agent) => agent.id === selectedEntityId,
+    );
+    const foodSource = currentSnapshot?.foodSources.find(
+      (foodSource) => foodSource.id === selectedEntityId,
+    );
+
+    selectionRenderer.update(
+      agent?.state.position ?? foodSource?.position ?? null,
+    );
+  }
 
   function update(
     metadata: SimulationMetadata,
@@ -212,6 +253,9 @@ function useSimulationRenderer() {
 
     agentRendererCache.update(snapshot?.agents ?? []);
     foodSourceRendererCache.update(snapshot?.foodSources ?? []);
+
+    currentSnapshot = snapshot;
+    updateSelection();
   }
 
   return {
@@ -219,6 +263,10 @@ function useSimulationRenderer() {
     update,
     setHoveredTile: (tilePosition: Vec2 | null) =>
       tileHoverRenderer.update(tilePosition),
+    setSelectedEntity: (entityId: string | null) => {
+      selectedEntityId = entityId;
+      updateSelection();
+    },
   };
 }
 
@@ -236,6 +284,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   app: Application | null = null;
   renderer = useSimulationRenderer();
   unwatch: (() => void) | null = null;
+  private unwatchSelection: (() => void) | null = null;
   private resizeObserver: ResizeObserver | null = null;
   private unwatchPixelRatio: (() => void) | null = null;
   private currentWorldSize: Vec2 | null = null;
@@ -493,6 +542,11 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   async firstUpdated() {
     await this.setupCanvas();
 
+    this.unwatchSelection = effect(() => {
+      const selection = this.simulationStore.currentSelection.get();
+      this.renderer.setSelectedEntity(selection?.entityId ?? null);
+    });
+
     this.unwatch = effect(() => {
       const data = this.simulationStore.currentActiveSimulationData.get();
 
@@ -519,6 +573,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
     this.unwatchPixelRatio?.();
     this.app?.destroy();
     this.unwatch?.();
+    this.unwatchSelection?.();
     window.removeEventListener("keydown", this.handleKeyDown);
   }
 }
