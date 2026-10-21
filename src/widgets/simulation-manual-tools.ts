@@ -58,16 +58,6 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
       object-fit: contain;
       image-rendering: pixelated;
     }
-
-    .remove-tool::part(base) {
-      color: var(--sl-color-danger-700);
-      border-color: var(--sl-color-danger-500);
-    }
-
-    .remove-tool[variant="default"]::part(base) {
-      color: var(--sl-color-danger-700);
-      border-color: var(--sl-color-danger-500);
-    }
   `;
 
   private startDrag(
@@ -141,7 +131,6 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
 
     return html`
       <sl-button
-        class="remove-tool"
         size="small"
         variant=${isActive ? "danger" : "default"}
         @click=${() => this.toggleRemoveMode()}

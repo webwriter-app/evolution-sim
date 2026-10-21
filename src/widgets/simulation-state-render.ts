@@ -4,7 +4,13 @@ import { LitElementWw } from "@webwriter/lit";
 import { customElement, property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { styleMap } from "lit/directives/style-map.js";
-import { Application, Container, Sprite, TilingSprite } from "pixi.js";
+import {
+  Application,
+  Container,
+  Graphics,
+  Sprite,
+  TilingSprite,
+} from "pixi.js";
 import {
   AgentSnapshot,
   EntitySnapshot,
@@ -155,6 +161,30 @@ class EntitySnapshotRendererCache<TSnapshot extends EntitySnapshot> {
   }
 }
 
+class TileHoverRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .fill({ color: 0xdc2626, alpha: 0.2 })
+      .stroke({ color: 0xdc2626, width: 1.5, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
 function useSimulationRenderer() {
   const rootContainer = new Container({
     sortableChildren: true,
@@ -169,7 +199,10 @@ function useSimulationRenderer() {
     () => new FoodSourceRenderer(),
   );
 
+  const tileHoverRenderer = new TileHoverRenderer();
+
   rootContainer.addChild(backgroundRenderer.root);
+  rootContainer.addChild(tileHoverRenderer.root);
 
   function update(
     metadata: SimulationMetadata,
@@ -184,6 +217,8 @@ function useSimulationRenderer() {
   return {
     root: rootContainer,
     update,
+    setHoveredTile: (tilePosition: Vec2 | null) =>
+      tileHoverRenderer.update(tilePosition),
   };
 }
 
@@ -308,6 +343,18 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
     }
   }
 
+  private isDeleteMode() {
+    return this.simulationStore.activeManualTool.get() === "remove-entity";
+  }
+
+  private handlePointerMove(event: PointerEvent) {
+    this.renderer.setHoveredTile(
+      this.isDeleteMode()
+        ? this.getTilePositionFromClientPoint(event.clientX, event.clientY)
+        : null,
+    );
+  }
+
   private fitSimulationToCanvas() {
     if (!hasValue(this.app) || !hasValue(this.currentWorldSize)) {
       return;
@@ -401,15 +448,12 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
 
     #simulation-container.delete-mode {
       cursor: crosshair;
-      outline: 2px solid var(--sl-color-danger-500);
-      outline-offset: 2px;
     }
   `;
 
   /** Define your template here and return it. */
   render() {
-    const isDeleteMode =
-      this.simulationStore.activeManualTool.get() === "remove-entity";
+    const isDeleteMode = this.isDeleteMode();
     const worldSize =
       this.simulationStore.currentActiveSimulationData.get()?.metadata
         .worldSize;
@@ -428,8 +472,16 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
         @dragover=${this.handleDragOver}
         @drop=${this.handleDrop}
         @click=${this.handleClick}
+        @pointermove=${this.handlePointerMove}
+        @pointerleave=${() => this.renderer.setHoveredTile(null)}
       ></div>
     `;
+  }
+
+  updated() {
+    if (!this.isDeleteMode()) {
+      this.renderer.setHoveredTile(null);
+    }
   }
 
   connectedCallback() {
