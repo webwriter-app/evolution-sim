@@ -64,6 +64,10 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
       gap: 1rem;
     }
 
+    .simulation-content {
+      gap: 0;
+    }
+
     .content[hidden] {
       display: none;
     }
@@ -102,7 +106,7 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
         ></simulation-mutation-rate-editor>
       </div>
 
-      <div class="content" ?hidden=${mode !== "simulation"}>
+      <div class="content simulation-content" ?hidden=${mode !== "simulation"}>
         <simulation-state-render
           .widgetId=${this.widgetId}
         ></simulation-state-render>

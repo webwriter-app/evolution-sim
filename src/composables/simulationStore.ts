@@ -130,6 +130,10 @@ export function createSimulationStore() {
     currentSelection.set(selection);
   }
 
+  function clearSelection() {
+    currentSelection.set(null);
+  }
+
   function refreshCurrentSelection(snapshot: SimulationSnapshot) {
     const selection = currentSelection.get();
 
@@ -362,6 +366,7 @@ export function createSimulationStore() {
     setMutationRate,
     selectEntity,
     selectEntityAt,
+    clearSelection,
     getImmediateAgentAncestry,
     currentSelection,
     simulationHistory,
