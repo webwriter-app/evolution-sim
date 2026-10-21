@@ -1,9 +1,14 @@
-# Evolution Sim (`@webwriter/evolution-sim@0.0.0`)
-[License: MIT](LICENSE) | Version: 0.0.0
+# Evolution Sim (`@webwriter/evolution-sim@1.0.0`)
+[License: MIT](LICENSE) | Version: 1.0.0
 
 Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.
 
+## Snippets
+[Snippets](https://webwriter.app/docs/snippets/snippets/) are examples and templates using the package's widgets.
 
+| Name | Import Path |
+| :--: | :---------: |
+| Island Evolution | `@webwriter/evolution-sim/snippets/island-evolution.html` |
 
 
 
@@ -49,7 +54,7 @@ npm install @webwriter/evolution-sim
 ## Fields
 | Name (Attribute Name) | Type | Description | Default | Reflects |
 | :-------------------: | :--: | :---------: | :-----: | :------: |
-| `simulationConfiguration` (`simulationConfiguration`) | `SimulationConfiguration` | Configuration of the simulation, serialized as JSON in the attribute.<br><br>- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.<br>- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`). | `DEFAULT_SIMULATION_CONFIGURATION` | ✗ |
+| `simulationConfiguration` (`simulationConfiguration`) | `SimulationConfiguration` | Configuration of the simulation, serialized as JSON in the attribute.<br><br>- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.<br>- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`). | `DEFAULT_SIMULATION_CONFIGURATION` | ✓ |
 
 *Fields including [properties](https://developer.mozilla.org/en-US/docs/Glossary/Property/JavaScript) and [attributes](https://developer.mozilla.org/en-US/docs/Glossary/Attribute) define the current state of the widget and offer customization options.*
 

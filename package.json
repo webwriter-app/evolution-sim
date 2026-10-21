@@ -1,6 +1,6 @@
 {
   "name": "@webwriter/evolution-sim",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
   "keywords": [
     "webwriter-widget",

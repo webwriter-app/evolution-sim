@@ -19,12 +19,6 @@
             },
             {
               "kind": "field",
-              "name": "simulationStore",
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
               "name": "lastInitializedInitOptions",
               "type": {
                 "text": "SimulationInitOptions | null"
@@ -65,7 +59,13 @@
             {
               "kind": "method",
               "name": "initializeSimulationFromConfiguration",
-              "privacy": "private"
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "{ force = false }",
+                  "default": "{}"
+                }
+              ]
             }
           ],
           "events": [
