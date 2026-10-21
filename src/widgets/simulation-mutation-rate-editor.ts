@@ -1,15 +1,22 @@
+import { consume } from "@lit/context";
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { SlInput, SlRange } from "@shoelace-style/shoelace";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { createInputHandler } from "@/utils/handleInput";
+import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-mutation-rate-editor")
+@localized()
 export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
-  simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   @property({ type: Boolean })
   accessor locked = false;
@@ -21,12 +28,9 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
 
   static styles = css`
     #mutation-rate-editor {
-      display: grid;
-      grid-template-columns: auto 7rem minmax(10rem, 18rem);
-      gap: 0.75rem;
+      display: flex;
+      gap: var(--sl-spacing-x-small);
       align-items: center;
-      justify-content: center;
-      width: 100%;
     }
 
     label {
@@ -35,9 +39,12 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
       white-space: nowrap;
     }
 
-    sl-input,
+    sl-input {
+      width: 5.5rem;
+    }
+
     sl-range {
-      width: 100%;
+      width: 10rem;
     }
   `;
 
@@ -51,10 +58,11 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
 
     return html`
       <div id="mutation-rate-editor">
-        <label for="mutation-rate-input">Mutation Rate</label>
+        <label for="mutation-rate-input">${msg("Mutation Rate")}</label>
         <sl-input
           id="mutation-rate-input"
-          aria-label="Mutation Rate"
+          size="small"
+          aria-label=${msg("Mutation Rate")}
           type="number"
           min="0"
           max="1"
@@ -66,7 +74,7 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
           )}
         ></sl-input>
         <sl-range
-          aria-label="Mutation Rate"
+          aria-label=${msg("Mutation Rate")}
           min="0"
           max="1"
           step="0.01"

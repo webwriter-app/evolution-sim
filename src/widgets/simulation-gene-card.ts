@@ -3,10 +3,13 @@ import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { html } from "@lit-labs/signals";
 import { SlCard, SlProgressBar } from "@shoelace-style/shoelace";
+import { localized, msg } from "@lit/localize";
 import { Genome } from "@/simulation/genetics/genome";
 import { getDefinedGene } from "@/simulation/genetics/definitions";
+import { getGeneTexts } from "./utils/geneTexts";
 
 @customElement("simulation-gene-card")
+@localized()
 export class SimulationGeneCard extends LitElementWw {
   @property({ attribute: false })
   accessor entry: Genome[number] | null = null;
@@ -91,6 +94,7 @@ export class SimulationGeneCard extends LitElementWw {
     }
 
     const gene = getDefinedGene(this.entry.geneName);
+    const geneTexts = getGeneTexts(gene.name);
     const alleleProgress = this.getAlleleProgress({
       allele: this.entry.allele,
       min: gene.min,
@@ -100,15 +104,20 @@ export class SimulationGeneCard extends LitElementWw {
     return html`
       <sl-card class="gene-card">
         <div class="gene-header">
-          <h3 class="gene-name">${gene.label}</h3>
+          <h3 class="gene-name">${geneTexts.label}</h3>
         </div>
-        <p class="gene-description">${gene.description}</p>
-        <div class="allele-range" aria-label="Allele within possible range">
+        <p class="gene-description">${geneTexts.description}</p>
+        <div
+          class="allele-range"
+          aria-label=${msg("Allele within possible range")}
+        >
           <sl-progress-bar value=${alleleProgress}></sl-progress-bar>
           <div class="allele-range-labels">
-            <span>Min ${gene.min}</span>
-            <span class="current-allele">Current: ${this.entry.allele}</span>
-            <span class="max-label">Max ${gene.max}</span>
+            <span>${msg("Min")} ${gene.min}</span>
+            <span class="current-allele"
+              >${msg("Current")}: ${this.entry.allele}</span
+            >
+            <span class="max-label">${msg("Max")} ${gene.max}</span>
           </div>
         </div>
       </sl-card>

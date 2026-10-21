@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="hu">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>A sziget evolúciója</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Az evolúció általában több ezer év alatt zajlik le. Ebben a szimulációban néhány perc alatt sok generáció cserélődik, így megfigyelhető, hogyan változik egy populáció az idő múlásával.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>A forgatókönyv</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Egy kis állatpopuláció él egy elszigetelt szigeten. Egyedüli táplálékforrásuk néhány szórványosan elhelyezkedő bogyós bokor. Miután egy bokrot megették, eltart egy ideig, amíg új bogyók nőnek.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Minden mozdulat energiát igényel. Az a lény, amelynek elfogy az energiája, meghal.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Az a lény, amelynek elegendő energiája van, utódot nemz, ami energiájának nagy részét felemészti.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Minden lénynek két génje van:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Látótávolság</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(milyen messzire látja az élelmet) és</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Energiakapacitás</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(mennyi energiát tud tárolni).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Kezdetben minden lénynek ugyanazok az alléljei vannak. Az utódok öröklik szüleik alléljeit, de bizonyos valószínűséggel egy allél enyhén megváltozik (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>mutáció</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Előrejelzés:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Mielőtt elkezdenéd, írd le, hogy szerinted hogyan fog változni a populáció látótávolsága és energiatartaléka az idő múlásával.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>A szimuláció használata</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Az</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Indítás</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Szünet</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>és</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Lépés</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>gombokkal irányíthatod a szimulációt, a sebességgombokkal pedig felgyorsíthatod. Ha rákattintasz egy lényre, a</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Genetika</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>fül megmutatja az alléljait, az</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Ősök</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>fül pedig a szülőjét és az utódait. A sziget alatti diagramok az idő függvényében mutatják a populációt, a rendelkezésre álló élelmet és az egyes allélok arányát. Az</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Új</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>gombbal más beállításokkal indíthatsz szimulációt.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Feladatok</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Futtasd rövid ideig a szimulációt, és hasonlítsd össze az első utódokat a szülőjükkel. Honnan származnak a lények közötti különbségek?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Hagyd egy ideig nagy sebességgel futni a szimulációt, majd nézd meg ezt a diagramot:</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>A gének időbeli eloszlása</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Hogyan változtak a látótávolság és az energiakapacitás alléljei? Hasonlítsd össze az eredményt az előrejelzéseddel.</target></segment></unit>
+</file>
+</xliff>

@@ -1,9 +1,16 @@
+import { consume } from "@lit/context";
 import { html, css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { styleMap } from "lit/directives/style-map.js";
-import { Application, Container, Sprite, TilingSprite } from "pixi.js";
+import {
+  Application,
+  Container,
+  Graphics,
+  Sprite,
+  TilingSprite,
+} from "pixi.js";
 import {
   AgentSnapshot,
   EntitySnapshot,
@@ -16,15 +23,13 @@ import { SimulationMetadata } from "@/simulation/running";
 import { scaleVector, Vec2 } from "@/simulation/position";
 import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
 import { SIMULATION_ENTITY_LAYERS } from "@/simulation/entityPresentation";
-import { useSimulationStore } from "@/composables/simulationStore";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import { SignalWatcher } from "@lit-labs/signals";
 import { effect } from "signal-utils/subtle/microtask-effect";
 import { GenomeRenderer } from "./utils/geneRendering";
-
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
 
 function toTilePosition(vec: Vec2): Vec2 {
   return scaleVector(vec, SIMULATION_TILE_SIZE);
@@ -156,6 +161,54 @@ class EntitySnapshotRendererCache<TSnapshot extends EntitySnapshot> {
   }
 }
 
+class TileHoverRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .fill({ color: 0xdc2626, alpha: 0.2 })
+      .stroke({ color: 0xdc2626, width: 1.5, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
+class SelectionRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .fill({ color: 0x0284c7, alpha: 0.2 })
+      .stroke({ color: 0x0284c7, width: 1.5, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER - 1;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
 function useSimulationRenderer() {
   const rootContainer = new Container({
     sortableChildren: true,
@@ -170,7 +223,27 @@ function useSimulationRenderer() {
     () => new FoodSourceRenderer(),
   );
 
+  const tileHoverRenderer = new TileHoverRenderer();
+  const selectionRenderer = new SelectionRenderer();
+  let currentSnapshot: SimulationSnapshot | null = null;
+  let selectedEntityId: string | null = null;
+
   rootContainer.addChild(backgroundRenderer.root);
+  rootContainer.addChild(tileHoverRenderer.root);
+  rootContainer.addChild(selectionRenderer.root);
+
+  function updateSelection() {
+    const agent = currentSnapshot?.agents.find(
+      (agent) => agent.id === selectedEntityId,
+    );
+    const foodSource = currentSnapshot?.foodSources.find(
+      (foodSource) => foodSource.id === selectedEntityId,
+    );
+
+    selectionRenderer.update(
+      agent?.state.position ?? foodSource?.position ?? null,
+    );
+  }
 
   function update(
     metadata: SimulationMetadata,
@@ -180,21 +253,27 @@ function useSimulationRenderer() {
 
     agentRendererCache.update(snapshot?.agents ?? []);
     foodSourceRendererCache.update(snapshot?.foodSources ?? []);
+
+    currentSnapshot = snapshot;
+    updateSelection();
   }
 
   return {
     root: rootContainer,
     update,
+    setHoveredTile: (tilePosition: Vec2 | null) =>
+      tileHoverRenderer.update(tilePosition),
+    setSelectedEntity: (entityId: string | null) => {
+      selectedEntityId = entityId;
+      updateSelection();
+    },
   };
 }
 
 @customElement("simulation-state-render")
 export class SimulationStateRender extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
-
-  simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   @query("#simulation-container")
   accessor canvasContainer!: HTMLDivElement;
@@ -205,6 +284,9 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   app: Application | null = null;
   renderer = useSimulationRenderer();
   unwatch: (() => void) | null = null;
+  private unwatchSelection: (() => void) | null = null;
+  private resizeObserver: ResizeObserver | null = null;
+  private unwatchPixelRatio: (() => void) | null = null;
   private currentWorldSize: Vec2 | null = null;
 
   private readonly handleKeyDown = (event: KeyboardEvent) => {
@@ -310,6 +392,18 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
     }
   }
 
+  private isDeleteMode() {
+    return this.simulationStore.activeManualTool.get() === "remove-entity";
+  }
+
+  private handlePointerMove(event: PointerEvent) {
+    this.renderer.setHoveredTile(
+      this.isDeleteMode()
+        ? this.getTilePositionFromClientPoint(event.clientX, event.clientY)
+        : null,
+    );
+  }
+
   private fitSimulationToCanvas() {
     if (!hasValue(this.app) || !hasValue(this.currentWorldSize)) {
       return;
@@ -339,11 +433,45 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
 
     const app = new Application();
 
-    await app.init({ resizeTo: this.canvasContainer, background: "#FFFFFF" });
+    await app.init({
+      resizeTo: this.canvasContainer,
+      background: "#FFFFFF",
+      resolution: window.devicePixelRatio || 1,
+      autoDensity: true,
+    });
     this.canvasContainer.appendChild(app.canvas);
 
     this.app = app;
     app.stage.addChild(this.renderer.root);
+
+    this.resizeObserver = new ResizeObserver(() => {
+      this.app?.resize();
+      this.fitSimulationToCanvas();
+    });
+    this.resizeObserver.observe(this.canvasContainer);
+
+    this.watchPixelRatio();
+  }
+
+  private watchPixelRatio() {
+    const query = window.matchMedia(
+      `(resolution: ${window.devicePixelRatio}dppx)`,
+    );
+    const handleChange = () => {
+      query.removeEventListener("change", handleChange);
+
+      if (hasValue(this.app)) {
+        this.app.renderer.resolution = window.devicePixelRatio || 1;
+        this.app.resize();
+        this.fitSimulationToCanvas();
+      }
+
+      this.watchPixelRatio();
+    };
+
+    query.addEventListener("change", handleChange);
+    this.unwatchPixelRatio = () =>
+      query.removeEventListener("change", handleChange);
   }
 
   /** Register the classes of custom elements to use in the Shadow DOM here.
@@ -369,15 +497,12 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
 
     #simulation-container.delete-mode {
       cursor: crosshair;
-      outline: 2px solid var(--sl-color-danger-500);
-      outline-offset: 2px;
     }
   `;
 
   /** Define your template here and return it. */
   render() {
-    const isDeleteMode =
-      this.simulationStore.activeManualTool.get() === "remove-entity";
+    const isDeleteMode = this.isDeleteMode();
     const worldSize =
       this.simulationStore.currentActiveSimulationData.get()?.metadata
         .worldSize;
@@ -396,8 +521,16 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
         @dragover=${this.handleDragOver}
         @drop=${this.handleDrop}
         @click=${this.handleClick}
+        @pointermove=${this.handlePointerMove}
+        @pointerleave=${() => this.renderer.setHoveredTile(null)}
       ></div>
     `;
+  }
+
+  updated() {
+    if (!this.isDeleteMode()) {
+      this.renderer.setHoveredTile(null);
+    }
   }
 
   connectedCallback() {
@@ -408,6 +541,11 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
 
   async firstUpdated() {
     await this.setupCanvas();
+
+    this.unwatchSelection = effect(() => {
+      const selection = this.simulationStore.currentSelection.get();
+      this.renderer.setSelectedEntity(selection?.entityId ?? null);
+    });
 
     this.unwatch = effect(() => {
       const data = this.simulationStore.currentActiveSimulationData.get();
@@ -422,10 +560,7 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
           previousWorldSize.x !== data.metadata.worldSize.x ||
           previousWorldSize.y !== data.metadata.worldSize.y
         ) {
-          this.updateComplete.then(() => {
-            this.app?.resize();
-            this.fitSimulationToCanvas();
-          });
+          this.fitSimulationToCanvas();
         }
       }
     });
@@ -434,8 +569,11 @@ export class SimulationStateRender extends SignalWatcher(LitElementWw) {
   disconnectedCallback() {
     super.disconnectedCallback();
 
+    this.resizeObserver?.disconnect();
+    this.unwatchPixelRatio?.();
     this.app?.destroy();
     this.unwatch?.();
+    this.unwatchSelection?.();
     window.removeEventListener("keydown", this.handleKeyDown);
   }
 }

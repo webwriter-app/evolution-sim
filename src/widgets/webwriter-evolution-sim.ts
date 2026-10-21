@@ -1,10 +1,16 @@
 import { css } from "lit";
+// @ts-expect-error: Shoelace import
+import "@shoelace-style/shoelace/dist/themes/light.css";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { SimulationRunView } from "./simulation-run-view";
 import { SimulationCreationDialog } from "./simulation-creation-dialog";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { useSimulationStore } from "@/composables/simulationStore";
+import { provide } from "@lit/context";
+import {
+  createSimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
 import {
   ConfigurationChangeEvent,
   DEFAULT_SIMULATION_CONFIGURATION,
@@ -14,46 +20,72 @@ import {
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { isEqual } from "lodash-es";
+import { hasValue } from "@/utils/typeGuards";
+import LOCALIZE from "../../localization/generated";
 
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
-
+/**
+ * Agent-based simulation of evolution: agents search for food, reproduce and
+ * pass on mutating genes. The widget renders the simulated world, lets users
+ * inspect individual agents and their ancestry, and charts the population and
+ * gene distribution over time.
+ *
+ * ### Agent behavior
+ *
+ * An agent's behavior is determined by its phenotype. From the phenotype, the
+ * agent's strategy, behaviors and actions are derived. The agent's strategy is
+ * the top level of an agent's behavioral pyramid. It consists of a set of
+ * states and transitions between those states. Each state holds a behavior,
+ * which is executed each tick as long as the agent is in that state. The
+ * transitions are based on the agent's inner and perceived external state. A
+ * behavior is a composition of actions and simple logic, based on the agent's
+ * inner and perceived external state. An action is the most basic unit of
+ * behavior.
+ *
+ * @fires {CustomEvent<SimulationConfiguration>} configuration-change - Fired when the configuration is changed in the options panel or when a new simulation is created. `detail` holds the new configuration.
+ */
 @customElement("webwriter-evolution-sim")
 export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
+  protected localize = LOCALIZE;
 
-  simulationStore = useSimulationStore();
+  /** @internal */
+  @provide({ context: simulationStoreContext })
+  private accessor simulationStore = createSimulationStore();
 
   private lastInitializedInitOptions: SimulationInitOptions | null = null;
 
   @state()
   private accessor isNewSimulationDialogOpen = false;
 
-  /** Register the classes of custom elements to use in the Shadow DOM here.
-   * @example
-   * import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
-   * ...
-   *   static scopedElements = {"sl-button": SlButton}
-   **/
+  /** @internal */
   static readonly scopedElements = {
     "simulation-run-view": SimulationRunView,
     "simulation-pre-configuration-aside": SimulationPreConfigurationAside,
     "simulation-creation-dialog": SimulationCreationDialog,
   };
 
-  /** Put the styles for your Shadow DOM (what is rendered through render()) here. */
   static readonly styles = css`
+    :host {
+      display: block;
+      width: 100%;
+      border: solid 1px var(--sl-color-neutral-300);
+      border-radius: var(--sl-border-radius-medium);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
     #root {
       display: flex;
       flex-direction: column;
     }
   `;
 
-  @property({ attribute: true })
+  /**
+   * Configuration of the simulation, serialized as JSON in the attribute.
+   *
+   * - `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.
+   * - `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).
+   */
+  @property({ type: Object, attribute: true, reflect: true })
   accessor simulationConfiguration: SimulationConfiguration =
     DEFAULT_SIMULATION_CONFIGURATION;
 
@@ -73,10 +105,10 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
     };
   }
 
-  private initializeSimulationFromConfiguration() {
+  private initializeSimulationFromConfiguration({ force = false } = {}) {
     const initOptions = this.getSimulationInitOptions();
 
-    if (isEqual(initOptions, this.lastInitializedInitOptions)) {
+    if (!force && isEqual(initOptions, this.lastInitializedInitOptions)) {
       return;
     }
 
@@ -88,13 +120,31 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
     this.initializeSimulationFromConfiguration();
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (this.hasUpdated && !hasValue(this.lastInitializedInitOptions)) {
+      this.initializeSimulationFromConfiguration();
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    queueMicrotask(() => {
+      if (!this.isConnected) {
+        this.simulationStore.dispose();
+        this.lastInitializedInitOptions = null;
+      }
+    });
+  }
+
   updated(changedProperties: Map<string, unknown>) {
     if (changedProperties.has("simulationConfiguration")) {
       this.initializeSimulationFromConfiguration();
     }
   }
 
-  /** Define your template here and return it. */
   render() {
     return html`
       <div id="root">
@@ -104,19 +154,12 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
           @configuration-change="${(e: ConfigurationChangeEvent) => {
             this.simulationConfiguration = e.detail;
             this.isNewSimulationDialogOpen = false;
+            this.initializeSimulationFromConfiguration({ force: true });
           }}"
           @dialog-close=${() => {
             this.isNewSimulationDialogOpen = false;
           }}
         ></simulation-creation-dialog>
-
-        <simulation-pre-configuration-aside
-          part="options"
-          .configuration=${this.simulationConfiguration}
-          @configuration-change="${(e: ConfigurationChangeEvent) => {
-            this.simulationConfiguration = e.detail;
-          }}"
-        ></simulation-pre-configuration-aside>
 
         <simulation-run-view
           .configuration=${this.simulationConfiguration}
@@ -124,6 +167,18 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
             this.isNewSimulationDialogOpen = true;
           }}
         ></simulation-run-view>
+
+        ${
+          this.isContentEditable
+            ? html`<simulation-pre-configuration-aside
+                part="options"
+                .configuration=${this.simulationConfiguration}
+                @configuration-change="${(e: ConfigurationChangeEvent) => {
+                  this.simulationConfiguration = e.detail;
+                }}"
+              ></simulation-pre-configuration-aside>`
+            : null
+        }
       </div>
     `;
   }

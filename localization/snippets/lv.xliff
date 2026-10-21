@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="lv">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Salu evolūcija</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Evolūcija parasti noris tūkstošiem gadu garumā. Šajā simulācijā daudzas paaudzes nomainās dažu minūšu laikā, tādējādi jūs varat novērot, kā populācija mainās laika gaitā.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Scenārijs</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Neliela dzīvnieku populācija dzīvo uz izolētas salas. To vienīgais barības avots ir daži izkliedēti ogu krūmi. Kad krūms ir apēsts, jaunu ogu augšanai nepieciešams zināms laiks.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Katrs kustības solis patērē enerģiju. Dzīvnieks, kuram izsīkst enerģija, mirst.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Radība ar pietiekamu enerģijas daudzumu dzemdē pēcnācēju, kas patērē lielu daļu tās enerģijas.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Katrai būtnei ir divi gēni:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Redzes diapazons</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(cik tālu tā var saskatīt barību) un</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Enerģijas kapacitāte</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(cik daudz enerģijas tā spēj uzkrāt).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Sākumā visām būtnēm ir vienādi alēles. Pēcnācēji manto vecāku alēles, taču ar noteiktu varbūtību kāda alēle nedaudz mainās (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>mutācija</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Prognoze:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Pirms sākat, uzrakstiet, kā, jūsuprāt, laika gaitā mainīsies populācijas redzes diapazons un enerģijas kapacitāte.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Kā izmantot simulāciju</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Ar pogām</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Sākt</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Pauze</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>un</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Solis</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>varat vadīt simulāciju, bet ar ātruma pogām to paātrināt. Kad noklikšķināt uz būtnes, cilnē</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Ģenētika</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>redzamas tās alēles, bet cilnē</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Izcelsme</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>redzams tās vecāks un pēcnācēji. Diagrammas zem salas laika gaitā rāda populāciju, pieejamo barību un katras alēles īpatsvaru. Ar pogu</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Jauns</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>varat sākt simulāciju ar citiem iestatījumiem.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Uzdevumi</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Palaidiet simulāciju uz īsu laiku un salīdziniet pirmos pēcnācējus ar viņu vecākiem. No kurienes rodas atšķirības starp šīm būtnēm?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Ļaujiet simulācijai kādu laiku darboties lielā ātrumā, pēc tam apskatiet diagrammu</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Gēnu izplatība laika gaitā</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Kā ir mainījušās redzes diapazona un enerģijas kapacitātes alēles? Salīdziniet rezultātu ar savu prognozi.</target></segment></unit>
+</file>
+</xliff>

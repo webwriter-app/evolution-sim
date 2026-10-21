@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="nb">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Øyevolution</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Evolusjon foregår vanligvis over tusenvis av år. I denne simuleringen går mange generasjoner i løpet av få minutter, slik at du kan observere hvordan en populasjon endrer seg over tid.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Scenarioet</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>En liten populasjon av skapninger lever på en isolert øy. Deres eneste matkilde er noen få spredte bærbusker. Når en busk er spist opp, tar det litt tid før nye bær vokser frem.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Hvert trekk koster energi. Et vesen som går tom for energi, dør.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Et dyr med nok energi får et avkom, noe som koster en stor del av energien.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Hvert vesen har to gener:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Synsrekkevidde</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(hvor langt den kan se mat) og</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Energikapasitet</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(hvor mye energi den kan lagre).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>I utgangspunktet har alle skapninger de samme allelene. Avkom arver allelene fra foreldrene sine, men med en viss sannsynlighet endres et allel litt (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>mutasjon</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Forutsigelse:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Før du begynner, skriv ned hvordan du forventer at populasjonens synsrekkevidde og energikapasitet vil endre seg over tid.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Slik bruker du simuleringen</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Bruk</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Start</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Pause</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>og</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Trinn</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>for å styre simuleringen og hastighetsknappene for å kjøre den raskere. Når du klikker på et vesen, viser fanen</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Genetikk</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>allelene dets, og fanen</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Avstamning</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>viser forelderen og avkommet. Diagrammene under øya viser bestanden, tilgjengelig mat og andelen av hvert allel over tid. Med</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Ny</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>kan du starte en simulering med andre innstillinger.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Oppgaver</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Kjør simuleringen en kort stund og sammenlign de første barna med foreldrene deres. Hvor kommer forskjellene mellom skapningene fra?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>La simuleringen kjøre i høy hastighet en stund, og se deretter på diagrammet</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Genfordeling over tid</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Hvordan har allelene for synsrekkevidde og energikapasitet endret seg? Sammenlign resultatet med forutsigelsen din.</target></segment></unit>
+</file>
+</xliff>

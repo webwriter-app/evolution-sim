@@ -1,10 +1,14 @@
 import { css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
+import { when } from "lit/directives/when.js";
 import { SimulationStateRender } from "./simulation-state-render";
-import { SimulationControlsBar } from "./simulation-controls-bar";
+import {
+  ModeChangeEvent,
+  SimulationControlsBar,
+  SimulationViewMode,
+} from "./simulation-controls-bar";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { useSimulationStore } from "@/composables/simulationStore";
 import { SimulationManualTools } from "./simulation-manual-tools";
 import { SimulationMutationRateEditor } from "./simulation-mutation-rate-editor";
 import { SimulationEntityView } from "./simulation-entity-view";
@@ -13,30 +17,19 @@ import {
   SimulationAnalysisView,
 } from "./simulation-analysis-view";
 import { SimulationConfiguration } from "./simulation-pre-configuration-aside";
-import { SlTab, SlTabGroup, SlTabPanel } from "@shoelace-style/shoelace";
-
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
+import { localized } from "@lit/localize";
 
 @customElement("simulation-run-view")
+@localized()
 export class SimulationRunView extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
   @property({ attribute: false })
   accessor configuration: Partial<SimulationConfiguration> | null = null;
 
-  simulationStore = useSimulationStore();
+  @state()
+  private accessor mode: SimulationViewMode = "simulation";
+
   private readonly widgetId = crypto.randomUUID();
 
-  /** Register the classes of custom elements to use in the Shadow DOM here.
-   * @example
-   * import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
-   * ...
-   *   static scopedElements = {"sl-button": SlButton}
-   **/
   static scopedElements = {
     "simulation-state-render": SimulationStateRender,
     "simulation-controls-bar": SimulationControlsBar,
@@ -44,37 +37,42 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
     "simulation-mutation-rate-editor": SimulationMutationRateEditor,
     "simulation-entity-view": SimulationEntityView,
     "simulation-analysis-view": SimulationAnalysisView,
-    "sl-tab": SlTab,
-    "sl-tab-group": SlTabGroup,
-    "sl-tab-panel": SlTabPanel,
   };
 
-  /** Put the styles for your Shadow DOM (what is rendered through render()) here. */
   static styles = css`
-    #root {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    simulation-controls-bar,
+    .tool-bar {
+      border-bottom: solid 1px var(--sl-color-neutral-300);
     }
 
-    .simulation-tab-content,
-    .graphs-tab-content {
+    .tool-bar {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-    }
-
-    #bottom-bar {
-      display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
+      gap: var(--sl-spacing-x-small);
+      padding: var(--sl-spacing-x-small);
+    }
+
+    .tool-bar[hidden] {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
+    }
+
+    .simulation-content {
+      gap: 0;
+    }
+
+    .content[hidden] {
+      display: none;
     }
 
     simulation-entity-view,
-    simulation-controls-bar,
-    simulation-mutation-rate-editor,
     simulation-analysis-view {
       width: 100%;
     }
@@ -84,61 +82,47 @@ export class SimulationRunView extends SignalWatcher(LitElementWw) {
     return this.configuration?.initOptions?.mutationRate?.locked ?? false;
   }
 
-  private renderSimulationTabContent() {
-    return html`
-      <div class="simulation-tab-content">
-        <simulation-controls-bar></simulation-controls-bar>
-        <simulation-state-render
-          .widgetId=${this.widgetId}
-        ></simulation-state-render>
-        <div id="bottom-bar">
-          <simulation-mutation-rate-editor
-            .locked=${this.getMutationRateLocked()}
-          ></simulation-mutation-rate-editor>
-          <simulation-manual-tools
-            .widgetId=${this.widgetId}
-          ></simulation-manual-tools>
-          <simulation-entity-view></simulation-entity-view>
-        </div>
-      </div>
-    `;
-  }
-
-  private renderGraphsTabContent() {
-    return html`
-      <div class="graphs-tab-content">
-        <simulation-controls-bar></simulation-controls-bar>
-        <simulation-analysis-view
-          .configuration=${this.configuration?.graphs ?? DEFAULT_GRAPH_OPTIONS}
-        ></simulation-analysis-view>
-      </div>
-    `;
-  }
-
-  /** Define your template here and return it. */
   render() {
     const graphConfiguration =
       this.configuration?.graphs ?? DEFAULT_GRAPH_OPTIONS;
+    const graphsEnabled = graphConfiguration.enabled;
+    const mode = graphsEnabled ? this.mode : "simulation";
 
-    if (graphConfiguration.enabled) {
-      return html`
-        <div>
-          <sl-tab-group>
-            <sl-tab slot="nav" panel="simulation">Simulation</sl-tab>
-            <sl-tab slot="nav" panel="graphs">Graphs</sl-tab>
+    return html`
+      <simulation-controls-bar
+        .mode=${mode}
+        ?showModeSelect=${graphsEnabled}
+        @mode-change=${(e: ModeChangeEvent) => {
+          this.mode = e.detail;
+        }}
+      ></simulation-controls-bar>
 
-            <sl-tab-panel name="simulation">
-              ${this.renderSimulationTabContent()}
-            </sl-tab-panel>
+      <div class="tool-bar" ?hidden=${mode !== "simulation"}>
+        <simulation-manual-tools
+          .widgetId=${this.widgetId}
+        ></simulation-manual-tools>
+        <simulation-mutation-rate-editor
+          .locked=${this.getMutationRateLocked()}
+        ></simulation-mutation-rate-editor>
+      </div>
 
-            <sl-tab-panel name="graphs">
-              ${this.renderGraphsTabContent()}
-            </sl-tab-panel>
-          </sl-tab-group>
-        </div>
-      `;
-    } else {
-      return html` <div id="root">${this.renderSimulationTabContent()}</div> `;
-    }
+      <div class="content simulation-content" ?hidden=${mode !== "simulation"}>
+        <simulation-state-render
+          .widgetId=${this.widgetId}
+        ></simulation-state-render>
+        <simulation-entity-view></simulation-entity-view>
+      </div>
+
+      ${when(
+        graphsEnabled,
+        () => html`
+          <div class="content" ?hidden=${mode !== "graphs"}>
+            <simulation-analysis-view
+              .configuration=${graphConfiguration}
+            ></simulation-analysis-view>
+          </div>
+        `,
+      )}
+    `;
   }
 }

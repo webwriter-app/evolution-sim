@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/widgets/webwriter-evolution-sim.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Agent-based simulation of evolution: agents search for food, reproduce and\npass on mutating genes. The widget renders the simulated world, lets users\ninspect individual agents and their ancestry, and charts the population and\ngene distribution over time.\n\n### Agent behavior\n\nAn agent's behavior is determined by its phenotype. From the phenotype, the\nagent's strategy, behaviors and actions are derived. The agent's strategy is\nthe top level of an agent's behavioral pyramid. It consists of a set of\nstates and transitions between those states. Each state holds a behavior,\nwhich is executed each tick as long as the agent is in that state. The\ntransitions are based on the agent's inner and perceived external state. A\nbehavior is a composition of actions and simple logic, based on the agent's\ninner and perceived external state. An action is the most basic unit of\nbehavior.",
+          "name": "WebwriterEvolutionSim",
+          "members": [
+            {
+              "kind": "field",
+              "name": "localize",
+              "privacy": "protected",
+              "default": "LOCALIZE"
+            },
+            {
+              "kind": "field",
+              "name": "lastInitializedInitOptions",
+              "type": {
+                "text": "SimulationInitOptions | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "isNewSimulationDialogOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "simulationConfiguration",
+              "type": {
+                "text": "SimulationConfiguration"
+              },
+              "default": "DEFAULT_SIMULATION_CONFIGURATION",
+              "description": "Configuration of the simulation, serialized as JSON in the attribute.\n\n- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.\n- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).",
+              "attribute": "simulationConfiguration",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "getSimulationInitOptions",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "SimulationInitOptions"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "initializeSimulationFromConfiguration",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "{ force = false }",
+                  "default": "{}"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "CustomEvent<SimulationConfiguration>"
+              },
+              "description": "Fired when the configuration is changed in the options panel or when a new simulation is created. `detail` holds the new configuration.",
+              "name": "configuration-change"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "simulationConfiguration",
+              "type": {
+                "text": "SimulationConfiguration"
+              },
+              "default": "DEFAULT_SIMULATION_CONFIGURATION",
+              "description": "Configuration of the simulation, serialized as JSON in the attribute.\n\n- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.\n- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).",
+              "fieldName": "simulationConfiguration"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "SignalWatcher",
+              "package": "@lit-labs/signals"
+            }
+          ],
+          "superclass": {
+            "name": "LitElementWw",
+            "package": "@webwriter/lit"
+          },
+          "tagName": "webwriter-evolution-sim",
+          "customElement": true,
+          "modulePath": "src/widgets/webwriter-evolution-sim.ts",
+          "definitionPath": "src/widgets/webwriter-evolution-sim.ts"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WebwriterEvolutionSim",
+          "declaration": {
+            "name": "WebwriterEvolutionSim",
+            "module": "src/widgets/webwriter-evolution-sim.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "webwriter-evolution-sim",
+          "declaration": {
+            "name": "WebwriterEvolutionSim",
+            "module": "src/widgets/webwriter-evolution-sim.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -21,6 +21,7 @@ export interface AgentSelection {
   entityId: string;
   history: AgentHistoryEntry[];
   latestSnapshot: AgentSnapshot;
+  removedAtTick: number | null;
 }
 
 export interface FoodSourceSelection {
@@ -28,10 +29,18 @@ export interface FoodSourceSelection {
   entityId: string;
   history: FoodSourceHistoryEntry[];
   latestSnapshot: FoodSourceSnapshot;
+  removedAtTick: number | null;
 }
 
 export type EntitySelection = AgentSelection | FoodSourceSelection;
 export type EntityType = "agent" | "foodSource";
+
+function getRemovedAtTick(
+  lastSeenTick: number,
+  history: readonly SimulationSnapshot[],
+): number | null {
+  return history.find((snapshot) => snapshot.tick > lastSeenTick)?.tick ?? null;
+}
 
 export function extractAgentSelectionFromHistory(
   agentId: string,
@@ -55,6 +64,7 @@ export function extractAgentSelectionFromHistory(
     entityId: agentId,
     history: entityHistory,
     latestSnapshot: latestEntry.snapshot,
+    removedAtTick: getRemovedAtTick(latestEntry.tick, history),
   };
 }
 
@@ -85,5 +95,6 @@ export function extractFoodSourceSelectionFromHistory(
     entityId: foodSourceId,
     history: entityHistory,
     latestSnapshot: latestEntry.snapshot,
+    removedAtTick: getRemovedAtTick(latestEntry.tick, history),
   };
 }

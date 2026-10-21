@@ -1,7 +1,8 @@
 import { css } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
+import type { PropertyValues } from "lit";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import {
   DEFAULT_SIMULATION_CONFIGURATION,
@@ -10,19 +11,17 @@ import {
 import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { cloneDeep, set } from "lodash-es";
 import { SlButton, SlDialog, SlIcon, SlInput } from "@shoelace-style/shoelace";
+import IconPlus from "bootstrap-icons/icons/plus.svg";
 import { createInputHandler } from "@/utils/handleInput";
-
-/* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-import LOCALIZE from '../localization/generated'
-import {msg} from '@lit/localize'
-*/
+import { localized, msg } from "@lit/localize";
+import {
+  getInitOptionBounds,
+  getInvalidInitOptionFields,
+} from "./utils/configurationValidation";
 
 @customElement("simulation-creation-dialog")
+@localized()
 export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
-  /* Optional LOCALIZATION: Uncomment this after first running `npm run localize` in the command line.
-  localize = LOCALIZE
-  */
-
   /** Register the classes of custom elements to use in the Shadow DOM here.
    * @example
    * import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
@@ -59,6 +58,13 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
       gap: 0.5rem;
     }
 
+    sl-input.invalid {
+      --sl-input-border-color: var(--sl-color-danger-600);
+      --sl-input-border-color-hover: var(--sl-color-danger-600);
+      --sl-input-border-color-focus: var(--sl-color-danger-600);
+      --sl-input-focus-ring-color: var(--sl-color-danger-300);
+    }
+
     .footer {
       display: flex;
       justify-content: flex-end;
@@ -72,6 +78,19 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
 
   @property({ attribute: false })
   accessor open = false;
+
+  @state()
+  private accessor draftConfiguration!: SimulationConfiguration;
+
+  protected willUpdate(changedProperties: PropertyValues<this>) {
+    const isOpening = changedProperties.has("open") && this.open;
+    const configurationChangedWhileClosed =
+      changedProperties.has("simulationConfiguration") && !this.open;
+
+    if (isOpening || configurationChangedWhileClosed) {
+      this.draftConfiguration = cloneDeep(this.simulationConfiguration);
+    }
+  }
 
   private emitCreateNewSimulation(configuration: SimulationConfiguration) {
     console.log(
@@ -89,8 +108,8 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
   }
 
   updateConfiguration(target: string, value: unknown) {
-    this.simulationConfiguration = set(
-      cloneDeep(this.simulationConfiguration),
+    this.draftConfiguration = set(
+      cloneDeep(this.draftConfiguration),
       target,
       value,
     );
@@ -101,17 +120,24 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
     option: Exclude<keyof SimulationInitOptions, "worldSize">,
   ) {
     const configurationValue =
-      this.simulationConfiguration.initOptions[option] ??
+      this.draftConfiguration.initOptions[option] ??
       DEFAULT_SIMULATION_CONFIGURATION.initOptions[option];
-    const isMutationRateOption = option === "mutationRate";
+    const bounds =
+      option === "seed"
+        ? undefined
+        : getInitOptionBounds(this.draftConfiguration.initOptions)[option];
+    const isInvalid = getInvalidInitOptionFields(
+      this.draftConfiguration.initOptions,
+    ).has(option);
 
     return html`
       <sl-input
+        class=${isInvalid ? "invalid" : ""}
         type=${option === "seed" ? "text" : "number"}
         label=${label}
-        min=${ifDefined(isMutationRateOption ? "0" : undefined)}
-        max=${ifDefined(isMutationRateOption ? "1" : undefined)}
-        step=${ifDefined(isMutationRateOption ? "0.01" : undefined)}
+        min=${ifDefined(bounds?.min)}
+        max=${ifDefined(bounds?.max)}
+        step=${ifDefined(bounds?.step)}
         .value=${String(configurationValue.value)}
         ?disabled=${configurationValue.locked}
         @input=${createInputHandler((value) =>
@@ -125,16 +151,22 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
   }
 
   renderWorldSizeConfigurator() {
-    const configurationValue =
-      this.simulationConfiguration.initOptions.worldSize;
+    const configurationValue = this.draftConfiguration.initOptions.worldSize;
+    const invalidFields = getInvalidInitOptionFields(
+      this.draftConfiguration.initOptions,
+    );
+    const bounds = getInitOptionBounds(this.draftConfiguration.initOptions);
 
     return html`
       <div class="full-width">
-        <label>World Size</label>
+        <label>${msg("World Size")}</label>
         <div class="world-size-inputs">
           <sl-input
+            class=${invalidFields.has("worldSize.x") ? "invalid" : ""}
             type="number"
-            label="W"
+            min=${bounds["worldSize.x"].min}
+            step=${bounds["worldSize.x"].step}
+            label=${msg("W", { desc: "Short label for width" })}
             .value=${String(configurationValue.value.x)}
             ?disabled=${configurationValue.locked}
             @input=${createInputHandler((value) =>
@@ -145,8 +177,11 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
             )}
           ></sl-input>
           <sl-input
+            class=${invalidFields.has("worldSize.y") ? "invalid" : ""}
             type="number"
-            label="H"
+            min=${bounds["worldSize.y"].min}
+            step=${bounds["worldSize.y"].step}
+            label=${msg("H", { desc: "Short label for height" })}
             .value=${String(configurationValue.value.y)}
             ?disabled=${configurationValue.locked}
             @input=${createInputHandler((value) =>
@@ -165,7 +200,7 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
   render() {
     return html`
       <sl-dialog
-        label="Create Simulation"
+        label=${msg("Create Simulation")}
         .open=${this.open}
         @sl-hide=${() => {
           this.open = false;
@@ -176,32 +211,38 @@ export class SimulationCreationDialog extends SignalWatcher(LitElementWw) {
       >
         <div class="dialog-content">
           <p class="intro">
-            Create a new simulation with the following configuration:
+            ${msg("Create a new simulation with the following configuration:")}
           </p>
 
-          ${this.renderOptionConfigurator("Seed", "seed")}
+          ${this.renderOptionConfigurator(msg("Seed"), "seed")}
           ${this.renderWorldSizeConfigurator()}
           ${this.renderOptionConfigurator(
-            "Initial Food Sources",
+            msg("Initial Food Sources"),
             "initialFoodSourcesAmount",
           )}
           ${this.renderOptionConfigurator(
-            "Initial Agents",
+            msg("Initial Agents"),
             "initialAgentsAmount",
           )}
-          ${this.renderOptionConfigurator("Mutation Rate", "mutationRate")}
+          ${this.renderOptionConfigurator(msg("Mutation Rate"), "mutationRate")}
         </div>
         <div slot="footer" class="footer">
-          <sl-button @click=${() => (this.open = false)}>Cancel</sl-button>
+          <sl-button @click=${() => (this.open = false)}
+            >${msg("Cancel")}</sl-button
+          >
           <sl-button
             variant="primary"
+            ?disabled=${
+              getInvalidInitOptionFields(this.draftConfiguration.initOptions)
+                .size > 0
+            }
             @click=${() => {
               this.open = false;
-              this.emitCreateNewSimulation(this.simulationConfiguration);
+              this.emitCreateNewSimulation(this.draftConfiguration);
             }}
           >
-            <sl-icon name="plus" slot="prefix"></sl-icon>
-            Create
+            <sl-icon src=${IconPlus} slot="prefix"></sl-icon>
+            ${msg("Create")}
           </sl-button>
         </div>
       </sl-dialog>

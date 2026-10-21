@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="zh-hant">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>透過模擬個體尋找食物、繁殖並傳遞會突變的基因，來模擬演化過程。檢視個別個體，並透過圖表分析族群與基因的分布狀況。</target></segment></unit>
+</file>
+</xliff>

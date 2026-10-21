@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="zh-hans">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>利用寻找食物、繁殖并传递突变基因的智能体来模拟进化过程。检查单个智能体，并通过图表分析种群和基因的分布情况。</target></segment></unit>
+</file>
+</xliff>

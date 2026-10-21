@@ -1,0 +1,304 @@
+<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="lit-localize-inputs" datatype="plaintext" source-language="en" target-language="pl">
+    <body>
+      <trans-unit id="sd75d6fb3ddf8bb38">
+        <source>No ancestry data available.</source>
+        <target>Brak dostępnych danych dotyczących pochodzenia.</target>
+      </trans-unit>
+      <trans-unit id="s9d7490af50ad3f3f">
+        <source>Agent genome preview</source>
+        <target>Podgląd genomu agenta</target>
+      </trans-unit>
+      <trans-unit id="s490384fb302b3764">
+        <source>Tick</source>
+        <target>Takt</target>
+      </trans-unit>
+      <trans-unit id="sefc8e08d71b8530f">
+        <source>Agents</source>
+        <target>Agenci</target>
+      </trans-unit>
+      <trans-unit id="s759b0a17d494a75c">
+        <source>Available food</source>
+        <target>Dostępne pożywienie</target>
+      </trans-unit>
+      <trans-unit id="sa35c74457da618f3">
+        <source>Allele share</source>
+        <target>Udział alleli</target>
+      </trans-unit>
+      <trans-unit id="s6a2e751c01564438">
+        <source>Allele</source>
+        <target>Allel</target>
+      </trans-unit>
+      <trans-unit id="s72cf82f7f6bc6dd5">
+        <source>Current share</source>
+        <target>Obecny udział</target>
+      </trans-unit>
+      <trans-unit id="s6144a4a2c984c772">
+        <source>Population</source>
+        <target>Populacja</target>
+      </trans-unit>
+      <trans-unit id="s3b710016873dccf4">
+        <source>Current allele share</source>
+        <target>Aktualny udział alleli</target>
+      </trans-unit>
+      <trans-unit id="sa030bc5ff7e113df">
+        <source>Population development</source>
+        <target>Rozwój populacji</target>
+      </trans-unit>
+      <trans-unit id="s111aabf3a7ebf23c">
+        <source>Food availability</source>
+        <target>Dostępność pożywienia</target>
+      </trans-unit>
+      <trans-unit id="sa395b7cf1b4207c5">
+        <source>Gene distribution over time</source>
+        <target>Rozkład genów w czasie</target>
+      </trans-unit>
+      <trans-unit id="s91d7f27df139e690">
+        <source>Gene</source>
+        <target>Gen</target>
+      </trans-unit>
+      <trans-unit id="s9d5dc2bd98759da7">
+        <source>Current gene distribution</source>
+        <target>Obecny rozkład genów</target>
+      </trans-unit>
+      <trans-unit id="saddfb13d00ae9e55">
+        <source>History window</source>
+        <target>Zakres czasu</target>
+      </trans-unit>
+      <trans-unit id="sc5343d7a7a98dd5a">
+        <source>Full history may lag during long simulations.</source>
+        <target>Pełna historia może się opóźniać podczas długich symulacji.</target>
+      </trans-unit>
+      <trans-unit id="s061cc20e3432dead">
+        <source>Pause</source>
+        <target>Wstrzymaj</target>
+      </trans-unit>
+      <trans-unit id="sae1c7f13b7c0c47f">
+        <source>Start</source>
+        <target>Start</target>
+      </trans-unit>
+      <trans-unit id="sd9994f251f1280cf">
+        <source>Step</source>
+        <target>Krok</target>
+      </trans-unit>
+      <trans-unit id="s3741f519c32ac391">
+        <source>New</source>
+        <target>Nowe</target>
+      </trans-unit>
+      <trans-unit id="s255857544a9d5ec0">
+        <source>Reset</source>
+        <target>Resetuj</target>
+      </trans-unit>
+      <trans-unit id="sb32e400c09253d64">
+        <source>Create Simulation</source>
+        <target>Utwórz symulację</target>
+      </trans-unit>
+      <trans-unit id="s363a15029ba3672b">
+        <source>Create a new simulation with the following configuration:</source>
+        <target>Utwórz nową symulację o następującej konfiguracji:</target>
+      </trans-unit>
+      <trans-unit id="s2ceb11be2290bb1b">
+        <source>Cancel</source>
+        <target>Anuluj</target>
+      </trans-unit>
+      <trans-unit id="s382a2aa3984474dd">
+        <source>Create</source>
+        <target>Utwórz</target>
+      </trans-unit>
+      <trans-unit id="sc1611c0558728a2a">
+        <source>Position</source>
+        <target>Pozycja</target>
+      </trans-unit>
+      <trans-unit id="sdb6622a51b2a94f5">
+        <source>Energy</source>
+        <target>Energia</target>
+      </trans-unit>
+      <trans-unit id="s6ac670086eb137c6">
+        <source>Recovery</source>
+        <target>Regeneracja</target>
+      </trans-unit>
+      <trans-unit id="s7fd9266c6a3e25b5">
+        <source>ticks</source>
+        <target>taktów</target>
+      </trans-unit>
+      <trans-unit id="s9a9afbef4f7b48cb">
+        <source>Food Source sprite</source>
+        <target>Sprite źródła pożywienia</target>
+      </trans-unit>
+      <trans-unit id="s30e46c351062484e">
+        <source>Food Source</source>
+        <target>Źródło pożywienia</target>
+      </trans-unit>
+      <trans-unit id="se8eec06cd8e0d6e0">
+        <source>Selected entity metadata</source>
+        <target>Metadane wybranego obiektu</target>
+      </trans-unit>
+      <trans-unit id="sae239213b7c70376">
+        <source>State</source>
+        <target>Stan</target>
+      </trans-unit>
+      <trans-unit id="sbe990627921a7485">
+        <source>Genetics</source>
+        <target>Genetyka</target>
+      </trans-unit>
+      <trans-unit id="s03d851a0433270c8">
+        <source>Ancestry</source>
+        <target>Pochodzenie</target>
+      </trans-unit>
+      <trans-unit id="s8bb79bae20655da9">
+        <source>No details available yet.</source>
+        <target>Brak dostępnych szczegółów.</target>
+      </trans-unit>
+      <trans-unit id="sa550c327ea278753">
+        <source>Allele within possible range</source>
+        <target>Allel w możliwym zakresie</target>
+      </trans-unit>
+      <trans-unit id="s1dfd6319b50f4cd7">
+        <source>Min</source>
+        <target>Min</target>
+      </trans-unit>
+      <trans-unit id="sab8b4cbbb1fa71fa">
+        <source>Current</source>
+        <target>Aktualna</target>
+      </trans-unit>
+      <trans-unit id="s1e187119b5262c59">
+        <source>Max</source>
+        <target>Maks</target>
+      </trans-unit>
+      <trans-unit id="sea4f08110bb8f15d">
+        <source>Remove</source>
+        <target>Usuń</target>
+      </trans-unit>
+      <trans-unit id="s4f27f6b48a68b5c2">
+        <source>Lock</source>
+        <target>Zablokuj</target>
+      </trans-unit>
+      <trans-unit id="s17cff5f101712ef8">
+        <source>World Size</source>
+        <target>Rozmiar świata</target>
+      </trans-unit>
+      <trans-unit id="sf9b1c0661a02d9f9">
+        <source>Configuration</source>
+        <target>Konfiguracja</target>
+      </trans-unit>
+      <trans-unit id="s8c7324c4e16e8841">
+        <source>Initial Options</source>
+        <target>Opcje początkowe</target>
+      </trans-unit>
+      <trans-unit id="s5788d224d55d340c">
+        <source>Seed</source>
+        <target>Ziarno</target>
+      </trans-unit>
+      <trans-unit id="s8333f81521a31b93">
+        <source>Initial Food Sources</source>
+        <target>Początkowe źródła pożywienia</target>
+      </trans-unit>
+      <trans-unit id="sfd33bc6d839533b3">
+        <source>Initial Agents</source>
+        <target>Początkowi agenci</target>
+      </trans-unit>
+      <trans-unit id="sb3ea3e951f441e44">
+        <source>Mutation Rate</source>
+        <target>Współczynnik mutacji</target>
+      </trans-unit>
+      <trans-unit id="sc5465585d761fc7c">
+        <source>Graphs</source>
+        <target>Wykresy</target>
+      </trans-unit>
+      <trans-unit id="s965c503c3e42fdfe">
+        <source>Enabled</source>
+        <target>Włączone</target>
+      </trans-unit>
+      <trans-unit id="s60e08599bc9fb7ab">
+        <source>Show Population Graph</source>
+        <target>Pokaż wykres populacji</target>
+      </trans-unit>
+      <trans-unit id="s3c7cbb8e22971e03">
+        <source>Show Food Availability Graph</source>
+        <target>Pokaż wykres dostępności pożywienia</target>
+      </trans-unit>
+      <trans-unit id="s7cce13abc426c3ee">
+        <source>Show Allele Share Graph</source>
+        <target>Pokaż wykres udziału alleli</target>
+      </trans-unit>
+      <trans-unit id="s6ac60e74eb33f675">
+        <source>Show Allele Historic Share Graph</source>
+        <target>Pokaż wykres historycznego udziału alleli</target>
+      </trans-unit>
+      <trans-unit id="s7ede1c55e35ce9d6">
+        <source>Simulation</source>
+        <target>Symulacja</target>
+      </trans-unit>
+      <trans-unit id="s4eb514ebcb80553d">
+        <source>Parent</source>
+        <target>Rodzic</target>
+      </trans-unit>
+      <trans-unit id="s21e31bdc9713e7fd">
+        <source>Child</source>
+        <target>Potomek</target>
+      </trans-unit>
+      <trans-unit id="s95416925fd51a346">
+        <source>Agent</source>
+        <target>Agent</target>
+      </trans-unit>
+      <trans-unit id="s59564c1a37e11220">
+        <source>Vision Range</source>
+        <target>Zasięg widzenia</target>
+      </trans-unit>
+      <trans-unit id="sc52f2a1b6d5ddff9">
+        <source>How far the agent can perceive nearby agents and food sources.</source>
+        <target>Jak daleko agent może dostrzec pobliskich agentów i źródła pożywienia.</target>
+      </trans-unit>
+      <trans-unit id="s08e69a3bb96b795b">
+        <source>Energy Capacity</source>
+        <target>Pojemność energetyczna</target>
+      </trans-unit>
+      <trans-unit id="sf9cb2ac6821de9c6">
+        <source>The maximum amount of energy the agent can store.</source>
+        <target>Maksymalna ilość energii, jaką agent może zmagazynować.</target>
+      </trans-unit>
+      <trans-unit id="sc892fa54f1de1674">
+        <source>Last 50 ticks</source>
+        <target>Ostatnie 50 taktów</target>
+      </trans-unit>
+      <trans-unit id="se24aaede0913ba34">
+        <source>Last 100 ticks</source>
+        <target>Ostatnie 100 taktów</target>
+      </trans-unit>
+      <trans-unit id="s34712a303ac50684">
+        <source>Last 250 ticks</source>
+        <target>Ostatnie 250 taktów</target>
+      </trans-unit>
+      <trans-unit id="s92b0af76573d4394">
+        <source>Full history</source>
+        <target>Pełna historia</target>
+      </trans-unit>
+      <trans-unit id="saf64054c86023237">
+        <source>H</source>
+        <target>W</target>
+        <note from="lit-localize">Short label for height</note>
+      </trans-unit>
+      <trans-unit id="saf640a4c86023ab6">
+        <source>W</source>
+        <target>S</target>
+        <note from="lit-localize">Short label for width</note>
+      </trans-unit>
+      <trans-unit id="sd049237343c44e47">
+        <source>Dead</source>
+        <target>Martwy</target>
+      </trans-unit>
+      <trans-unit id="sdd3bedf6eb41e3db">
+        <source>Removed</source>
+        <target>Usunięto</target>
+      </trans-unit>
+      <trans-unit id="sad3e3c8146fc920f">
+        <source>Status</source>
+        <target>Stan</target>
+      </trans-unit>
+      <trans-unit id="s5e8250fb85d64c23">
+        <source>Close</source>
+        <target>Zamknij</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

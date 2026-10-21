@@ -1,3 +1,4 @@
+import { consume } from "@lit/context";
 import { LitFlow } from "@ghchinoy/litflow";
 
 import { css } from "lit";
@@ -5,18 +6,25 @@ import { keyed } from "lit/directives/keyed.js";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { useSimulationStore } from "@/composables/simulationStore";
 import {
-  getImmediateAgentAncestry,
+  SimulationStore,
+  simulationStoreContext,
+} from "@/composables/simulationStore";
+import {
+  AncestryFlowModel,
+  getAncestryFlowModelKey,
   getImmediateAncestryFlowModel,
 } from "./utils/agentAncestry";
+import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-agent-ancestry-tab")
+@localized()
 export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
   @property()
   accessor agentId = "";
 
-  private readonly simulationStore = useSimulationStore();
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
 
   static readonly scopedElements = {
     "lit-flow": LitFlow,
@@ -43,6 +51,19 @@ export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
     }
   `;
 
+  private cachedFlowModel: { key: string; model: AncestryFlowModel } | null =
+    null;
+
+  private getStableFlowModel(model: AncestryFlowModel): AncestryFlowModel {
+    const key = getAncestryFlowModelKey(model);
+
+    if (this.cachedFlowModel?.key !== key) {
+      this.cachedFlowModel = { key, model };
+    }
+
+    return this.cachedFlowModel.model;
+  }
+
   private readonly selectClickedAgent = (
     event: CustomEvent<{ nodes?: { id: string; selected?: boolean }[] }>,
   ) => {
@@ -59,16 +80,19 @@ export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
   };
 
   render() {
-    const ancestry = getImmediateAgentAncestry(
+    const ancestry = this.simulationStore.getImmediateAgentAncestry(
       this.agentId,
-      Array.from(this.simulationStore.simulationHistory),
     );
 
     if (!ancestry) {
-      return html`<p class="empty-state">No ancestry data available.</p>`;
+      return html`<p class="empty-state">
+        ${msg("No ancestry data available.")}
+      </p>`;
     }
 
-    const flowModel = getImmediateAncestryFlowModel(ancestry);
+    const flowModel = this.getStableFlowModel(
+      getImmediateAncestryFlowModel(ancestry),
+    );
 
     return html`
       <div class="ancestry-tab">
