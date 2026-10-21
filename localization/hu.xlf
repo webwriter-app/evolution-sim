@@ -280,12 +280,12 @@
       <trans-unit id="saf64054c86023237">
         <source>H</source>
         <target>M</target>
-        <note>Short label for height</note>
+        <note from="lit-localize">Short label for height</note>
       </trans-unit>
       <trans-unit id="saf640a4c86023ab6">
         <source>W</source>
         <target>Sz</target>
-        <note>Short label for width</note>
+        <note from="lit-localize">Short label for width</note>
       </trans-unit>
     </body>
   </file>

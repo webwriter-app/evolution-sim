@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="ar">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>تطور الجزيرة</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>عادةً ما تستغرق عملية التطور آلاف السنين. في هذه المحاكاة، تمر أجيال عديدة في غضون بضع دقائق، مما يتيح لك مراقبة كيفية تغير المجموعة السكانية بمرور الوقت.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>السيناريو</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>تعيش مجموعة صغيرة من الكائنات الحية على جزيرة معزولة. مصدر غذائها الوحيد هو بضع شجيرات توت متناثرة. وبمجرد أن يتم أكل شجيرة ما، يستغرق الأمر بعض الوقت حتى تنمو ثمار التوت الجديدة.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>كل حركة تستهلك طاقة. الكائن الذي تنفد طاقته يموت.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>تنجب الكائنات التي تمتلك طاقة كافية طفلاً، وهو ما يستهلك جزءاً كبيراً من طاقتها.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>لكل كائن جينان:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>نطاق الرؤية</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(المسافة التي يمكنه رؤية الطعام منها) و</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>سعة الطاقة</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(كمية الطاقة التي يمكنه تخزينها).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>في البداية، تمتلك جميع الكائنات الأليلات نفسها. يرث الأبناء الأليلات من والديهم، ولكن مع احتمال معين يتغير أحد الأليلات قليلاً (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>طفرة</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>التنبؤ:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>قبل أن تبدأ، اكتب كيف تتوقع أن يتغير مدى الرؤية وسعة الطاقة لدى المجموعة السكانية بمرور الوقت.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>كيفية استخدام المحاكاة</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>استخدم</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>بدء</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>،</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>إيقاف مؤقت</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>و</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>خطوة</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>للتحكم في المحاكاة، واستخدم أزرار السرعة لتشغيلها بشكل أسرع. عند النقر على كائن، يعرض تبويب</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>علم الوراثة</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>أليلاته، ويعرض تبويب</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>النسب</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>والده وأبناءه. تعرض الرسوم البيانية أسفل الجزيرة حجم المجموعة السكانية والغذاء المتاح ونسبة كل أليل بمرور الوقت. باستخدام</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>جديد</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>يمكنك بدء محاكاة بإعدادات مختلفة.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>المهام</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>شغّل المحاكاة لفترة قصيرة وقارن بين الأبناء الأوائل وأبويهم. من أين تأتي الاختلافات بين الكائنات؟</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>دع المحاكاة تعمل بسرعة عالية لفترة، ثم انظر إلى الرسم البياني</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>توزيع الجينات بمرور الوقت</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. كيف تغيرت أليلات «نطاق الرؤية» و«سعة الطاقة»؟ قارن النتيجة بتوقعك.</target></segment></unit>
+</file>
+</xliff>

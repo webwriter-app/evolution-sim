@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="sk">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Vývoj ostrova</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Evolúcia zvyčajne prebieha v priebehu tisícov rokov. V tejto simulácii uplynie niekoľko generácií za pár minút, takže môžete pozorovať, ako sa populácia mení v priebehu času.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Scenár</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Na izolovanom ostrove žije malá populácia tvorov. Ich jediným zdrojom potravy je niekoľko roztrúsených kríkov s bobuľami. Keď sa krík zje, trvá určitý čas, kým vyrastú nové bobule.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Každý pohyb stojí energiu. Stvorenie, ktorému dôjde energia, zomrie.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Tvor s dostatočným množstvom energie splodí potomka, čo ho stojí veľkú časť jeho energie.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Každý tvor má dva gény:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Dosah videnia</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(ako ďaleko vidí potravu) a</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Energetická kapacita</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(koľko energie dokáže uložiť).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Na začiatku majú všetky tvory rovnaké alely. Potomkovia zdedia alely svojich rodičov, ale s určitou pravdepodobnosťou sa alela mierne zmení (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>mutácia</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Predpoveď:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Než začnete, zapíšte si, ako sa podľa vás bude v priebehu času meniť rozsah videnia a energetická kapacita populácie.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Ako používať simuláciu</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Tlačidlami</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Štart</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Pozastaviť</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>a</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Krok</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>ovládate simuláciu, tlačidlami rýchlosti ju zrýchlite. Keď kliknete na tvora, karta</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Genetika</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>zobrazí jeho alely a karta</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Predkovia</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>jeho rodiča a potomkov. Grafy pod ostrovom zobrazujú populáciu, dostupnú potravu a podiel jednotlivých alel v priebehu času. Tlačidlom</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Nové</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>môžete spustiť simuláciu s inými nastaveniami.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Úlohy</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Spustite simuláciu na krátku dobu a porovnajte prvé deti s ich rodičmi. Odkiaľ pochádzajú rozdiely medzi týmito tvormi?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Nechajte simuláciu chvíľu bežať vysokou rýchlosťou a potom si pozrite graf</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Rozloženie génov v čase</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Ako sa zmenili alely pre dosah videnia a energetickú kapacitu? Porovnajte výsledok so svojou predpoveďou.</target></segment></unit>
+</file>
+</xliff>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="ja">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>島の進化</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>進化は通常、数千年の歳月をかけて起こります。このシミュレーションでは、数分の間に多くの世代が経過するため、個体群が時間の経過とともにどのように変化していくかを観察することができます。</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>シナリオ</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>孤立した島に、少数の生物の個体群が生息しています。彼らの唯一の食料源は、点在する数本のベリーの茂みだけです。一度茂みの実を食べ尽くすと、新しい実が実るまでには時間がかかります。</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>行動するたびにエネルギーを消費します。エネルギーが尽きた生物は死んでしまいます。</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>十分なエネルギーを持つ生物は子を生み出しますが、その際、エネルギーの大部分を消費します。</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>各生物は2つの遺伝子を持っています：</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>視界範囲</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>（餌が見える距離）と</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>エネルギー容量</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>（蓄えられるエネルギーの量）です。</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>最初は、すべての生物が同じ対立遺伝子を持っています。子は親の対立遺伝子を継承しますが、一定の確率で対立遺伝子がわずかに変化（</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>突然変異</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>）することがあります。</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>予測：</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>開始する前に、個体群の視界範囲とエネルギー容量が時間の経過とともにどのように変化すると予想されるかを書き出してください。</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>シミュレーションの使い方</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>シミュレーションは</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>開始</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>、</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>一時停止</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>と</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>ステップ</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>で操作でき、速度ボタンで実行を速くできます。生物をクリックすると、</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>遺伝学</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>タブでその対立遺伝子を、</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>祖先</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>タブで親と子を確認できます。島の下のグラフには、個体数、利用可能な餌、各対立遺伝子の割合の推移が表示されます。</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>新規</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>で、別の設定のシミュレーションを開始できます。</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>課題</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>シミュレーションを短時間実行し、最初の子供たちと親を比較してください。生物間の違いはどこから生じているのでしょうか？</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>シミュレーションをしばらく高速で実行してから、次のグラフを見てください：</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>経時的な遺伝子分布</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>。視界範囲とエネルギー容量の対立遺伝子はどのように変化しましたか？結果を自分の予測と比べてください。</target></segment></unit>
+</file>
+</xliff>
