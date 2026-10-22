@@ -8,7 +8,12 @@ import { configs as litEslint } from "eslint-plugin-lit";
 import prettierEslint from "eslint-plugin-prettier/recommended";
 
 export default defineConfig(
-  globalIgnores(["coverage", "dist", "generated", "node_modules"]),
+  globalIgnores([
+    "coverage",
+    "**/dist/",
+    "localization/generated/",
+    "node_modules",
+  ]),
   {
     extends: [
       eslintJS.configs.recommended,
