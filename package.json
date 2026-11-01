@@ -46,7 +46,7 @@
     "@types/lodash-es": "^4.17.12",
     "@types/seedrandom": "^3.0.8",
     "@vitest/coverage-v8": "^4.1.12",
-    "@vitest/eslint-plugin": "^1.6.27",
+    "@vitest/eslint-plugin": "1.6.27",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-lit": "^2.3.1",
@@ -70,5 +70,8 @@
     "./icon": "./icon.svg",
     "./custom-elements.json": "./custom-elements.json"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "allowScripts": {
+    "esbuild": true
+  }
 }
