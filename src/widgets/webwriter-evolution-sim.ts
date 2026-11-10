@@ -2,7 +2,7 @@ import { css } from "lit";
 // @ts-expect-error: Shoelace import
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, state } from "lit/decorators.js";
 import { SimulationRunView } from "./simulation-run-view";
 import { SimulationCreationDialog } from "./simulation-creation-dialog";
 import { SignalWatcher, html } from "@lit-labs/signals";
@@ -22,6 +22,8 @@ import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { isEqual } from "lodash-es";
 import { hasValue } from "@/utils/typeGuards";
 import LOCALIZE from "../../localization/generated";
+import { msg } from "@lit/localize";
+import { readData, writeData } from "./data-block";
 
 /**
  * Agent-based simulation of evolution: agents search for food, reproduce and
@@ -73,21 +75,50 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
       overflow: hidden;
     }
 
+    #configuration {
+      width: min(30rem, calc(100% - 2rem));
+      max-height: 85%;
+      box-sizing: border-box;
+    }
+
+    #configuration form {
+      text-align: end;
+    }
+
     #root {
       display: flex;
       flex-direction: column;
     }
   `;
 
-  /**
-   * Configuration of the simulation, serialized as JSON in the attribute.
-   *
-   * - `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.
-   * - `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).
-   */
-  @property({ type: Object, attribute: true, reflect: true })
-  accessor simulationConfiguration: SimulationConfiguration =
+  static actions = {
+    configureSimulation: { label: { _: "Configure simulation", de: "Simulation konfigurieren" } },
+  };
+
+  readonly actions = WebwriterEvolutionSim.actions;
+
+  configureSimulation() {
+    const dialog = this.renderRoot.querySelector<HTMLDialogElement>("#configuration");
+    if (dialog && !dialog.open) dialog.showModal();
+  }
+
+  @state()
+  private accessor simulationConfiguration: SimulationConfiguration =
     DEFAULT_SIMULATION_CONFIGURATION;
+
+  private configurationObserver = new MutationObserver(() => this.syncConfiguration());
+
+  private syncConfiguration() {
+    const { configuration } = readData<{ configuration: SimulationConfiguration }>(this);
+    const next = configuration?.initOptions && configuration?.graphs
+      ? configuration : DEFAULT_SIMULATION_CONFIGURATION;
+    if (!isEqual(next, this.simulationConfiguration)) this.simulationConfiguration = next;
+  }
+
+  private saveConfiguration(configuration: SimulationConfiguration) {
+    writeData(this, { configuration });
+    this.simulationConfiguration = configuration;
+  }
 
   private getSimulationInitOptions(): SimulationInitOptions {
     const { initOptions } = this.simulationConfiguration;
@@ -122,6 +153,8 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
 
   connectedCallback() {
     super.connectedCallback();
+    this.configurationObserver.observe(this, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ["slot", "type", "src"] });
+    this.syncConfiguration();
 
     if (this.hasUpdated && !hasValue(this.lastInitializedInitOptions)) {
       this.initializeSimulationFromConfiguration();
@@ -129,6 +162,7 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
   }
 
   disconnectedCallback() {
+    this.configurationObserver.disconnect();
     super.disconnectedCallback();
 
     queueMicrotask(() => {
@@ -152,7 +186,7 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
           .simulationConfiguration=${this.simulationConfiguration}
           .open=${this.isNewSimulationDialogOpen}
           @configuration-change="${(e: ConfigurationChangeEvent) => {
-            this.simulationConfiguration = e.detail;
+            this.saveConfiguration(e.detail);
             this.isNewSimulationDialogOpen = false;
             this.initializeSimulationFromConfiguration({ force: true });
           }}"
@@ -170,13 +204,13 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
 
         ${
           this.isContentEditable
-            ? html`<simulation-pre-configuration-aside
-                part="options"
-                .configuration=${this.simulationConfiguration}
-                @configuration-change="${(e: ConfigurationChangeEvent) => {
-                  this.simulationConfiguration = e.detail;
-                }}"
-              ></simulation-pre-configuration-aside>`
+            ? html`<dialog id="configuration" aria-label=${msg("Configuration")}>
+                <form method="dialog"><button>${msg("Close")}</button></form>
+                <simulation-pre-configuration-aside
+                  .configuration=${this.simulationConfiguration}
+                  @configuration-change=${(e: ConfigurationChangeEvent) => this.saveConfiguration(e.detail)}
+                ></simulation-pre-configuration-aside>
+              </dialog>`
             : null
         }
       </div>
