@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="fa">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>فرگشت جزیره‌ای</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>فرگشت معمولاً طی هزاران سال رخ می‌دهد. در این شبیه‌سازی، نسل‌های بسیاری در چند دقیقه می‌گذرند؛ بنابراین می‌توانید تغییر جمعیت را در گذر زمان مشاهده کنید.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>سناریو</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>جمعیت کوچکی از موجودات در جزیره‌ای دورافتاده زندگی می‌کنند. تنها منبع غذای آن‌ها چند بوتهٔ پراکندهٔ توت است. پس از خورده‌شدن توت‌های یک بوته، مدتی طول می‌کشد تا توت‌های تازه برویند.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>هر حرکت انرژی مصرف می‌کند. موجودی که انرژی‌اش تمام شود می‌میرد.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>موجودی که انرژی کافی دارد فرزندی به‌وجود می‌آورد؛ این کار بخش زیادی از انرژی‌اش را مصرف می‌کند.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>هر موجود دو ژن دارد:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>محدودهٔ دید</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(این‌که غذا را تا چه فاصله‌ای می‌تواند ببیند) و</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>گنجایش انرژی</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(این‌که چه مقدار انرژی می‌تواند ذخیره کند).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>در آغاز، همهٔ موجودات آلل‌های یکسانی دارند. فرزندان آلل‌های والد خود را به ارث می‌برند، اما با احتمالی مشخص یک آلل اندکی تغییر می‌کند (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>جهش</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>پیش‌بینی:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>پیش از شروع، بنویسید انتظار دارید محدودهٔ دید و گنجایش انرژی جمعیت در گذر زمان چگونه تغییر کند.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>روش استفاده از شبیه‌سازی</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>از</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>شروع</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>مکث کنید</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>و</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>گام</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>شبیه‌سازی را کنترل کنید و با دکمه‌های سرعت آن را تندتر اجرا کنید. برای دیدن آلل‌های یک موجود، روی آن کلیک کنید و برگهٔ</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>ژنتیک</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>در برگهٔ ژنتیک، و والد و فرزندانش را در برگهٔ</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>تبار</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>برگهٔ تبار مشاهده کنید. نمودارهای زیر جزیره، جمعیت، غذای در دسترس و سهم هر آلل را در گذر زمان نشان می‌دهند. با</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>جدید</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>می‌توانید شبیه‌سازی را با تنظیمات دیگری آغاز کنید.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>تکلیف‌ها</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>شبیه‌سازی را مدت کوتاهی اجرا کنید و نخستین فرزندان را با والدشان مقایسه کنید. تفاوت میان موجودات از کجا می‌آید؟</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>مدتی شبیه‌سازی را با سرعت بالا اجرا کنید، سپس نمودار را ببینید</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>توزیع ژن در گذر زمان</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. آلل‌های محدودهٔ دید و گنجایش انرژی چگونه تغییر کرده‌اند؟ نتیجه را با پیش‌بینی خود مقایسه کنید.</target></segment></unit>
+</file>
+</xliff>

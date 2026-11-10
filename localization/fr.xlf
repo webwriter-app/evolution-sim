@@ -300,9 +300,10 @@
         <source>Close</source>
         <target>Fermer</target>
       </trans-unit>
-    <trans-unit id="s1114f41d8856dcf2">
-  <source>Configure simulation</source>
-<target>Configurer la simulation</target></trans-unit>
-</body>
+      <trans-unit id="s1114f41d8856dcf2">
+        <source>Configure simulation</source>
+        <target>Configurer la simulation</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>

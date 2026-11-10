@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="si">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>දූපත් පරිණාමය</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>පරිණාමය සාමාන්‍යයෙන් වසර දහස් ගණනක් පුරා සිදු වේ. මෙම සමාකරණයේදී මිනිත්තු කිහිපයකින් පරම්පරා ගණනාවක් ගෙවී යන නිසා ජනගහනය කාලයත් සමඟ වෙනස් වන ආකාරය නිරීක්ෂණය කළ හැක.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>සිදුවීම</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>සත්වයන්ගේ කුඩා ජනගහනයක් හුදකලා දූපතක ජීවත් වේ. විසිරී ඇති බෙරි පඳුරු කිහිපය ඔවුන්ගේ එකම ආහාර ප්‍රභවයයි. පඳුරක බෙරි කෑ පසු අලුත් බෙරි වැඩීමට යම් කාලයක් ගත වේ.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>සෑම චලනයකටම ශක්තිය වැය වේ. ශක්තිය අවසන් වන සත්වයා මිය යයි.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>ප්‍රමාණවත් ශක්තිය ඇති සත්වයෙක් දරුවෙකු බිහි කරයි; ඒ සඳහා එහි ශක්තියෙන් විශාල කොටසක් වැය වේ.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>සෑම සත්වයෙකුටම ජාන දෙකක් ඇත:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>දෘෂ්ටි පරාසය</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(ආහාරය කොපමණ දුරින් දැකිය හැකිද) සහ</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>ශක්ති ධාරිතාව</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(කොපමණ ශක්තියක් ගබඩා කළ හැකිද).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>ආරම්භයේදී සියලු සත්වයන්ට එකම ඇලීල ඇත. දරුවන්ට මව්පියාගේ ඇලීල උරුම වන නමුත් නිශ්චිත සම්භාවිතාවකින් ඇලීලයක් සුළු වශයෙන් වෙනස් වේ (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>විකෘතිය</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>අනුමානය:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>ආරම්භ කිරීමට පෙර, කාලයත් සමඟ ජනගහනයේ දෘෂ්ටි පරාසය සහ ශක්ති ධාරිතාව වෙනස් වේ යැයි ඔබ බලාපොරොත්තු වන ආකාරය ලියන්න.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>සමාකරණය භාවිතා කරන ආකාරය</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>භාවිතා කරන්න</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>ආරම්භය</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>නවත්වන්න</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>සහ</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>පියවර</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>මඟින් සමාකරණය පාලනය කර වේග බොත්තම්වලින් එය වේගවත් කරන්න. සත්වයෙකුගේ ඇලීල බැලීමට එය මත ක්ලික් කර</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>ජාන විද්‍යාව</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>ජාන විද්‍යාව ටැබයේ, එහි මව්පියා සහ දරුවන්</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>පරම්පරාව</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>පරම්පරා ටැබයේ බලන්න. දූපතට පහළින් ඇති ප්‍රස්තාර ජනගහනය, ලබාගත හැකි ආහාර සහ එක් එක් ඇලීලයේ කොටස කාලයත් සමඟ පෙන්වයි.</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>නව</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>ඔබට වෙනත් සැකසුම් සමඟ සමාකරණයක් ආරම්භ කළ හැක.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>කාර්යයන්</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>සමාකරණය ටික වේලාවක් ධාවනය කර පළමු දරුවන් මව්පියා සමඟ සසඳන්න. සත්වයන් අතර වෙනස්කම් ඇතිවන්නේ කොහෙන්ද?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>සමාකරණය ටික වේලාවක් ඉහළ වේගයෙන් ධාවනය කර පසුව ප්‍රස්තාරය බලන්න</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>කාලයත් සමඟ ජාන ව්‍යාප්තිය</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. दृष्टि दायरा र ऊर्जा क्षमताका एलिलहरू कसरी बदलिए? नतिजालाई आफ्नो अनुमानसँग तुलना गर्नुहोस्।</target></segment></unit>
+</file>
+</xliff>

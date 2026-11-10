@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Poreklo`,
 's061cc20e3432dead': `Pavza`,
 's08e69a3bb96b795b': `Zmogljivost energije`,
+'s1114f41d8856dcf2': `Konfiguriraj simulacijo`,
 's111aabf3a7ebf23c': `Razpoložljivost hrane`,
 's17cff5f101712ef8': `Velikost sveta`,
 's1dfd6319b50f4cd7': `Min`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `Konfiguracija`,
 'sf9cb2ac6821de9c6': `Največja količina energije, ki jo lahko agent shrani.`,
 'sfd33bc6d839533b3': `Začetni agenti`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

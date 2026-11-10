@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Произход`,
 's061cc20e3432dead': `Пауза`,
 's08e69a3bb96b795b': `Енергиен капацитет`,
+'s1114f41d8856dcf2': `Конфигуриране на симулацията`,
 's111aabf3a7ebf23c': `Наличност на храна`,
 's17cff5f101712ef8': `Размер на света`,
 's1dfd6319b50f4cd7': `Мин.`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `Конфигурация`,
 'sf9cb2ac6821de9c6': `Максималното количество енергия, което агентът може да съхранява.`,
 'sfd33bc6d839533b3': `Начални агенти`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

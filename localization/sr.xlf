@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file target-language="sr" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="sd75d6fb3ddf8bb38">
+  <source>No ancestry data available.</source>
+<target>Нема доступних података о пореклу.</target></trans-unit>
+<trans-unit id="s9d7490af50ad3f3f">
+  <source>Agent genome preview</source>
+<target>Преглед генома агента</target></trans-unit>
+<trans-unit id="s6144a4a2c984c772">
+  <source>Population</source>
+<target>Популација</target></trans-unit>
+<trans-unit id="s759b0a17d494a75c">
+  <source>Available food</source>
+<target>Доступна храна</target></trans-unit>
+<trans-unit id="s6a2e751c01564438">
+  <source>Allele</source>
+<target>Алел</target></trans-unit>
+<trans-unit id="s3b710016873dccf4">
+  <source>Current allele share</source>
+<target>Тренутни удео алела</target></trans-unit>
+<trans-unit id="sa030bc5ff7e113df">
+  <source>Population development</source>
+<target>Развој популације</target></trans-unit>
+<trans-unit id="s111aabf3a7ebf23c">
+  <source>Food availability</source>
+<target>Доступност хране</target></trans-unit>
+<trans-unit id="sa395b7cf1b4207c5">
+  <source>Gene distribution over time</source>
+<target>Расподела гена током времена</target></trans-unit>
+<trans-unit id="s91d7f27df139e690">
+  <source>Gene</source>
+<target>Ген</target></trans-unit>
+<trans-unit id="s9d5dc2bd98759da7">
+  <source>Current gene distribution</source>
+<target>Тренутна расподела гена</target></trans-unit>
+<trans-unit id="saddfb13d00ae9e55">
+  <source>History window</source>
+<target>Временски опсег историје</target></trans-unit>
+<trans-unit id="sc5343d7a7a98dd5a">
+  <source>Full history may lag during long simulations.</source>
+<target>Приказ целе историје може каснити током дугих симулација.</target></trans-unit>
+<trans-unit id="s7ede1c55e35ce9d6">
+  <source>Simulation</source>
+<target>Симулација</target></trans-unit>
+<trans-unit id="sc5465585d761fc7c">
+  <source>Graphs</source>
+<target>Графикони</target></trans-unit>
+<trans-unit id="s061cc20e3432dead">
+  <source>Pause</source>
+<target>Пауза</target></trans-unit>
+<trans-unit id="sae1c7f13b7c0c47f">
+  <source>Start</source>
+<target>Почетак</target></trans-unit>
+<trans-unit id="sd9994f251f1280cf">
+  <source>Step</source>
+<target>Корак</target></trans-unit>
+<trans-unit id="s3741f519c32ac391">
+  <source>New</source>
+<target>Ново</target></trans-unit>
+<trans-unit id="s255857544a9d5ec0">
+  <source>Reset</source>
+<target>Ресетуј</target></trans-unit>
+<trans-unit id="sb32e400c09253d64">
+  <source>Create Simulation</source>
+<target>Направи симулацију</target></trans-unit>
+<trans-unit id="s363a15029ba3672b">
+  <source>Create a new simulation with the following configuration:</source>
+<target>Направи нову симулацију са следећим подешавањима:</target></trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+<target>Откажи</target></trans-unit>
+<trans-unit id="s382a2aa3984474dd">
+  <source>Create</source>
+<target>Направи</target></trans-unit>
+<trans-unit id="sd049237343c44e47">
+  <source>Dead</source>
+<target>Мртав</target></trans-unit>
+<trans-unit id="sdd3bedf6eb41e3db">
+  <source>Removed</source>
+<target>Уклоњено</target></trans-unit>
+<trans-unit id="sad3e3c8146fc920f">
+  <source>Status</source>
+<target>Статус</target></trans-unit>
+<trans-unit id="s490384fb302b3764">
+  <source>Tick</source>
+<target>Тик</target></trans-unit>
+<trans-unit id="sc1611c0558728a2a">
+  <source>Position</source>
+<target>Положај</target></trans-unit>
+<trans-unit id="sdb6622a51b2a94f5">
+  <source>Energy</source>
+<target>Енергија</target></trans-unit>
+<trans-unit id="s6ac670086eb137c6">
+  <source>Recovery</source>
+<target>Опоравак</target></trans-unit>
+<trans-unit id="s7fd9266c6a3e25b5">
+  <source>ticks</source>
+<target>тикoва</target></trans-unit>
+<trans-unit id="s9a9afbef4f7b48cb">
+  <source>Food Source sprite</source>
+<target>Слика извора хране</target></trans-unit>
+<trans-unit id="s30e46c351062484e">
+  <source>Food Source</source>
+<target>Извор хране</target></trans-unit>
+<trans-unit id="se8eec06cd8e0d6e0">
+  <source>Selected entity metadata</source>
+<target>Метаподаци изабраног ентитета</target></trans-unit>
+<trans-unit id="sae239213b7c70376">
+  <source>State</source>
+<target>Стање</target></trans-unit>
+<trans-unit id="sbe990627921a7485">
+  <source>Genetics</source>
+<target>Генетика</target></trans-unit>
+<trans-unit id="s03d851a0433270c8">
+  <source>Ancestry</source>
+<target>Порекло</target></trans-unit>
+<trans-unit id="s8bb79bae20655da9">
+  <source>No details available yet.</source>
+<target>Детаљи још нису доступни.</target></trans-unit>
+<trans-unit id="s5e8250fb85d64c23">
+  <source>Close</source>
+<target>Затвори</target></trans-unit>
+<trans-unit id="sa550c327ea278753">
+  <source>Allele within possible range</source>
+<target>Алел у могућем опсегу</target></trans-unit>
+<trans-unit id="s1dfd6319b50f4cd7">
+  <source>Min</source>
+<target>Мин.</target></trans-unit>
+<trans-unit id="sab8b4cbbb1fa71fa">
+  <source>Current</source>
+<target>Тренутно</target></trans-unit>
+<trans-unit id="s1e187119b5262c59">
+  <source>Max</source>
+<target>Макс.</target></trans-unit>
+<trans-unit id="sea4f08110bb8f15d">
+  <source>Remove</source>
+<target>Уклони</target></trans-unit>
+<trans-unit id="s4f27f6b48a68b5c2">
+  <source>Lock</source>
+<target>Закључај</target></trans-unit>
+<trans-unit id="s17cff5f101712ef8">
+  <source>World Size</source>
+<target>Величина света</target></trans-unit>
+<trans-unit id="sf9b1c0661a02d9f9">
+  <source>Configuration</source>
+<target>Подешавање</target></trans-unit>
+<trans-unit id="s8c7324c4e16e8841">
+  <source>Initial Options</source>
+<target>Почетне опције</target></trans-unit>
+<trans-unit id="s5788d224d55d340c">
+  <source>Seed</source>
+<target>Почетна вредност</target></trans-unit>
+<trans-unit id="s8333f81521a31b93">
+  <source>Initial Food Sources</source>
+<target>Почетни извори хране</target></trans-unit>
+<trans-unit id="sfd33bc6d839533b3">
+  <source>Initial Agents</source>
+<target>Почетни агенти</target></trans-unit>
+<trans-unit id="sb3ea3e951f441e44">
+  <source>Mutation Rate</source>
+<target>Стопа мутације</target></trans-unit>
+<trans-unit id="s965c503c3e42fdfe">
+  <source>Enabled</source>
+<target>Омогућено</target></trans-unit>
+<trans-unit id="s60e08599bc9fb7ab">
+  <source>Show Population Graph</source>
+<target>Прикажи графикон популације</target></trans-unit>
+<trans-unit id="s3c7cbb8e22971e03">
+  <source>Show Food Availability Graph</source>
+<target>Прикажи графикон доступности хране</target></trans-unit>
+<trans-unit id="s7cce13abc426c3ee">
+  <source>Show Allele Share Graph</source>
+<target>Прикажи графикон удела алела</target></trans-unit>
+<trans-unit id="s6ac60e74eb33f675">
+  <source>Show Allele Historic Share Graph</source>
+<target>Прикажи историјски графикон удела алела</target></trans-unit>
+<trans-unit id="s4eb514ebcb80553d">
+  <source>Parent</source>
+<target>Родитељ</target></trans-unit>
+<trans-unit id="s21e31bdc9713e7fd">
+  <source>Child</source>
+<target>Потомак</target></trans-unit>
+<trans-unit id="s95416925fd51a346">
+  <source>Agent</source>
+<target>Агент</target></trans-unit>
+<trans-unit id="s59564c1a37e11220">
+  <source>Vision Range</source>
+<target>Домет вида</target></trans-unit>
+<trans-unit id="sc52f2a1b6d5ddff9">
+  <source>How far the agent can perceive nearby agents and food sources.</source>
+<target>Колико далеко агент може да опази оближње агенте и изворе хране.</target></trans-unit>
+<trans-unit id="s08e69a3bb96b795b">
+  <source>Energy Capacity</source>
+<target>Капацитет енергије</target></trans-unit>
+<trans-unit id="sf9cb2ac6821de9c6">
+  <source>The maximum amount of energy the agent can store.</source>
+<target>Највећа количина енергије коју агент може да складишти.</target></trans-unit>
+<trans-unit id="sc892fa54f1de1674">
+  <source>Last 50 ticks</source>
+<target>Последњих 50 корака</target></trans-unit>
+<trans-unit id="se24aaede0913ba34">
+  <source>Last 100 ticks</source>
+<target>Последњих 100 корака</target></trans-unit>
+<trans-unit id="s34712a303ac50684">
+  <source>Last 250 ticks</source>
+<target>Последњих 250 корака</target></trans-unit>
+<trans-unit id="s92b0af76573d4394">
+  <source>Full history</source>
+<target>Цела историја</target></trans-unit>
+<trans-unit id="saf64054c86023237">
+  <source>H</source>
+  <note from="lit-localize">Short label for height</note>
+<target>Ч</target></trans-unit>
+<trans-unit id="saf640a4c86023ab6">
+  <source>W</source>
+  <note from="lit-localize">Short label for width</note>
+<target>Ш</target></trans-unit>
+<trans-unit id="s1114f41d8856dcf2">
+  <source>Configure simulation</source>
+<target>Подеси симулацију</target></trans-unit>
+<trans-unit id="sefc8e08d71b8530f">
+  <source>Agents</source>
+<target>Агенти</target></trans-unit>
+<trans-unit id="sa35c74457da618f3">
+  <source>Allele share</source>
+<target>Удео алела</target></trans-unit>
+<trans-unit id="s72cf82f7f6bc6dd5">
+  <source>Current share</source>
+<target>Тренутни удео</target></trans-unit>
+</body>
+</file>
+</xliff>

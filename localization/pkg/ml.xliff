@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="ml">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>ഭക്ഷണം അന്വേഷിക്കുകയും പ്രത്യുൽപ്പാദനം നടത്തുകയും പരിവർത്തനം സംഭവിച്ച ജീനുകൾ കൈമാറുകയും ചെയ്യുന്ന ഏജന്റുകളിലൂടെ പരിണാമം സിമുലേറ്റ് ചെയ്യുക. ഓരോ ഏജന്റിനെയും പരിശോധിച്ച് ചാർട്ടുകളിൽ ജനസംഖ്യയും ജീൻ വിതരണവും വിശകലനം ചെയ്യുക.</target></segment></unit>
+</file>
+</xliff>

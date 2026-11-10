@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="tpi">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Senis bilong ol binata long ailan</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Senis bilong ol lain binata i save kamap long planti tausen yia. Long dispela traim, planti lain pikinini i kamap insait long sampela minit, olsem na yu inap lukim senis bilong lain binata taim i go.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Dispela stori</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Wanpela liklik lain binata i stap long wanpela ailan i stap em yet. Kaikai bilong ol em ol liklik pikinini bilong sampela diwai i stap nabaut. Taim ol i kaikai pinis ol pikinini bilong diwai, em i save kisim sampela taim bilong ol nupela i kamap.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Wan wan muv i yusim strong. Taim strong bilong binata i pinis, em i dai.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Binata i gat inap strong i save kamapim pikinini. Dispela i yusim bikpela hap bilong strong bilong em.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Wan wan binata i gat tupela jin:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Longpela rot em inap lukim</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(longpela rot em inap lukim kaikai) na</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Strong em inap holim</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(hamas strong em inap holim).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Long stat olgeta binata i gat wankain alil. Pikinini i kisim alil bilong papamama bilong em. Sampela taim alil i save senis liklik (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>senis long jin</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Tok yu ting bai i kamap:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Bipo yu stat, raitim olsem wanem yu ting longpela rot ol binata inap lukim na strong ol inap holim bai i senis taim i go.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Rot bilong yusim traim</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Yusim</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Stat</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Wet liklik</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>na</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Wanpela step</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>bilong bosim traim, na yusim ol baten bilong spid bilong mekim em i ron hariap. Klikim binata bilong lukim ol alil bilong em long</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Ol jin</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>tab, na lukim papamama na ol pikinini long</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Lain tumbuna</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>tab. Ol graf aninit long ailan i soim namba bilong ol binata, kaikai i stap na hap bilong wan wan alil taim i go. Yusim</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Nupela</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>bilong statim nupela traim wantaim ol narapela seting.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Ol wok</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Ronim traim liklik taim, na skelim ol namba wan pikinini wantaim papamama bilong ol. Olsem wanem ol binata i kamap narapela kain?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Larim traim i ron hariap liklik taim, na lukim graf</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Pasin ol jin i stap taim i go</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Olsem wanem ol alil bilong longpela rot em inap lukim na strong em inap holim i senis? Skelim wantaim tok yu bin mekim pastaim.</target></segment></unit>
+</file>
+</xliff>

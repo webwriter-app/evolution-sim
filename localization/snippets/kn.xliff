@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="kn">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>ದ್ವೀಪದ ವಿಕಾಸ</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>ವಿಕಾಸ ಸಾಮಾನ್ಯವಾಗಿ ಸಾವಿರಾರು ವರ್ಷಗಳಲ್ಲಿ ನಡೆಯುತ್ತದೆ. ಈ ಸಿಮ್ಯುಲೇಶನ್‌ನಲ್ಲಿ ಕೆಲವೇ ನಿಮಿಷಗಳಲ್ಲಿ ಹಲವು ಪೀಳಿಗೆಗಳು ಸಾಗುತ್ತವೆ; ಹೀಗಾಗಿ ಕಾಲಾನಂತರದಲ್ಲಿ ಜನಸಂಖ್ಯೆ ಹೇಗೆ ಬದಲಾಗುತ್ತದೆ ಎಂದು ಗಮನಿಸಬಹುದು.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>ಸನ್ನಿವೇಶ</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>ಜೀವಿಗಳ ಒಂದು ಸಣ್ಣ ಜನಸಂಖ್ಯೆ ಪ್ರತ್ಯೇಕ ದ್ವೀಪದಲ್ಲಿ ವಾಸಿಸುತ್ತದೆ. ಕೆಲವು ಚದುರಿದ ಬೆರ್ರಿ ಪೊದೆಗಳೇ ಅವುಗಳ ಏಕೈಕ ಆಹಾರದ ಮೂಲ. ಪೊದೆಯ ಬೆರ್ರಿಗಳನ್ನು ತಿಂದ ನಂತರ ಹೊಸ ಬೆರ್ರಿಗಳು ಬೆಳೆಯಲು ಸ್ವಲ್ಪ ಸಮಯ ಬೇಕಾಗುತ್ತದೆ.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>ಪ್ರತಿ ಚಲನೆಗೂ ಶಕ್ತಿ ಬೇಕಾಗುತ್ತದೆ. ಶಕ್ತಿ ಮುಗಿದ ಜೀವಿ ಸಾಯುತ್ತದೆ.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>ಸಾಕಷ್ಟು ಶಕ್ತಿಯಿರುವ ಜೀವಿ ಸಂತಾನವನ್ನು ಉತ್ಪತ್ತಿ ಮಾಡುತ್ತದೆ; ಇದಕ್ಕೆ ಅದರ ಶಕ್ತಿಯ ದೊಡ್ಡ ಭಾಗ ಖರ್ಚಾಗುತ್ತದೆ.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>ಪ್ರತಿ ಜೀವಿಗೆ ಎರಡು ಜೀನ್‌ಗಳಿವೆ:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>ನೋಟದ ವ್ಯಾಪ್ತಿ</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(ಆಹಾರವನ್ನು ಎಷ್ಟು ದೂರದಿಂದ ನೋಡಬಲ್ಲದು) ಮತ್ತು</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>ಶಕ್ತಿ ಸಾಮರ್ಥ್ಯ</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(ಎಷ್ಟು ಶಕ್ತಿಯನ್ನು ಸಂಗ್ರಹಿಸಬಲ್ಲದು).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>ಆರಂಭದಲ್ಲಿ ಎಲ್ಲ ಜೀವಿಗಳ ಅಲೀಲ್‌ಗಳು ಒಂದೇ ಆಗಿರುತ್ತವೆ. ಸಂತಾನವು ಪೋಷಕರ ಅಲೀಲ್‌ಗಳನ್ನು ಆನುವಂಶಿಕವಾಗಿ ಪಡೆಯುತ್ತದೆ; ಆದರೆ ನಿರ್ದಿಷ್ಟ ಸಂಭವನೀಯತೆಯಲ್ಲಿ ಒಂದು ಅಲೀಲ್ ಸ್ವಲ್ಪ ಬದಲಾಗುತ್ತದೆ (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>ಮ್ಯುಟೇಶನ್</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>ಊಹೆ:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>ಪ್ರಾರಂಭಿಸುವ ಮೊದಲು, ಜನಸಂಖ್ಯೆಯ ನೋಟದ ವ್ಯಾಪ್ತಿ ಮತ್ತು ಶಕ್ತಿ ಸಾಮರ್ಥ್ಯ ಕಾಲಾನಂತರದಲ್ಲಿ ಹೇಗೆ ಬದಲಾಗಬಹುದು ಎಂದು ನೀವು ನಿರೀಕ್ಷಿಸುತ್ತೀರಿ ಎಂಬುದನ್ನು ಬರೆಯಿರಿ.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>ಸಿಮ್ಯುಲೇಶನ್ ಬಳಸುವ ವಿಧಾನ</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>ಬಳಸಿ</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>ಆರಂಭ</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>ವಿರಾಮ</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>ಮತ್ತು</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>ಹಂತ</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>ಇದರಿಂದ ಸಿಮ್ಯುಲೇಶನ್ ನಿಯಂತ್ರಿಸಿ, ವೇಗದ ಬಟನ್‌ಗಳಿಂದ ಅದನ್ನು ವೇಗಗೊಳಿಸಿ. ಜೀವಿಯ ಅಲೀಲ್‌ಗಳನ್ನು ನೋಡಲು ಅದರ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ಮತ್ತು</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>ತಳಿಶಾಸ್ತ್ರ</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>ಜೆನೆಟಿಕ್ಸ್ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ಮತ್ತು ಅದರ ಪೋಷಕರು ಹಾಗೂ ಸಂತಾನವನ್ನು</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>ವಂಶಾವಳಿ</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>ವಂಶಾವಳಿ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ನೋಡಿ. ದ್ವೀಪದ ಕೆಳಗಿನ ಚಾರ್ಟ್‌ಗಳು ಕಾಲಾನಂತರದಲ್ಲಿ ಜನಸಂಖ್ಯೆ, ಲಭ್ಯವಿರುವ ಆಹಾರ ಮತ್ತು ಪ್ರತಿ ಅಲೀಲ್‌ನ ಪಾಲನ್ನು ತೋರಿಸುತ್ತವೆ.</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>ಹೊಸದು</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>ವಿಭಿನ್ನ ಸೆಟ್ಟಿಂಗ್‌ಗಳೊಂದಿಗೆ ಸಿಮ್ಯುಲೇಶನ್ ಪ್ರಾರಂಭಿಸಬಹುದು.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>ಕಾರ್ಯಗಳು</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>ಸಿಮ್ಯುಲೇಶನ್ ಅನ್ನು ಸ್ವಲ್ಪ ಹೊತ್ತು ಓಡಿಸಿ, ಮೊದಲ ಸಂತಾನವನ್ನು ಅದರ ಪೋಷಕರೊಂದಿಗೆ ಹೋಲಿಸಿ. ಜೀವಿಗಳ ನಡುವಿನ ವ್ಯತ್ಯಾಸಗಳು ಎಲ್ಲಿಂದ ಬರುತ್ತವೆ?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>ಸಿಮ್ಯುಲೇಶನ್ ಅನ್ನು ಸ್ವಲ್ಪ ಹೊತ್ತು ಹೆಚ್ಚಿನ ವೇಗದಲ್ಲಿ ಓಡಿಸಿ, ನಂತರ ಚಾರ್ಟ್ ನೋಡಿ</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>ಕಾಲಾನಂತರದಲ್ಲಿ ಜೀನ್ ಹಂಚಿಕೆ</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. ನೋಟದ ವ್ಯಾಪ್ತಿ ಮತ್ತು ಶಕ್ತಿ ಸಾಮರ್ಥ್ಯದ ಅಲೀಲ್‌ಗಳು ಹೇಗೆ ಬದಲಾಗಿವೆ? ಫಲಿತಾಂಶವನ್ನು ನಿಮ್ಮ ಊಹೆಯೊಂದಿಗೆ ಹೋಲಿಸಿ.</target></segment></unit>
+</file>
+</xliff>

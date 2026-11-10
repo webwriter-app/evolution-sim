@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `血统`,
 's061cc20e3432dead': `暂停`,
 's08e69a3bb96b795b': `能量容量`,
+'s1114f41d8856dcf2': `配置模拟`,
 's111aabf3a7ebf23c': `食物可获得性`,
 's17cff5f101712ef8': `世界大小`,
 's1dfd6319b50f4cd7': `最小值`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `配置`,
 'sf9cb2ac6821de9c6': `智能体能够存储的最大能量值。`,
 'sfd33bc6d839533b3': `初始智能体`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

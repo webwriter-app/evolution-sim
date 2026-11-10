@@ -299,6 +299,10 @@
         <source>Close</source>
         <target>Κλείσιμο</target>
       </trans-unit>
+      <trans-unit id="s1114f41d8856dcf2">
+        <source>Configure simulation</source>
+        <target>Διαμόρφωση προσομοίωσης</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

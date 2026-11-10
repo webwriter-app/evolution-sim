@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Izcelsme`,
 's061cc20e3432dead': `Pauze`,
 's08e69a3bb96b795b': `Enerģijas kapacitāte`,
+'s1114f41d8856dcf2': `Konfigurēt simulāciju`,
 's111aabf3a7ebf23c': `Pārtikas pieejamība`,
 's17cff5f101712ef8': `Pasaules izmērs`,
 's1dfd6319b50f4cd7': `Min`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `Konfigurācija`,
 'sf9cb2ac6821de9c6': `Maksimālais enerģijas daudzums, ko aģents var uzkrāt.`,
 'sfd33bc6d839533b3': `Sākotnējie aģenti`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

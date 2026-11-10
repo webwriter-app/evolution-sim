@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file target-language="ta" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="sd75d6fb3ddf8bb38">
+  <source>No ancestry data available.</source>
+<target>மூதாதையர் வரலாற்றுத் தரவு இல்லை.</target></trans-unit>
+<trans-unit id="s9d7490af50ad3f3f">
+  <source>Agent genome preview</source>
+<target>முகவரின் மரபணுத் தொகுப்பு முன்னோட்டம்</target></trans-unit>
+<trans-unit id="s6144a4a2c984c772">
+  <source>Population</source>
+<target>மக்கள்தொகை</target></trans-unit>
+<trans-unit id="s759b0a17d494a75c">
+  <source>Available food</source>
+<target>கிடைக்கும் உணவு</target></trans-unit>
+<trans-unit id="s6a2e751c01564438">
+  <source>Allele</source>
+<target>அலீல்</target></trans-unit>
+<trans-unit id="s3b710016873dccf4">
+  <source>Current allele share</source>
+<target>தற்போதைய அலீல் பங்கு</target></trans-unit>
+<trans-unit id="sa030bc5ff7e113df">
+  <source>Population development</source>
+<target>மக்கள்தொகை வளர்ச்சி</target></trans-unit>
+<trans-unit id="s111aabf3a7ebf23c">
+  <source>Food availability</source>
+<target>உணவு கிடைப்புத்தன்மை</target></trans-unit>
+<trans-unit id="sa395b7cf1b4207c5">
+  <source>Gene distribution over time</source>
+<target>காலப்போக்கில் மரபணுப் பகிர்வு</target></trans-unit>
+<trans-unit id="s91d7f27df139e690">
+  <source>Gene</source>
+<target>மரபணு</target></trans-unit>
+<trans-unit id="s9d5dc2bd98759da7">
+  <source>Current gene distribution</source>
+<target>தற்போதைய மரபணுப் பகிர்வு</target></trans-unit>
+<trans-unit id="saddfb13d00ae9e55">
+  <source>History window</source>
+<target>வரலாற்றுக் காலப்பகுதி</target></trans-unit>
+<trans-unit id="sc5343d7a7a98dd5a">
+  <source>Full history may lag during long simulations.</source>
+<target>நீண்ட உருவகப்படுத்தலின்போது முழு வரலாற்றைக் காட்ட தாமதமாகலாம்.</target></trans-unit>
+<trans-unit id="s7ede1c55e35ce9d6">
+  <source>Simulation</source>
+<target>உருவகப்படுத்தல்</target></trans-unit>
+<trans-unit id="sc5465585d761fc7c">
+  <source>Graphs</source>
+<target>வரைபடங்கள்</target></trans-unit>
+<trans-unit id="s061cc20e3432dead">
+  <source>Pause</source>
+<target>இடைநிறுத்தம்</target></trans-unit>
+<trans-unit id="sae1c7f13b7c0c47f">
+  <source>Start</source>
+<target>தொடக்கம்</target></trans-unit>
+<trans-unit id="sd9994f251f1280cf">
+  <source>Step</source>
+<target>படி</target></trans-unit>
+<trans-unit id="s3741f519c32ac391">
+  <source>New</source>
+<target>புதியது</target></trans-unit>
+<trans-unit id="s255857544a9d5ec0">
+  <source>Reset</source>
+<target>மீட்டமை</target></trans-unit>
+<trans-unit id="sb32e400c09253d64">
+  <source>Create Simulation</source>
+<target>உருவகப்படுத்தலை உருவாக்கு</target></trans-unit>
+<trans-unit id="s363a15029ba3672b">
+  <source>Create a new simulation with the following configuration:</source>
+<target>பின்வரும் அமைப்புடன் புதிய உருவகப்படுத்தலை உருவாக்கவும்:</target></trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+<target>ரத்துசெய்</target></trans-unit>
+<trans-unit id="s382a2aa3984474dd">
+  <source>Create</source>
+<target>உருவாக்கு</target></trans-unit>
+<trans-unit id="sd049237343c44e47">
+  <source>Dead</source>
+<target>இறந்தது</target></trans-unit>
+<trans-unit id="sdd3bedf6eb41e3db">
+  <source>Removed</source>
+<target>அகற்றப்பட்டது</target></trans-unit>
+<trans-unit id="sad3e3c8146fc920f">
+  <source>Status</source>
+<target>நிலை</target></trans-unit>
+<trans-unit id="s490384fb302b3764">
+  <source>Tick</source>
+<target>காலப் படி</target></trans-unit>
+<trans-unit id="sc1611c0558728a2a">
+  <source>Position</source>
+<target>இடம்</target></trans-unit>
+<trans-unit id="sdb6622a51b2a94f5">
+  <source>Energy</source>
+<target>ஆற்றல்</target></trans-unit>
+<trans-unit id="s6ac670086eb137c6">
+  <source>Recovery</source>
+<target>மீட்பு</target></trans-unit>
+<trans-unit id="s7fd9266c6a3e25b5">
+  <source>ticks</source>
+<target>காலப் படிகள்</target></trans-unit>
+<trans-unit id="s9a9afbef4f7b48cb">
+  <source>Food Source sprite</source>
+<target>உணவு மூலப் படம்</target></trans-unit>
+<trans-unit id="s30e46c351062484e">
+  <source>Food Source</source>
+<target>உணவு மூலம்</target></trans-unit>
+<trans-unit id="se8eec06cd8e0d6e0">
+  <source>Selected entity metadata</source>
+<target>தேர்ந்தெடுத்த பொருளின் மெட்டாடேட்டா</target></trans-unit>
+<trans-unit id="sae239213b7c70376">
+  <source>State</source>
+<target>நிலை</target></trans-unit>
+<trans-unit id="sbe990627921a7485">
+  <source>Genetics</source>
+<target>மரபியல்</target></trans-unit>
+<trans-unit id="s03d851a0433270c8">
+  <source>Ancestry</source>
+<target>மூதாதையர் வரலாறு</target></trans-unit>
+<trans-unit id="s8bb79bae20655da9">
+  <source>No details available yet.</source>
+<target>இன்னும் விவரங்கள் இல்லை.</target></trans-unit>
+<trans-unit id="s5e8250fb85d64c23">
+  <source>Close</source>
+<target>மூடு</target></trans-unit>
+<trans-unit id="sa550c327ea278753">
+  <source>Allele within possible range</source>
+<target>சாத்தியமான வரம்புக்குள் உள்ள அலீல்</target></trans-unit>
+<trans-unit id="s1dfd6319b50f4cd7">
+  <source>Min</source>
+<target>குறைந்தபட்சம்</target></trans-unit>
+<trans-unit id="sab8b4cbbb1fa71fa">
+  <source>Current</source>
+<target>தற்போதைய</target></trans-unit>
+<trans-unit id="s1e187119b5262c59">
+  <source>Max</source>
+<target>அதிகபட்சம்</target></trans-unit>
+<trans-unit id="sea4f08110bb8f15d">
+  <source>Remove</source>
+<target>அகற்று</target></trans-unit>
+<trans-unit id="s4f27f6b48a68b5c2">
+  <source>Lock</source>
+<target>பூட்டு</target></trans-unit>
+<trans-unit id="s17cff5f101712ef8">
+  <source>World Size</source>
+<target>உலகின் அளவு</target></trans-unit>
+<trans-unit id="sf9b1c0661a02d9f9">
+  <source>Configuration</source>
+<target>அமைப்பு</target></trans-unit>
+<trans-unit id="s8c7324c4e16e8841">
+  <source>Initial Options</source>
+<target>தொடக்க விருப்பங்கள்</target></trans-unit>
+<trans-unit id="s5788d224d55d340c">
+  <source>Seed</source>
+<target>விதை</target></trans-unit>
+<trans-unit id="s8333f81521a31b93">
+  <source>Initial Food Sources</source>
+<target>தொடக்க உணவு மூலங்கள்</target></trans-unit>
+<trans-unit id="sfd33bc6d839533b3">
+  <source>Initial Agents</source>
+<target>தொடக்க முகவர்கள்</target></trans-unit>
+<trans-unit id="sb3ea3e951f441e44">
+  <source>Mutation Rate</source>
+<target>திடீர் மாற்ற விகிதம்</target></trans-unit>
+<trans-unit id="s965c503c3e42fdfe">
+  <source>Enabled</source>
+<target>இயக்கப்பட்டது</target></trans-unit>
+<trans-unit id="s60e08599bc9fb7ab">
+  <source>Show Population Graph</source>
+<target>மக்கள்தொகை வரைபடத்தைக் காட்டு</target></trans-unit>
+<trans-unit id="s3c7cbb8e22971e03">
+  <source>Show Food Availability Graph</source>
+<target>உணவு கிடைப்புத் தன்மை வரைபடத்தைக் காட்டு</target></trans-unit>
+<trans-unit id="s7cce13abc426c3ee">
+  <source>Show Allele Share Graph</source>
+<target>அலீல் பங்கு வரைபடத்தைக் காட்டு</target></trans-unit>
+<trans-unit id="s6ac60e74eb33f675">
+  <source>Show Allele Historic Share Graph</source>
+<target>அலீல் பங்கின் வரலாற்று வரைபடத்தைக் காட்டு</target></trans-unit>
+<trans-unit id="s4eb514ebcb80553d">
+  <source>Parent</source>
+<target>பெற்றோர்</target></trans-unit>
+<trans-unit id="s21e31bdc9713e7fd">
+  <source>Child</source>
+<target>சந்ததி</target></trans-unit>
+<trans-unit id="s95416925fd51a346">
+  <source>Agent</source>
+<target>முகவர்</target></trans-unit>
+<trans-unit id="s59564c1a37e11220">
+  <source>Vision Range</source>
+<target>பார்வை வரம்பு</target></trans-unit>
+<trans-unit id="sc52f2a1b6d5ddff9">
+  <source>How far the agent can perceive nearby agents and food sources.</source>
+<target>அருகிலுள்ள முகவர்களையும் உணவு மூலங்களையும் முகவர் எவ்வளவு தொலைவிலிருந்து உணர முடியும்.</target></trans-unit>
+<trans-unit id="s08e69a3bb96b795b">
+  <source>Energy Capacity</source>
+<target>ஆற்றல் கொள்ளளவு</target></trans-unit>
+<trans-unit id="sf9cb2ac6821de9c6">
+  <source>The maximum amount of energy the agent can store.</source>
+<target>முகவர் சேமிக்கக்கூடிய அதிகபட்ச ஆற்றல் அளவு.</target></trans-unit>
+<trans-unit id="sc892fa54f1de1674">
+  <source>Last 50 ticks</source>
+<target>கடைசி 50 படிகள்</target></trans-unit>
+<trans-unit id="se24aaede0913ba34">
+  <source>Last 100 ticks</source>
+<target>கடைசி 100 படிகள்</target></trans-unit>
+<trans-unit id="s34712a303ac50684">
+  <source>Last 250 ticks</source>
+<target>கடைசி 250 படிகள்</target></trans-unit>
+<trans-unit id="s92b0af76573d4394">
+  <source>Full history</source>
+<target>முழு வரலாறு</target></trans-unit>
+<trans-unit id="saf64054c86023237">
+  <source>H</source>
+  <note from="lit-localize">Short label for height</note>
+<target>ம</target></trans-unit>
+<trans-unit id="saf640a4c86023ab6">
+  <source>W</source>
+  <note from="lit-localize">Short label for width</note>
+<target>மே</target></trans-unit>
+<trans-unit id="s1114f41d8856dcf2">
+  <source>Configure simulation</source>
+<target>உருவகப்படுத்தலை அமை</target></trans-unit>
+<trans-unit id="sefc8e08d71b8530f">
+  <source>Agents</source>
+<target>முகவர்கள்</target></trans-unit>
+<trans-unit id="sa35c74457da618f3">
+  <source>Allele share</source>
+<target>அலீல் பங்கு</target></trans-unit>
+<trans-unit id="s72cf82f7f6bc6dd5">
+  <source>Current share</source>
+<target>தற்போதைய பங்கு</target></trans-unit>
+</body>
+</file>
+</xliff>

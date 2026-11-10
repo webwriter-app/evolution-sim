@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Προέλευση`,
 's061cc20e3432dead': `Παύση`,
 's08e69a3bb96b795b': `Ενεργειακή χωρητικότητα`,
+'s1114f41d8856dcf2': `Διαμόρφωση προσομοίωσης`,
 's111aabf3a7ebf23c': `Διαθεσιμότητα τροφής`,
 's17cff5f101712ef8': `Μέγεθος κόσμου`,
 's1dfd6319b50f4cd7': `Ελάχιστο`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `Διαμόρφωση`,
 'sf9cb2ac6821de9c6': `Η μέγιστη ποσότητα ενέργειας που μπορεί να αποθηκεύσει ο πράκτορας.`,
 'sfd33bc6d839533b3': `Αρχικοί πράκτορες`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

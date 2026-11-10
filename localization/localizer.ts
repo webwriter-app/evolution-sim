@@ -21,11 +21,13 @@ export function parseLocale(language: string | null | undefined): Intl.Locale {
 }
 
 function resolveLocale(language: string): string {
+  const exact = supported.get(language.trim().toLowerCase());
+  if (exact) return exact;
   const locale = parseLocale(language);
   const { language: base, script, region } = locale.maximize();
   const localeScript = script === "Aran" ? "Arab" : script;
-  const exact = supported.get(locale.baseName.toLowerCase());
-  if (exact) return exact;
+  const canonical = supported.get(locale.baseName.toLowerCase());
+  if (canonical) return canonical;
   const fallback = supported.get(regionalDefaults[base]?.toLowerCase());
   if (locale.baseName === base && fallback) return fallback;
   return supported.get(`${base}-${localeScript}`.toLowerCase()) ??

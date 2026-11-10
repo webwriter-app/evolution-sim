@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `祖先`,
 's061cc20e3432dead': `一時停止`,
 's08e69a3bb96b795b': `エネルギー容量`,
+'s1114f41d8856dcf2': `シミュレーションを設定`,
 's111aabf3a7ebf23c': `食物の入手可能性`,
 's17cff5f101712ef8': `ワールドサイズ`,
 's1dfd6319b50f4cd7': `最小`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `設定`,
 'sf9cb2ac6821de9c6': `エージェントが蓄積できるエネルギーの最大量。`,
 'sfd33bc6d839533b3': `初期エージェント`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

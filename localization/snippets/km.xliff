@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="km">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>ការវិវត្តលើកោះ</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>ការវិវត្តជាធម្មតាកើតឡើងក្នុងរយៈពេលរាប់ពាន់ឆ្នាំ។ ក្នុងការក្លែងធ្វើនេះ ជាច្រើនជំនាន់កន្លងផុតក្នុងរយៈពេលតែប៉ុន្មាននាទី ដូច្នេះអ្នកអាចសង្កេតមើលការផ្លាស់ប្តូររបស់ចំនួនប្រជាជនតាមពេលវេលា។</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>សេណារីយ៉ូ</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>ចំនួនសត្វតិចតួចរស់នៅលើកោះដាច់ស្រយាលមួយ។ ប្រភពអាហារតែមួយគត់របស់ពួកវាគឺគុម្ពផ្លែប៊ឺរីមួយចំនួនដែលរាយប៉ាយ។ បន្ទាប់ពីផ្លែប៊ឺរីនៅលើគុម្ពមួយត្រូវបានស៊ីអស់ ត្រូវចំណាយពេលមួយរយៈឱ្យផ្លែថ្មីដុះឡើង។</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>រាល់ចលនាចំណាយថាមពល។ សត្វដែលអស់ថាមពលនឹងស្លាប់។</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>សត្វដែលមានថាមពលគ្រប់គ្រាន់បង្កើតកូនមួយ ដែលធ្វើឱ្យវាចំណាយថាមពលមួយភាគធំ។</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>សត្វនីមួយៗមានហ្សែនពីរ៖</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>ចម្ងាយមើលឃើញ</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(ចម្ងាយដែលវាអាចមើលឃើញអាហារ) និង</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>សមត្ថភាពផ្ទុកថាមពល</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(បរិមាណថាមពលដែលវាអាចផ្ទុកបាន)។</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>នៅដើមដំបូង សត្វទាំងអស់មានអាលែលដូចគ្នា។ កូនទទួលអាលែលពីឪពុកម្តាយ ប៉ុន្តែមានប្រូបាប៊ីលីតេជាក់លាក់មួយដែលអាលែលផ្លាស់ប្តូរបន្តិច (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>បម្រែបម្រួល</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>ការព្យាករណ៍៖</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>មុនចាប់ផ្តើម សូមសរសេរថាអ្នករំពឹងថាចម្ងាយមើលឃើញ និងសមត្ថភាពផ្ទុកថាមពលរបស់ចំនួនប្រជាជននឹងផ្លាស់ប្តូរយ៉ាងដូចម្តេចតាមពេលវេលា។</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>របៀបប្រើការក្លែងធ្វើ</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>ប្រើ</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>ចាប់ផ្តើម</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>ផ្អាក</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>និង</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>ជំហាន</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>គ្រប់គ្រងការក្លែងធ្វើ ហើយប្រើប៊ូតុងល្បឿនដើម្បីបង្កើនល្បឿន។ ចុចលើសត្វមួយដើម្បីមើលអាលែលរបស់វានៅផ្ទាំង</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>ហ្សែនវិទ្យា</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>នៅផ្ទាំងហ្សែនវិទ្យា ហើយមើលឪពុកម្តាយ និងកូនរបស់វានៅផ្ទាំង</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>ពូជពង្ស</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>ពូជពង្ស។ ក្រាហ្វខាងក្រោមកោះបង្ហាញចំនួនប្រជាជន អាហារដែលមាន និងចំណែកនៃអាលែលនីមួយៗតាមពេលវេលា។ ដោយប្រើ</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>ថ្មី</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>អ្នកអាចចាប់ផ្តើមការក្លែងធ្វើដោយប្រើការកំណត់ផ្សេងៗ។</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>កិច្ចការ</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>ដំណើរការការក្លែងធ្វើមួយរយៈខ្លី ហើយប្រៀបធៀបកូនដំបូងជាមួយឪពុកម្តាយរបស់វា។ ភាពខុសគ្នារវាងសត្វទាំងនោះកើតមកពីណា?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>ឱ្យការក្លែងធ្វើដំណើរការក្នុងល្បឿនលឿនមួយរយៈ បន្ទាប់មកមើលក្រាហ្វ</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>ការចែកចាយហ្សែនតាមពេលវេលា</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. អាលែលសម្រាប់ចម្ងាយមើលឃើញ និងសមត្ថភាពផ្ទុកថាមពលបានផ្លាស់ប្តូរយ៉ាងដូចម្តេច? ប្រៀបធៀបលទ្ធផលជាមួយការព្យាករណ៍របស់អ្នក។</target></segment></unit>
+</file>
+</xliff>

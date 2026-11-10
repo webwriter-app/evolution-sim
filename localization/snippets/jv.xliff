@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="jv">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Évolusi Pulo</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Évolusi biasané dumadi nganti éwonan taun. Ing simulasi iki, akèh generasi liwat sajroné sawetara menit, mula kowé bisa mirsani owah-owahan populasi saka wektu ke wektu.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Skenario</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Populasi cilik makhluk urip ing pulo sing kapisah. Sumber pangan siji-sijiné yaiku sawetara grumbul woh beri sing sumebar. Sawisé woh ing grumbul dipangan, butuh wektu kanggo woh anyar thukul.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Saben gerakan mbutuhaké energi. Makhluk sing entèk energiné bakal mati.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Makhluk sing duwé energi cukup ngasilaké anak, sing mbutuhaké akèh energi.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Saben makhluk duwé rong gen:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Jangkauan pandelengan</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(sepira adoh bisa ndeleng pangan) lan</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Kapasitas energi</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(sepira akèh energi sing bisa disimpen).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Ing wiwitan kabèh makhluk duwé alel sing padha. Anak marisi alel saka wong tuwané, nanging kanthi kamungkinan tartamtu sawijining alel owah sethithik (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>mutasi</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Prakiraan:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Sadurungé miwiti, tulisen prakiraanmu bab owah-owahan jangkauan pandelengan lan kapasitas energi populasi saka wektu ke wektu.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Cara migunakaké simulasi</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Gunakna</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Wiwitan</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>ngaso</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>lan</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Langkah</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>kowé bisa ngatur simulasi lan nganggo tombol kacepetan kanggo nyepetaké. Klik makhluk kanggo ndeleng alelé ing tab</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Genetika</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>ing tab Genetika, lan wong tuwa sarta anaké ing tab</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Leluhur</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>Leluhur. Grafik ing ngisor pulo nuduhaké populasi, pangan sing kasedhiya, lan bagéan saben alel saka wektu ke wektu. Kanthi</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Anyar</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>kowé bisa miwiti simulasi nganggo setelan sing béda.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Tugas</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Jalanké simulasi sedhéla lan bandhingaké anak kapisan karo wong tuwané. Saka ngendi bedané makhluk-makhluk kuwi?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Jalanké simulasi kanthi kacepetan dhuwur sedhéla, banjur delengen grafik</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Sebaran gen saka wektu ke wektu</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Kepiyé alel kanggo Jangkauan pandelengan lan Kapasitas energi owah? Bandhingaké asil karo prakiraanmu.</target></segment></unit>
+</file>
+</xliff>

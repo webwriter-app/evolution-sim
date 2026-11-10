@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `النسب`,
 's061cc20e3432dead': `إيقاف مؤقت`,
 's08e69a3bb96b795b': `سعة الطاقة`,
+'s1114f41d8856dcf2': `إعداد المحاكاة`,
 's111aabf3a7ebf23c': `توافر الغذاء`,
 's17cff5f101712ef8': `حجم العالم`,
 's1dfd6319b50f4cd7': `الحد الأدنى`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `التكوين`,
 'sf9cb2ac6821de9c6': `الحد الأقصى للطاقة التي يمكن للوكيل تخزينها.`,
 'sfd33bc6d839533b3': `الوكلاء الأوليون`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

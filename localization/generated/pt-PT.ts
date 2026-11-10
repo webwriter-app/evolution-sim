@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Ancestralidade`,
 's061cc20e3432dead': `Pausa`,
 's08e69a3bb96b795b': `Capacidade energética`,
+'s1114f41d8856dcf2': `Configurar a simulação`,
 's111aabf3a7ebf23c': `Disponibilidade alimentar`,
 's17cff5f101712ef8': `Tamanho do mundo`,
 's1dfd6319b50f4cd7': `Mín.`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `Configuração`,
 'sf9cb2ac6821de9c6': `A quantidade máxima de energia que o agente pode armazenar.`,
 'sfd33bc6d839533b3': `Agentes iniciais`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

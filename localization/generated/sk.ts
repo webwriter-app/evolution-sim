@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Predkovia`,
 's061cc20e3432dead': `Pozastaviť`,
 's08e69a3bb96b795b': `Energetická kapacita`,
+'s1114f41d8856dcf2': `Konfigurovať simuláciu`,
 's111aabf3a7ebf23c': `Dostupnosť potravy`,
 's17cff5f101712ef8': `Veľkosť sveta`,
 's1dfd6319b50f4cd7': `Min`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `Konfigurácia`,
 'sf9cb2ac6821de9c6': `Maximálne množstvo energie, ktoré môže agent uložiť.`,
 'sfd33bc6d839533b3': `Počiatoční agenti`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="uz">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Orolda evolyutsiya</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Evolyutsiya odatda ming yillar davom etadi. Bu simulyatsiyada bir necha daqiqada ko‘p avlod almashadi, shuning uchun populyatsiyaning vaqt o‘tishi bilan qanday o‘zgarishini kuzatishingiz mumkin.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Ssenariy</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Yolg‘iz orolda jonzotlarning kichik populyatsiyasi yashaydi. Ularning yagona oziq manbai — siyrak o‘sgan bir nechta rezavor butalar. Buta yeb bo‘lingach, yangi rezavorlar o‘sishi uchun vaqt kerak bo‘ladi.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Har bir harakat energiya sarflaydi. Energiyasi tugagan jonzot o‘ladi.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Yetarli energiyaga ega jonzot avlod tug‘adi, buning uchun energiyasining katta qismi sarflanadi.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Har bir jonzotda ikkita gen bor:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Ko‘rish masofasi</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(oziqni qanchalik uzoqdan ko‘ra olishi) va</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Energiya sig‘imi</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(qancha energiya saqlay olishi).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Boshida barcha jonzotlarning allellari bir xil. Avlod ota-onasining allellarini meros oladi, lekin ma’lum ehtimol bilan allel biroz o‘zgaradi (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>mutatsiya</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Taxmin:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Boshlashdan oldin populyatsiyaning ko‘rish masofasi va energiya sig‘imi vaqt o‘tishi bilan qanday o‘zgarishini kutayotganingizni yozib qo‘ying.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Simulyatsiyadan foydalanish</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Foydalanish</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Boshlash</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Pauza</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>va</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Qadam</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>simulyatsiyani boshqarish, tezlik tugmalari bilan esa uni tezlatish uchun. Allellarini ko‘rish uchun jonzot ustiga bosing:</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Genetika</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>yorlig‘i hamda uning ota-onasi va avlodlarini</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Nasl-nasab</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>yorlig‘i. Orol ostidagi grafiklarda populyatsiya, mavjud oziq va har bir allelning vaqt bo‘yicha ulushi ko‘rsatiladi.</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Yangi</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>turli sozlamalar bilan simulyatsiyani boshlashingiz mumkin.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Vazifalar</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Simulyatsiyani qisqa vaqt ishlatib, birinchi avlodlarni ota-onasi bilan solishtiring. Jonzotlar o‘rtasidagi farqlar nimadan kelib chiqadi?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Simulyatsiyani biroz vaqt yuqori tezlikda ishlatib, keyin grafikni ko‘ring</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Vaqt bo‘yicha gen taqsimoti</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Ko‘rish masofasi va energiya sig‘imi allellari qanday o‘zgardi? Natijani taxminingiz bilan solishtiring.</target></segment></unit>
+</file>
+</xliff>

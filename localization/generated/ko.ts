@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,6 +12,7 @@
       's03d851a0433270c8': `조상`,
 's061cc20e3432dead': `일시 정지`,
 's08e69a3bb96b795b': `에너지 용량`,
+'s1114f41d8856dcf2': `시뮬레이션 구성`,
 's111aabf3a7ebf23c': `식량 가용성`,
 's17cff5f101712ef8': `월드 크기`,
 's1dfd6319b50f4cd7': `최소`,
@@ -83,5 +84,4 @@
 'sf9b1c0661a02d9f9': `구성`,
 'sf9cb2ac6821de9c6': `에이전트가 저장할 수 있는 최대 에너지량.`,
 'sfd33bc6d839533b3': `초기 에이전트`,
-'s1114f41d8856dcf2': `Configure simulation`,
     };
