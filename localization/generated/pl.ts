@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Konfiguracja`,
 'sf9cb2ac6821de9c6': `Maksymalna ilość energii, jaką agent może zmagazynować.`,
 'sfd33bc6d839533b3': `Początkowi agenci`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

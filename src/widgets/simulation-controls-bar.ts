@@ -1,6 +1,6 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { consume } from "@lit/context";
 import { css } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import {
   SimulationStore,
@@ -20,7 +20,6 @@ import IconPlus from "bootstrap-icons/icons/plus.svg";
 import IconArrowClockwise from "bootstrap-icons/icons/arrow-clockwise.svg";
 import { when } from "lit/directives/when.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
-import { localized, msg } from "@lit/localize";
 
 export type OpenNewSimulationDialogEvent = CustomEvent<unknown>;
 
@@ -30,8 +29,8 @@ export type ModeChangeEvent = CustomEvent<SimulationViewMode>;
 const SPEED_OPTIONS = [0.25, 0.5, 1, 2, 5];
 
 @customElement("simulation-controls-bar")
-@localized()
-export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
+export class SimulationControlsBar extends SignalWatcher(LocalizedElement) {
+  protected readonly messages = localizeElement(this);
   @consume({ context: simulationStoreContext })
   private accessor simulationStore!: SimulationStore;
 
@@ -133,9 +132,9 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
               )}
           >
             <sl-radio-button value="simulation">
-              ${msg("Simulation")}
+              ${this.messages.msg("Simulation")}
             </sl-radio-button>
-            <sl-radio-button value="graphs">${msg("Graphs")}</sl-radio-button>
+            <sl-radio-button value="graphs">${this.messages.msg("Graphs")}</sl-radio-button>
           </sl-radio-group>
         `,
       )}
@@ -159,7 +158,7 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
                 @click=${() => this.simulationStore.stopSimulation()}
               >
                 <sl-icon src=${IconPause} slot="prefix"></sl-icon>
-                ${msg("Pause")}
+                ${this.messages.msg("Pause")}
               </sl-button>
             `,
             () => html`
@@ -168,7 +167,7 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
                 @click=${() => this.simulationStore.startSimulation()}
               >
                 <sl-icon src=${IconPlay} slot="prefix"></sl-icon>
-                ${msg("Start")}
+                ${this.messages.msg("Start")}
               </sl-button>
             `,
           )}
@@ -178,7 +177,7 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
             @click=${() => this.simulationStore.runNextTick()}
           >
             <sl-icon src=${IconSkipEnd} slot="prefix"></sl-icon>
-            ${msg("Step")}
+            ${this.messages.msg("Step")}
           </sl-button>
         </sl-button-group>
         <sl-button-group>
@@ -188,7 +187,7 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
             @click=${() => this.openNewSimulationDialog()}
           >
             <sl-icon src=${IconPlus} slot="prefix"></sl-icon>
-            ${msg("New")}
+            ${this.messages.msg("New")}
           </sl-button>
           <sl-button
             size="small"
@@ -196,7 +195,7 @@ export class SimulationControlsBar extends SignalWatcher(LitElementWw) {
             @click=${() => this.simulationStore.resetSimulation()}
           >
             <sl-icon src=${IconArrowClockwise} slot="prefix"></sl-icon>
-            ${msg("Reset")}
+            ${this.messages.msg("Reset")}
           </sl-button>
         </sl-button-group>
       </div>

@@ -1,3 +1,4 @@
+import { localizeElement } from "../../localization/localizer";
 import { css } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { LitElementWw } from "@webwriter/lit";
@@ -14,7 +15,6 @@ import {
   SIMULATION_INITIAL_AGENT_COUNT,
   SIMULATION_WORLD_SIZE,
 } from "@/simulation/constants";
-import { localized, msg } from "@lit/localize";
 import {
   getInitOptionBounds,
   getInvalidInitOptionFields,
@@ -71,10 +71,10 @@ export const DEFAULT_SIMULATION_CONFIGURATION: SimulationConfiguration = {
 export type ConfigurationChangeEvent = CustomEvent<SimulationConfiguration>;
 
 @customElement("simulation-pre-configuration-aside")
-@localized()
 export class SimulationPreConfigurationAside extends SignalWatcher(
   LitElementWw,
 ) {
+  protected readonly messages = localizeElement(this);
   @property({ attribute: false })
   accessor configuration: SimulationConfiguration =
     DEFAULT_SIMULATION_CONFIGURATION;
@@ -217,7 +217,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
                 !currentOption.locked,
               )}"
           >
-            ${msg("Lock")}
+            ${this.messages.msg("Lock")}
           </sl-switch>
         </div>
         <sl-input
@@ -249,7 +249,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
     return html`
       <div class="init-option">
         <div class="init-option-header">
-          <span class="init-option-label">${msg("World Size")}</span>
+          <span class="init-option-label">${this.messages.msg("World Size")}</span>
           <sl-switch
             size="small"
             .checked="${currentOption.locked}"
@@ -259,7 +259,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
                 !currentOption.locked,
               )}"
           >
-            ${msg("Lock")}
+            ${this.messages.msg("Lock")}
           </sl-switch>
         </div>
         <div class="world-size-inputs">
@@ -268,7 +268,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
             type="number"
             min=${bounds["worldSize.x"].min}
             step=${bounds["worldSize.x"].step}
-            label=${msg("W", { desc: "Short label for width" })}
+            label=${this.messages.msg("W", { desc: "Short label for width" })}
             .value="${String(currentOption.value.x)}"
             @input="${createInputHandler((e) =>
               this.updateConfiguration(
@@ -282,7 +282,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
             type="number"
             min=${bounds["worldSize.y"].min}
             step=${bounds["worldSize.y"].step}
-            label=${msg("H", { desc: "Short label for height" })}
+            label=${this.messages.msg("H", { desc: "Short label for height" })}
             .value="${String(currentOption.value.y)}"
             @input="${createInputHandler((e) =>
               this.updateConfiguration(
@@ -300,34 +300,34 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
   render() {
     return html`
       <div id="pre-configuration-container">
-        <h3 class="config-title">${msg("Configuration")}</h3>
+        <h3 class="config-title">${this.messages.msg("Configuration")}</h3>
         <sl-card>
-          <h4>${msg("Initial Options")}</h4>
+          <h4>${this.messages.msg("Initial Options")}</h4>
           <div class="config-container">
-            ${this.renderInitOptionConfiguration(msg("Seed"), "seed")}
+            ${this.renderInitOptionConfiguration(this.messages.msg("Seed"), "seed")}
             ${this.renderWorldSizeConfiguration()}
             ${this.renderInitOptionConfiguration(
-              msg("Initial Food Sources"),
+              this.messages.msg("Initial Food Sources"),
               "initialFoodSourcesAmount",
             )}
             ${this.renderInitOptionConfiguration(
-              msg("Initial Agents"),
+              this.messages.msg("Initial Agents"),
               "initialAgentsAmount",
             )}
             ${this.renderInitOptionConfiguration(
-              msg("Mutation Rate"),
+              this.messages.msg("Mutation Rate"),
               "mutationRate",
             )}
           </div>
         </sl-card>
         <sl-card>
           <div class="config-container">
-            <h4>${msg("Graphs")}</h4>
+            <h4>${this.messages.msg("Graphs")}</h4>
             <sl-switch
               .checked="${this.configuration.graphs?.enabled ?? true}"
               @input="${() => this.toggleGraphOption("enabled")}"
             >
-              ${msg("Enabled")}
+              ${this.messages.msg("Enabled")}
             </sl-switch>
             <sl-switch
               .disabled="${!this.configuration.graphs?.enabled}"
@@ -335,7 +335,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
               true}"
               @input="${() => this.toggleGraphOption("showPopulationGraph")}"
             >
-              ${msg("Show Population Graph")}
+              ${this.messages.msg("Show Population Graph")}
             </sl-switch>
             <sl-switch
               .disabled="${!this.configuration.graphs?.enabled}"
@@ -344,7 +344,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
               @input="${() =>
                 this.toggleGraphOption("showFoodAvailabilityGraph")}"
             >
-              ${msg("Show Food Availability Graph")}
+              ${this.messages.msg("Show Food Availability Graph")}
             </sl-switch>
             <sl-switch
               .disabled="${!this.configuration.graphs?.enabled}"
@@ -352,7 +352,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
               true}"
               @input="${() => this.toggleGraphOption("showAlleleShareGraph")}"
             >
-              ${msg("Show Allele Share Graph")}
+              ${this.messages.msg("Show Allele Share Graph")}
             </sl-switch>
             <sl-switch
               .disabled="${!this.configuration.graphs?.enabled}"
@@ -361,7 +361,7 @@ export class SimulationPreConfigurationAside extends SignalWatcher(
               @input="${() =>
                 this.toggleGraphOption("showAlleleHistoricShareGraph")}"
             >
-              ${msg("Show Allele Historic Share Graph")}
+              ${this.messages.msg("Show Allele Historic Share Graph")}
             </sl-switch>
           </div>
         </sl-card>

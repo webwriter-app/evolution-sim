@@ -1,4 +1,4 @@
-import { msg } from "@lit/localize";
+import { msg as sourceMsg, type MsgFn } from "@lit/localize";
 import { GeneName } from "@/simulation/genetics/definitions";
 import { AgentSnapshot, SimulationSnapshot } from "@/simulation/serialization";
 import { hasValue } from "@/utils/typeGuards";
@@ -7,7 +7,7 @@ export type HistorySubsetPreset = "last-50" | "last-100" | "last-250" | "full";
 
 export interface HistorySubsetOption {
   value: HistorySubsetPreset;
-  getLabel: () => string;
+  getLabel: (msg?: MsgFn) => string;
   limit: number | null;
   roundToMultipleOf?: number;
   mayLag?: boolean;
@@ -32,25 +32,25 @@ export interface AlleleDistributionEntry {
 export const HISTORY_SUBSET_OPTIONS: HistorySubsetOption[] = [
   {
     value: "last-50",
-    getLabel: () => msg("Last 50 ticks"),
+    getLabel: (msg = sourceMsg) => msg("Last 50 ticks"),
     limit: 50,
     roundToMultipleOf: 10,
   },
   {
     value: "last-100",
-    getLabel: () => msg("Last 100 ticks"),
+    getLabel: (msg = sourceMsg) => msg("Last 100 ticks"),
     limit: 100,
     roundToMultipleOf: 20,
   },
   {
     value: "last-250",
-    getLabel: () => msg("Last 250 ticks"),
+    getLabel: (msg = sourceMsg) => msg("Last 250 ticks"),
     limit: 250,
     roundToMultipleOf: 50,
   },
   {
     value: "full",
-    getLabel: () => msg("Full history"),
+    getLabel: (msg = sourceMsg) => msg("Full history"),
     limit: null,
     mayLag: true,
   },

@@ -1,6 +1,6 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { consume } from "@lit/context";
 import { css } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { SlButton, SlIcon } from "@shoelace-style/shoelace";
@@ -12,11 +12,10 @@ import {
 } from "@/composables/simulationStore";
 import { AgentPreviewSpriteData, FoodSourceSpriteData } from "./assets";
 import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
-import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-manual-tools")
-@localized()
-export class SimulationManualTools extends SignalWatcher(LitElementWw) {
+export class SimulationManualTools extends SignalWatcher(LocalizedElement) {
+  protected readonly messages = localizeElement(this);
   @consume({ context: simulationStoreContext })
   private accessor simulationStore!: SimulationStore;
 
@@ -136,7 +135,7 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
         @click=${() => this.toggleRemoveMode()}
       >
         <sl-icon src=${IconEraser} slot="prefix"></sl-icon>
-        ${msg("Remove")}
+        ${this.messages.msg("Remove")}
       </sl-button>
     `;
   }
@@ -145,12 +144,12 @@ export class SimulationManualTools extends SignalWatcher(LitElementWw) {
     return html`
       <div id="manual-tools-container">
         ${this.renderSpriteToolButton({
-          label: msg("Food Source"),
+          label: this.messages.msg("Food Source"),
           tool: "add-food-source",
           spriteSource: FoodSourceSpriteData,
         })}
         ${this.renderSpriteToolButton({
-          label: msg("Agent"),
+          label: this.messages.msg("Agent"),
           tool: "add-agent",
           spriteSource: AgentPreviewSpriteData,
         })}

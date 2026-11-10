@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Configurazione`,
 'sf9cb2ac6821de9c6': `La quantità massima di energia che l'agente può immagazzinare.`,
 'sfd33bc6d839533b3': `Agenti iniziali`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

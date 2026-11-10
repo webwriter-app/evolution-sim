@@ -10,7 +10,15 @@
     "isced2011-3",
     "iscedf2013-05",
     "evolution",
-    "genetics"
+    "genetics",
+    "widget-lang-en-US",
+    "widget-lang-en-GB",
+    "widget-lang-en-CA",
+    "widget-lang-en-AU",
+    "widget-lang-en-IN",
+    "widget-lang-fr",
+    "widget-lang-de",
+    "widget-lang-es"
   ],
   "repository": "github:webwriter-app/evolution-sim",
   "license": "MIT",
@@ -73,5 +81,92 @@
   "customElements": "custom-elements.json",
   "allowScripts": {
     "esbuild": true
+  },
+  "editingConfig": {
+    ".": {
+      "label": {
+        "_": "Evolution Sim",
+        "en": "Evolution Sim",
+        "en-US": "Evolution Sim",
+        "en-GB": "Evolution Sim",
+        "en-CA": "Evolution Sim",
+        "en-AU": "Evolution Sim",
+        "en-IN": "Evolution Sim",
+        "fr": "Simulation de l’évolution",
+        "de": "Evolutionssimulation",
+        "es": "Simulación de la evolución"
+      },
+      "description": {
+        "_": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
+        "en": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
+        "en-US": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
+        "en-GB": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
+        "en-CA": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
+        "en-AU": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
+        "en-IN": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
+        "fr": "Simulez l’évolution avec des agents qui cherchent de la nourriture, se reproduisent et transmettent des gènes qui mutent. Examinez les agents et analysez la population et la répartition des gènes dans des graphiques.",
+        "de": "Simulieren Sie die Evolution mit Agenten, die nach Nahrung suchen, sich fortpflanzen und mutierende Gene weitergeben. Untersuchen Sie einzelne Agenten und analysieren Sie Population und Genverteilung in Diagrammen.",
+        "es": "Simula la evolución con agentes que buscan alimento, se reproducen y transmiten genes que mutan. Examina cada agente y analiza la población y la distribución de genes en gráficos."
+      }
+    },
+    "./widgets/webwriter-evolution-sim": {
+      "label": {
+        "_": "Evolution Sim",
+        "en": "Evolution Sim",
+        "en-US": "Evolution Sim",
+        "en-GB": "Evolution Sim",
+        "en-CA": "Evolution Sim",
+        "en-AU": "Evolution Sim",
+        "en-IN": "Evolution Sim",
+        "fr": "Simulation de l’évolution",
+        "de": "Evolutionssimulation",
+        "es": "Simulación de la evolución"
+      }
+    },
+    "./snippets/island-evolution": {
+      "label": {
+        "_": "Island Evolution",
+        "en": "Island Evolution",
+        "en-US": "Island Evolution",
+        "en-GB": "Island Evolution",
+        "en-CA": "Island Evolution",
+        "en-AU": "Island Evolution",
+        "en-IN": "Island Evolution",
+        "ar": "تطور الجزيرة",
+        "bg": "Еволюция на остров",
+        "zh": "岛屿演化",
+        "zh-Hans": "岛屿演化",
+        "zh-Hant": "島嶼演化",
+        "cs": "Evoluce na ostrově",
+        "da": "Ø-evolution",
+        "nl": "Evolutie op een eiland",
+        "et": "Saare evolutsioon",
+        "fi": "Saaren evoluutio",
+        "fr": "Évolution insulaire",
+        "de": "Insel-Evolution",
+        "el": "Εξέλιξη των νησιών",
+        "hu": "A sziget evolúciója",
+        "it": "Evoluzione su un’isola",
+        "lv": "Salu evolūcija",
+        "lt": "Salų evoliucija",
+        "pl": "Ewolucja na wyspie",
+        "pt": "Evolução insular",
+        "pt-PT": "Evolução insular",
+        "pt-BR": "Evolução em ilhas",
+        "ro": "Evoluția insulei",
+        "ru": "Эволюция на острове",
+        "sk": "Vývoj ostrova",
+        "sl": "Razvoj otoka",
+        "es": "Evolución insular",
+        "sv": "Öns utveckling",
+        "ja": "島の進化",
+        "ko": "섬의 진화",
+        "no": "Øyevolution",
+        "nb": "Øyevolution",
+        "tr": "Ada Evrimi",
+        "uk": "Еволюція на острові",
+        "id": "Evolusi Pulau"
+      }
+    }
   }
 }

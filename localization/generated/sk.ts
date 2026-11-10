@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Konfigurácia`,
 'sf9cb2ac6821de9c6': `Maximálne množstvo energie, ktoré môže agent uložiť.`,
 'sfd33bc6d839533b3': `Počiatoční agenti`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

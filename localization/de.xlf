@@ -1,4 +1,5 @@
-<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd" version="1.2">
   <file original="lit-localize-inputs" datatype="plaintext" source-language="en" target-language="de">
     <body>
       <trans-unit id="sd75d6fb3ddf8bb38">
@@ -299,6 +300,9 @@
         <source>Close</source>
         <target>Schließen</target>
       </trans-unit>
-    </body>
+    <trans-unit id="s1114f41d8856dcf2">
+  <source>Configure simulation</source>
+<target>Simulation konfigurieren</target></trans-unit>
+</body>
   </file>
 </xliff>

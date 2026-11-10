@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `구성`,
 'sf9cb2ac6821de9c6': `에이전트가 저장할 수 있는 최대 에너지량.`,
 'sfd33bc6d839533b3': `초기 에이전트`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Konfiguráció`,
 'sf9cb2ac6821de9c6': `Az a maximális energiamennyiség, amelyet az ágens tárolni tud.`,
 'sfd33bc6d839533b3': `Kezdeti ágensek`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Ascendance`,
 's061cc20e3432dead': `Pause`,
 's08e69a3bb96b795b': `Capacité énergétique`,
+'s1114f41d8856dcf2': `Configurer la simulation`,
 's111aabf3a7ebf23c': `Disponibilité alimentaire`,
 's17cff5f101712ef8': `Taille du monde`,
 's1dfd6319b50f4cd7': `Min`,
@@ -84,4 +85,3 @@
 'sf9cb2ac6821de9c6': `Quantité maximale d'énergie que l'agent peut stocker.`,
 'sfd33bc6d839533b3': `Agents initiaux`,
     };
-  

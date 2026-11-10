@@ -1,11 +1,10 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { consume } from "@lit/context";
 import { css } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { computed, html, signal, SignalWatcher } from "@lit-labs/signals";
 import { ChartData, ChartOptions } from "chart.js";
 import { SlCard, SlOption, SlSelect } from "@shoelace-style/shoelace";
-import { localized, msg } from "@lit/localize";
 import {
   SimulationStore,
   simulationStoreContext,
@@ -13,7 +12,7 @@ import {
 import { definedGenes, GeneName } from "@/simulation/genetics/definitions";
 import { ChartWrapper } from "./chart-wrapper";
 import { getGeneTexts } from "./utils/geneTexts";
-import { activeLocale } from "./utils/localization";
+import type { MsgFn } from "@lit/localize";
 import {
   createAlleleShareOverTimeSeries,
   createCurrentAlleleDistribution,
@@ -33,7 +32,7 @@ const DEFAULT_GENE_NAME: GeneName = definedGenes[0].name;
 const formatShareTick = (value: string | number) =>
   `${Math.round(Number(value) * 100)}%`;
 
-function createPopulationChartOptions(): ChartOptions {
+function createPopulationChartOptions(msg: MsgFn): ChartOptions {
   return {
     responsive: true,
     maintainAspectRatio: false,
@@ -56,7 +55,7 @@ function createPopulationChartOptions(): ChartOptions {
   };
 }
 
-function createFoodAvailabilityChartOptions(): ChartOptions {
+function createFoodAvailabilityChartOptions(msg: MsgFn): ChartOptions {
   return {
     responsive: true,
     maintainAspectRatio: false,
@@ -83,7 +82,7 @@ function createFoodAvailabilityChartOptions(): ChartOptions {
   };
 }
 
-function createAlleleShareLineOptions(): ChartOptions {
+function createAlleleShareLineOptions(msg: MsgFn): ChartOptions {
   return {
     responsive: true,
     maintainAspectRatio: false,
@@ -110,7 +109,7 @@ function createAlleleShareLineOptions(): ChartOptions {
   };
 }
 
-function createCurrentDistributionOptions(): ChartOptions {
+function createCurrentDistributionOptions(msg: MsgFn): ChartOptions {
   return {
     responsive: true,
     maintainAspectRatio: false,
@@ -156,8 +155,11 @@ export const DEFAULT_GRAPH_OPTIONS = {
 };
 
 @customElement("simulation-analysis-view")
-@localized()
-export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
+export class SimulationAnalysisView extends SignalWatcher(LocalizedElement) {
+  private readonly messageRevision = signal(0);
+  protected readonly messages = localizeElement(this, () => {
+    this.messageRevision.set(this.messageRevision.get() + 1);
+  });
   @property({ attribute: false })
   accessor configuration: GraphConfig = DEFAULT_GRAPH_OPTIONS;
 
@@ -178,23 +180,23 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
   );
 
   private readonly chartOptions = computed(() => {
-    activeLocale.get();
+    this.messageRevision.get();
 
     return {
-      population: createPopulationChartOptions(),
-      foodAvailability: createFoodAvailabilityChartOptions(),
-      alleleShareLine: createAlleleShareLineOptions(),
-      currentDistribution: createCurrentDistributionOptions(),
+      population: createPopulationChartOptions(this.messages.msg),
+      foodAvailability: createFoodAvailabilityChartOptions(this.messages.msg),
+      alleleShareLine: createAlleleShareLineOptions(this.messages.msg),
+      currentDistribution: createCurrentDistributionOptions(this.messages.msg),
     };
   });
 
   private readonly populationChartData = computed<ChartData>(() => {
-    activeLocale.get();
+    this.messageRevision.get();
 
     return {
       datasets: [
         {
-          label: msg("Population"),
+          label: this.messages.msg("Population"),
           data: createPopulationSeries(this.historySubset.get()),
           borderColor: "hsl(211, 86%, 46%)",
           backgroundColor: "hsla(211, 86%, 46%, 0.14)",
@@ -207,12 +209,12 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
   });
 
   private readonly foodAvailabilityChartData = computed<ChartData>(() => {
-    activeLocale.get();
+    this.messageRevision.get();
 
     return {
       datasets: [
         {
-          label: msg("Available food"),
+          label: this.messages.msg("Available food"),
           data: createFoodAvailabilitySeries(this.historySubset.get()),
           borderColor: "hsl(142, 72%, 35%)",
           backgroundColor: "hsla(142, 72%, 35%, 0.14)",
@@ -225,14 +227,14 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
   });
 
   private readonly alleleHistoryChartData = computed<ChartData>(() => {
-    activeLocale.get();
+    this.messageRevision.get();
 
     return {
       datasets: createAlleleShareOverTimeSeries({
         snapshots: this.historySubset.get(),
         geneName: this.selectedHistoryGene.get(),
       }).map((series) => ({
-        label: `${msg("Allele")}: ${series.allele}`,
+        label: `${this.messages.msg("Allele")}: ${series.allele}`,
         data: series.data,
         borderColor: getAlleleColor(series.allele),
         backgroundColor: getAlleleColor(series.allele),
@@ -244,7 +246,7 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
   });
 
   private readonly currentDistributionChartData = computed<ChartData>(() => {
-    activeLocale.get();
+    this.messageRevision.get();
 
     const snapshot =
       this.simulationStore.currentActiveSimulationData.get()?.snapshot ?? null;
@@ -257,7 +259,7 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
       labels: distribution.map((entry) => String(entry.allele)),
       datasets: [
         {
-          label: msg("Current allele share"),
+          label: this.messages.msg("Current allele share"),
           data: distribution.map((entry) => entry.share),
           backgroundColor: distribution.map((entry) =>
             getAlleleColor(entry.allele),
@@ -342,17 +344,17 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
     return definedGenes.map(
       (gene) =>
         html`<sl-option value=${gene.name}
-          >${getGeneTexts(gene.name).label}</sl-option
+          >${getGeneTexts(gene.name, this.messages.msg).label}</sl-option
         >`,
     );
   }
 
   private populationHistoryGraph() {
     return html` <article class="graph-panel">
-      <h3 class="chart-title">${msg("Population development")}</h3>
+      <h3 class="chart-title">${this.messages.msg("Population development")}</h3>
       <chart-wrapper
         type="line"
-        label=${msg("Population development")}
+        label=${this.messages.msg("Population development")}
         .data=${this.populationChartData.get()}
         .chartOptions=${this.chartOptions.get().population}
       ></chart-wrapper>
@@ -361,10 +363,10 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
 
   private foodAvailabilityGraph() {
     return html` <article class="graph-panel">
-      <h3 class="chart-title">${msg("Food availability")}</h3>
+      <h3 class="chart-title">${this.messages.msg("Food availability")}</h3>
       <chart-wrapper
         type="line"
-        label=${msg("Food availability")}
+        label=${this.messages.msg("Food availability")}
         .data=${this.foodAvailabilityChartData.get()}
         .chartOptions=${this.chartOptions.get().foodAvailability}
       ></chart-wrapper>
@@ -373,10 +375,10 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
 
   private alleleShareOverTimeGraph() {
     return html` <article class="graph-panel">
-      <h3 class="chart-title">${msg("Gene distribution over time")}</h3>
+      <h3 class="chart-title">${this.messages.msg("Gene distribution over time")}</h3>
       <div class="controls-row">
         <sl-select
-          label=${msg("Gene")}
+          label=${this.messages.msg("Gene")}
           .value=${this.selectedHistoryGene.get()}
           @sl-change=${this.handleHistoryGeneChange}
         >
@@ -385,7 +387,7 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
       </div>
       <chart-wrapper
         type="line"
-        label=${msg("Gene distribution over time")}
+        label=${this.messages.msg("Gene distribution over time")}
         .data=${this.alleleHistoryChartData.get()}
         .chartOptions=${this.chartOptions.get().alleleShareLine}
       ></chart-wrapper>
@@ -394,10 +396,10 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
 
   private currentAlleleDistributionGraph() {
     return html` <article class="graph-panel">
-      <h3 class="chart-title">${msg("Current gene distribution")}</h3>
+      <h3 class="chart-title">${this.messages.msg("Current gene distribution")}</h3>
       <div class="controls-row">
         <sl-select
-          label=${msg("Gene")}
+          label=${this.messages.msg("Gene")}
           .value=${this.selectedCurrentGene.get()}
           @sl-change=${this.handleCurrentGeneChange}
         >
@@ -406,7 +408,7 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
       </div>
       <chart-wrapper
         type="bar"
-        label=${msg("Current gene distribution")}
+        label=${this.messages.msg("Current gene distribution")}
         .data=${this.currentDistributionChartData.get()}
         .chartOptions=${this.chartOptions.get().currentDistribution}
       ></chart-wrapper>
@@ -442,14 +444,14 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
         <div id="header">
           <sl-select
             class="history-control"
-            label=${msg("History window")}
+            label=${this.messages.msg("History window")}
             .value=${selectedHistorySubsetPreset}
             @sl-change=${this.handleHistorySubsetChange}
           >
             ${HISTORY_SUBSET_OPTIONS.map(
               (option) => html`
                 <sl-option value=${option.value}
-                  >${option.getLabel()}</sl-option
+                  >${option.getLabel(this.messages.msg)}</sl-option
                 >
               `,
             )}
@@ -457,7 +459,7 @@ export class SimulationAnalysisView extends SignalWatcher(LitElementWw) {
           ${
             selectedHistorySubsetOption?.mayLag
               ? html`<p class="warning">
-                  ${msg("Full history may lag during long simulations.")}
+                  ${this.messages.msg("Full history may lag during long simulations.")}
                 </p>`
               : null
           }

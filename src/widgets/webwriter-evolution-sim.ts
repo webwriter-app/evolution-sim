@@ -1,7 +1,7 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { css } from "lit";
 // @ts-expect-error: Shoelace import
 import "@shoelace-style/shoelace/dist/themes/light.css";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, state } from "lit/decorators.js";
 import { SimulationRunView } from "./simulation-run-view";
 import { SimulationCreationDialog } from "./simulation-creation-dialog";
@@ -21,8 +21,6 @@ import { SimulationInitOptions } from "@/simulation/Simulation.worker";
 import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { isEqual } from "lodash-es";
 import { hasValue } from "@/utils/typeGuards";
-import LOCALIZE from "../../localization/generated";
-import { msg } from "@lit/localize";
 import { readData, writeData } from "./data-block";
 
 /**
@@ -46,8 +44,8 @@ import { readData, writeData } from "./data-block";
  * @fires {CustomEvent<SimulationConfiguration>} configuration-change - Fired when the configuration is changed in the options panel or when a new simulation is created. `detail` holds the new configuration.
  */
 @customElement("webwriter-evolution-sim")
-export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
-  protected localize = LOCALIZE;
+export class WebwriterEvolutionSim extends SignalWatcher(LocalizedElement) {
+  protected readonly messages = localizeElement(this);
 
   /** @internal */
   @provide({ context: simulationStoreContext })
@@ -91,11 +89,12 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
     }
   `;
 
-  static actions = {
-    configureSimulation: { label: { _: "Configure simulation", de: "Simulation konfigurieren" } },
-  };
+  get actions() {
+    return {
+      configureSimulation: { label: { _: this.messages.msg("Configure simulation") } },
+    };
+  }
 
-  readonly actions = WebwriterEvolutionSim.actions;
 
   configureSimulation() {
     const dialog = this.renderRoot.querySelector<HTMLDialogElement>("#configuration");
@@ -204,8 +203,8 @@ export class WebwriterEvolutionSim extends SignalWatcher(LitElementWw) {
 
         ${
           this.isContentEditable
-            ? html`<dialog id="configuration" aria-label=${msg("Configuration")}>
-                <form method="dialog"><button>${msg("Close")}</button></form>
+            ? html`<dialog id="configuration" aria-label=${this.messages.msg("Configuration")}>
+                <form method="dialog"><button>${this.messages.msg("Close")}</button></form>
                 <simulation-pre-configuration-aside
                   .configuration=${this.simulationConfiguration}
                   @configuration-change=${(e: ConfigurationChangeEvent) => this.saveConfiguration(e.detail)}

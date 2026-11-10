@@ -1,16 +1,15 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { css } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { html } from "@lit-labs/signals";
-import { localized, msg } from "@lit/localize";
 import { FoodSourceSpriteData } from "./assets";
 import { EntitySelection } from "./utils/entityInspection";
 import { SimulationAgentGenomePreview } from "./simulation-agent-genome-preview";
 
 @customElement("simulation-entity-aside")
-@localized()
-export class SimulationEntityAside extends LitElementWw {
+export class SimulationEntityAside extends LocalizedElement {
+  protected readonly messages = localizeElement(this);
   @property({ attribute: false })
   accessor selection: EntitySelection | null = null;
 
@@ -104,15 +103,15 @@ export class SimulationEntityAside extends LitElementWw {
       return null;
     }
 
-    const label = selection.type === "agent" ? msg("Dead") : msg("Removed");
+    const label = selection.type === "agent" ? this.messages.msg("Dead") : this.messages.msg("Removed");
 
     return html`
       <div class="state-row">
-        <dt>${msg("Status")}</dt>
+        <dt>${this.messages.msg("Status")}</dt>
         <dd class="removed-value">
           ${label}
           <span class="limit-value">
-            (${msg("Tick")} ${selection.removedAtTick})
+            (${this.messages.msg("Tick")} ${selection.removedAtTick})
           </span>
         </dd>
       </div>
@@ -129,7 +128,7 @@ export class SimulationEntityAside extends LitElementWw {
         <dl>
           ${this.renderRemovedRow(selection)}
           <div class="state-row">
-            <dt>${msg("Position")}</dt>
+            <dt>${this.messages.msg("Position")}</dt>
             <dd>${state.position.x}, ${state.position.y}</dd>
           </div>
           ${
@@ -137,7 +136,7 @@ export class SimulationEntityAside extends LitElementWw {
               ? null
               : html`
                   <div class="state-row">
-                    <dt>${msg("Energy")}</dt>
+                    <dt>${this.messages.msg("Energy")}</dt>
                     <dd>
                       ${state.currentEnergy}
                       <span class="limit-value"
@@ -156,7 +155,7 @@ export class SimulationEntityAside extends LitElementWw {
         <dl>
           ${this.renderRemovedRow(selection)}
           <div class="state-row">
-            <dt>${msg("Position")}</dt>
+            <dt>${this.messages.msg("Position")}</dt>
             <dd>${position.x}, ${position.y}</dd>
           </div>
           ${
@@ -164,8 +163,8 @@ export class SimulationEntityAside extends LitElementWw {
               ? null
               : html`
                   <div class="state-row">
-                    <dt>${msg("Recovery")}</dt>
-                    <dd>${ticksTillRecovery} ${msg("ticks")}</dd>
+                    <dt>${this.messages.msg("Recovery")}</dt>
+                    <dd>${ticksTillRecovery} ${this.messages.msg("ticks")}</dd>
                   </div>
                 `
           }
@@ -184,7 +183,7 @@ export class SimulationEntityAside extends LitElementWw {
     return html`<img
       class="entity-image"
       src=${FoodSourceSpriteData}
-      alt=${msg("Food Source sprite")}
+      alt=${this.messages.msg("Food Source sprite")}
     />`;
   }
 
@@ -194,10 +193,10 @@ export class SimulationEntityAside extends LitElementWw {
     }
 
     const entityLabel =
-      this.selection.type === "agent" ? msg("Agent") : msg("Food Source");
+      this.selection.type === "agent" ? this.messages.msg("Agent") : this.messages.msg("Food Source");
 
     return html`
-      <aside aria-label=${msg("Selected entity metadata")}>
+      <aside aria-label=${this.messages.msg("Selected entity metadata")}>
         <h2 class="entity-title">${entityLabel} ${this.selection.entityId}</h2>
         <div
           class=${classMap({
@@ -207,7 +206,7 @@ export class SimulationEntityAside extends LitElementWw {
         >
           ${this.renderEntityImage(this.selection)}
         </div>
-        <h3 class="section-title">${msg("State")}</h3>
+        <h3 class="section-title">${this.messages.msg("State")}</h3>
         ${this.renderState(this.selection)}
       </aside>
     `;

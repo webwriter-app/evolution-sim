@@ -1,9 +1,9 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { consume } from "@lit/context";
 import { LitFlow } from "@ghchinoy/litflow";
 
 import { css } from "lit";
 import { keyed } from "lit/directives/keyed.js";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import {
@@ -15,11 +15,10 @@ import {
   getAncestryFlowModelKey,
   getImmediateAncestryFlowModel,
 } from "./utils/agentAncestry";
-import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-agent-ancestry-tab")
-@localized()
-export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
+export class SimulationAgentAncestryTab extends SignalWatcher(LocalizedElement) {
+  protected readonly messages = localizeElement(this);
   @property()
   accessor agentId = "";
 
@@ -86,12 +85,12 @@ export class SimulationAgentAncestryTab extends SignalWatcher(LitElementWw) {
 
     if (!ancestry) {
       return html`<p class="empty-state">
-        ${msg("No ancestry data available.")}
+        ${this.messages.msg("No ancestry data available.")}
       </p>`;
     }
 
     const flowModel = this.getStableFlowModel(
-      getImmediateAncestryFlowModel(ancestry),
+      getImmediateAncestryFlowModel(ancestry, this.messages.msg),
     );
 
     return html`

@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Configurație`,
 'sf9cb2ac6821de9c6': `Cantitatea maximă de energie pe care agentul o poate stoca.`,
 'sfd33bc6d839533b3': `Agenți inițiali`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

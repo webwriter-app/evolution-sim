@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Konfiguration`,
 'sf9cb2ac6821de9c6': `Den maximala mängden energi som agenten kan lagra.`,
 'sfd33bc6d839533b3': `Initiala agenter`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

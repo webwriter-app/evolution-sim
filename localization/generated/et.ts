@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Konfiguratsioon`,
 'sf9cb2ac6821de9c6': `Maksimaalne energiakogus, mida agent suudab salvestada.`,
 'sfd33bc6d839533b3': `Esialgsed agendid`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

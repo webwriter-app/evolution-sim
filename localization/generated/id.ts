@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Konfigurasi`,
 'sf9cb2ac6821de9c6': `Jumlah energi maksimum yang dapat disimpan oleh agen.`,
 'sfd33bc6d839533b3': `Agen Awal`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

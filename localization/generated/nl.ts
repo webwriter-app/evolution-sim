@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `Configuratie`,
 'sf9cb2ac6821de9c6': `De maximale hoeveelheid energie die de agent kan opslaan.`,
 'sfd33bc6d839533b3': `Initiële agenten`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  

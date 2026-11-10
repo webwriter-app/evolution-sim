@@ -83,5 +83,5 @@
 'sf9b1c0661a02d9f9': `配置`,
 'sf9cb2ac6821de9c6': `智能体能够存储的最大能量值。`,
 'sfd33bc6d839533b3': `初始智能体`,
+'s1114f41d8856dcf2': `Configure simulation`,
     };
-  
