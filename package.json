@@ -111,7 +111,16 @@
     "widget-lang-so",
     "widget-lang-ti",
     "widget-lang-sw",
-    "widget-lang-ha"
+    "widget-lang-ha",
+    "widget-lang-yue-Hans",
+    "widget-lang-yue-Hant",
+    "widget-lang-kmr",
+    "widget-lang-kmr-Latn",
+    "widget-lang-kmr-Arab",
+    "widget-lang-ckb",
+    "widget-lang-ckb-Arab",
+    "widget-lang-af-ZA",
+    "widget-lang-af-NA"
   ],
   "repository": "github:webwriter-app/evolution-sim",
   "license": "MIT",
@@ -280,7 +289,16 @@
         "so": "Jilidda isbeddelka noolaha",
         "ti": "መምሰሊ ለውጢ ፍጡራት",
         "sw": "Uigaji wa mageuzi",
-        "ha": "Kwaikwayon sauyin halittu"
+        "ha": "Kwaikwayon sauyin halittu",
+        "yue-Hans": "演化模拟",
+        "yue-Hant": "演化模擬",
+        "kmr": "Simulasyona pêşketinê",
+        "kmr-Latn": "Simulasyona pêşketinê",
+        "kmr-Arab": "سمولاسیۆنا پێشکەتنێ",
+        "ckb": "شبیه‌سازیی گۆڕانکاری",
+        "ckb-Arab": "شبیه‌سازیی گۆڕانکاری",
+        "af-ZA": "Evolusiesimulasie",
+        "af-NA": "Evolusiesimulasie"
       },
       "description": {
         "_": "Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.",
@@ -385,7 +403,16 @@
         "so": "Jil isbeddelka noolayaasha cunto raadsada, tarma oo gudbiya hidde-sideyaal is beddela. Eeg noolayaasha gaarka ah, kuna falanqee tiradooda iyo qaybinta hidde-sideyaasha jaantusyo.",
         "ti": "መግቢ ዝደልዩ፣ ዝወልዱን ዝቕየሩ ጂናት ዘመሓላልፉን ፍጡራት ብኸመይ ከም ዝቕየሩ ፈትን። ነፍሲ ወከፍ ፍጡር ርአ፣ ብዝሖምን ምዝርጋሕ ጂናቶምን ኣብ ግራፍ መርምር።",
         "sw": "Iga mageuzi kwa kutumia viumbe vinavyotafuta chakula, vinavyozaana na kupitisha jeni zinazoweza kubadilika. Chunguza kila kiumbe, na uchanganue idadi ya viumbe na mgawanyo wa jeni kwa kutumia chati.",
-        "ha": "Kwaikwayi yadda halittun da ke neman abinci, haifar da ƴaƴa da watsa ƙwayoyin gado masu sauyawa suke canzawa. Duba halittu ɗaya bayan ɗaya, ka nazarci yawan halittu da rarrabuwar ƙwayoyin gado a jadawalai."
+        "ha": "Kwaikwayi yadda halittun da ke neman abinci, haifar da ƴaƴa da watsa ƙwayoyin gado masu sauyawa suke canzawa. Duba halittu ɗaya bayan ɗaya, ka nazarci yawan halittu da rarrabuwar ƙwayoyin gado a jadawalai.",
+        "yue-Hans": "用会揾食、繁殖同传递突变基因嘅代理人模拟演化。检视个别代理人，并用图表分析族群同基因分布。",
+        "yue-Hant": "用會搵食、繁殖同傳遞突變基因嘅代理人模擬演化。檢視個別代理人，並用圖表分析族群同基因分佈。",
+        "kmr": "Pêşketinê bi ajanên ku li xwarinê digerin, zêde dibin û genên mutasyonbar vediguhezînin simulasyon bike. Ajanên takekesî kontrol bike û belavbûna nifûs û genan di grafîkan de analîz bike.",
+        "kmr-Latn": "Pêşketinê bi ajanên ku li xwarinê digerin, zêde dibin û genên mutasyonbar vediguhezînin simulasyon bike. Ajanên takekesî kontrol bike û belavbûna nifûs û genan di grafîkan de analîz bike.",
+        "kmr-Arab": "پێشکەتنێ ب ئاژانێن کو ل خوارنێ دگەرن, زێدە دبن ئوو گەنێن موتاسیۆنبار ڤەدگوهەزینن سمولاسیۆن بکە. ئاژانێن تاکەکەسی کۆنترۆل بکە ئوو بەلاڤبوونا نفووس ئوو گەنان د گرافیکان دە ئانالیز بکە.",
+        "ckb": "گۆڕانکاری شبیه‌سازی بکە بە ئەجێنتەکانی گەڕان بەدوای خۆراک، زۆربوون و گواستنەوەی جینە گۆڕاوەکان. ئەجێنتە تاکەکەسییەکان بپشکنە و دابەشبوونی دانیشتووان و جینەکان لە چارتەکاندا شیکاری بکە.",
+        "ckb-Arab": "گۆڕانکاری شبیه‌سازی بکە بە ئەجێنتەکانی گەڕان بەدوای خۆراک، زۆربوون و گواستنەوەی جینە گۆڕاوەکان. ئەجێنتە تاکەکەسییەکان بپشکنە و دابەشبوونی دانیشتووان و جینەکان لە چارتەکاندا شیکاری بکە.",
+        "af-ZA": "Simuleer evolusie met agente wat kos soek, voortplant en muterende gene oordra. Ondersoek individuele agente en ontleed die bevolking en geenverspreiding in grafieke.",
+        "af-NA": "Simuleer evolusie met agente wat kos soek, voortplant en muterende gene oordra. Ondersoek individuele agente en ontleed die bevolking en geenverspreiding in grafieke."
       }
     },
     "./widgets/webwriter-evolution-sim": {
@@ -492,7 +519,16 @@
         "so": "Jilidda isbeddelka noolaha",
         "ti": "መምሰሊ ለውጢ ፍጡራት",
         "sw": "Uigaji wa mageuzi",
-        "ha": "Kwaikwayon sauyin halittu"
+        "ha": "Kwaikwayon sauyin halittu",
+        "yue-Hans": "演化模拟",
+        "yue-Hant": "演化模擬",
+        "kmr": "Simulasyona pêşketinê",
+        "kmr-Latn": "Simulasyona pêşketinê",
+        "kmr-Arab": "سمولاسیۆنا پێشکەتنێ",
+        "ckb": "شبیه‌سازیی گۆڕانکاری",
+        "ckb-Arab": "شبیه‌سازیی گۆڕانکاری",
+        "af-ZA": "Evolusiesimulasie",
+        "af-NA": "Evolusiesimulasie"
       }
     },
     "./snippets/island-evolution": {
@@ -599,7 +635,16 @@
         "so": "Isbeddelka noolaha jasiiradda",
         "ti": "ለውጢ ፍጡራት ኣብ ደሴት",
         "sw": "Mageuzi kisiwani",
-        "ha": "Sauyin halittu a tsibiri"
+        "ha": "Sauyin halittu a tsibiri",
+        "yue-Hans": "岛屿演化",
+        "yue-Hant": "島嶼演化",
+        "kmr": "Pêşketina Giravê",
+        "kmr-Latn": "Pêşketina Giravê",
+        "kmr-Arab": "پێشکەتنا گراڤێ",
+        "ckb": "گۆڕانکاریی دوورگە",
+        "ckb-Arab": "گۆڕانکاریی دوورگە",
+        "af-ZA": "Evolusie op ’n eiland",
+        "af-NA": "Evolusie op ’n eiland"
       }
     }
   }
