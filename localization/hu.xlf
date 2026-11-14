@@ -299,6 +299,10 @@
         <source>Close</source>
         <target>Bezárás</target>
       </trans-unit>
+      <trans-unit id="s1114f41d8856dcf2">
+        <source>Configure simulation</source>
+        <target>Szimuláció beállítása</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file target-language="mt" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="sd75d6fb3ddf8bb38">
+  <source>No ancestry data available.</source>
+<target>M’hemmx dejta dwar in-nisel.</target></trans-unit>
+<trans-unit id="s9d7490af50ad3f3f">
+  <source>Agent genome preview</source>
+<target>Previżjoni tal-ġenoma tal-aġent</target></trans-unit>
+<trans-unit id="s6144a4a2c984c772">
+  <source>Population</source>
+<target>Popolazzjoni</target></trans-unit>
+<trans-unit id="s759b0a17d494a75c">
+  <source>Available food</source>
+<target>Ikel disponibbli</target></trans-unit>
+<trans-unit id="s6a2e751c01564438">
+  <source>Allele</source>
+<target>Allela</target></trans-unit>
+<trans-unit id="s3b710016873dccf4">
+  <source>Current allele share</source>
+<target>Sehem attwali tal-allela</target></trans-unit>
+<trans-unit id="sa030bc5ff7e113df">
+  <source>Population development</source>
+<target>Żvilupp tal-popolazzjoni</target></trans-unit>
+<trans-unit id="s111aabf3a7ebf23c">
+  <source>Food availability</source>
+<target>Disponibbiltà tal-ikel</target></trans-unit>
+<trans-unit id="sa395b7cf1b4207c5">
+  <source>Gene distribution over time</source>
+<target>Distribuzzjoni tal-ġeni maż-żmien</target></trans-unit>
+<trans-unit id="s91d7f27df139e690">
+  <source>Gene</source>
+<target>Ġene</target></trans-unit>
+<trans-unit id="s9d5dc2bd98759da7">
+  <source>Current gene distribution</source>
+<target>Distribuzzjoni attwali tal-ġeni</target></trans-unit>
+<trans-unit id="saddfb13d00ae9e55">
+  <source>History window</source>
+<target>Perjodu tal-istorja</target></trans-unit>
+<trans-unit id="sc5343d7a7a98dd5a">
+  <source>Full history may lag during long simulations.</source>
+<target>L-istorja sħiħa tista’ tiddewwem waqt simulazzjonijiet twal.</target></trans-unit>
+<trans-unit id="s7ede1c55e35ce9d6">
+  <source>Simulation</source>
+<target>Simulazzjoni</target></trans-unit>
+<trans-unit id="sc5465585d761fc7c">
+  <source>Graphs</source>
+<target>Grafiċi</target></trans-unit>
+<trans-unit id="s061cc20e3432dead">
+  <source>Pause</source>
+<target>Waqfa</target></trans-unit>
+<trans-unit id="sae1c7f13b7c0c47f">
+  <source>Start</source>
+<target>Bidu</target></trans-unit>
+<trans-unit id="sd9994f251f1280cf">
+  <source>Step</source>
+<target>Pass</target></trans-unit>
+<trans-unit id="s3741f519c32ac391">
+  <source>New</source>
+<target>Ġdid</target></trans-unit>
+<trans-unit id="s255857544a9d5ec0">
+  <source>Reset</source>
+<target>Irrisettja</target></trans-unit>
+<trans-unit id="sb32e400c09253d64">
+  <source>Create Simulation</source>
+<target>Oħloq simulazzjoni</target></trans-unit>
+<trans-unit id="s363a15029ba3672b">
+  <source>Create a new simulation with the following configuration:</source>
+<target>Oħloq simulazzjoni ġdida bil-konfigurazzjoni li ġejja:</target></trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+<target>Ikkanċella</target></trans-unit>
+<trans-unit id="s382a2aa3984474dd">
+  <source>Create</source>
+<target>Oħloq</target></trans-unit>
+<trans-unit id="sd049237343c44e47">
+  <source>Dead</source>
+<target>Mejjet</target></trans-unit>
+<trans-unit id="sdd3bedf6eb41e3db">
+  <source>Removed</source>
+<target>Imneħħi</target></trans-unit>
+<trans-unit id="sad3e3c8146fc920f">
+  <source>Status</source>
+<target>Status</target></trans-unit>
+<trans-unit id="s490384fb302b3764">
+  <source>Tick</source>
+<target>Pass</target></trans-unit>
+<trans-unit id="sc1611c0558728a2a">
+  <source>Position</source>
+<target>Pożizzjoni</target></trans-unit>
+<trans-unit id="sdb6622a51b2a94f5">
+  <source>Energy</source>
+<target>Enerġija</target></trans-unit>
+<trans-unit id="s6ac670086eb137c6">
+  <source>Recovery</source>
+<target>Irkupru</target></trans-unit>
+<trans-unit id="s7fd9266c6a3e25b5">
+  <source>ticks</source>
+<target>passi</target></trans-unit>
+<trans-unit id="s9a9afbef4f7b48cb">
+  <source>Food Source sprite</source>
+<target>Stampa tas-sors tal-ikel</target></trans-unit>
+<trans-unit id="s30e46c351062484e">
+  <source>Food Source</source>
+<target>Sors tal-ikel</target></trans-unit>
+<trans-unit id="se8eec06cd8e0d6e0">
+  <source>Selected entity metadata</source>
+<target>Metadejta tal-entità magħżula</target></trans-unit>
+<trans-unit id="sae239213b7c70376">
+  <source>State</source>
+<target>Stat</target></trans-unit>
+<trans-unit id="sbe990627921a7485">
+  <source>Genetics</source>
+<target>Ġenetika</target></trans-unit>
+<trans-unit id="s03d851a0433270c8">
+  <source>Ancestry</source>
+<target>Nisel</target></trans-unit>
+<trans-unit id="s8bb79bae20655da9">
+  <source>No details available yet.</source>
+<target>Għad m’hemmx dettalji disponibbli.</target></trans-unit>
+<trans-unit id="s5e8250fb85d64c23">
+  <source>Close</source>
+<target>Agħlaq</target></trans-unit>
+<trans-unit id="sa550c327ea278753">
+  <source>Allele within possible range</source>
+<target>Allela fil-firxa possibbli</target></trans-unit>
+<trans-unit id="s1dfd6319b50f4cd7">
+  <source>Min</source>
+<target>Minimu</target></trans-unit>
+<trans-unit id="sab8b4cbbb1fa71fa">
+  <source>Current</source>
+<target>Attwali</target></trans-unit>
+<trans-unit id="s1e187119b5262c59">
+  <source>Max</source>
+<target>Massimu</target></trans-unit>
+<trans-unit id="sea4f08110bb8f15d">
+  <source>Remove</source>
+<target>Neħħi</target></trans-unit>
+<trans-unit id="s4f27f6b48a68b5c2">
+  <source>Lock</source>
+<target>Illokkja</target></trans-unit>
+<trans-unit id="s17cff5f101712ef8">
+  <source>World Size</source>
+<target>Daqs tad-dinja</target></trans-unit>
+<trans-unit id="sf9b1c0661a02d9f9">
+  <source>Configuration</source>
+<target>Konfigurazzjoni</target></trans-unit>
+<trans-unit id="s8c7324c4e16e8841">
+  <source>Initial Options</source>
+<target>Għażliet inizjali</target></trans-unit>
+<trans-unit id="s5788d224d55d340c">
+  <source>Seed</source>
+<target>Żerriegħa</target></trans-unit>
+<trans-unit id="s8333f81521a31b93">
+  <source>Initial Food Sources</source>
+<target>Sorsi tal-ikel inizjali</target></trans-unit>
+<trans-unit id="sfd33bc6d839533b3">
+  <source>Initial Agents</source>
+<target>Aġenti inizjali</target></trans-unit>
+<trans-unit id="sb3ea3e951f441e44">
+  <source>Mutation Rate</source>
+<target>Rata ta’ mutazzjoni</target></trans-unit>
+<trans-unit id="s965c503c3e42fdfe">
+  <source>Enabled</source>
+<target>Attivat</target></trans-unit>
+<trans-unit id="s60e08599bc9fb7ab">
+  <source>Show Population Graph</source>
+<target>Uri l-graff tal-popolazzjoni</target></trans-unit>
+<trans-unit id="s3c7cbb8e22971e03">
+  <source>Show Food Availability Graph</source>
+<target>Uri l-graff tad-disponibbiltà tal-ikel</target></trans-unit>
+<trans-unit id="s7cce13abc426c3ee">
+  <source>Show Allele Share Graph</source>
+<target>Uri l-graff tas-sehem tal-alleli</target></trans-unit>
+<trans-unit id="s6ac60e74eb33f675">
+  <source>Show Allele Historic Share Graph</source>
+<target>Uri l-graff storiku tas-sehem tal-alleli</target></trans-unit>
+<trans-unit id="s4eb514ebcb80553d">
+  <source>Parent</source>
+<target>Ġenitur</target></trans-unit>
+<trans-unit id="s21e31bdc9713e7fd">
+  <source>Child</source>
+<target>Wild</target></trans-unit>
+<trans-unit id="s95416925fd51a346">
+  <source>Agent</source>
+<target>Aġent</target></trans-unit>
+<trans-unit id="s59564c1a37e11220">
+  <source>Vision Range</source>
+<target>Medda tal-viżjoni</target></trans-unit>
+<trans-unit id="sc52f2a1b6d5ddff9">
+  <source>How far the agent can perceive nearby agents and food sources.</source>
+<target>Kemm l-aġent jista’ jipperċepixxi aġenti u sorsi tal-ikel fil-qrib.</target></trans-unit>
+<trans-unit id="s08e69a3bb96b795b">
+  <source>Energy Capacity</source>
+<target>Kapaċità tal-enerġija</target></trans-unit>
+<trans-unit id="sf9cb2ac6821de9c6">
+  <source>The maximum amount of energy the agent can store.</source>
+<target>L-akbar ammont ta’ enerġija li l-aġent jista’ jaħżen.</target></trans-unit>
+<trans-unit id="sc892fa54f1de1674">
+  <source>Last 50 ticks</source>
+<target>L-aħħar 50 pass</target></trans-unit>
+<trans-unit id="se24aaede0913ba34">
+  <source>Last 100 ticks</source>
+<target>L-aħħar 100 pass</target></trans-unit>
+<trans-unit id="s34712a303ac50684">
+  <source>Last 250 ticks</source>
+<target>L-aħħar 250 pass</target></trans-unit>
+<trans-unit id="s92b0af76573d4394">
+  <source>Full history</source>
+<target>Storja sħiħa</target></trans-unit>
+<trans-unit id="saf64054c86023237">
+  <source>H</source>
+  <note from="lit-localize">Short label for height</note>
+<target>S</target></trans-unit>
+<trans-unit id="saf640a4c86023ab6">
+  <source>W</source>
+  <note from="lit-localize">Short label for width</note>
+<target>P</target></trans-unit>
+<trans-unit id="s1114f41d8856dcf2">
+  <source>Configure simulation</source>
+<target>Ikkonfigura s-simulazzjoni</target></trans-unit>
+<trans-unit id="sefc8e08d71b8530f">
+  <source>Agents</source>
+<target>Aġenti</target></trans-unit>
+<trans-unit id="sa35c74457da618f3">
+  <source>Allele share</source>
+<target>Sehem tal-allela</target></trans-unit>
+<trans-unit id="s72cf82f7f6bc6dd5">
+  <source>Current share</source>
+<target>Sehem attwali</target></trans-unit>
+</body>
+</file>
+</xliff>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="ps">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>د هغو ایجنټانو په مرسته تکامل سیمولېټ کړئ چې خواړه لټوي، ډېرېږي او بدل شوي جینونه راتلونکي نسل ته لېږدوي. جلا ایجنټان وڅېړئ او په ګرافونو کې نفوس او د جینونو وېش وارزوئ.</target></segment></unit>
+</file>
+</xliff>

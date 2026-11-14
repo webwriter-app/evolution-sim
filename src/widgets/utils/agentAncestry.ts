@@ -1,4 +1,4 @@
-import { msg } from "@lit/localize";
+import { msg as sourceMsg, type MsgFn } from "@lit/localize";
 import { AgentSnapshot } from "@/simulation/serialization";
 import { hasValue } from "@/utils/typeGuards";
 
@@ -80,7 +80,7 @@ export function getAncestryFlowModelKey(model: AncestryFlowModel): string {
 
 type AncestryRelation = "parent" | "child" | "self";
 
-function getRelationLabel(relation: AncestryRelation): string {
+function getRelationLabel(relation: AncestryRelation, msg: MsgFn): string {
   switch (relation) {
     case "parent":
       return msg("Parent");
@@ -94,8 +94,9 @@ function getRelationLabel(relation: AncestryRelation): string {
 function formatAgentLabel(
   agent: AgentSnapshot,
   relation: AncestryRelation,
+  msg: MsgFn,
 ): string {
-  return `${getRelationLabel(relation)} ${agent.id.slice(0, 8)}`;
+  return `${getRelationLabel(relation, msg)} ${agent.id.slice(0, 8)}`;
 }
 
 function getCenteredX(index: number, rowLength: number): number {
@@ -104,11 +105,13 @@ function getCenteredX(index: number, rowLength: number): number {
 
 function createRowNodes({
   agents,
+  msg,
   relation,
   type,
   y,
 }: {
   agents: readonly AgentSnapshot[];
+  msg: MsgFn;
   relation: AncestryRelation;
   type: "input" | "output";
   y: number;
@@ -125,21 +128,24 @@ function createRowNodes({
     },
     orientation: "vertical",
     data: {
-      label: formatAgentLabel(agent, relation),
+      label: formatAgentLabel(agent, relation, msg),
     },
   }));
 }
 
 export function getImmediateAncestryFlowModel(
   ancestry: ImmediateAgentAncestry,
+  msg: MsgFn = sourceMsg,
 ): AncestryFlowModel {
   const parentNodes = createRowNodes({
+    msg,
     agents: ancestry.parents,
     relation: "parent",
     type: "input",
     y: 0,
   });
   const childNodes = createRowNodes({
+    msg,
     agents: ancestry.children,
     relation: "child",
     type: "output",
@@ -162,7 +168,7 @@ export function getImmediateAncestryFlowModel(
         orientation: "vertical",
         selected: true,
         data: {
-          label: formatAgentLabel(ancestry.self, "self"),
+          label: formatAgentLabel(ancestry.self, "self", msg),
         },
       },
       ...childNodes,

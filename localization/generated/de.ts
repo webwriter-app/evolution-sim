@@ -12,6 +12,7 @@
       's03d851a0433270c8': `Abstammung`,
 's061cc20e3432dead': `Pause`,
 's08e69a3bb96b795b': `Energiekapazität`,
+'s1114f41d8856dcf2': `Simulation konfigurieren`,
 's111aabf3a7ebf23c': `Nahrungsverfügbarkeit`,
 's17cff5f101712ef8': `Weltgröße`,
 's1dfd6319b50f4cd7': `Min`,
@@ -84,4 +85,3 @@
 'sf9cb2ac6821de9c6': `Die maximale Energiemenge, die der Agent speichern kann.`,
 'sfd33bc6d839533b3': `Anfängliche Agenten`,
     };
-  

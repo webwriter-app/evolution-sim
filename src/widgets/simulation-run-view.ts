@@ -17,10 +17,8 @@ import {
   SimulationAnalysisView,
 } from "./simulation-analysis-view";
 import { SimulationConfiguration } from "./simulation-pre-configuration-aside";
-import { localized } from "@lit/localize";
 
 @customElement("simulation-run-view")
-@localized()
 export class SimulationRunView extends SignalWatcher(LitElementWw) {
   @property({ attribute: false })
   accessor configuration: Partial<SimulationConfiguration> | null = null;

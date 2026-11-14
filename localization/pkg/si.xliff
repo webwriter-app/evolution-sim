@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="si">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>ආහාර සොයන, ප්‍රජනනය කරන සහ විකෘති වූ ජාන ඉදිරියට ලබාදෙන නියෝජිතයන් සමඟ පරිණාමය සමාකරණය කරන්න. එක් එක් නියෝජිතයා පරීක්ෂා කර ප්‍රස්තාරවල ජනගහනය සහ ජාන ව්‍යාප්තිය විශ්ලේෂණය කරන්න.</target></segment></unit>
+</file>
+</xliff>

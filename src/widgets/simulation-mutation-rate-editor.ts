@@ -1,6 +1,6 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { consume } from "@lit/context";
 import { css } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, property } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { SlInput, SlRange } from "@shoelace-style/shoelace";
@@ -10,11 +10,10 @@ import {
 } from "@/composables/simulationStore";
 import { DEFAULT_MUTATION_RATE } from "@/simulation/constants";
 import { createInputHandler } from "@/utils/handleInput";
-import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-mutation-rate-editor")
-@localized()
-export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
+export class SimulationMutationRateEditor extends SignalWatcher(LocalizedElement) {
+  protected readonly messages = localizeElement(this);
   @consume({ context: simulationStoreContext })
   private accessor simulationStore!: SimulationStore;
 
@@ -58,11 +57,11 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
 
     return html`
       <div id="mutation-rate-editor">
-        <label for="mutation-rate-input">${msg("Mutation Rate")}</label>
+        <label for="mutation-rate-input">${this.messages.msg("Mutation Rate")}</label>
         <sl-input
           id="mutation-rate-input"
           size="small"
-          aria-label=${msg("Mutation Rate")}
+          aria-label=${this.messages.msg("Mutation Rate")}
           type="number"
           min="0"
           max="1"
@@ -74,7 +73,7 @@ export class SimulationMutationRateEditor extends SignalWatcher(LitElementWw) {
           )}
         ></sl-input>
         <sl-range
-          aria-label=${msg("Mutation Rate")}
+          aria-label=${this.messages.msg("Mutation Rate")}
           min="0"
           max="1"
           step="0.01"

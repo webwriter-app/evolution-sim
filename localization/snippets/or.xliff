@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="or">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>ଦ୍ୱୀପର ବିବର୍ତ୍ତନ</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>ବିବର୍ତ୍ତନ ସାଧାରଣତଃ ହଜାର ହଜାର ବର୍ଷ ଧରି ହୁଏ। ଏହି ସିମୁଲେସନ୍‌ରେ କିଛି ମିନିଟ୍‌ରେ ଅନେକ ପିଢ଼ି ବିତିଯାଏ, ତେଣୁ ଜନସଂଖ୍ୟା ସମୟ ସହିତ କିପରି ବଦଳେ ଦେଖିପାରିବେ।</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>ପରିସ୍ଥିତି</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>ଜୀବମାନଙ୍କର ଏକ ଛୋଟ ଜନସଂଖ୍ୟା ଏକ ବିଚ୍ଛିନ୍ନ ଦ୍ୱୀପରେ ରହେ। କେତେକ ଛିନ୍ନଭିନ୍ନ ବେରି ଝାଡ଼ ହିଁ ସେମାନଙ୍କର ଏକମାତ୍ର ଖାଦ୍ୟ ଉତ୍ସ। ଗୋଟିଏ ଝାଡ଼ର ବେରି ଖାଇସାରିବା ପରେ ନୂଆ ବେରି ବଢ଼ିବାକୁ କିଛି ସମୟ ଲାଗେ।</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>ପ୍ରତ୍ୟେକ ଗତି ପାଇଁ ଶକ୍ତି ଖର୍ଚ୍ଚ ହୁଏ। ଶକ୍ତି ସରିଯାଇଥିବା ଜୀବ ମରିଯାଏ।</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>ପର୍ଯ୍ୟାପ୍ତ ଶକ୍ତି ଥିବା ଜୀବ ଏକ ସନ୍ତାନ ଜନ୍ମ ଦିଏ, ଯାହା ପାଇଁ ଏହାର ଶକ୍ତିର ବଡ଼ ଅଂଶ ଖର୍ଚ୍ଚ ହୁଏ।</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>ପ୍ରତ୍ୟେକ ଜୀବର ଦୁଇଟି ଜିନ୍ ଅଛି:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>ଦୃଷ୍ଟି ସୀମା</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(ଖାଦ୍ୟକୁ କେତେ ଦୂରରୁ ଦେଖିପାରେ) ଏବଂ</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>ଶକ୍ତି ଧାରଣ କ୍ଷମତା</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(କେତେ ଶକ୍ତି ସଞ୍ଚୟ କରିପାରେ)।</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>ଆରମ୍ଭରେ ସମସ୍ତ ଜୀବଙ୍କର ସମାନ ଆଲିଲ୍ ଥାଏ। ସନ୍ତାନ ପିତାମାତାଙ୍କ ଆଲିଲ୍ ଉତ୍ତରାଧିକାରରେ ପାଏ, କିନ୍ତୁ ନିର୍ଦ୍ଦିଷ୍ଟ ସମ୍ଭାବନାରେ ଗୋଟିଏ ଆଲିଲ୍ ସାମାନ୍ୟ ବଦଳିଯାଏ (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>ପରିବର୍ତ୍ତନ</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>ପୂର୍ବାନୁମାନ:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଜନସଂଖ୍ୟାର ଦୃଷ୍ଟି ସୀମା ଓ ଶକ୍ତି କ୍ଷମତା ସମୟ ସହିତ କିପରି ବଦଳିବ ବୋଲି ଆଶା କରୁଛନ୍ତି ଲେଖନ୍ତୁ।</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>ସିମୁଲେସନ୍ କିପରି ବ୍ୟବହାର କରିବେ</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>ବ୍ୟବହାର କରନ୍ତୁ</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>ଆରମ୍ଭ</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>ବିରାମ</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>ଏବଂ</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>ପଦକ୍ଷେପ</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>ଦ୍ୱାରା ସିମୁଲେସନ୍ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ, ଏବଂ ଗତି ବଟନ୍‌ରେ ଏହାକୁ ତ୍ୱରାନ୍ୱିତ କରନ୍ତୁ। ଜୀବଟିର ଆଲିଲ୍ ଦେଖିବାକୁ ତାହା ଉପରେ କ୍ଲିକ୍ କରି</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>ଜେନେଟିକ୍ସ</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>ଜେନେଟିକ୍ସ ଟ୍ୟାବ୍‌ରେ, ଏବଂ ତାହାର ପିତାମାତା ଓ ସନ୍ତାନକୁ</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>ବଂଶାବଳୀ</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>ବଂଶାବଳୀ ଟ୍ୟାବ୍‌ରେ ଦେଖନ୍ତୁ। ଦ୍ୱୀପ ତଳର ଚାର୍ଟଗୁଡ଼ିକ ଜନସଂଖ୍ୟା, ଉପଲବ୍ଧ ଖାଦ୍ୟ ଓ ପ୍ରତ୍ୟେକ ଆଲିଲ୍‌ର ଅଂଶକୁ ସମୟ ସହିତ ଦର୍ଶାଏ।</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>ନୂଆ</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>ବିଭିନ୍ନ ସେଟିଂ ସହିତ ସିମୁଲେସନ୍ ଆରମ୍ଭ କରିପାରିବେ।</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>କାର୍ଯ୍ୟ</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>ସିମୁଲେସନ୍‌କୁ ଅଳ୍ପ ସମୟ ଚଳାଇ ପ୍ରଥମ ସନ୍ତାନମାନଙ୍କୁ ପିତାମାତାଙ୍କ ସହ ତୁଳନା କରନ୍ତୁ। ଜୀବମାନଙ୍କ ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ କେଉଁଠାରୁ ଆସେ?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>କିଛି ସମୟ ପାଇଁ ସିମୁଲେସନ୍‌କୁ ଦ୍ରୁତ ଗତିରେ ଚାଲିବାକୁ ଦିଅନ୍ତୁ, ତାପରେ ଚାର୍ଟ ଦେଖନ୍ତୁ</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>ସମୟ ସହିତ ଜିନ୍ ବଣ୍ଟନ</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. ನೋಟದ ವ್ಯಾಪ್ತಿ ಮತ್ತು ಶಕ್ತಿ ಸಾಮರ್ಥ್ಯದ ಅಲೀಲ್‌ಗಳು ಹೇಗೆ ಬದಲಾಗಿವೆ? ಫಲಿತಾಂಶವನ್ನು ನಿಮ್ಮ ಊಹೆಯೊಂದಿಗೆ ಹೋಲಿಸಿ.</target></segment></unit>
+</file>
+</xliff>

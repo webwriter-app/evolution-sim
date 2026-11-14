@@ -1,6 +1,6 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { css } from "lit";
 import type { PropertyValues } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement, property, query } from "lit/decorators.js";
 import { html } from "@lit-labs/signals";
 import { Application } from "pixi.js";
@@ -9,14 +9,13 @@ import { SIMULATION_TILE_SIZE } from "@/simulation/rendering";
 import { hasNoValue } from "@/utils/typeGuards";
 import { loadTextures } from "./assets";
 import { GenomeRenderer } from "./utils/geneRendering";
-import { localized, msg } from "@lit/localize";
 
 const PREVIEW_SIZE = 96;
 const MAX_GENE_SCALE = 1.5;
 
 @customElement("simulation-agent-genome-preview")
-@localized()
-export class SimulationAgentGenomePreview extends LitElementWw {
+export class SimulationAgentGenomePreview extends LocalizedElement {
+  protected readonly messages = localizeElement(this);
   @property({ attribute: false })
   accessor genome: Genome = [];
 
@@ -61,7 +60,7 @@ export class SimulationAgentGenomePreview extends LitElementWw {
   render() {
     return html`<div
       id="preview-container"
-      aria-label=${msg("Agent genome preview")}
+      aria-label=${this.messages.msg("Agent genome preview")}
     ></div>`;
   }
 

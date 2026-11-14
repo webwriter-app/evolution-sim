@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="pa">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>ਟਾਪੂ ਦਾ ਵਿਕਾਸ</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>ਵਿਕਾਸ ਆਮ ਤੌਰ ’ਤੇ ਹਜ਼ਾਰਾਂ ਸਾਲਾਂ ਵਿੱਚ ਹੁੰਦਾ ਹੈ। ਇਸ ਸਿਮੂਲੇਸ਼ਨ ਵਿੱਚ ਕੁਝ ਮਿੰਟਾਂ ਵਿੱਚ ਕਈ ਪੀੜ੍ਹੀਆਂ ਲੰਘ ਜਾਂਦੀਆਂ ਹਨ, ਇਸ ਲਈ ਤੁਸੀਂ ਸਮੇਂ ਦੇ ਨਾਲ ਆਬਾਦੀ ਵਿੱਚ ਤਬਦੀਲੀ ਦੇਖ ਸਕਦੇ ਹੋ।</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>ਦ੍ਰਿਸ਼</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>ਜੀਵਾਂ ਦੀ ਇੱਕ ਛੋਟੀ ਆਬਾਦੀ ਇੱਕ ਅਲੱਗ-ਥਲੱਗ ਟਾਪੂ ਉੱਤੇ ਰਹਿੰਦੀ ਹੈ। ਉਨ੍ਹਾਂ ਦਾ ਭੋਜਨ ਕੁਝ ਖਿੰਡੀਆਂ ਹੋਈਆਂ ਬੇਰੀਆਂ ਦੀਆਂ ਝਾੜੀਆਂ ਹਨ। ਝਾੜੀ ਦੀਆਂ ਬੇਰੀਆਂ ਖਾ ਲੈਣ ਤੋਂ ਬਾਅਦ ਨਵੀਆਂ ਬੇਰੀਆਂ ਉੱਗਣ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗਦਾ ਹੈ।</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>ਹਰ ਹਰਕਤ ਲਈ ਊਰਜਾ ਲੱਗਦੀ ਹੈ। ਜਿਸ ਜੀਵ ਦੀ ਊਰਜਾ ਖਤਮ ਹੋ ਜਾਂਦੀ ਹੈ, ਉਹ ਮਰ ਜਾਂਦਾ ਹੈ।</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>ਕਾਫ਼ੀ ਊਰਜਾ ਵਾਲਾ ਜੀਵ ਔਲਾਦ ਪੈਦਾ ਕਰਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਉਸਦੀ ਊਰਜਾ ਦਾ ਵੱਡਾ ਹਿੱਸਾ ਲੱਗਦਾ ਹੈ।</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>ਹਰ ਜੀਵ ਦੇ ਦੋ ਜੀਨ ਹੁੰਦੇ ਹਨ:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>ਨਜ਼ਰ ਦੀ ਹੱਦ</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(ਇਹ ਭੋਜਨ ਕਿੰਨੀ ਦੂਰ ਤੱਕ ਦੇਖ ਸਕਦਾ ਹੈ) ਅਤੇ</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>ਊਰਜਾ ਸਮਰੱਥਾ</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(ਇਹ ਕਿੰਨੀ ਊਰਜਾ ਸੰਭਾਲ ਸਕਦਾ ਹੈ)।</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>ਸ਼ੁਰੂ ਵਿੱਚ ਸਾਰੇ ਜੀਵਾਂ ਦੇ ਐਲੀਲ ਇੱਕੋ ਜਿਹੇ ਹੁੰਦੇ ਹਨ। ਔਲਾਦ ਆਪਣੇ ਮਾਪਿਆਂ ਦੇ ਐਲੀਲ ਵਿਰਸੇ ਵਿੱਚ ਲੈਂਦੀ ਹੈ, ਪਰ ਇੱਕ ਨਿਸ਼ਚਿਤ ਸੰਭਾਵਨਾ ਨਾਲ ਕੋਈ ਐਲੀਲ ਥੋੜ੍ਹਾ ਬਦਲ ਜਾਂਦਾ ਹੈ (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>ਮਿਊਟੇਸ਼ਨ</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>ਭਵਿੱਖਬਾਣੀ:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਲਿਖੋ ਕਿ ਸਮੇਂ ਦੇ ਨਾਲ ਆਬਾਦੀ ਦੀ ਨਜ਼ਰ ਦੀ ਹੱਦ ਅਤੇ ਊਰਜਾ ਸਮਰੱਥਾ ਵਿੱਚ ਕੀ ਬਦਲਾਅ ਆਉਣ ਦੀ ਉਮੀਦ ਹੈ।</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>ਸਿਮੂਲੇਸ਼ਨ ਕਿਵੇਂ ਵਰਤਣੀ ਹੈ</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>ਵਰਤੋ</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>ਸ਼ੁਰੂਆਤ</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>ਵਿਰਾਮ</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>ਅਤੇ</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>ਕਦਮ</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>ਨਾਲ ਸਿਮੂਲੇਸ਼ਨ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰੋ ਅਤੇ ਰਫ਼ਤਾਰ ਵਾਲੇ ਬਟਨਾਂ ਨਾਲ ਇਸਨੂੰ ਤੇਜ਼ ਚਲਾਓ। ਕਿਸੇ ਜੀਵ ਦੇ ਐਲੀਲ ਵੇਖਣ ਲਈ ਉਸ ’ਤੇ ਕਲਿੱਕ ਕਰਕੇ</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>ਜੈਨੇਟਿਕਸ</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>ਜੈਨੇਟਿਕਸ ਟੈਬ ਵਿੱਚ ਅਤੇ ਉਸਦੇ ਮਾਪਿਆਂ ਤੇ ਔਲਾਦ ਨੂੰ</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>ਵੰਸ਼ਾਵਲੀ</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>ਵੰਸ਼ਾਵਲੀ ਟੈਬ ਵਿੱਚ ਵੇਖੋ। ਟਾਪੂ ਦੇ ਹੇਠਾਂ ਦਿੱਤੇ ਗ੍ਰਾਫ਼ ਸਮੇਂ ਦੇ ਨਾਲ ਆਬਾਦੀ, ਉਪਲਬਧ ਭੋਜਨ ਅਤੇ ਹਰ ਐਲੀਲ ਦਾ ਹਿੱਸਾ ਦਿਖਾਉਂਦੇ ਹਨ।</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>ਨਵਾਂ</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>ਤੁਸੀਂ ਵੱਖਰੀਆਂ ਸੈਟਿੰਗਾਂ ਨਾਲ ਸਿਮੂਲੇਸ਼ਨ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹੋ।</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>ਕੰਮ</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>ਸਿਮੂਲੇਸ਼ਨ ਥੋੜ੍ਹੇ ਸਮੇਂ ਲਈ ਚਲਾਓ ਅਤੇ ਪਹਿਲੀ ਔਲਾਦ ਦੀ ਤੁਲਨਾ ਮਾਪਿਆਂ ਨਾਲ ਕਰੋ। ਜੀਵਾਂ ਵਿੱਚ ਫ਼ਰਕ ਕਿੱਥੋਂ ਆਉਂਦੇ ਹਨ?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>ਕੁਝ ਸਮੇਂ ਲਈ ਸਿਮੂਲੇਸ਼ਨ ਨੂੰ ਤੇਜ਼ ਰਫ਼ਤਾਰ ਨਾਲ ਚੱਲਣ ਦਿਓ, ਫਿਰ ਚਾਰਟ ਵੇਖੋ</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>ਸਮੇਂ ਦੇ ਨਾਲ ਜੀਨਾਂ ਦੀ ਵੰਡ</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. ਨਜ਼ਰ ਦੀ ਹੱਦ ਅਤੇ ਊਰਜਾ ਸਮਰੱਥਾ ਦੇ ਐਲੀਲ ਕਿਵੇਂ ਬਦਲੇ ਹਨ? ਨਤੀਜੇ ਦੀ ਆਪਣੀ ਭਵਿੱਖਬਾਣੀ ਨਾਲ ਤੁਲਨਾ ਕਰੋ।</target></segment></unit>
+</file>
+</xliff>

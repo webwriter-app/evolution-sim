@@ -1,6 +1,6 @@
+import { localizeElement, LocalizedElement } from "../../localization/localizer";
 import { consume } from "@lit/context";
 import { css } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import { customElement } from "lit/decorators.js";
 import { SignalWatcher, html } from "@lit-labs/signals";
 import { SlIconButton } from "@shoelace-style/shoelace";
@@ -10,11 +10,10 @@ import {
   simulationStoreContext,
 } from "@/composables/simulationStore";
 import { SimulationEntityExplorer } from "./simulation-entity-explorer";
-import { localized, msg } from "@lit/localize";
 
 @customElement("simulation-entity-view")
-@localized()
-export class SimulationEntityView extends SignalWatcher(LitElementWw) {
+export class SimulationEntityView extends SignalWatcher(LocalizedElement) {
+  protected readonly messages = localizeElement(this);
   @consume({ context: simulationStoreContext })
   private accessor simulationStore!: SimulationStore;
 
@@ -64,7 +63,7 @@ export class SimulationEntityView extends SignalWatcher(LitElementWw) {
         <sl-icon-button
           id="close-button"
           src=${IconX}
-          label=${msg("Close")}
+          label=${this.messages.msg("Close")}
           @click=${() => this.simulationStore.clearSelection()}
         ></sl-icon-button>
         <simulation-entity-explorer
