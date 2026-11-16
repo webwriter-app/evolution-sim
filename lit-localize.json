@@ -108,7 +108,7 @@
     "af-ZA",
     "af-NA"
   ],
-  "tsConfig": "./tsconfig.app.json",
+  "tsConfig": "./tsconfig.json",
   "output": {
     "mode": "runtime",
     "outputDir": "./localization/generated",

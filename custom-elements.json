@@ -13,9 +13,48 @@
           "members": [
             {
               "kind": "field",
+              "name": "scopedElements",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "readonly": true,
+              "default": "{ \"simulation-run-view\": SimulationRunView, \"simulation-pre-configuration-aside\": SimulationPreConfigurationAside, \"simulation-creation-dialog\": SimulationCreationDialog, }"
+            },
+            {
+              "kind": "field",
+              "name": "actions",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "readonly": true,
+              "default": "{ configureSimulation: { label: (widget: { msg: MsgFn }) => widget.msg(\"Configure simulation\"), }, }"
+            },
+            {
+              "kind": "field",
               "name": "localize",
               "privacy": "protected",
-              "default": "LOCALIZE"
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "msg",
+              "privacy": "protected",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "#permissions",
+              "privacy": "private",
+              "readonly": true,
+              "default": "new Permissions(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#data",
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "field",
@@ -36,15 +75,30 @@
               "default": "false"
             },
             {
+              "kind": "method",
+              "name": "configureSimulation"
+            },
+            {
               "kind": "field",
               "name": "simulationConfiguration",
               "type": {
                 "text": "SimulationConfiguration"
               },
-              "default": "DEFAULT_SIMULATION_CONFIGURATION",
-              "description": "Configuration of the simulation, serialized as JSON in the attribute.\n\n- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.\n- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).",
-              "attribute": "simulationConfiguration",
-              "reflects": true
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "saveConfiguration",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "configuration",
+                  "type": {
+                    "text": "SimulationConfiguration"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -75,23 +129,6 @@
               },
               "description": "Fired when the configuration is changed in the options panel or when a new simulation is created. `detail` holds the new configuration.",
               "name": "configuration-change"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "simulationConfiguration",
-              "type": {
-                "text": "SimulationConfiguration"
-              },
-              "default": "DEFAULT_SIMULATION_CONFIGURATION",
-              "description": "Configuration of the simulation, serialized as JSON in the attribute.\n\n- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.\n- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`).",
-              "fieldName": "simulationConfiguration"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "SignalWatcher",
-              "package": "@lit-labs/signals"
             }
           ],
           "superclass": {
