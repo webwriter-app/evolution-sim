@@ -5,17 +5,17 @@ import {
 } from "./simulation/serialization";
 import { hasValue } from "./type-guards";
 
-export interface AgentHistoryEntry {
+interface AgentHistoryEntry {
   tick: number;
   snapshot: AgentSnapshot;
 }
 
-export interface FoodSourceHistoryEntry {
+interface FoodSourceHistoryEntry {
   tick: number;
   snapshot: FoodSourceSnapshot;
 }
 
-export interface AgentSelection {
+interface AgentSelection {
   type: "agent";
   entityId: string;
   history: AgentHistoryEntry[];
@@ -23,7 +23,7 @@ export interface AgentSelection {
   removedAtTick: number | null;
 }
 
-export interface FoodSourceSelection {
+interface FoodSourceSelection {
   type: "foodSource";
   entityId: string;
   history: FoodSourceHistoryEntry[];

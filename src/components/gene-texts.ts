@@ -1,7 +1,7 @@
-import { msg as sourceMsg, type MsgFn } from "@lit/localize";
+import type { MsgFn } from "@lit/localize";
 import { GeneName } from "../model/simulation/genetics/definitions";
 
-export interface GeneTexts {
+interface GeneTexts {
   label: string;
   description: string;
 }
@@ -19,6 +19,6 @@ const geneTexts: Record<GeneName, (msg: MsgFn) => GeneTexts> = {
   }),
 };
 
-export function getGeneTexts(geneName: GeneName, msg: MsgFn = sourceMsg): GeneTexts {
+export function getGeneTexts(geneName: GeneName, msg: MsgFn): GeneTexts {
   return geneTexts[geneName](msg);
 }

@@ -1,4 +1,4 @@
-export class Ok<T> {
+class Ok<T> {
   readonly value: T;
   constructor(value: T) {
     this.value = value;
@@ -11,7 +11,7 @@ export class Ok<T> {
   }
 }
 
-export class Err<E> {
+class Err<E> {
   readonly error: E;
   constructor(error: E) {
     this.error = error;

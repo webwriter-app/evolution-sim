@@ -1,6 +1,6 @@
 /// <reference types="mocha" />
 import "mocha/mocha.js";
-import { assert, expect } from "chai";
+import { expect } from "chai";
 import { getMochaConfig } from "@webwriter/build/test";
 
 import { SimulationSnapshot } from "../src/model/simulation/serialization";

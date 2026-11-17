@@ -7,7 +7,7 @@ import { html } from "@lit-labs/signals";
 import { Application } from "pixi.js";
 import { Genome } from "../model/simulation/genetics/genome";
 import { SIMULATION_TILE_SIZE } from "../model/simulation/rendering";
-import { hasNoValue } from "../model/type-guards";
+import { hasNoValue, hasValue } from "../model/type-guards";
 import { loadTextures } from "./textures";
 import { GenomeRenderer } from "./gene-rendering";
 
@@ -64,7 +64,18 @@ export class SimulationAgentGenomePreview extends LitElementWw {
     ></div>`;
   }
 
-  async firstUpdated() {
+  connectedCallback() {
+    super.connectedCallback();
+
+    // The shadow DOM survives a move in the document; only the app was torn down.
+    if (this.hasUpdated) void this.setupCanvas();
+  }
+
+  firstUpdated() {
+    void this.setupCanvas();
+  }
+
+  private async setupCanvas() {
     await loadTextures();
 
     const app = new Application();
@@ -76,8 +87,8 @@ export class SimulationAgentGenomePreview extends LitElementWw {
       antialias: false,
     });
 
-    if (!this.isConnected) {
-      app.destroy();
+    if (!this.isConnected || hasValue(this.app)) {
+      app.destroy({ removeView: true });
       return;
     }
 
@@ -95,7 +106,7 @@ export class SimulationAgentGenomePreview extends LitElementWw {
   disconnectedCallback() {
     super.disconnectedCallback();
 
-    this.app?.destroy();
+    this.app?.destroy({ removeView: true });
     this.app = null;
   }
 }

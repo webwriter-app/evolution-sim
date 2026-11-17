@@ -440,7 +440,7 @@ export class SimulationStateRender extends LitElementWw {
     );
   }
 
-  private async setupCanvas() {
+  private async setupCanvas(): Promise<boolean> {
     await loadTextures();
 
     const app = new Application();
@@ -451,6 +451,12 @@ export class SimulationStateRender extends LitElementWw {
       resolution: window.devicePixelRatio || 1,
       autoDensity: true,
     });
+
+    if (!this.isConnected || hasValue(this.app)) {
+      app.destroy({ removeView: true });
+      return false;
+    }
+
     this.canvasContainer.appendChild(app.canvas);
 
     this.app = app;
@@ -463,6 +469,7 @@ export class SimulationStateRender extends LitElementWw {
     this.resizeObserver.observe(this.canvasContainer);
 
     this.watchPixelRatio();
+    return true;
   }
 
   private watchPixelRatio() {
@@ -522,10 +529,19 @@ export class SimulationStateRender extends LitElementWw {
     super.connectedCallback();
 
     window.addEventListener("keydown", this.handleKeyDown);
+
+    // The shadow DOM survives a move in the document; only the app and the watchers were torn down.
+    if (this.hasUpdated) void this.start();
   }
 
-  async firstUpdated() {
-    await this.setupCanvas();
+  firstUpdated() {
+    void this.start();
+  }
+
+  private async start() {
+    if (!(await this.setupCanvas())) {
+      return;
+    }
 
     this.unwatchSelection = effect(() => {
       const selection = this.simulationStore.currentSelection.get();
@@ -555,10 +571,16 @@ export class SimulationStateRender extends LitElementWw {
     super.disconnectedCallback();
 
     this.resizeObserver?.disconnect();
+    this.resizeObserver = null;
     this.unwatchPixelRatio?.();
-    this.app?.destroy();
+    this.unwatchPixelRatio = null;
+    this.app?.destroy({ removeView: true });
+    this.app = null;
+    this.currentWorldSize = null;
     this.unwatch?.();
+    this.unwatch = null;
     this.unwatchSelection?.();
+    this.unwatchSelection = null;
     window.removeEventListener("keydown", this.handleKeyDown);
   }
 }

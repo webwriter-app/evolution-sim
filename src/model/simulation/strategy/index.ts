@@ -3,12 +3,12 @@ import { AgentContext } from "../agent-context";
 import { BehaviorName } from "../behavior/definitions";
 import { Phenotype } from "../genetics/phenotype";
 
-export interface StrategyState {
+interface StrategyState {
   id: string;
   behaviorToExecute: BehaviorName;
 }
 
-export interface StrategyTransition {
+interface StrategyTransition {
   from: StrategyState;
   to: StrategyState;
   shouldBeExecuted: (context: AgentContext) => boolean;

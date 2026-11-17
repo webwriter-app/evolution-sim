@@ -20,7 +20,6 @@ import IconArrowClockwise from "@tabler/icons/outline/rotate-clockwise.svg";
 import { when } from "lit/directives/when.js";
 import { html } from "@lit-labs/signals";
 
-export type OpenNewSimulationDialogEvent = CustomEvent<unknown>;
 
 export type SimulationViewMode = "simulation" | "graphs";
 export type ModeChangeEvent = CustomEvent<SimulationViewMode>;

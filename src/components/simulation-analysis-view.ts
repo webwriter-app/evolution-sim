@@ -192,7 +192,7 @@ export class SimulationAnalysisView extends LitElementWw {
 
   private readonly historySubset = computed(() =>
     getHistorySubset(
-      Array.from(this.simulationStore.simulationHistory),
+      this.simulationStore.simulationHistory,
       this.selectedHistorySubsetPreset.get(),
     ),
   );

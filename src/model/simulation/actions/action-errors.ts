@@ -7,9 +7,3 @@ export const ACTION_ERRORS = {
 } as const;
 
 export type ActionError = (typeof ACTION_ERRORS)[keyof typeof ACTION_ERRORS];
-
-export const ACTION_OK = "ok";
-
-export type ActionSuccess = typeof ACTION_OK;
-
-export type ActionResult = ActionSuccess | ActionError;

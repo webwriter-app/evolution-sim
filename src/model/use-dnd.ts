@@ -1,6 +1,6 @@
 import { computed, signal } from "@lit-labs/signals";
 
-export interface DndState<TItem> {
+interface DndState<TItem> {
   item: TItem;
   originId: string;
 }

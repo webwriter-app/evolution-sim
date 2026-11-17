@@ -1,29 +1,29 @@
-import { msg as sourceMsg, type MsgFn } from "@lit/localize";
+import type { MsgFn } from "@lit/localize";
 import { GeneName } from "../model/simulation/genetics/definitions";
 import { AgentSnapshot, SimulationSnapshot } from "../model/simulation/serialization";
 import { hasValue } from "../model/type-guards";
 
 export type HistorySubsetPreset = "last-50" | "last-100" | "last-250" | "full";
 
-export interface HistorySubsetOption {
+interface HistorySubsetOption {
   value: HistorySubsetPreset;
-  getLabel: (msg?: MsgFn) => string;
+  getLabel: (msg: MsgFn) => string;
   limit: number | null;
   roundToMultipleOf?: number;
   mayLag?: boolean;
 }
 
-export interface ChartPoint {
+interface ChartPoint {
   x: number;
   y: number;
 }
 
-export interface AlleleShareSeries {
+interface AlleleShareSeries {
   allele: number;
   data: ChartPoint[];
 }
 
-export interface AlleleDistributionEntry {
+interface AlleleDistributionEntry {
   allele: number;
   count: number;
   share: number;
@@ -32,25 +32,25 @@ export interface AlleleDistributionEntry {
 export const HISTORY_SUBSET_OPTIONS: HistorySubsetOption[] = [
   {
     value: "last-50",
-    getLabel: (msg = sourceMsg) => msg("Last 50 ticks"),
+    getLabel: (msg) => msg("Last 50 ticks"),
     limit: 50,
     roundToMultipleOf: 10,
   },
   {
     value: "last-100",
-    getLabel: (msg = sourceMsg) => msg("Last 100 ticks"),
+    getLabel: (msg) => msg("Last 100 ticks"),
     limit: 100,
     roundToMultipleOf: 20,
   },
   {
     value: "last-250",
-    getLabel: (msg = sourceMsg) => msg("Last 250 ticks"),
+    getLabel: (msg) => msg("Last 250 ticks"),
     limit: 250,
     roundToMultipleOf: 50,
   },
   {
     value: "full",
-    getLabel: (msg = sourceMsg) => msg("Full history"),
+    getLabel: (msg) => msg("Full history"),
     limit: null,
     mayLag: true,
   },
@@ -139,7 +139,7 @@ function getGeneAllele(
   );
 }
 
-export function getAllelesForGene(
+function getAllelesForGene(
   snapshots: readonly SimulationSnapshot[],
   geneName: GeneName,
 ): number[] {
@@ -158,26 +158,6 @@ export function getAllelesForGene(
   return Array.from(alleles).sort((a, b) => a - b);
 }
 
-function getAlleleShareForSnapshot(
-  snapshot: SimulationSnapshot,
-  geneName: GeneName,
-  allele: number,
-): number {
-  const geneAlleles = snapshot.agents
-    .map((agent) => getGeneAllele(agent, geneName))
-    .filter((agentAllele): agentAllele is number => agentAllele !== null);
-
-  if (geneAlleles.length === 0) {
-    return 0;
-  }
-
-  const matchingAlleles = geneAlleles.filter(
-    (agentAllele) => agentAllele === allele,
-  ).length;
-
-  return matchingAlleles / geneAlleles.length;
-}
-
 export function createAlleleShareOverTimeSeries({
   snapshots,
   geneName,
@@ -187,13 +167,33 @@ export function createAlleleShareOverTimeSeries({
   geneName: GeneName;
   alleles?: readonly number[];
 }): AlleleShareSeries[] {
-  return alleles.map((allele) => ({
+  const series: AlleleShareSeries[] = alleles.map((allele) => ({
     allele,
-    data: snapshots.map((snapshot) => ({
-      x: snapshot.tick,
-      y: getAlleleShareForSnapshot(snapshot, geneName, allele),
-    })),
+    data: [],
   }));
+
+  for (const snapshot of snapshots) {
+    const counts = new Map<number, number>();
+    let total = 0;
+
+    for (const agent of snapshot.agents) {
+      const agentAllele = getGeneAllele(agent, geneName);
+
+      if (agentAllele !== null) {
+        counts.set(agentAllele, (counts.get(agentAllele) ?? 0) + 1);
+        total += 1;
+      }
+    }
+
+    for (const entry of series) {
+      entry.data.push({
+        x: snapshot.tick,
+        y: total === 0 ? 0 : (counts.get(entry.allele) ?? 0) / total,
+      });
+    }
+  }
+
+  return series;
 }
 
 export function createCurrentAlleleDistribution({

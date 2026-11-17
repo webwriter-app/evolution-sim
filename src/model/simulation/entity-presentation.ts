@@ -1,6 +1,6 @@
-export type SimulationEntityKind = "food-source" | "agent";
+type SimulationEntityKind = "food-source" | "agent";
 
-export const SIMULATION_ENTITY_RENDER_ORDER = [
+const SIMULATION_ENTITY_RENDER_ORDER = [
   { kind: "food-source", zIndex: 1 },
   { kind: "agent", zIndex: 2 },
 ] as const satisfies readonly {

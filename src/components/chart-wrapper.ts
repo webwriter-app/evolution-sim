@@ -3,16 +3,36 @@ import { LitElementWw } from "@webwriter/lit";
 import { property, query } from "lit/decorators.js";
 import { html } from "@lit-labs/signals";
 import {
+  BarController,
+  BarElement,
+  CategoryScale,
   Chart,
   ChartConfiguration,
   ChartData,
   ChartOptions,
   ChartType,
-  registerables,
+  Filler,
+  Legend,
+  LinearScale,
+  LineController,
+  LineElement,
+  PointElement,
+  Tooltip,
 } from "chart.js";
 import { hasNoValue } from "../model/type-guards";
 
-Chart.register(...registerables);
+Chart.register(
+  BarController,
+  BarElement,
+  CategoryScale,
+  Filler,
+  Legend,
+  LinearScale,
+  LineController,
+  LineElement,
+  PointElement,
+  Tooltip,
+);
 
 export class ChartWrapper extends LitElementWw {
   @property({ attribute: true })

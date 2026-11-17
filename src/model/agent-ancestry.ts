@@ -9,7 +9,7 @@ export interface ImmediateAgentAncestry {
 
 export type AncestryRelation = "parent" | "child" | "self";
 
-export interface AncestryNode {
+interface AncestryNode {
   id: string;
   relation: AncestryRelation;
   /** Top-left corner in scene coordinates. */
@@ -17,13 +17,13 @@ export interface AncestryNode {
   y: number;
 }
 
-export interface AncestryEdge {
+interface AncestryEdge {
   id: string;
   from: string;
   to: string;
 }
 
-export interface AncestryGraph {
+interface AncestryGraph {
   nodes: AncestryNode[];
   edges: AncestryEdge[];
 }

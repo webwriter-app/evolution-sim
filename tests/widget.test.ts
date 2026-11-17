@@ -4,7 +4,7 @@ import { assert } from "chai";
 import { getMochaConfig } from "@webwriter/build/test";
 import "../src/widgets/webwriter-evolution-sim";
 import snippet from "../snippets/island-evolution.html";
-import { dataBlockOf, setEditMode, until } from "./helpers";
+import { dataBlockOf, deepQuery, setEditMode, until } from "./helpers";
 
 mocha.setup(getMochaConfig());
 
@@ -123,6 +123,21 @@ describe("<webwriter-evolution-sim>", function () {
     });
 
     it("Escape cancels the manual tool", function () {
+      store().setActiveManualTool("remove-entity");
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      assert.isNull(store().activeManualTool.get());
+    });
+  });
+
+  describe("moving in the document", function () {
+    it("the canvas is rebuilt once and the key listener is not doubled", async function () {
+      const render = () => deepQuery(widget.shadowRoot, "simulation-state-render") as any;
+      const first = await until("canvas app", () => render()?.app);
+      document.body.append(widget);
+      const second = await until("rebuilt app", () => render().app && render().app !== first && render().app);
+      await until("simulation shown", () => render().currentWorldSize);
+      assert.equal(render().shadowRoot.querySelectorAll("canvas").length, 1, "canvases after the move");
+      assert.isNotNull(second.canvas.parentElement, "new canvas is attached");
       store().setActiveManualTool("remove-entity");
       window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
       assert.isNull(store().activeManualTool.get());

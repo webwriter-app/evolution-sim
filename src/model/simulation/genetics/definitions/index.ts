@@ -20,7 +20,6 @@ export function getDefinedGene<TGeneName extends GeneName>(
   return gene;
 }
 
-export type DefinedGenes = typeof definedGenes;
 export type DefinedGene = (typeof definedGenes)[number];
 
 export type GeneName = DefinedGene["name"];

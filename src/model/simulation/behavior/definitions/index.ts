@@ -2,7 +2,7 @@ import { hasNoValue } from "../../../type-guards";
 import { searchAndConsumeFoodBehavior } from "./search-and-consume-food";
 import { reproduceBehavior } from "./reproduce";
 
-export const definedBehaviors = [
+const definedBehaviors = [
   searchAndConsumeFoodBehavior,
   reproduceBehavior,
 ] as const;
@@ -18,6 +18,6 @@ export function getDefinedBehavior(name: BehaviorName) {
   return behavior;
 }
 
-export type DefinedBehavior = (typeof definedBehaviors)[number];
+type DefinedBehavior = (typeof definedBehaviors)[number];
 
 export type BehaviorName = DefinedBehavior["name"];

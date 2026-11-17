@@ -28,7 +28,7 @@ import {
 export type ManualSimulationTool =
   "add-food-source" | "add-agent" | "remove-entity";
 
-export type SimulationStatus =
+type SimulationStatus =
   "uninitialized" | "ready" | "running" | "paused" | "completed";
 
 const DEFAULT_TICK_INTERVAL = 100;

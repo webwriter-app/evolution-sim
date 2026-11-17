@@ -3,14 +3,14 @@ import type { SimulationConfiguration } from "../components/simulation-pre-confi
 
 type InitOptions = Partial<SimulationConfiguration["initOptions"]>;
 
-export type InitOptionField =
+type InitOptionField =
   | "worldSize.x"
   | "worldSize.y"
   | "initialAgentsAmount"
   | "initialFoodSourcesAmount"
   | "mutationRate";
 
-export interface InitOptionBounds {
+interface InitOptionBounds {
   min: number;
   max?: number;
   step: number;

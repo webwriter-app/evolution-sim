@@ -50,7 +50,7 @@ type GeneRenderers = {
   [TGeneName in GeneName]: (gene: Gene<TGeneName>) => GeneRenderer<TGeneName>;
 };
 
-export const geneRenderers: GeneRenderers = {
+const geneRenderers: GeneRenderers = {
   "energy-capacity": (gene) => {
     const renderer = new (class extends GeneRenderer<"energy-capacity"> {
       applyGeneToSprite(gene: Gene<"energy-capacity">): void {
