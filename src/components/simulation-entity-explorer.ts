@@ -16,6 +16,22 @@ export class SimulationEntityExplorer extends LitElementWw {
   };
 
   static readonly styles = css`
+    :host {
+      display: block;
+      container-type: inline-size;
+    }
+
+    @container (max-width: 34rem) {
+      .explorer-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      simulation-entity-aside {
+        display: block;
+        border-bottom: 1px solid var(--sl-color-neutral-200);
+      }
+    }
+
     .explorer-layout {
       display: grid;
       grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr);

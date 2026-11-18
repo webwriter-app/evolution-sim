@@ -1,0 +1,18 @@
+{
+  "configuration": {
+    "initOptions": {
+      "seed": { "locked": false, "value": "imported" },
+      "initialAgentsAmount": { "locked": false, "value": 4 },
+      "initialFoodSourcesAmount": { "locked": false, "value": 12 },
+      "mutationRate": { "locked": true, "value": 0.5 },
+      "worldSize": { "locked": false, "value": { "x": 20, "y": 10 } }
+    },
+    "graphs": {
+      "enabled": true,
+      "showPopulationGraph": true,
+      "showFoodAvailabilityGraph": false,
+      "showAlleleShareGraph": true,
+      "showAlleleHistoricShareGraph": true
+    }
+  }
+}

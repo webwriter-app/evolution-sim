@@ -8,8 +8,14 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Agent-based simulation of evolution: agents search for food, reproduce and\npass on mutating genes. The widget renders the simulated world, lets users\ninspect individual agents and their ancestry, and charts the population and\ngene distribution over time.\n\n### Agent behavior\n\nAn agent's behavior is determined by its phenotype. From the phenotype, the\nagent's strategy, behaviors and actions are derived. The agent's strategy is\nthe top level of an agent's behavioral pyramid. It consists of a set of\nstates and transitions between those states. Each state holds a behavior,\nwhich is executed each tick as long as the agent is in that state. The\ntransitions are based on the agent's inner and perceived external state. A\nbehavior is a composition of actions and simple logic, based on the agent's\ninner and perceived external state. An action is the most basic unit of\nbehavior.",
+          "description": "Agent-based simulation of evolution: agents search for food, reproduce and\npass on mutating genes. The widget renders the simulated world, lets users\ninspect individual agents and their ancestry, and charts the population and\ngene distribution over time.\n\n### Agent behavior\n\nAn agent's behavior is determined by its phenotype. From the phenotype, the\nagent's strategy, behaviors and actions are derived. The agent's strategy is\nthe top level of an agent's behavioral pyramid. It consists of a set of\nstates and transitions between those states. Each state holds a behavior,\nwhich is executed each tick as long as the agent is in that state. The\ntransitions are based on the agent's inner and perceived external state. A\nbehavior is a composition of actions and simple logic, based on the agent's\ninner and perceived external state. An action is the most basic unit of\nbehavior.\n\n### Signals\n\nOther widgets in the document can read these through `signals`:\n- `population` (number): the number of agents in the current tick.\n- `history` (table `{columns, rows}`): one row per recorded tick with\n  `tick`, `population`, `food_sources`, `available_food_sources` and the\n  mean allele of each gene (`mean_vision_range`, `mean_energy_capacity`;\n  an empty cell when nobody is alive). A chart can take it with `data-from`.\n  The history starts again with every new or reset simulation.\n\n### Import and export\n\n- Export `text/csv`: the history table above. It is a snapshot of the running\n  simulation and is not stored in the document.\n- Export and import `.json`: the configuration in the format of the data\n  block (`{\"configuration\": {...}}`). Import checks the whole file and starts\n  a new simulation with it; the file is rejected if values are out of range.",
           "name": "WebwriterEvolutionSim",
+          "cssParts": [
+            {
+              "description": "The container with the simulation world.",
+              "name": "simulation"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -20,6 +26,26 @@
               "static": true,
               "readonly": true,
               "default": "{ \"simulation-run-view\": SimulationRunView, \"simulation-pre-configuration-aside\": SimulationPreConfigurationAside, \"simulation-creation-dialog\": SimulationCreationDialog, }"
+            },
+            {
+              "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "readonly": true,
+              "default": "{ \".json\": \"importConfiguration\" }"
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "readonly": true,
+              "default": "{ \"text/csv\": \"exportHistoryCsv\", \".json\": \"exportConfiguration\" }"
             },
             {
               "kind": "field",
@@ -58,6 +84,15 @@
             },
             {
               "kind": "field",
+              "name": "signals",
+              "type": {
+                "text": "object"
+              },
+              "readonly": true,
+              "default": "{ population: computed(() => this.simulationStore.currentActiveSimulationData.get()?.snapshot.agents.length ?? 0), history: computed(() => createHistoryTable(Array.from(this.simulationStore.simulationHistory))), }"
+            },
+            {
+              "kind": "field",
               "name": "lastInitializedInitOptions",
               "type": {
                 "text": "SimulationInitOptions | null"
@@ -77,6 +112,26 @@
             {
               "kind": "method",
               "name": "configureSimulation"
+            },
+            {
+              "kind": "method",
+              "name": "importConfiguration",
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "exportConfiguration"
+            },
+            {
+              "kind": "method",
+              "name": "exportHistoryCsv"
             },
             {
               "kind": "field",

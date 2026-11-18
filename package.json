@@ -7,7 +7,23 @@
     "widget-simulational",
     "isced2011-2",
     "isced2011-3",
-    "iscedf2013-05",
+    "isced2011-6",
+    "iscedf2013-0511",
+    "widget-editable",
+    "widget-allows-pointer-input",
+    "widget-allows-keyboard-input",
+    "widget-allows-touch-input",
+    "widget-convertible-to-text/csv",
+    "widget-convertible-to-application/json",
+    "widget-convertible-from-application/json",
+    "widget-responsive",
+    "widget-themeable",
+    "widget-printable",
+    "widget-stateful",
+    "widget-configurable",
+    "widget-reactive",
+    "widget-testable",
+    "widget-supports-shared-dependencies",
     "evolution",
     "genetics",
     "widget-lang-en",
@@ -429,6 +445,13 @@
       }
     },
     "./widgets/webwriter-evolution-sim": {
+      "importFormats": [
+        ".json"
+      ],
+      "exportFormats": [
+        "text/csv",
+        ".json"
+      ],
       "label": {
         "_": "Evolution Sim",
         "en": "Evolution Sim",

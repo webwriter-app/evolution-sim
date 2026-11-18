@@ -254,8 +254,8 @@ export class SimulationAnalysisView extends LitElementWw {
       }).map((series) => ({
         label: `${this.msg("Allele")}: ${series.allele}`,
         data: series.data,
-        borderColor: getAlleleColor(series.allele),
-        backgroundColor: getAlleleColor(series.allele),
+        borderColor: getAlleleColor(series.allele, this),
+        backgroundColor: getAlleleColor(series.allele, this),
         fill: false,
         pointRadius: 0,
         tension: 0.2,
@@ -280,7 +280,7 @@ export class SimulationAnalysisView extends LitElementWw {
           label: this.msg("Current allele share"),
           data: distribution.map((entry) => entry.share),
           backgroundColor: distribution.map((entry) =>
-            getAlleleColor(entry.allele),
+            getAlleleColor(entry.allele, this),
           ),
         },
       ],
@@ -295,6 +295,11 @@ export class SimulationAnalysisView extends LitElementWw {
   };
 
   static readonly styles = css`
+    :host {
+      display: block;
+      container-type: inline-size;
+    }
+
     #analysis-container {
       display: grid;
       width: 100%;
@@ -312,6 +317,23 @@ export class SimulationAnalysisView extends LitElementWw {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
       padding: 0 1rem 1rem;
+    }
+
+    @container (max-width: 40rem) {
+      .chart-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media print {
+      .chart-grid {
+        padding: 0;
+        break-inside: avoid;
+      }
+
+      .graph-panel {
+        break-inside: avoid;
+      }
     }
 
     .graph-panel {

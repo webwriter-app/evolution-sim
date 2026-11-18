@@ -29,6 +29,7 @@ export class SimulationMutationRateEditor extends LitElementWw {
   static styles = css`
     #mutation-rate-editor {
       display: flex;
+      flex-wrap: wrap;
       gap: var(--sl-spacing-x-small);
       align-items: center;
     }
@@ -45,6 +46,7 @@ export class SimulationMutationRateEditor extends LitElementWw {
 
     sl-range {
       width: 10rem;
+      max-width: 100%;
     }
   `;
 

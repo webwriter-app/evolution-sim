@@ -4,6 +4,7 @@ import { assert } from "chai";
 import { getMochaConfig } from "@webwriter/build/test";
 import "../src/widgets/webwriter-evolution-sim";
 import snippet from "../snippets/island-evolution.html";
+import configurationFixture from "./fixtures/configuration.json";
 import { dataBlockOf, deepQuery, setEditMode, until } from "./helpers";
 
 mocha.setup(getMochaConfig());
@@ -141,6 +142,160 @@ describe("<webwriter-evolution-sim>", function () {
       store().setActiveManualTool("remove-entity");
       window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
       assert.isNull(store().activeManualTool.get());
+    });
+  });
+
+  describe("input, layout and theme", function () {
+    const stateRender = () => runView().shadowRoot.querySelector("simulation-state-render") as any;
+    const container = () => stateRender().shadowRoot.querySelector("#simulation-container") as HTMLElement;
+    const toolButton = (text: string) =>
+      [...runView().shadowRoot.querySelector("simulation-manual-tools").shadowRoot.querySelectorAll("sl-button")].find(
+        (b: any) => b.textContent.trim() === text,
+      ) as HTMLElement;
+    const key = (k: string) => container().dispatchEvent(new KeyboardEvent("keydown", { key: k, bubbles: true, cancelable: true }));
+    const counts = () => {
+      const snapshot = store().currentActiveSimulationData.get().snapshot;
+      return { agents: snapshot.agents.length, food: snapshot.foodSources.length };
+    };
+
+    beforeEach(async function () {
+      await until("canvas", () => stateRender().app && stateRender().currentWorldSize);
+    });
+
+    it("the world is a focusable group with a label", function () {
+      assert.equal(container().tabIndex, 0);
+      assert.equal(container().getAttribute("role"), "group");
+      assert.isNotEmpty(container().getAttribute("aria-label"));
+    });
+
+    it("arrow keys move the cursor and Enter selects an entity", async function () {
+      const target = store().currentActiveSimulationData.get().snapshot.foodSources[0].position;
+      container().focus();
+      await until("cursor", () => stateRender().cursorTile);
+      stateRender().setCursorTile({ x: Math.max(0, target.x - 1), y: target.y });
+      const before = stateRender().cursorTile;
+      key("ArrowRight");
+      const after = stateRender().cursorTile;
+      assert.equal(after.x, Math.min(before.x + 1, stateRender().currentWorldSize.x - 1));
+      key("Enter");
+      await until("selection", () => store().currentSelection.get());
+    });
+
+    it("a tool button toggles an add tool and a tap on the world places the entity", async function () {
+      toolButton("Food Source").click();
+      assert.equal(store().activeManualTool.get(), "add-food-source");
+      await until("pressed state", () => toolButton("Food Source").getAttribute("aria-pressed") === "true");
+      const before = counts().food;
+      const bounds = container().getBoundingClientRect();
+      const init = { clientX: bounds.left + 3, clientY: bounds.top + 3, pointerType: "touch", bubbles: true };
+      container().dispatchEvent(new PointerEvent("pointerdown", init));
+      container().dispatchEvent(new PointerEvent("pointerup", init));
+      container().dispatchEvent(new MouseEvent("click", init));
+      await until("food source added", () => counts().food > before);
+      toolButton("Food Source").click();
+      assert.isNull(store().activeManualTool.get());
+    });
+
+    it("Enter places an agent with the agent tool", async function () {
+      toolButton("Agent").click();
+      container().focus();
+      await until("cursor", () => stateRender().cursorTile);
+      key("ArrowUp");
+      key("ArrowUp");
+      const before = counts().agents;
+      key("Enter");
+      await until("agent added", () => counts().agents > before);
+    });
+
+    it("beforeprint stores a still image of the world for the print view", async function () {
+      const image = stateRender().shadowRoot.querySelector("#print-image") as HTMLImageElement;
+      window.dispatchEvent(new Event("beforeprint"));
+      assert.match(image.getAttribute("src") ?? "", /^data:image\/png;base64,/);
+      assert.equal(getComputedStyle(image).display, "none");
+    });
+
+    it("the widget stays within 300 to 2100 pixels and follows the theme", async function () {
+      const style = getComputedStyle(widget);
+      assert.equal(style.maxWidth, "2100px");
+      assert.match(style.minWidth, /300px/);
+      const wrapper = document.createElement("div");
+      wrapper.style.cssText = "--ww-text-color: rgb(1, 2, 3); --ww-font-family: monospace; --ww-theme-accent-1: rgb(9, 8, 7)";
+      widget.replaceWith(wrapper);
+      wrapper.append(widget);
+      assert.equal(getComputedStyle(widget).color, "rgb(1, 2, 3)");
+      assert.include(getComputedStyle(widget).fontFamily, "monospace");
+      const { getAlleleColor } = await import("../src/components/simulation-analysis");
+      assert.equal(getAlleleColor(0, widget), "rgb(9, 8, 7)");
+      assert.equal(getAlleleColor(0), "#1f77b4");
+      wrapper.replaceWith(widget);
+    });
+  });
+
+  describe("data and integration", function () {
+    const file = (text: string, name = "configuration.json") => new File([text], name, { type: "application/json" });
+    const dataText = () => dataBlock().textContent;
+
+    it("signals publish the population and the history table", async function () {
+      const { population, history } = widget.signals;
+      assert.strictEqual(widget.signals.population, population, "signal instances are stable");
+      assert.equal(population.get(), store().currentActiveSimulationData.get().snapshot.agents.length);
+      const table = history.get();
+      assert.deepEqual(table.columns.slice(0, 4), ["tick", "population", "food_sources", "available_food_sources"]);
+      assert.include(table.columns, "mean_vision_range");
+      assert.equal(table.rows.length, store().simulationHistory.length);
+      assert.isTrue(table.rows.every((row: unknown[]) => row.length === table.columns.length));
+      const rows = table.rows.length;
+      await store().runNextTick();
+      assert.equal(history.get().rows.length, rows + 1);
+      assert.equal(history.get().rows.at(-1)[0], store().currentActiveSimulationData.get().snapshot.tick);
+    });
+
+    it("exports the history as CSV", async function () {
+      await store().runNextTick();
+      const exported: File = widget.exportHistoryCsv();
+      assert.equal(exported.type, "text/csv");
+      assert.match(exported.name, /\.csv$/);
+      const lines = (await exported.text()).trimEnd().split("\r\n");
+      assert.equal(lines[0], widget.signals.history.get().columns.join(","));
+      assert.equal(lines.length, store().simulationHistory.length + 1);
+    });
+
+    it("imports a configuration file only when the apply function runs", async function () {
+      const before = dataText();
+      const apply = await widget.importConfiguration(file(JSON.stringify(configurationFixture)));
+      assert.equal(dataText(), before, "nothing changed before apply");
+      apply();
+      await until("new world", () => store().currentActiveSimulationData.get().metadata.worldSize.x === 20);
+      assert.equal(runView().configuration.initOptions.seed.value, "imported");
+      assert.isFalse(runView().configuration.graphs.showFoodAvailabilityGraph);
+    });
+
+    it("rejects invalid configuration files and leaves the widget alone", async function () {
+      const before = dataText();
+      const broken = JSON.parse(JSON.stringify(configurationFixture));
+      broken.configuration.initOptions.mutationRate.value = 7;
+      for (const text of ["not json", "[]", "{}", JSON.stringify(broken)]) {
+        let message = "";
+        try {
+          await widget.importConfiguration(file(text));
+        } catch (error: any) {
+          message = error.message;
+        }
+        assert.isNotEmpty(message, `rejected: ${text.slice(0, 20)}`);
+      }
+      assert.equal(dataText(), before);
+    });
+
+    it("a configuration export imports back unchanged", async function () {
+      const exported: File = widget.exportConfiguration();
+      assert.equal(exported.type, "application/json");
+      const original = JSON.parse(await exported.text());
+      const next = JSON.parse(JSON.stringify(configurationFixture));
+      (await widget.importConfiguration(file(JSON.stringify(next))))();
+      await until("imported", () => runView().configuration.initOptions.seed.value === "imported");
+      (await widget.importConfiguration(exported))();
+      await until("restored", () => runView().configuration.initOptions.seed.value === original.configuration.initOptions.seed.value);
+      assert.deepEqual(JSON.parse(await widget.exportConfiguration().text()), original);
     });
   });
 

@@ -1,7 +1,9 @@
 import { consume } from "@lit/context";
 import { html, css } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { property, query } from "lit/decorators.js";
+import { widgetMsg } from "@webwriter/lit/localize";
+import { str } from "@lit/localize";
+import { property, query, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { styleMap } from "lit/directives/style-map.js";
 import {
@@ -181,6 +183,29 @@ class TileHoverRenderer {
   }
 }
 
+class CursorRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .stroke({ color: 0x0f172a, width: 2, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER - 2;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
 class SelectionRenderer {
   readonly root: Graphics;
 
@@ -221,12 +246,14 @@ function useSimulationRenderer() {
 
   const tileHoverRenderer = new TileHoverRenderer();
   const selectionRenderer = new SelectionRenderer();
+  const cursorRenderer = new CursorRenderer();
   let currentSnapshot: SimulationSnapshot | null = null;
   let selectedEntityId: string | null = null;
 
   rootContainer.addChild(backgroundRenderer.root);
   rootContainer.addChild(tileHoverRenderer.root);
   rootContainer.addChild(selectionRenderer.root);
+  rootContainer.addChild(cursorRenderer.root);
 
   function updateSelection() {
     const agent = currentSnapshot?.agents.find(
@@ -259,6 +286,8 @@ function useSimulationRenderer() {
     update,
     setHoveredTile: (tilePosition: Vec2 | null) =>
       tileHoverRenderer.update(tilePosition),
+    setCursorTile: (tilePosition: Vec2 | null) =>
+      cursorRenderer.update(tilePosition),
     setSelectedEntity: (entityId: string | null) => {
       selectedEntityId = entityId;
       updateSelection();
@@ -268,6 +297,42 @@ function useSimulationRenderer() {
 
 export class SimulationStateRender extends LitElementWw {
   static styles = css`
+    :host {
+      display: block;
+    }
+
+    #simulation-container:focus-visible {
+      outline: 2px solid var(--ww-theme-accent-1, var(--sl-color-primary-600, #0284c7));
+      outline-offset: -2px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    #print-image {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    @media print {
+      /* The live canvas stays visible when no still picture could be made. */
+      #simulation-container:has(~ #print-image[src]) {
+        display: none;
+      }
+
+      #print-image[src] {
+        display: block;
+        break-inside: avoid;
+      }
+    }
+
     #simulation-container {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -284,8 +349,16 @@ export class SimulationStateRender extends LitElementWw {
     }
   `;
 
+  protected readonly msg = widgetMsg(this);
+
   @consume({ context: simulationStoreContext })
   private accessor simulationStore!: SimulationStore;
+
+  @query("#print-image")
+  accessor printImage!: HTMLImageElement;
+
+  @state()
+  private accessor cursorTile: Vec2 | null = null;
 
   @query("#simulation-container")
   accessor canvasContainer!: HTMLDivElement;
@@ -395,13 +468,82 @@ export class SimulationStateRender extends LitElementWw {
     );
     if (hasNoValue(tilePosition)) return;
 
+    this.activateTile(tilePosition);
+  }
+
+  private activateTile(tilePosition: Vec2) {
     const activeManualTool = this.simulationStore.activeManualTool.get();
 
     if (activeManualTool === "remove-entity") {
       this.simulationStore.removeEntityAt(tilePosition);
+    } else if (activeManualTool === "add-food-source") {
+      this.simulationStore.addFoodSource(tilePosition);
+    } else if (activeManualTool === "add-agent") {
+      this.simulationStore.addAgent(tilePosition);
     } else {
       this.simulationStore.selectEntityAt(tilePosition);
     }
+  }
+
+  private setCursorTile(tile: Vec2 | null) {
+    this.cursorTile = tile;
+    this.renderer.setCursorTile(tile);
+  }
+
+  private handleFocus() {
+    if (hasValue(this.cursorTile) || hasNoValue(this.currentWorldSize)) return;
+    this.setCursorTile({
+      x: Math.floor(this.currentWorldSize.x / 2),
+      y: Math.floor(this.currentWorldSize.y / 2),
+    });
+  }
+
+  private handleCanvasKeyDown(event: KeyboardEvent) {
+    const world = this.currentWorldSize;
+    if (
+      hasNoValue(world) ||
+      event.altKey ||
+      event.ctrlKey ||
+      event.metaKey
+    ) {
+      return;
+    }
+
+    const cursor = this.cursorTile ?? { x: 0, y: 0 };
+    const step = event.shiftKey ? 5 : 1;
+    const moves: Record<string, Vec2> = {
+      ArrowLeft: { x: -step, y: 0 },
+      ArrowRight: { x: step, y: 0 },
+      ArrowUp: { x: 0, y: -step },
+      ArrowDown: { x: 0, y: step },
+    };
+    const move = moves[event.key];
+
+    if (hasValue(move)) {
+      event.preventDefault();
+      this.setCursorTile({
+        x: Math.min(world.x - 1, Math.max(0, cursor.x + move.x)),
+        y: Math.min(world.y - 1, Math.max(0, cursor.y + move.y)),
+      });
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      this.activateTile(cursor);
+    }
+  }
+
+  // A WebGL canvas prints blank, so a still picture of the world is kept for the print view.
+  private readonly capturePrintImage = () => {
+    window.clearTimeout(this.printImageTimer);
+    if (hasNoValue(this.app) || hasNoValue(this.printImage)) return;
+    this.app.render();
+    this.printImage.src = this.app.canvas.toDataURL("image/png");
+  };
+
+  private printImageTimer = 0;
+
+  private schedulePrintImage() {
+    window.clearTimeout(this.printImageTimer);
+    this.printImageTimer = window.setTimeout(this.capturePrintImage, 400);
   }
 
   private isDeleteMode() {
@@ -506,7 +648,14 @@ export class SimulationStateRender extends LitElementWw {
     return html`
       <div
         id="simulation-container"
+        part="simulation"
+        tabindex="0"
+        role="group"
+        aria-label=${this.msg("Simulation world")}
         class=${classMap({ "delete-mode": isDeleteMode })}
+        @focus=${this.handleFocus}
+        @blur=${() => this.setCursorTile(null)}
+        @keydown=${this.handleCanvasKeyDown}
         style=${styleMap({
           "aspect-ratio": aspectRatio,
         })}
@@ -516,6 +665,10 @@ export class SimulationStateRender extends LitElementWw {
         @pointermove=${this.handlePointerMove}
         @pointerleave=${() => this.renderer.setHoveredTile(null)}
       ></div>
+      <img id="print-image" alt=${this.msg("Simulation world")} />
+      <output class="visually-hidden" aria-live="polite">${this.cursorTile
+        ? this.msg(str`Column ${this.cursorTile.x + 1}, row ${this.cursorTile.y + 1}`)
+        : ""}</output>
     `;
   }
 
@@ -529,6 +682,7 @@ export class SimulationStateRender extends LitElementWw {
     super.connectedCallback();
 
     window.addEventListener("keydown", this.handleKeyDown);
+    window.addEventListener("beforeprint", this.capturePrintImage);
 
     // The shadow DOM survives a move in the document; only the app and the watchers were torn down.
     if (this.hasUpdated) void this.start();
@@ -555,6 +709,7 @@ export class SimulationStateRender extends LitElementWw {
         const previousWorldSize = this.currentWorldSize;
         this.currentWorldSize = data.metadata.worldSize;
         this.renderer.update(data.metadata, data.snapshot);
+        this.schedulePrintImage();
 
         if (
           !hasValue(previousWorldSize) ||
@@ -582,5 +737,7 @@ export class SimulationStateRender extends LitElementWw {
     this.unwatchSelection?.();
     this.unwatchSelection = null;
     window.removeEventListener("keydown", this.handleKeyDown);
+    window.removeEventListener("beforeprint", this.capturePrintImage);
+    window.clearTimeout(this.printImageTimer);
   }
 }

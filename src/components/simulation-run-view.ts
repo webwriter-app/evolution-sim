@@ -73,6 +73,13 @@ export class SimulationRunView extends LitElementWw {
     simulation-analysis-view {
       width: 100%;
     }
+
+    @media print {
+      simulation-controls-bar,
+      .tool-bar {
+        display: none;
+      }
+    }
   `;
 
   private getMutationRateLocked() {

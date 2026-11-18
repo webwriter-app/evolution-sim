@@ -241,8 +241,14 @@ const ALLELE_COLORS = [
   "#17becf",
 ];
 
-export function getAlleleColor(allele: number) {
+/** The first seven series colors follow the document theme's accent colors; without a theme the defaults apply. */
+export function getAlleleColor(allele: number, host?: Element) {
   const length = ALLELE_COLORS.length;
   const index = ((Math.round(allele) % length) + length) % length;
-  return ALLELE_COLORS[index] ?? "#1f77b4";
+  const fallback = ALLELE_COLORS[index] ?? "#1f77b4";
+  if (!host || index > 6) return fallback;
+  const themed = getComputedStyle(host)
+    .getPropertyValue(`--ww-theme-accent-${index + 1}`)
+    .trim();
+  return themed || fallback;
 }

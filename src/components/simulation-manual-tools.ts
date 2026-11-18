@@ -37,6 +37,12 @@ export class SimulationManualTools extends LitElementWw {
       flex-wrap: wrap;
     }
 
+    @media print {
+      :host {
+        display: none;
+      }
+    }
+
     sl-button[draggable="true"] {
       cursor: grab;
     }
@@ -85,6 +91,11 @@ export class SimulationManualTools extends LitElementWw {
     this.simulationStore.manualToolDnd.endDrag();
   }
 
+  private toggleAddTool(tool: ManualSimulationTool) {
+    this.simulationStore.manualToolDnd.endDrag();
+    this.simulationStore.toggleActiveManualTool(tool);
+  }
+
   private toggleRemoveMode() {
     this.simulationStore.manualToolDnd.endDrag();
     this.simulationStore.toggleActiveManualTool("remove-entity");
@@ -101,11 +112,16 @@ export class SimulationManualTools extends LitElementWw {
     spriteSource: string;
     disabled?: boolean;
   }) {
+    const isActive = this.simulationStore.activeManualTool.get() === tool;
+
     return html`
       <sl-button
         size="small"
+        aria-pressed=${isActive ? "true" : "false"}
+        variant=${isActive ? "primary" : "default"}
         draggable=${disabled ? "false" : "true"}
         ?disabled=${disabled}
+        @click=${() => this.toggleAddTool(tool)}
         @dragstart=${(event: DragEvent) => {
           const dragImage = (event.currentTarget as HTMLElement).querySelector(
             ".tool-sprite",
@@ -132,6 +148,7 @@ export class SimulationManualTools extends LitElementWw {
     return html`
       <sl-button
         size="small"
+        aria-pressed=${isActive ? "true" : "false"}
         variant=${isActive ? "danger" : "default"}
         @click=${() => this.toggleRemoveMode()}
       >
