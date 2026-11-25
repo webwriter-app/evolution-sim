@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Konfigurovať simuláciu`,
 's111aabf3a7ebf23c': `Dostupnosť potravy`,
 's17cff5f101712ef8': `Veľkosť sveta`,
+'s1c9f46a3747a6e5e': `Svet simulácie`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Max`,
 's21e31bdc9713e7fd': `Potomok`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `Š`,
 'sb32e400c09253d64': `Vytvoriť simuláciu`,
 'sb3ea3e951f441e44': `Miera mutácie`,
+'sb3f0a9162cc71c0c': `Toto nie je platný konfiguračný súbor simulácie.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Poloha`,
 'sc52f2a1b6d5ddff9': `Ako ďaleko môže agent vnímať okolité agentov a zdroje potravy.`,
 'sc5343d7a7a98dd5a': `Pri dlhých simuláciách môže dochádzať k oneskoreniu zobrazenia kompletnej histórie.`,
 'sc5465585d761fc7c': `Grafy`,
 'sc892fa54f1de1674': `Posledných 50 tikov`,
+'scbcac468431b981d': str`Stĺpec ${0}, riadok ${1}`,
 'sd049237343c44e47': `Mŕtvy`,
 'sd75d6fb3ddf8bb38': `Údaje o predkoch nie sú k dispozícii.`,
 'sd9994f251f1280cf': `Krok`,

@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Simulationem configura`,
 's111aabf3a7ebf23c': `Copia cibi`,
 's17cff5f101712ef8': `Magnitudo mundi`,
+'s1c9f46a3747a6e5e': `Mundus simulationis`,
 's1dfd6319b50f4cd7': `Minimum`,
 's1e187119b5262c59': `Maximum`,
 's21e31bdc9713e7fd': `Proles`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `L`,
 'sb32e400c09253d64': `Simulationem crea`,
 'sb3ea3e951f441e44': `Frequentia mutationis`,
+'sb3f0a9162cc71c0c': `Hic fasciculus non est valida configuratio simulationis.`,
 'sbe990627921a7485': `Genetica`,
 'sc1611c0558728a2a': `Positio`,
 'sc52f2a1b6d5ddff9': `Distantia ad quam agens alios agentes et fontes cibi percipere potest.`,
 'sc5343d7a7a98dd5a': `Historia integra longas simulationes tardare potest.`,
 'sc5465585d761fc7c': `Diagrammata`,
 'sc892fa54f1de1674': `Ultimi 50 gradus`,
+'scbcac468431b981d': str`Columna ${0}, series ${1}`,
 'sd049237343c44e47': `Mortuus`,
 'sd75d6fb3ddf8bb38': `Nulla de stirpe data praesto sunt.`,
 'sd9994f251f1280cf': `Gradus`,

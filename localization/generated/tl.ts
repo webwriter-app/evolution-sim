@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Isaayos ang simulasyon`,
 's111aabf3a7ebf23c': `Pagkakaroon ng pagkain`,
 's17cff5f101712ef8': `Laki ng mundo`,
+'s1c9f46a3747a6e5e': `Mundo ng simulasyon`,
 's1dfd6319b50f4cd7': `Pinakamababa`,
 's1e187119b5262c59': `Pinakamataas`,
 's21e31bdc9713e7fd': `Supling`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `L`,
 'sb32e400c09253d64': `Gumawa ng simulasyon`,
 'sb3ea3e951f441e44': `Dalas ng mutasyon`,
+'sb3f0a9162cc71c0c': `Hindi wastong configuration file ng simulasyon ito.`,
 'sbe990627921a7485': `Henetika`,
 'sc1611c0558728a2a': `Posisyon`,
 'sc52f2a1b6d5ddff9': `Layo kung saan mapapansin ng ahente ang mga kalapit na ahente at pinagmumulan ng pagkain.`,
 'sc5343d7a7a98dd5a': `Maaaring bumagal ang pagpapakita ng buong kasaysayan sa mahabang simulasyon.`,
 'sc5465585d761fc7c': `Mga grap`,
 'sc892fa54f1de1674': `Huling 50 hakbang ng oras`,
+'scbcac468431b981d': str`Kolum ${0}, hilera ${1}`,
 'sd049237343c44e47': `Patay`,
 'sd75d6fb3ddf8bb38': `Walang datos ng angkan.`,
 'sd9994f251f1280cf': `Hakbang`,

@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Simulation konfigurieren`,
 's111aabf3a7ebf23c': `Nahrungsverfügbarkeit`,
 's17cff5f101712ef8': `Weltgröße`,
+'s1c9f46a3747a6e5e': `Simulationswelt`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Max`,
 's21e31bdc9713e7fd': `Nachkomme`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `B`,
 'sb32e400c09253d64': `Simulation erstellen`,
 'sb3ea3e951f441e44': `Mutationsrate`,
+'sb3f0a9162cc71c0c': `Dies ist keine gültige Konfigurationsdatei für die Simulation.`,
 'sbe990627921a7485': `Genetik`,
 'sc1611c0558728a2a': `Position`,
 'sc52f2a1b6d5ddff9': `Wie weit der Agent in der Lage ist, nahegelegene Agenten und Nahrungsquellen wahrzunehmen.`,
 'sc5343d7a7a98dd5a': `Bei langen Simulationen kann es zu Verzögerungen beim Anzeigen des vollständigen Verlaufs kommen.`,
 'sc5465585d761fc7c': `Diagramme`,
 'sc892fa54f1de1674': `Letzte 50 Ticks`,
+'scbcac468431b981d': str`Spalte ${0}, Zeile ${1}`,
 'sd049237343c44e47': `Gestorben`,
 'sd75d6fb3ddf8bb38': `Es liegen keine Abstammungsdaten vor.`,
 'sd9994f251f1280cf': `Schritt`,

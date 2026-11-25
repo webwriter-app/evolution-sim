@@ -229,6 +229,18 @@
 <trans-unit id="s72cf82f7f6bc6dd5">
   <source>Current share</source>
 <target>ចំណែកបច្ចុប្បន្ន</target></trans-unit>
+<trans-unit id="s1c9f46a3747a6e5e">
+  <source>Simulation world</source>
+  <target>ពិភពនៃការក្លែងធ្វើ</target>
+</trans-unit>
+<trans-unit id="scbcac468431b981d">
+  <source>Column <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, row <x id="1" equiv-text="${this.cursorTile.y + 1}"/></source>
+  <target>ជួរឈរ <x id="0" equiv-text="${this.cursorTile.x + 1}"/> ជួរដេក <x id="1" equiv-text="${this.cursorTile.y + 1}"/></target>
+</trans-unit>
+<trans-unit id="sb3f0a9162cc71c0c">
+  <source>This is not a valid simulation configuration file.</source>
+  <target>នេះមិនមែនជាឯកសារកំណត់រចនាសម្ព័ន្ធការក្លែងធ្វើត្រឹមត្រូវទេ។</target>
+</trans-unit>
 </body>
 </file>
 </xliff>

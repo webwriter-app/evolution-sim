@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Konfiguro simulimin`,
 's111aabf3a7ebf23c': `Disponueshmëria e ushqimit`,
 's17cff5f101712ef8': `Madhësia e botës`,
+'s1c9f46a3747a6e5e': `Bota e simulimit`,
 's1dfd6319b50f4cd7': `Min.`,
 's1e187119b5262c59': `Maks.`,
 's21e31bdc9713e7fd': `Pasardhës`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `P`,
 'sb32e400c09253d64': `Krijo simulim`,
 'sb3ea3e951f441e44': `Shkalla e mutacionit`,
+'sb3f0a9162cc71c0c': `Ky nuk është një skedar i vlefshëm konfigurimi për simulimin.`,
 'sbe990627921a7485': `Gjenetika`,
 'sc1611c0558728a2a': `Pozicioni`,
 'sc52f2a1b6d5ddff9': `Sa larg mund të dallojë agjenti agjentët dhe burimet e ushqimit pranë.`,
 'sc5343d7a7a98dd5a': `Shfaqja e historikut të plotë mund të vonohet gjatë simulimeve të gjata.`,
 'sc5465585d761fc7c': `Grafikët`,
 'sc892fa54f1de1674': `50 hapat e fundit`,
+'scbcac468431b981d': str`Kolona ${0}, rreshti ${1}`,
 'sd049237343c44e47': `I vdekur`,
 'sd75d6fb3ddf8bb38': `Nuk ka të dhëna për prejardhjen.`,
 'sd9994f251f1280cf': `Hap`,

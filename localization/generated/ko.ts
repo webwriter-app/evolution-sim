@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `시뮬레이션 구성`,
 's111aabf3a7ebf23c': `식량 가용성`,
 's17cff5f101712ef8': `월드 크기`,
+'s1c9f46a3747a6e5e': `시뮬레이션 세계`,
 's1dfd6319b50f4cd7': `최소`,
 's1e187119b5262c59': `최대`,
 's21e31bdc9713e7fd': `자식`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `너비`,
 'sb32e400c09253d64': `시뮬레이션 생성`,
 'sb3ea3e951f441e44': `돌연변이 발생률`,
+'sb3f0a9162cc71c0c': `유효한 시뮬레이션 설정 파일이 아닙니다.`,
 'sbe990627921a7485': `유전학`,
 'sc1611c0558728a2a': `위치`,
 'sc52f2a1b6d5ddff9': `에이전트가 주변의 다른 에이전트와 먹이원을 감지할 수 있는 거리.`,
 'sc5343d7a7a98dd5a': `장시간 시뮬레이션 중에는 전체 기록이 지연될 수 있습니다.`,
 'sc5465585d761fc7c': `그래프`,
 'sc892fa54f1de1674': `지난 50 틱`,
+'scbcac468431b981d': str`${0}열, ${1}행`,
 'sd049237343c44e47': `사망`,
 'sd75d6fb3ddf8bb38': `조상 데이터가 없습니다.`,
 'sd9994f251f1280cf': `단계`,

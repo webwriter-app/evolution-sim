@@ -303,6 +303,18 @@
         <source>Configure simulation</source>
         <target>シミュレーションを設定</target>
       </trans-unit>
+<trans-unit id="s1c9f46a3747a6e5e">
+  <source>Simulation world</source>
+  <target>シミュレーションの世界</target>
+</trans-unit>
+<trans-unit id="scbcac468431b981d">
+  <source>Column <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, row <x id="1" equiv-text="${this.cursorTile.y + 1}"/></source>
+  <target>列 <x id="0" equiv-text="${this.cursorTile.x + 1}"/>、行 <x id="1" equiv-text="${this.cursorTile.y + 1}"/></target>
+</trans-unit>
+<trans-unit id="sb3f0a9162cc71c0c">
+  <source>This is not a valid simulation configuration file.</source>
+  <target>有効なシミュレーション設定ファイルではありません。</target>
+</trans-unit>
     </body>
   </file>
 </xliff>

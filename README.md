@@ -1,7 +1,7 @@
 # Evolution Sim (`@webwriter/evolution-sim@2.0.0`)
 [License: MIT](LICENSE) | Version: 2.0.0
 
-Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.
+Explore evolution and natural selection through interactive simulations.
 
 ## Snippets
 [Snippets](https://webwriter.app/docs/snippets/snippets/) are examples and templates using the package's widgets.
@@ -117,4 +117,4 @@ npm install @webwriter/evolution-sim
 
 
 ---
-*Generated with @webwriter/build@1.14.0*
+*Generated with @webwriter/build@1.15.0*

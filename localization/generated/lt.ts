@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Konfigūruoti simuliaciją`,
 's111aabf3a7ebf23c': `Maisto prieinamumas`,
 's17cff5f101712ef8': `Pasaulio dydis`,
+'s1c9f46a3747a6e5e': `Modeliavimo pasaulis`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Palikuonis`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `P`,
 'sb32e400c09253d64': `Sukurti simuliaciją`,
 'sb3ea3e951f441e44': `Mutacijų dažnis`,
+'sb3f0a9162cc71c0c': `Tai nėra tinkamas modeliavimo konfigūracijos failas.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Padėtis`,
 'sc52f2a1b6d5ddff9': `Atstumas, per kurį agentas gali pastebėti netoliese esančius agentus ir maisto šaltinius.`,
 'sc5343d7a7a98dd5a': `Ilgų simuliacijų metu visos istorijos rodymas gali šiek tiek vėluoti.`,
 'sc5465585d761fc7c': `Diagramos`,
 'sc892fa54f1de1674': `Paskutiniai 50 žingsnių`,
+'scbcac468431b981d': str`Stulpelis ${0}, eilutė ${1}`,
 'sd049237343c44e47': `Žuvo`,
 'sd75d6fb3ddf8bb38': `Nėra duomenų apie protėvius.`,
 'sd9994f251f1280cf': `Žingsnis`,

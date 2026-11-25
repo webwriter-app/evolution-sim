@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Konfigurer simulering`,
 's111aabf3a7ebf23c': `Tilgjengelighet av mat`,
 's17cff5f101712ef8': `Verdensstørrelse`,
+'s1c9f46a3747a6e5e': `Simuleringsverden`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Barn`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `B`,
 'sb32e400c09253d64': `Opprett simulering`,
 'sb3ea3e951f441e44': `Mutasjonshastighet`,
+'sb3f0a9162cc71c0c': `Dette er ikke en gyldig konfigurasjonsfil for simuleringen.`,
 'sbe990627921a7485': `Genetikk`,
 'sc1611c0558728a2a': `Posisjon`,
 'sc52f2a1b6d5ddff9': `Hvor langt agenten kan oppfatte nærliggende agenter og matkilder.`,
 'sc5343d7a7a98dd5a': `Full historikk kan ha forsinkelser under lange simuleringer.`,
 'sc5465585d761fc7c': `Grafer`,
 'sc892fa54f1de1674': `De siste 50 tickene`,
+'scbcac468431b981d': str`Kolonne ${0}, rad ${1}`,
 'sd049237343c44e47': `Død`,
 'sd75d6fb3ddf8bb38': `Det foreligger ingen opphavsdata.`,
 'sd9994f251f1280cf': `Trinn`,

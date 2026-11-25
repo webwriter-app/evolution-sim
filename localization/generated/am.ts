@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `ማስመሰያውን አዋቅር`,
 's111aabf3a7ebf23c': `የምግብ መገኘት`,
 's17cff5f101712ef8': `የዓለሙ መጠን`,
+'s1c9f46a3747a6e5e': `የማስመሰል ዓለም`,
 's1dfd6319b50f4cd7': `ዝቅተኛ`,
 's1e187119b5262c59': `ከፍተኛ`,
 's21e31bdc9713e7fd': `ዘር`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `ወ`,
 'sb32e400c09253d64': `ማስመሰያ ፍጠር`,
 'sb3ea3e951f441e44': `የሚውቴሽን መጠን`,
+'sb3f0a9162cc71c0c': `ይህ ተቀባይነት ያለው የማስመሰል ቅንብር ፋይል አይደለም።`,
 'sbe990627921a7485': `ዘረመል`,
 'sc1611c0558728a2a': `ቦታ`,
 'sc52f2a1b6d5ddff9': `አካሉ አጠገቡ ያሉ አካላትን እና የምግብ ምንጮችን እስከሚያውቅበት ርቀት።`,
 'sc5343d7a7a98dd5a': `በረጅም ማስመሰያዎች ሙሉውን ታሪክ ማሳየት ሊዘገይ ይችላል።`,
 'sc5465585d761fc7c': `ገበታዎች`,
 'sc892fa54f1de1674': `ያለፉት 50 የጊዜ ደረጃዎች`,
+'scbcac468431b981d': str`አምድ ${0}፣ ረድፍ ${1}`,
 'sd049237343c44e47': `የሞተ`,
 'sd75d6fb3ddf8bb38': `የዘር ሐረግ መረጃ የለም።`,
 'sd9994f251f1280cf': `ደረጃ`,

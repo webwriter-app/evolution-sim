@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `設定模擬`,
 's111aabf3a7ebf23c': `食物供應`,
 's17cff5f101712ef8': `世界大小`,
+'s1c9f46a3747a6e5e': `模擬世界`,
 's1dfd6319b50f4cd7': `最小值`,
 's1e187119b5262c59': `最大`,
 's21e31bdc9713e7fd': `子女`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `寬`,
 'sb32e400c09253d64': `建立模擬`,
 'sb3ea3e951f441e44': `突變率`,
+'sb3f0a9162cc71c0c': `這不是有效的模擬設定檔。`,
 'sbe990627921a7485': `遺傳學`,
 'sc1611c0558728a2a': `位置`,
 'sc52f2a1b6d5ddff9': `智能體能感知附近智能體與食物來源的距離。`,
 'sc5343d7a7a98dd5a': `在長時間的模擬過程中，完整歷史記錄可能會出現延遲。`,
 'sc5465585d761fc7c': `圖表`,
 'sc892fa54f1de1674': `最近 50 個時間步`,
+'scbcac468431b981d': str`第 ${0} 欄，第 ${1} 列`,
 'sd049237343c44e47': `已死亡`,
 'sd75d6fb3ddf8bb38': `沒有祖先資料。`,
 'sd9994f251f1280cf': `下一步`,

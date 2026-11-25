@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Konfiguriraj simulaciju`,
 's111aabf3a7ebf23c': `Dostupnost hrane`,
 's17cff5f101712ef8': `Veličina svijeta`,
+'s1c9f46a3747a6e5e': `Svijet simulacije`,
 's1dfd6319b50f4cd7': `Min.`,
 's1e187119b5262c59': `Maks.`,
 's21e31bdc9713e7fd': `Potomak`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `Š`,
 'sb32e400c09253d64': `Stvori simulaciju`,
 'sb3ea3e951f441e44': `Stopa mutacije`,
+'sb3f0a9162cc71c0c': `Ovo nije valjana datoteka postavki simulacije.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Položaj`,
 'sc52f2a1b6d5ddff9': `Koliko daleko agent može opažati obližnje agente i izvore hrane.`,
 'sc5343d7a7a98dd5a': `Tijekom dugih simulacija prikaz cijele povijesti može kasniti.`,
 'sc5465585d761fc7c': `Grafikoni`,
 'sc892fa54f1de1674': `Zadnjih 50 koraka`,
+'scbcac468431b981d': str`Stupac ${0}, redak ${1}`,
 'sd049237343c44e47': `Mrtav`,
 'sd75d6fb3ddf8bb38': `Podaci o podrijetlu nisu dostupni.`,
 'sd9994f251f1280cf': `Korak`,

@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Szimuláció beállítása`,
 's111aabf3a7ebf23c': `Élelmiszer-ellátottság`,
 's17cff5f101712ef8': `Világ mérete`,
+'s1c9f46a3747a6e5e': `Szimulációs világ`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Max`,
 's21e31bdc9713e7fd': `Gyermek`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `Sz`,
 'sb32e400c09253d64': `Szimuláció létrehozása`,
 'sb3ea3e951f441e44': `Mutációs arány`,
+'sb3f0a9162cc71c0c': `Ez nem érvényes szimulációs beállításfájl.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Pozíció`,
 'sc52f2a1b6d5ddff9': `Az ágens milyen távolságig képes észlelni a közeli ágenseket és élelmiszerforrásokat.`,
 'sc5343d7a7a98dd5a': `Hosszú szimulációk során a teljes előzmények megjelenítése késhet.`,
 'sc5465585d761fc7c': `Grafikonok`,
 'sc892fa54f1de1674': `Az elmúlt 50 tick`,
+'scbcac468431b981d': str`${0}. oszlop, ${1}. sor`,
 'sd049237343c44e47': `Elpusztult`,
 'sd75d6fb3ddf8bb38': `Nincs elérhető ősadat.`,
 'sd9994f251f1280cf': `Lépés`,

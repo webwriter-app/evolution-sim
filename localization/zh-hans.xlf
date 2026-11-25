@@ -1,5 +1,5 @@
 <xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file original="lit-localize-inputs" datatype="plaintext" source-language="en" target-language="zh-hans">
+  <file original="lit-localize-inputs" datatype="plaintext" source-language="en" target-language="zh-Hans">
     <body>
       <trans-unit id="sd75d6fb3ddf8bb38">
         <source>No ancestry data available.</source>
@@ -303,6 +303,18 @@
         <source>Configure simulation</source>
         <target>配置模拟</target>
       </trans-unit>
+<trans-unit id="s1c9f46a3747a6e5e">
+  <source>Simulation world</source>
+  <target>模拟世界</target>
+</trans-unit>
+<trans-unit id="scbcac468431b981d">
+  <source>Column <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, row <x id="1" equiv-text="${this.cursorTile.y + 1}"/></source>
+  <target>第 <x id="0" equiv-text="${this.cursorTile.x + 1}"/> 列，第 <x id="1" equiv-text="${this.cursorTile.y + 1}"/> 行</target>
+</trans-unit>
+<trans-unit id="sb3f0a9162cc71c0c">
+  <source>This is not a valid simulation configuration file.</source>
+  <target>这不是有效的模拟配置文件。</target>
+</trans-unit>
     </body>
   </file>
 </xliff>

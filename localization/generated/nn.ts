@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Set opp simuleringa`,
 's111aabf3a7ebf23c': `Mattilgang`,
 's17cff5f101712ef8': `Verdsstorleik`,
+'s1c9f46a3747a6e5e': `Simuleringsverd`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Avkom`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `V`,
 'sb32e400c09253d64': `Opprett simulering`,
 'sb3ea3e951f441e44': `Mutasjonsrate`,
+'sb3f0a9162cc71c0c': `Denne fila har ikkje eit gyldig oppsett for simuleringa.`,
 'sbe990627921a7485': `Genetikk`,
 'sc1611c0558728a2a': `Posisjon`,
 'sc52f2a1b6d5ddff9': `Kor langt agenten kan oppfatte agentar og matkjelder i nærleiken.`,
 'sc5343d7a7a98dd5a': `Full historikk kan henge etter under lange simuleringar.`,
 'sc5465585d761fc7c': `Diagram`,
 'sc892fa54f1de1674': `Dei siste 50 stega`,
+'scbcac468431b981d': str`Kolonne ${0}, rad ${1}`,
 'sd049237343c44e47': `Død`,
 'sd75d6fb3ddf8bb38': `Ingen opphavsinformasjon er tilgjengeleg.`,
 'sd9994f251f1280cf': `Steg`,

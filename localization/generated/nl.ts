@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Simulatie configureren`,
 's111aabf3a7ebf23c': `Beschikbaarheid van voedsel`,
 's17cff5f101712ef8': `Wereldgrootte`,
+'s1c9f46a3747a6e5e': `Simulatiewereld`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Max`,
 's21e31bdc9713e7fd': `Kind`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `B`,
 'sb32e400c09253d64': `Simulatie maken`,
 'sb3ea3e951f441e44': `Mutatiesnelheid`,
+'sb3f0a9162cc71c0c': `Dit is geen geldig configuratiebestand voor de simulatie.`,
 'sbe990627921a7485': `Genetica`,
 'sc1611c0558728a2a': `Positie`,
 'sc52f2a1b6d5ddff9': `Hoe ver de agent nabijgelegen agenten en voedselbronnen kan waarnemen.`,
 'sc5343d7a7a98dd5a': `De volledige geschiedenis kan vertraging oplopen tijdens lange simulaties.`,
 'sc5465585d761fc7c': `Grafieken`,
 'sc892fa54f1de1674': `Laatste 50 ticks`,
+'scbcac468431b981d': str`Kolom ${0}, rij ${1}`,
 'sd049237343c44e47': `Dood`,
 'sd75d6fb3ddf8bb38': `Er zijn geen gegevens over de afstamming beschikbaar.`,
 'sd9994f251f1280cf': `Stap`,

@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Ffurfweddu’r efelychiad`,
 's111aabf3a7ebf23c': `Argaeledd bwyd`,
 's17cff5f101712ef8': `Maint y byd`,
+'s1c9f46a3747a6e5e': `Byd yr efelychiad`,
 's1dfd6319b50f4cd7': `Isafswm`,
 's1e187119b5262c59': `Uchafswm`,
 's21e31bdc9713e7fd': `Hynodyn`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `G`,
 'sb32e400c09253d64': `Creu efelychiad`,
 'sb3ea3e951f441e44': `Cyfradd treiglo`,
+'sb3f0a9162cc71c0c': `Nid yw hon yn ffeil ffurfweddu ddilys ar gyfer yr efelychiad.`,
 'sbe990627921a7485': `Geneteg`,
 'sc1611c0558728a2a': `Safle`,
 'sc52f2a1b6d5ddff9': `Pa mor bell y gall yr asiant ganfod asiantau a ffynonellau bwyd cyfagos.`,
 'sc5343d7a7a98dd5a': `Gall arddangos yr hanes llawn lusgo yn ystod efelychiadau hir.`,
 'sc5465585d761fc7c': `Graffiau`,
 'sc892fa54f1de1674': `Y 50 cam diwethaf`,
+'scbcac468431b981d': str`Colofn ${0}, rhes ${1}`,
 'sd049237343c44e47': `Marw`,
 'sd75d6fb3ddf8bb38': `Dim data achau ar gael.`,
 'sd9994f251f1280cf': `Cam`,

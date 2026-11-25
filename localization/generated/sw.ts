@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Sanidi uigaji`,
 's111aabf3a7ebf23c': `Upatikanaji wa chakula`,
 's17cff5f101712ef8': `Ukubwa wa ulimwengu`,
+'s1c9f46a3747a6e5e': `Ulimwengu wa uigaji`,
 's1dfd6319b50f4cd7': `Kiwango cha chini`,
 's1e187119b5262c59': `Upeo`,
 's21e31bdc9713e7fd': `Mzao`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `P`,
 'sb32e400c09253d64': `Unda uigaji`,
 'sb3ea3e951f441e44': `Kiwango cha mabadiliko ya jeni`,
+'sb3f0a9162cc71c0c': `Hili si faili halali la usanidi wa uigaji.`,
 'sbe990627921a7485': `Jenetiki`,
 'sc1611c0558728a2a': `Nafasi`,
 'sc52f2a1b6d5ddff9': `Umbali ambao kiumbe kinaweza kuona viumbe vingine na vyanzo vya chakula vilivyo karibu.`,
 'sc5343d7a7a98dd5a': `Kuonyesha historia yote kunaweza kuchelewa katika uigaji mrefu.`,
 'sc5465585d761fc7c': `Chati`,
 'sc892fa54f1de1674': `Hatua 50 za mwisho`,
+'scbcac468431b981d': str`Safu wima ${0}, safu mlalo ${1}`,
 'sd049237343c44e47': `Kimekufa`,
 'sd75d6fb3ddf8bb38': `Hakuna data ya nasaba.`,
 'sd9994f251f1280cf': `Hatua`,

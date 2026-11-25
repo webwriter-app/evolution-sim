@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Konfiguratu simulazioa`,
 's111aabf3a7ebf23c': `Janariaren eskuragarritasuna`,
 's17cff5f101712ef8': `Munduaren tamaina`,
+'s1c9f46a3747a6e5e': `Simulazioaren mundua`,
 's1dfd6319b50f4cd7': `Min.`,
 's1e187119b5262c59': `Max.`,
 's21e31bdc9713e7fd': `Kumea`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `a`,
 'sb32e400c09253d64': `Sortu simulazioa`,
 'sb3ea3e951f441e44': `Mutazio-tasa`,
+'sb3f0a9162cc71c0c': `Hau ez da simulazioaren konfigurazio-fitxategi baliozkoa.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Kokapena`,
 'sc52f2a1b6d5ddff9': `Agenteak inguruko agenteak eta janari-iturriak zenbateraino hauteman ditzakeen.`,
 'sc5343d7a7a98dd5a': `Historia osoaren bistaratzeak atzerapena izan dezake simulazio luzeetan.`,
 'sc5465585d761fc7c': `Grafikoak`,
 'sc892fa54f1de1674': `Azken 50 urratsak`,
+'scbcac468431b981d': str`${0}. zutabea, ${1}. errenkada`,
 'sd049237343c44e47': `Hilda`,
 'sd75d6fb3ddf8bb38': `Ez dago ahaideei buruzko daturik.`,
 'sd9994f251f1280cf': `Urratsa`,

@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Simulyasiyanı tənzimlə`,
 's111aabf3a7ebf23c': `Qidanın mövcudluğu`,
 's17cff5f101712ef8': `Dünyanın ölçüsü`,
+'s1c9f46a3747a6e5e': `Simulyasiya dünyası`,
 's1dfd6319b50f4cd7': `Min.`,
 's1e187119b5262c59': `Maks.`,
 's21e31bdc9713e7fd': `Övlad`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `W`,
 'sb32e400c09253d64': `Simulyasiya yarat`,
 'sb3ea3e951f441e44': `Mutasiya tezliyi`,
+'sb3f0a9162cc71c0c': `Bu, etibarlı simulyasiya konfiqurasiya faylı deyil.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Mövqe`,
 'sc52f2a1b6d5ddff9': `Agent yaxınlıqdakı agentləri və qida mənbələrini nə qədər uzaqdan hiss edə bilər.`,
 'sc5343d7a7a98dd5a': `Uzun simulyasiyalar zamanı tam tarixçə yavaşlaya bilər.`,
 'sc5465585d761fc7c': `Qrafiklər`,
 'sc892fa54f1de1674': `Son 50 takt`,
+'scbcac468431b981d': str`Sütun ${0}, sətir ${1}`,
 'sd049237343c44e47': `Ölü`,
 'sd75d6fb3ddf8bb38': `Nəsil məlumatı mövcud deyil.`,
 'sd9994f251f1280cf': `Addım`,

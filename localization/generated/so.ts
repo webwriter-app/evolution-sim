@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Habee jilidda`,
 's111aabf3a7ebf23c': `Helitaanka cuntada`,
 's17cff5f101712ef8': `Cabbirka adduunka`,
+'s1c9f46a3747a6e5e': `Dunida jilidda`,
 's1dfd6319b50f4cd7': `Ugu yar`,
 's1e187119b5262c59': `Ugu badan`,
 's21e31bdc9713e7fd': `Farac`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `B`,
 'sb32e400c09253d64': `Samee jilid`,
 'sb3ea3e951f441e44': `Heerka isbeddelka hidde-sideyaasha`,
+'sb3f0a9162cc71c0c': `Kani ma aha fayl dejin oo sax ah oo jilidda ah.`,
 'sbe990627921a7485': `Hidde-sideyaal`,
 'sc1611c0558728a2a': `Goob`,
 'sc52f2a1b6d5ddff9': `Masaafada uu nooluhu ku arki karo noolayaasha kale iyo meelaha cuntadu taal.`,
 'sc5343d7a7a98dd5a': `Muujinta taariikhda oo dhan way gaabin kartaa jilidda dheer.`,
 'sc5465585d761fc7c': `Jaantusyo`,
 'sc892fa54f1de1674': `50 tallaabo ee ugu dambeeyay`,
+'scbcac468431b981d': str`Tiirka ${0}, safka ${1}`,
 'sd049237343c44e47': `Dhintay`,
 'sd75d6fb3ddf8bb38': `Xog abtirsiin ma jirto.`,
 'sd9994f251f1280cf': `Tallaabo`,

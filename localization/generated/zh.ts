@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `配置模拟`,
 's111aabf3a7ebf23c': `食物可获得性`,
 's17cff5f101712ef8': `世界大小`,
+'s1c9f46a3747a6e5e': `模拟世界`,
 's1dfd6319b50f4cd7': `最小值`,
 's1e187119b5262c59': `最大`,
 's21e31bdc9713e7fd': `子`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `宽`,
 'sb32e400c09253d64': `创建模拟`,
 'sb3ea3e951f441e44': `突变率`,
+'sb3f0a9162cc71c0c': `这不是有效的模拟配置文件。`,
 'sbe990627921a7485': `遗传学`,
 'sc1611c0558728a2a': `位置`,
 'sc52f2a1b6d5ddff9': `智能体能够感知附近智能体和食物来源的距离。`,
 'sc5343d7a7a98dd5a': `在长时间模拟过程中，完整历史数据可能会出现延迟。`,
 'sc5465585d761fc7c': `图表`,
 'sc892fa54f1de1674': `最近 50 个时间步`,
+'scbcac468431b981d': str`第 ${0} 列，第 ${1} 行`,
 'sd049237343c44e47': `已死亡`,
 'sd75d6fb3ddf8bb38': `没有祖先数据。`,
 'sd9994f251f1280cf': `步进`,

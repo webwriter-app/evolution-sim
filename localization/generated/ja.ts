@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `シミュレーションを設定`,
 's111aabf3a7ebf23c': `食物の入手可能性`,
 's17cff5f101712ef8': `ワールドサイズ`,
+'s1c9f46a3747a6e5e': `シミュレーションの世界`,
 's1dfd6319b50f4cd7': `最小`,
 's1e187119b5262c59': `最大`,
 's21e31bdc9713e7fd': `子`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `幅`,
 'sb32e400c09253d64': `シミュレーションを作成`,
 'sb3ea3e951f441e44': `突然変異率`,
+'sb3f0a9162cc71c0c': `有効なシミュレーション設定ファイルではありません。`,
 'sbe990627921a7485': `遺伝学`,
 'sc1611c0558728a2a': `位置`,
 'sc52f2a1b6d5ddff9': `エージェントが、近くのエージェントや食料源をどの程度遠くまで感知できるか。`,
 'sc5343d7a7a98dd5a': `シミュレーションが長期間にわたる場合、履歴の表示に遅れが生じることがあります。`,
 'sc5465585d761fc7c': `グラフ`,
 'sc892fa54f1de1674': `直近50ティック`,
+'scbcac468431b981d': str`列 ${0}、行 ${1}`,
 'sd049237343c44e47': `死亡`,
 'sd75d6fb3ddf8bb38': `祖先データはありません。`,
 'sd9994f251f1280cf': `ステップ`,

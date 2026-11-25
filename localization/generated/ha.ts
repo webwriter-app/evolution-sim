@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Saita kwaikwayon`,
 's111aabf3a7ebf23c': `Samuwar abinci`,
 's17cff5f101712ef8': `Girman duniya`,
+'s1c9f46a3747a6e5e': `Duniyar kwaikwaiyo`,
 's1dfd6319b50f4cd7': `Mafi ƙanƙanta`,
 's1e187119b5262c59': `Mafi girma`,
 's21e31bdc9713e7fd': `Ɗa`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `F`,
 'sb32e400c09253d64': `Ƙirƙiri kwaikwayo`,
 'sb3ea3e951f441e44': `Yawan sauyin ƙwayar gado`,
+'sb3f0a9162cc71c0c': `Wannan ba ingantaccen fayil ɗin saitunan kwaikwaiyo ba ne.`,
 'sbe990627921a7485': `Ilimin gado`,
 'sc1611c0558728a2a': `Wuri`,
 'sc52f2a1b6d5ddff9': `Nisan da halittar za ta iya ganin halittu da wuraren abinci da ke kusa.`,
 'sc5343d7a7a98dd5a': `Nuna cikakken tarihi na iya yin jinkiri idan kwaikwayon ya yi tsawo.`,
 'sc5465585d761fc7c': `Jadawalai`,
 'sc892fa54f1de1674': `Matakai 50 na ƙarshe`,
+'scbcac468431b981d': str`Ginshiƙi ${0}, layi ${1}`,
 'sd049237343c44e47': `Ya mutu`,
 'sd75d6fb3ddf8bb38': `Babu bayanan tsatson zuriya.`,
 'sd9994f251f1280cf': `Mataki`,

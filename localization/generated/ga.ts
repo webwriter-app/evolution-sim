@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `სიმულაციის კონფიგურაცია`,
 's111aabf3a7ebf23c': `საკვების ხელმისაწვდომობა`,
 's17cff5f101712ef8': `სამყაროს ზომა`,
+'s1c9f46a3747a6e5e': `Domhan an ionsamhlaithe`,
 's1dfd6319b50f4cd7': `მინ.`,
 's1e187119b5262c59': `მაქს.`,
 's21e31bdc9713e7fd': `შთამომავალი`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `W`,
 'sb32e400c09253d64': `სიმულაციის შექმნა`,
 'sb3ea3e951f441e44': `მუტაციის სიხშირე`,
+'sb3f0a9162cc71c0c': `Ní comhad cumraíochta bailí don ionsamhlú é seo.`,
 'sbe990627921a7485': `გენეტიკა`,
 'sc1611c0558728a2a': `მდებარეობა`,
 'sc52f2a1b6d5ddff9': `რამდენად შორს შეუძლია აგენტს ახლომდებარე აგენტებისა და საკვების წყაროების აღქმა.`,
 'sc5343d7a7a98dd5a': `ხანგრძლივი სიმულაციებისას სრული ისტორიის ჩვენება შეიძლება შეფერხდეს.`,
 'sc5465585d761fc7c': `გრაფიკები`,
 'sc892fa54f1de1674': `ბოლო 50 ნაბიჯი`,
+'scbcac468431b981d': str`Colún ${0}, ró ${1}`,
 'sd049237343c44e47': `მკვდარი`,
 'sd75d6fb3ddf8bb38': `წარმომავლობის მონაცემები მიუწვდომელია.`,
 'sd9994f251f1280cf': `ნაბიჯი`,

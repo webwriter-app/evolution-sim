@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Simulyatsiyani sozlash`,
 's111aabf3a7ebf23c': `Oziq mavjudligi`,
 's17cff5f101712ef8': `Dunyo o‘lchami`,
+'s1c9f46a3747a6e5e': `Simulyatsiya olami`,
 's1dfd6319b50f4cd7': `Min.`,
 's1e187119b5262c59': `Maks.`,
 's21e31bdc9713e7fd': `Avlod`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `W`,
 'sb32e400c09253d64': `Simulyatsiya yaratish`,
 'sb3ea3e951f441e44': `Mutatsiya tezligi`,
+'sb3f0a9162cc71c0c': `Bu simulyatsiyaning yaroqli sozlama fayli emas.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Joylashuv`,
 'sc52f2a1b6d5ddff9': `Agent yaqin atrofdagi agentlar va oziq manbalarini qanchalik uzoqdan sezishi mumkin.`,
 'sc5343d7a7a98dd5a': `Uzoq simulyatsiyalarda to‘liq tarix sekinlashishi mumkin.`,
 'sc5465585d761fc7c': `Grafiklar`,
 'sc892fa54f1de1674': `Oxirgi 50 takt`,
+'scbcac468431b981d': str`${0}-ustun, ${1}-qator`,
 'sd049237343c44e47': `O‘lgan`,
 'sd75d6fb3ddf8bb38': `Nasl-nasab ma’lumoti yo‘q.`,
 'sd9994f251f1280cf': `Qadam`,

@@ -191,9 +191,7 @@
             "package": "@webwriter/lit"
           },
           "tagName": "webwriter-evolution-sim",
-          "customElement": true,
-          "modulePath": "src/widgets/webwriter-evolution-sim.ts",
-          "definitionPath": "src/widgets/webwriter-evolution-sim.ts"
+          "customElement": true
         }
       ],
       "exports": [

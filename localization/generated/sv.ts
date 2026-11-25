@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Konfigurera simulering`,
 's111aabf3a7ebf23c': `Tillgång på föda`,
 's17cff5f101712ef8': `Världens storlek`,
+'s1c9f46a3747a6e5e': `Simuleringsvärld`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Max`,
 's21e31bdc9713e7fd': `Barn`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `B`,
 'sb32e400c09253d64': `Skapa simulering`,
 'sb3ea3e951f441e44': `Mutationshastighet`,
+'sb3f0a9162cc71c0c': `Det här är inte en giltig konfigurationsfil för simuleringen.`,
 'sbe990627921a7485': `Genetik`,
 'sc1611c0558728a2a': `Position`,
 'sc52f2a1b6d5ddff9': `Hur långt agenten kan uppfatta närliggande agenter och födokällor.`,
 'sc5343d7a7a98dd5a': `Hela historiken kan fördröjas under långa simuleringar.`,
 'sc5465585d761fc7c': `Diagram`,
 'sc892fa54f1de1674': `De senaste 50 ticken`,
+'scbcac468431b981d': str`Kolumn ${0}, rad ${1}`,
 'sd049237343c44e47': `Död`,
 'sd75d6fb3ddf8bb38': `Inga uppgifter om härkomst finns tillgängliga.`,
 'sd9994f251f1280cf': `Steg`,

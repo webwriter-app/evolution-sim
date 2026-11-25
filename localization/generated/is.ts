@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Stilla hermun`,
 's111aabf3a7ebf23c': `Fæðuframboð`,
 's17cff5f101712ef8': `Stærð heims`,
+'s1c9f46a3747a6e5e': `Heimur hermunar`,
 's1dfd6319b50f4cd7': `Lágmark`,
 's1e187119b5262c59': `Hámark`,
 's21e31bdc9713e7fd': `Afkvæmi`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `P`,
 'sb32e400c09253d64': `Búa til hermun`,
 'sb3ea3e951f441e44': `Stökkbreytingatíðni`,
+'sb3f0a9162cc71c0c': `Þetta er ekki gild stillingaskrá fyrir hermunina.`,
 'sbe990627921a7485': `Erfðafræði`,
 'sc1611c0558728a2a': `Staðsetning`,
 'sc52f2a1b6d5ddff9': `Hversu langt umboðsmaðurinn getur skynjað nærliggjandi umboðsmenn og fæðugjafa.`,
 'sc5343d7a7a98dd5a': `Birting allrar ferilsögu getur tafist í löngum hermunum.`,
 'sc5465585d761fc7c': `Línurit`,
 'sc892fa54f1de1674': `Síðustu 50 skref`,
+'scbcac468431b981d': str`Dálkur ${0}, röð ${1}`,
 'sd049237343c44e47': `Dáinn`,
 'sd75d6fb3ddf8bb38': `Engar upplýsingar um ættir eru tiltækar.`,
 'sd9994f251f1280cf': `Skref`,

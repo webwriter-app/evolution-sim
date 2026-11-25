@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Ikkonfigura s-simulazzjoni`,
 's111aabf3a7ebf23c': `Disponibbiltà tal-ikel`,
 's17cff5f101712ef8': `Daqs tad-dinja`,
+'s1c9f46a3747a6e5e': `Dinja tas-simulazzjoni`,
 's1dfd6319b50f4cd7': `Minimu`,
 's1e187119b5262c59': `Massimu`,
 's21e31bdc9713e7fd': `Wild`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `P`,
 'sb32e400c09253d64': `Oħloq simulazzjoni`,
 'sb3ea3e951f441e44': `Rata ta’ mutazzjoni`,
+'sb3f0a9162cc71c0c': `Dan mhuwiex fajl validu ta’ konfigurazzjoni tas-simulazzjoni.`,
 'sbe990627921a7485': `Ġenetika`,
 'sc1611c0558728a2a': `Pożizzjoni`,
 'sc52f2a1b6d5ddff9': `Kemm l-aġent jista’ jipperċepixxi aġenti u sorsi tal-ikel fil-qrib.`,
 'sc5343d7a7a98dd5a': `L-istorja sħiħa tista’ tiddewwem waqt simulazzjonijiet twal.`,
 'sc5465585d761fc7c': `Grafiċi`,
 'sc892fa54f1de1674': `L-aħħar 50 pass`,
+'scbcac468431b981d': str`Kolonna ${0}, ringiela ${1}`,
 'sd049237343c44e47': `Mejjet`,
 'sd75d6fb3ddf8bb38': `M’hemmx dejta dwar in-nisel.`,
 'sd9994f251f1280cf': `Pass`,

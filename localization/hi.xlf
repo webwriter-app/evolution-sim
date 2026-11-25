@@ -229,6 +229,18 @@
 <trans-unit id="s72cf82f7f6bc6dd5">
   <source>Current share</source>
 <target>वर्तमान हिस्सा</target></trans-unit>
+<trans-unit id="s1c9f46a3747a6e5e">
+  <source>Simulation world</source>
+  <target>सिमुलेशन की दुनिया</target>
+</trans-unit>
+<trans-unit id="scbcac468431b981d">
+  <source>Column <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, row <x id="1" equiv-text="${this.cursorTile.y + 1}"/></source>
+  <target>स्तंभ <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, पंक्ति <x id="1" equiv-text="${this.cursorTile.y + 1}"/></target>
+</trans-unit>
+<trans-unit id="sb3f0a9162cc71c0c">
+  <source>This is not a valid simulation configuration file.</source>
+  <target>यह सिमुलेशन की मान्य कॉन्फ़िगरेशन फ़ाइल नहीं है।</target>
+</trans-unit>
 </body>
 </file>
 </xliff>

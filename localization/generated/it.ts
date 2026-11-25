@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Configura simulazione`,
 's111aabf3a7ebf23c': `Disponibilità di cibo`,
 's17cff5f101712ef8': `Dimensioni del mondo`,
+'s1c9f46a3747a6e5e': `Mondo della simulazione`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Max`,
 's21e31bdc9713e7fd': `Figlio`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `L`,
 'sb32e400c09253d64': `Crea simulazione`,
 'sb3ea3e951f441e44': `Tasso di mutazione`,
+'sb3f0a9162cc71c0c': `Questo non è un file di configurazione valido per la simulazione.`,
 'sbe990627921a7485': `Genetica`,
 'sc1611c0558728a2a': `Posizione`,
 'sc52f2a1b6d5ddff9': `La distanza alla quale l'agente è in grado di percepire gli agenti vicini e le fonti di cibo.`,
 'sc5343d7a7a98dd5a': `La cronologia completa potrebbe subire ritardi durante le simulazioni di lunga durata.`,
 'sc5465585d761fc7c': `Grafici`,
 'sc892fa54f1de1674': `Ultimi 50 tick`,
+'scbcac468431b981d': str`Colonna ${0}, riga ${1}`,
 'sd049237343c44e47': `Morto`,
 'sd75d6fb3ddf8bb38': `Non sono disponibili dati genealogici.`,
 'sd9994f251f1280cf': `Passo`,

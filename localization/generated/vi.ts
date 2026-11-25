@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -84,4 +84,7 @@
 'sf9b1c0661a02d9f9': `Cấu hình`,
 'sf9cb2ac6821de9c6': `Lượng năng lượng tối đa mà cá thể có thể tích trữ.`,
 'sfd33bc6d839533b3': `Cá thể ban đầu`,
+'s1c9f46a3747a6e5e': `Simulation world`,
+'scbcac468431b981d': str`Column ${0}, row ${1}`,
+'sb3f0a9162cc71c0c': `This is not a valid simulation configuration file.`,
     };

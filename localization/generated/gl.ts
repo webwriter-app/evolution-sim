@@ -3,7 +3,7 @@
     // Re-generate this file by running lit-localize
 
 
-
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -15,6 +15,7 @@
 's1114f41d8856dcf2': `Configurar a simulación`,
 's111aabf3a7ebf23c': `Dispoñibilidade de alimento`,
 's17cff5f101712ef8': `Tamaño do mundo`,
+'s1c9f46a3747a6e5e': `Mundo da simulación`,
 's1dfd6319b50f4cd7': `Mín.`,
 's1e187119b5262c59': `Máx.`,
 's21e31bdc9713e7fd': `Descendente`,
@@ -66,12 +67,14 @@
 'saf640a4c86023ab6': `a`,
 'sb32e400c09253d64': `Crear simulación`,
 'sb3ea3e951f441e44': `Taxa de mutación`,
+'sb3f0a9162cc71c0c': `Este ficheiro de configuración da simulación non é válido.`,
 'sbe990627921a7485': `Xenética`,
 'sc1611c0558728a2a': `Posición`,
 'sc52f2a1b6d5ddff9': `A que distancia pode percibir o axente outros axentes e fontes de alimento próximas.`,
 'sc5343d7a7a98dd5a': `A visualización do historial completo pode atrasarse nas simulacións longas.`,
 'sc5465585d761fc7c': `Gráficas`,
 'sc892fa54f1de1674': `Os últimos 50 pasos`,
+'scbcac468431b981d': str`Columna ${0}, fila ${1}`,
 'sd049237343c44e47': `Morto`,
 'sd75d6fb3ddf8bb38': `Non hai datos de ascendencia dispoñibles.`,
 'sd9994f251f1280cf': `Paso`,
