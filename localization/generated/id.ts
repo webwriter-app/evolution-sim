@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,8 +12,10 @@
       's03d851a0433270c8': `Silsilah`,
 's061cc20e3432dead': `Jeda`,
 's08e69a3bb96b795b': `Kapasitas Energi`,
+'s1114f41d8856dcf2': `Konfigurasikan simulasi`,
 's111aabf3a7ebf23c': `Ketersediaan makanan`,
 's17cff5f101712ef8': `Ukuran Dunia`,
+'s1c9f46a3747a6e5e': `Dunia simulasi`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Anak`,
@@ -65,12 +67,14 @@
 'saf640a4c86023ab6': `L`,
 'sb32e400c09253d64': `Buat Simulasi`,
 'sb3ea3e951f441e44': `Tingkat Mutasi`,
+'sb3f0a9162cc71c0c': `Ini bukan berkas konfigurasi simulasi yang valid.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Posisi`,
 'sc52f2a1b6d5ddff9': `Seberapa jauh agen dapat mendeteksi agen lain dan sumber makanan di sekitarnya.`,
 'sc5343d7a7a98dd5a': `Riwayat lengkap mungkin mengalami keterlambatan selama simulasi yang lama.`,
 'sc5465585d761fc7c': `Grafik`,
 'sc892fa54f1de1674': `50 tick terakhir`,
+'scbcac468431b981d': str`Kolom ${0}, baris ${1}`,
 'sd049237343c44e47': `Mati`,
 'sd75d6fb3ddf8bb38': `Tidak ada data silsilah yang tersedia.`,
 'sd9994f251f1280cf': `Langkah`,
@@ -84,4 +88,3 @@
 'sf9cb2ac6821de9c6': `Jumlah energi maksimum yang dapat disimpan oleh agen.`,
 'sfd33bc6d839533b3': `Agen Awal`,
     };
-  

@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,8 +12,10 @@
       's03d851a0433270c8': `Poreklo`,
 's061cc20e3432dead': `Pavza`,
 's08e69a3bb96b795b': `Zmogljivost energije`,
+'s1114f41d8856dcf2': `Konfiguriraj simulacijo`,
 's111aabf3a7ebf23c': `Razpoložljivost hrane`,
 's17cff5f101712ef8': `Velikost sveta`,
+'s1c9f46a3747a6e5e': `Svet simulacije`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Potomec`,
@@ -65,12 +67,14 @@
 'saf640a4c86023ab6': `Š`,
 'sb32e400c09253d64': `Ustvari simulacijo`,
 'sb3ea3e951f441e44': `Stopnja mutacij`,
+'sb3f0a9162cc71c0c': `To ni veljavna datoteka z nastavitvami simulacije.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Položaj`,
 'sc52f2a1b6d5ddff9': `Kako daleč lahko agent zazna bližnje agente in vire hrane.`,
 'sc5343d7a7a98dd5a': `Celotna zgodovina se lahko med dolgotrajnimi simulacijami prikazuje z zamikom.`,
 'sc5465585d761fc7c': `Grafi`,
 'sc892fa54f1de1674': `Zadnjih 50 taktov`,
+'scbcac468431b981d': str`Stolpec ${0}, vrstica ${1}`,
 'sd049237343c44e47': `Mrtev`,
 'sd75d6fb3ddf8bb38': `Podatki o prednikih niso na voljo.`,
 'sd9994f251f1280cf': `Korak`,
@@ -84,4 +88,3 @@
 'sf9cb2ac6821de9c6': `Največja količina energije, ki jo lahko agent shrani.`,
 'sfd33bc6d839533b3': `Začetni agenti`,
     };
-  

@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,8 +12,10 @@
       's03d851a0433270c8': `Ancestralidade`,
 's061cc20e3432dead': `Pausar`,
 's08e69a3bb96b795b': `Capacidade energética`,
+'s1114f41d8856dcf2': `Configurar simulação`,
 's111aabf3a7ebf23c': `Disponibilidade de alimentos`,
 's17cff5f101712ef8': `Tamanho do mundo`,
+'s1c9f46a3747a6e5e': `Mundo da simulação`,
 's1dfd6319b50f4cd7': `Mín.`,
 's1e187119b5262c59': `Máx`,
 's21e31bdc9713e7fd': `Filho`,
@@ -65,12 +67,14 @@
 'saf640a4c86023ab6': `L`,
 'sb32e400c09253d64': `Criar simulação`,
 'sb3ea3e951f441e44': `Taxa de mutação`,
+'sb3f0a9162cc71c0c': `Este não é um arquivo de configuração válido para a simulação.`,
 'sbe990627921a7485': `Genética`,
 'sc1611c0558728a2a': `Posição`,
 'sc52f2a1b6d5ddff9': `Até que distância o agente consegue perceber outros agentes e fontes de alimento nas proximidades.`,
 'sc5343d7a7a98dd5a': `O histórico completo pode demorar a ser exibido durante simulações longas.`,
 'sc5465585d761fc7c': `Gráficos`,
 'sc892fa54f1de1674': `Últimos 50 ticks`,
+'scbcac468431b981d': str`Coluna ${0}, linha ${1}`,
 'sd049237343c44e47': `Morto`,
 'sd75d6fb3ddf8bb38': `Não há dados de ancestralidade disponíveis.`,
 'sd9994f251f1280cf': `Avançar`,
@@ -84,4 +88,3 @@
 'sf9cb2ac6821de9c6': `A quantidade máxima de energia que o agente pode armazenar.`,
 'sfd33bc6d839533b3': `Agentes iniciais`,
     };
-  

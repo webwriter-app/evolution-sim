@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="or">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>ଖାଦ୍ୟ ଖୋଜୁଥିବା, ପ୍ରଜନନ କରୁଥିବା ଏବଂ ପରିବର୍ତ୍ତିତ ଜିନ୍ ପରବର୍ତ୍ତୀ ପିଢ଼ିକୁ ଦେଉଥିବା ଏଜେଣ୍ଟମାନଙ୍କ ସହ ବିବର୍ତ୍ତନ ସିମୁଲେଟ୍ କରନ୍ତୁ। ପ୍ରତ୍ୟେକ ଏଜେଣ୍ଟକୁ ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ଚାର୍ଟରେ ଜନସଂଖ୍ୟା ଓ ଜିନ୍ ବଣ୍ଟନ ବିଶ୍ଳେଷଣ କରନ୍ତୁ।</target></segment></unit>
+</file>
+</xliff>

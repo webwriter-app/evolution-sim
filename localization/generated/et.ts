@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,8 +12,10 @@
       's03d851a0433270c8': `Esivanemad`,
 's061cc20e3432dead': `Paus`,
 's08e69a3bb96b795b': `Energiamaht`,
+'s1114f41d8856dcf2': `Seadista simulatsioon`,
 's111aabf3a7ebf23c': `Toidu kättesaadavus`,
 's17cff5f101712ef8': `Maailma suurus`,
+'s1c9f46a3747a6e5e': `Simulatsiooni maailm`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Järeltulija`,
@@ -65,12 +67,14 @@
 'saf640a4c86023ab6': `L`,
 'sb32e400c09253d64': `Loo simulatsioon`,
 'sb3ea3e951f441e44': `Mutatsioonimäär`,
+'sb3f0a9162cc71c0c': `See pole sobiv simulatsiooni seadistusfail.`,
 'sbe990627921a7485': `Geneetika`,
 'sc1611c0558728a2a': `Asukoht`,
 'sc52f2a1b6d5ddff9': `Kui kaugele agent suudab tajuda lähedal asuvaid agente ja toiduallikaid.`,
 'sc5343d7a7a98dd5a': `Pikkade simulatsioonide ajal võib täieliku ajaloo kuvamine viibida.`,
 'sc5465585d761fc7c': `Graafikud`,
 'sc892fa54f1de1674': `Viimased 50 tikki`,
+'scbcac468431b981d': str`Veerg ${0}, rida ${1}`,
 'sd049237343c44e47': `Surnud`,
 'sd75d6fb3ddf8bb38': `Esivanemate andmed puuduvad.`,
 'sd9994f251f1280cf': `Samm`,
@@ -84,4 +88,3 @@
 'sf9cb2ac6821de9c6': `Maksimaalne energiakogus, mida agent suudab salvestada.`,
 'sfd33bc6d839533b3': `Esialgsed agendid`,
     };
-  

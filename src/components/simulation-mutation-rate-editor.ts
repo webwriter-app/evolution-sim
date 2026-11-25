@@ -1,0 +1,93 @@
+import { LitElementWw } from "@webwriter/lit";
+import { widgetMsg } from "@webwriter/lit/localize";
+import { consume } from "@lit/context";
+import { css } from "lit";
+import { property } from "lit/decorators.js";
+import { html } from "@lit-labs/signals";
+import SlInput from "@shoelace-style/shoelace/dist/components/input/input.component.js";
+import SlRange from "@shoelace-style/shoelace/dist/components/range/range.component.js";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "./simulation-store";
+import { DEFAULT_MUTATION_RATE } from "../model/simulation/constants";
+import { createInputHandler } from "./handle-input";
+
+export class SimulationMutationRateEditor extends LitElementWw {
+  protected readonly msg = widgetMsg(this);
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
+
+  @property({ type: Boolean })
+  accessor locked = false;
+
+  static scopedElements = {
+    "sl-input": SlInput,
+    "sl-range": SlRange,
+  } as unknown as Record<string, CustomElementConstructor>;
+
+  static styles = css`
+    #mutation-rate-editor {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sl-spacing-x-small);
+      align-items: center;
+    }
+
+    label {
+      color: var(--sl-color-neutral-700, #374151);
+      font-size: var(--sl-font-size-small, 0.875rem);
+      white-space: nowrap;
+    }
+
+    sl-input {
+      width: 5.5rem;
+    }
+
+    sl-range {
+      width: 10rem;
+      max-width: 100%;
+    }
+  `;
+
+  render() {
+    const activeSimulationData =
+      this.simulationStore.currentActiveSimulationData.get();
+    const hasActiveSimulation = activeSimulationData !== null;
+    const disabled = !hasActiveSimulation || this.locked;
+    const mutationRate =
+      activeSimulationData?.metadata.mutationRate ?? DEFAULT_MUTATION_RATE;
+
+    return html`
+      <div id="mutation-rate-editor">
+        <label for="mutation-rate-input">${this.msg("Mutation Rate")}</label>
+        <sl-input
+          id="mutation-rate-input"
+          size="small"
+          aria-label=${this.msg("Mutation Rate")}
+          type="number"
+          min="0"
+          max="1"
+          step="0.01"
+          .value=${String(mutationRate)}
+          ?disabled=${disabled}
+          @input=${createInputHandler((value) =>
+            this.simulationStore.setMutationRate(Number(value)),
+          )}
+        ></sl-input>
+        <sl-range
+          aria-label=${this.msg("Mutation Rate")}
+          min="0"
+          max="1"
+          step="0.01"
+          tooltip="top"
+          .value=${mutationRate}
+          ?disabled=${disabled}
+          @input=${createInputHandler((value) =>
+            this.simulationStore.setMutationRate(Number(value)),
+          )}
+        ></sl-range>
+      </div>
+    `;
+  }
+}

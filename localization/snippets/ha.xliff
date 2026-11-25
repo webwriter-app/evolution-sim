@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="ha">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Sauyin halittu a tsibiri</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Sauyin halittu yawanci yana ɗaukar dubban shekaru. A wannan kwaikwayon, tsararraki da yawa suna wucewa cikin mintuna kaɗan, don haka za ka iya ganin yadda yawan halittu yake canzawa a tsawon lokaci.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Yanayin misalin</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Ƙananan halittu suna rayuwa a tsibirin da ya keɓe. Abincinsu kawai yana fitowa daga wasu ƴan itatuwa masu ƙananan ƴaƴan itace da suka warwatse. Bayan an cinye ƴaƴan itacen, sai an ɗauki lokaci kafin sababbi su yi girma.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Kowane motsi yana cin kuzari. Halittar da kuzarinta ya ƙare tana mutuwa.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Halitta mai isasshen kuzari tana haifar da ɗa. Wannan yana cinye babban kaso na kuzarinta.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Kowace halitta tana da ƙwayoyin gado biyu:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Nisan gani</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(nisan da take iya ganin abinci) da</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Ƙarfin adana kuzari</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(yawan kuzarin da take iya adanawa).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Da farko dukkan halittun suna da alil iri ɗaya. Ƴaƴa suna gadon alil daga iyayensu, amma wani lokaci alil yana ɗan canzawa (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>sauyin ƙwayar gado</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Hasashe:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Kafin ka fara, rubuta yadda kake tsammanin nisan gani da ƙarfin adana kuzarin halittun za su canza a tsawon lokaci.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Yadda ake amfani da kwaikwayon</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Yi amfani da</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Fara</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Dakata</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>da</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Mataki</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>don sarrafa kwaikwayon, da maɓallan sauri don hanzarta shi. Danna wata halitta don ganin alilolinta a shafin</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Ilimin gado</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>, sannan ka duba iyaye da ƴaƴanta a shafin</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Tsatson zuriya</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>. Jadawalan da ke ƙarƙashin tsibirin suna nuna yawan halittu, samuwar abinci da kason kowane alil a tsawon lokaci. Yi amfani da</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>Sabo</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>don fara sabon kwaikwayo da saituna dabam.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Ayyuka</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Gudanar da kwaikwayon na ɗan lokaci, sannan ka kwatanta ƴaƴan farko da iyayensu. Daga ina bambance-bambancen halittun suka fito?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Gudanar da kwaikwayon da sauri na ɗan lokaci, sannan ka duba jadawalin</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Rarrabuwar ƙwayoyin gado a tsawon lokaci</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Ta yaya alilolin nisan gani da ƙarfin adana kuzari suka canza? Kwatanta sakamakon da hasashenka.</target></segment></unit>
+</file>
+</xliff>

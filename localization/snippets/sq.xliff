@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="sq">
+<file id="./snippets/island-evolution.html" original="./snippets/island-evolution.html">
+<unit id="Island Evolution#1"><segment><source>Island Evolution</source><target>Evolucioni i ishullit</target></segment></unit>
+<unit id="Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.#1"><segment><source>Evolution usually takes place over thousands of years. In this simulation, many generations pass within a few minutes, so you can observe how a population changes over time.</source><target>Evolucioni zakonisht ndodh gjatë mijëra vjetëve. Në këtë simulim, shumë breza kalojnë brenda pak minutash, kështu që mund të vëzhgosh si ndryshon një popullatë me kalimin e kohës.</target></segment></unit>
+<unit id="The scenario#1"><segment><source>The scenario</source><target>Skenari</target></segment></unit>
+<unit id="A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.#1"><segment><source>A small population of creatures lives on an isolated island. Their only source of food is a few scattered berry bushes. Once a bush has been eaten, it takes some time for new berries to grow.</source><target>Një popullatë e vogël krijesash jeton në një ishull të izoluar. Burimi i vetëm i ushqimit janë disa shkurre të shpërndara me manaferra. Pasi hahen manaferrat e një shkurreje, duhet pak kohë që të rriten të reja.</target></segment></unit>
+<unit id="Every move costs energy. A creature whose energy runs out dies.#1"><segment><source>Every move costs energy. A creature whose energy runs out dies.</source><target>Çdo lëvizje harxhon energji. Një krijesë që i mbaron energjia ngordh.</target></segment></unit>
+<unit id="A creature with enough energy produces a child, which costs a large part of its energy.#1"><segment><source>A creature with enough energy produces a child, which costs a large part of its energy.</source><target>Një krijesë me energji të mjaftueshme krijon një pasardhës, gjë që i kushton një pjesë të madhe të energjisë.</target></segment></unit>
+<unit id="Each creature has two genes:#1"><segment><source>Each creature has two genes:</source><target>Çdo krijesë ka dy gjene:</target></segment></unit>
+<unit id="Vision Range#1"><segment><source>Vision Range</source><target>Rrezja e shikimit</target></segment></unit>
+<unit id="(how far it can see food) and#1"><segment><source>(how far it can see food) and</source><target>(sa larg mund ta shohë ushqimin) dhe</target></segment></unit>
+<unit id="Energy Capacity#1"><segment><source>Energy Capacity</source><target>Kapaciteti i energjisë</target></segment></unit>
+<unit id="(how much energy it can store).#1"><segment><source>(how much energy it can store).</source><target>(sa energji mund të ruajë).</target></segment></unit>
+<unit id="At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (#1"><segment><source>At the start, all creatures have the same alleles. Children inherit the alleles of their parent, but with a certain probability an allele changes slightly (</source><target>Në fillim, të gjitha krijesat kanë të njëjtat alele. Pasardhësit trashëgojnë alelet e prindit, por me një probabilitet të caktuar një alel ndryshon pak (</target></segment></unit>
+<unit id="mutation#1"><segment><source>mutation</source><target>mutacion</target></segment></unit>
+<unit id=").#1"><segment><source>).</source><target>).</target></segment></unit>
+<unit id="Prediction:#1"><segment><source>Prediction:</source><target>Parashikimi:</target></segment></unit>
+<unit id="Before you start, write down how you expect the vision range and energy capacity of the population to change over time.#1"><segment><source>Before you start, write down how you expect the vision range and energy capacity of the population to change over time.</source><target>Para se të fillosh, shkruaj si pret të ndryshojnë me kalimin e kohës rrezja e shikimit dhe kapaciteti i energjisë i popullatës.</target></segment></unit>
+<unit id="How to use the simulation#1"><segment><source>How to use the simulation</source><target>Si të përdorësh simulimin</target></segment></unit>
+<unit id="Use#1"><segment><source>Use</source><target>Përdor</target></segment></unit>
+<unit id="Start#1"><segment><source>Start</source><target>Nisja</target></segment></unit>
+<unit id=",#1"><segment><source>,</source><target>,</target></segment></unit>
+<unit id="Pause#1"><segment><source>Pause</source><target>Ndalo</target></segment></unit>
+<unit id="and#1"><segment><source>and</source><target>dhe</target></segment></unit>
+<unit id="Step#1"><segment><source>Step</source><target>Hap</target></segment></unit>
+<unit id="to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the#1"><segment><source>to control the simulation and the speed buttons to run it faster. Click on a creature to see its alleles in the</source><target>kontrollo simulimin dhe përdor butonat e shpejtësisë për ta përshpejtuar. Kliko te një krijesë për të parë alelet e saj te skeda e</target></segment></unit>
+<unit id="Genetics#1"><segment><source>Genetics</source><target>Gjenetika</target></segment></unit>
+<unit id="tab and its parent and children in the#1"><segment><source>tab and its parent and children in the</source><target>te skeda e Gjenetikës, dhe prindin e pasardhësit e tij te skeda e</target></segment></unit>
+<unit id="Ancestry#1"><segment><source>Ancestry</source><target>Prejardhja</target></segment></unit>
+<unit id="tab. The charts below the island show the population, the available food and the share of each allele over time. With#1"><segment><source>tab. The charts below the island show the population, the available food and the share of each allele over time. With</source><target>te skeda e Prejardhjes. Grafikët poshtë ishullit tregojnë popullatën, ushqimin e disponueshëm dhe pjesën e çdo aleli me kalimin e kohës. Me</target></segment></unit>
+<unit id="New#1"><segment><source>New</source><target>I ri</target></segment></unit>
+<unit id="you can start a simulation with different settings.#1"><segment><source>you can start a simulation with different settings.</source><target>mund të nisësh një simulim me cilësime të ndryshme.</target></segment></unit>
+<unit id="Tasks#1"><segment><source>Tasks</source><target>Detyra</target></segment></unit>
+<unit id="Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?#1"><segment><source>Run the simulation for a short time and compare the first children with their parent. Where do differences between the creatures come from?</source><target>Nise simulimin për pak kohë dhe krahaso pasardhësit e parë me prindin e tyre. Nga vijnë dallimet mes krijesave?</target></segment></unit>
+<unit id="Let the simulation run at high speed for a while, then look at the chart#1"><segment><source>Let the simulation run at high speed for a while, then look at the chart</source><target>Lëre simulimin të ecë për pak kohë me shpejtësi të lartë, pastaj shiko grafikun</target></segment></unit>
+<unit id="Gene distribution over time#1"><segment><source>Gene distribution over time</source><target>Shpërndarja e gjeneve me kalimin e kohës</target></segment></unit>
+<unit id=". How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.#1"><segment><source>. How have the alleles for Vision Range and Energy Capacity changed? Compare the result with your prediction.</source><target>. Si kanë ndryshuar alelet për rrezen e shikimit dhe kapacitetin e energjisë? Krahaso rezultatin me parashikimin tënd.</target></segment></unit>
+</file>
+</xliff>

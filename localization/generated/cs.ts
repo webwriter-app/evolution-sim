@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,8 +12,10 @@
       's03d851a0433270c8': `Původ`,
 's061cc20e3432dead': `Pozastavit`,
 's08e69a3bb96b795b': `Energetická kapacita`,
+'s1114f41d8856dcf2': `Konfigurovat simulaci`,
 's111aabf3a7ebf23c': `Dostupnost potravy`,
 's17cff5f101712ef8': `Velikost světa`,
+'s1c9f46a3747a6e5e': `Svět simulace`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Max`,
 's21e31bdc9713e7fd': `Potomek`,
@@ -65,12 +67,14 @@
 'saf640a4c86023ab6': `Š`,
 'sb32e400c09253d64': `Vytvořit simulaci`,
 'sb3ea3e951f441e44': `Míra mutace`,
+'sb3f0a9162cc71c0c': `Toto není platný konfigurační soubor simulace.`,
 'sbe990627921a7485': `Genetika`,
 'sc1611c0558728a2a': `Poloha`,
 'sc52f2a1b6d5ddff9': `Jak daleko může agent vnímat okolní agenty a zdroje potravy.`,
 'sc5343d7a7a98dd5a': `Při dlouhých simulacích může docházet ke zpoždění při zobrazení celé historie.`,
 'sc5465585d761fc7c': `Grafy`,
 'sc892fa54f1de1674': `Posledních 50 tiků`,
+'scbcac468431b981d': str`Sloupec ${0}, řádek ${1}`,
 'sd049237343c44e47': `Mrtvý`,
 'sd75d6fb3ddf8bb38': `Údaje o předcích nejsou k dispozici.`,
 'sd9994f251f1280cf': `Krok`,
@@ -84,4 +88,3 @@
 'sf9cb2ac6821de9c6': `Maximální množství energie, které může agent uložit.`,
 'sfd33bc6d839533b3': `Počáteční agenti`,
     };
-  

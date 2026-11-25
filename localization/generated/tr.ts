@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,8 +12,10 @@
       's03d851a0433270c8': `Soy`,
 's061cc20e3432dead': `Duraklat`,
 's08e69a3bb96b795b': `Enerji Kapasitesi`,
+'s1114f41d8856dcf2': `Simülasyonu yapılandır`,
 's111aabf3a7ebf23c': `Besin mevcudiyeti`,
 's17cff5f101712ef8': `Dünya Boyutu`,
+'s1c9f46a3747a6e5e': `Simülasyon dünyası`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Çocuk`,
@@ -65,12 +67,14 @@
 'saf640a4c86023ab6': `G`,
 'sb32e400c09253d64': `Simülasyon Oluştur`,
 'sb3ea3e951f441e44': `Mutasyon Oranı`,
+'sb3f0a9162cc71c0c': `Bu, geçerli bir simülasyon yapılandırma dosyası değil.`,
 'sbe990627921a7485': `Genetik`,
 'sc1611c0558728a2a': `Konum`,
 'sc52f2a1b6d5ddff9': `Ajanın yakındaki ajanları ve besin kaynaklarını ne kadar uzağa algılayabileceği.`,
 'sc5343d7a7a98dd5a': `Uzun simülasyonlar sırasında tam geçmişin görüntülenmesi gecikebilir.`,
 'sc5465585d761fc7c': `Grafikler`,
 'sc892fa54f1de1674': `Son 50 tik`,
+'scbcac468431b981d': str`Sütun ${0}, satır ${1}`,
 'sd049237343c44e47': `Öldü`,
 'sd75d6fb3ddf8bb38': `Atalarla ilgili veri bulunmamaktadır.`,
 'sd9994f251f1280cf': `Adım`,
@@ -84,4 +88,3 @@
 'sf9cb2ac6821de9c6': `Ajanın depolayabileceği maksimum enerji miktarı.`,
 'sfd33bc6d839533b3': `Başlangıç Ajanları`,
     };
-  

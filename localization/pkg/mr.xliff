@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en" trgLang="mr">
+<file id="." original=".">
+<unit id="description"><segment><source>Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.</source><target>अन्न शोधणारे, प्रजनन करणारे आणि बदललेली जनुके पुढे देणारे एजंट वापरून उत्क्रांतीचे सिम्युलेशन करा. स्वतंत्र एजंट तपासा आणि आलेखांत लोकसंख्या व जनुक वितरणाचे विश्लेषण करा.</target></segment></unit>
+</file>
+</xliff>

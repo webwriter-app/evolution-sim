@@ -299,6 +299,22 @@
         <source>Close</source>
         <target>Tutup</target>
       </trans-unit>
+      <trans-unit id="s1114f41d8856dcf2">
+        <source>Configure simulation</source>
+        <target>Konfigurasikan simulasi</target>
+      </trans-unit>
+<trans-unit id="s1c9f46a3747a6e5e">
+  <source>Simulation world</source>
+  <target>Dunia simulasi</target>
+</trans-unit>
+<trans-unit id="scbcac468431b981d">
+  <source>Column <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, row <x id="1" equiv-text="${this.cursorTile.y + 1}"/></source>
+  <target>Kolom <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, baris <x id="1" equiv-text="${this.cursorTile.y + 1}"/></target>
+</trans-unit>
+<trans-unit id="sb3f0a9162cc71c0c">
+  <source>This is not a valid simulation configuration file.</source>
+  <target>Ini bukan berkas konfigurasi simulasi yang valid.</target>
+</trans-unit>
     </body>
   </file>
 </xliff>

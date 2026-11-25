@@ -1,0 +1,743 @@
+import { consume } from "@lit/context";
+import { html, css } from "lit";
+import { LitElementWw } from "@webwriter/lit";
+import { widgetMsg } from "@webwriter/lit/localize";
+import { str } from "@lit/localize";
+import { property, query, state } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import { styleMap } from "lit/directives/style-map.js";
+import {
+  Application,
+  Container,
+  Graphics,
+  Sprite,
+  TilingSprite,
+} from "pixi.js";
+import {
+  AgentSnapshot,
+  EntitySnapshot,
+  FoodSourceSnapshot,
+  SimulationSnapshot,
+} from "../model/simulation/serialization";
+import { hasNoValue, hasValue } from "../model/type-guards";
+import { loadTextures, Textures } from "./textures";
+import { SimulationMetadata } from "../model/simulation/running";
+import { scaleVector, Vec2 } from "../model/simulation/position";
+import { SIMULATION_TILE_SIZE } from "../model/simulation/rendering";
+import { SIMULATION_ENTITY_LAYERS } from "../model/simulation/entity-presentation";
+import {
+  SimulationStore,
+  simulationStoreContext,
+} from "./simulation-store";
+import { effect } from "signal-utils/subtle/microtask-effect";
+import { GenomeRenderer } from "./gene-rendering";
+
+function toTilePosition(vec: Vec2): Vec2 {
+  return scaleVector(vec, SIMULATION_TILE_SIZE);
+}
+interface EntitySnapshotRenderer<TSnapshot> {
+  root: Container;
+  update: (snapshot: TSnapshot) => void;
+}
+
+class BackgroundRenderer {
+  readonly root: Container;
+  readonly backgroundTilesSprite: TilingSprite;
+
+  constructor() {
+    this.backgroundTilesSprite = new TilingSprite({
+      texture: Textures.backgroundTile,
+    });
+
+    this.root = new Container();
+
+    this.root.addChild(this.backgroundTilesSprite);
+  }
+
+  update(worldSize: Vec2) {
+    this.backgroundTilesSprite.texture = Textures.backgroundTile;
+    this.backgroundTilesSprite.tileScale = {
+      x: SIMULATION_TILE_SIZE / Textures.backgroundTile.width,
+      y: SIMULATION_TILE_SIZE / Textures.backgroundTile.height,
+    };
+
+    const backgroundTileSize = {
+      width: SIMULATION_TILE_SIZE * worldSize.x,
+      height: SIMULATION_TILE_SIZE * worldSize.y,
+    };
+
+    this.backgroundTilesSprite.setSize(backgroundTileSize);
+  }
+}
+
+class AgentRenderer implements EntitySnapshotRenderer<AgentSnapshot> {
+  readonly root: Container;
+  genomeRenderer?: GenomeRenderer;
+
+  constructor() {
+    this.root = new Container({
+      zIndex: SIMULATION_ENTITY_LAYERS.agent,
+    });
+  }
+
+  update(agentSnapshot: AgentSnapshot) {
+    if (hasNoValue(this.genomeRenderer)) {
+      this.genomeRenderer = new GenomeRenderer(agentSnapshot.genome);
+      this.root.addChild(this.genomeRenderer.root);
+    }
+
+    const tilePosition = toTilePosition(agentSnapshot.state.position);
+
+    this.root.x = tilePosition.x;
+    this.root.y = tilePosition.y;
+  }
+}
+
+class FoodSourceRenderer implements EntitySnapshotRenderer<FoodSourceSnapshot> {
+  readonly root: Container;
+  readonly bodySprite: Sprite;
+
+  constructor() {
+    this.root = new Container({
+      zIndex: SIMULATION_ENTITY_LAYERS["food-source"],
+    });
+    this.bodySprite = new Sprite({
+      texture: Textures.foodSource,
+      width: SIMULATION_TILE_SIZE,
+      height: SIMULATION_TILE_SIZE,
+    });
+    this.root.addChild(this.bodySprite);
+  }
+
+  update(foodSourceSnapshot: FoodSourceSnapshot) {
+    const tilePosition = toTilePosition(foodSourceSnapshot.position);
+    const isDepleted = foodSourceSnapshot.ticksTillRecovery > 0;
+
+    this.bodySprite.alpha = isDepleted ? 0.5 : 1;
+
+    this.bodySprite.x = tilePosition.x;
+    this.bodySprite.y = tilePosition.y;
+  }
+}
+
+class EntitySnapshotRendererCache<TSnapshot extends EntitySnapshot> {
+  readonly rendererCache = new Map<string, EntitySnapshotRenderer<TSnapshot>>();
+
+  constructor(
+    private readonly rootContainer: Container,
+    private readonly createRenderer: () => EntitySnapshotRenderer<TSnapshot>,
+  ) {}
+
+  update(snapshots: TSnapshot[]) {
+    const oldIds = Array.from(this.rendererCache.keys());
+    const nextIds = new Set(snapshots.map((sp) => sp.id));
+
+    const removedIds = oldIds.filter((id) => !nextIds.has(id));
+    const renderersToRemove = removedIds
+      .map((id) => this.rendererCache.get(id))
+      .filter(hasValue);
+
+    removedIds.forEach((removedId) => this.rendererCache.delete(removedId));
+
+    for (const removedRenderer of renderersToRemove) {
+      this.rootContainer.removeChild(removedRenderer.root);
+    }
+
+    for (const snapshot of snapshots) {
+      const snapshotId = snapshot.id;
+      const cachedRenderer = this.rendererCache.get(snapshotId);
+      if (hasValue(cachedRenderer)) {
+        cachedRenderer.update(snapshot);
+      }
+      else {
+        const newRenderer = this.createRenderer();
+        newRenderer.update(snapshot);
+        this.rendererCache.set(snapshotId, newRenderer);
+        this.rootContainer.addChild(newRenderer.root);
+      }
+    }
+  }
+}
+
+class TileHoverRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .fill({ color: 0xdc2626, alpha: 0.2 })
+      .stroke({ color: 0xdc2626, width: 1.5, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
+class CursorRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .stroke({ color: 0x0f172a, width: 2, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER - 2;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
+class SelectionRenderer {
+  readonly root: Graphics;
+
+  constructor() {
+    this.root = new Graphics()
+      .rect(0, 0, SIMULATION_TILE_SIZE, SIMULATION_TILE_SIZE)
+      .fill({ color: 0x0284c7, alpha: 0.2 })
+      .stroke({ color: 0x0284c7, width: 1.5, alignment: 1 });
+    this.root.zIndex = Number.MAX_SAFE_INTEGER - 1;
+    this.root.visible = false;
+  }
+
+  update(tilePosition: Vec2 | null) {
+    if (hasNoValue(tilePosition)) {
+      this.root.visible = false;
+      return;
+    }
+
+    const position = toTilePosition(tilePosition);
+    this.root.position.set(position.x, position.y);
+    this.root.visible = true;
+  }
+}
+
+function useSimulationRenderer() {
+  const rootContainer = new Container({
+    sortableChildren: true,
+  });
+  const backgroundRenderer = new BackgroundRenderer();
+  const agentRendererCache = new EntitySnapshotRendererCache(
+    rootContainer,
+    () => new AgentRenderer(),
+  );
+  const foodSourceRendererCache = new EntitySnapshotRendererCache(
+    rootContainer,
+    () => new FoodSourceRenderer(),
+  );
+
+  const tileHoverRenderer = new TileHoverRenderer();
+  const selectionRenderer = new SelectionRenderer();
+  const cursorRenderer = new CursorRenderer();
+  let currentSnapshot: SimulationSnapshot | null = null;
+  let selectedEntityId: string | null = null;
+
+  rootContainer.addChild(backgroundRenderer.root);
+  rootContainer.addChild(tileHoverRenderer.root);
+  rootContainer.addChild(selectionRenderer.root);
+  rootContainer.addChild(cursorRenderer.root);
+
+  function updateSelection() {
+    const agent = currentSnapshot?.agents.find(
+      (agent) => agent.id === selectedEntityId,
+    );
+    const foodSource = currentSnapshot?.foodSources.find(
+      (foodSource) => foodSource.id === selectedEntityId,
+    );
+
+    selectionRenderer.update(
+      agent?.state.position ?? foodSource?.position ?? null,
+    );
+  }
+
+  function update(
+    metadata: SimulationMetadata,
+    snapshot: SimulationSnapshot | null,
+  ) {
+    backgroundRenderer.update(metadata.worldSize);
+
+    agentRendererCache.update(snapshot?.agents ?? []);
+    foodSourceRendererCache.update(snapshot?.foodSources ?? []);
+
+    currentSnapshot = snapshot;
+    updateSelection();
+  }
+
+  return {
+    root: rootContainer,
+    update,
+    setHoveredTile: (tilePosition: Vec2 | null) =>
+      tileHoverRenderer.update(tilePosition),
+    setCursorTile: (tilePosition: Vec2 | null) =>
+      cursorRenderer.update(tilePosition),
+    setSelectedEntity: (entityId: string | null) => {
+      selectedEntityId = entityId;
+      updateSelection();
+    },
+  };
+}
+
+export class SimulationStateRender extends LitElementWw {
+  static styles = css`
+    :host {
+      display: block;
+    }
+
+    #simulation-container:focus-visible {
+      outline: 2px solid var(--ww-theme-accent-1, var(--sl-color-primary-600, #0284c7));
+      outline-offset: -2px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    #print-image {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    @media print {
+      /* The live canvas stays visible when no still picture could be made. */
+      #simulation-container:has(~ #print-image[src]) {
+        display: none;
+      }
+
+      #print-image[src] {
+        display: block;
+        break-inside: avoid;
+      }
+    }
+
+    #simulation-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    #simulation-container canvas {
+      display: block;
+    }
+
+    #simulation-container.delete-mode {
+      cursor: crosshair;
+    }
+  `;
+
+  protected readonly msg = widgetMsg(this);
+
+  @consume({ context: simulationStoreContext })
+  private accessor simulationStore!: SimulationStore;
+
+  @query("#print-image")
+  accessor printImage!: HTMLImageElement;
+
+  @state()
+  private accessor cursorTile: Vec2 | null = null;
+
+  @query("#simulation-container")
+  accessor canvasContainer!: HTMLDivElement;
+
+  @property({ attribute: "widget-id" })
+  accessor widgetId = "";
+
+  app: Application | null = null;
+  renderer = useSimulationRenderer();
+  unwatch: (() => void) | null = null;
+  private unwatchSelection: (() => void) | null = null;
+  private resizeObserver: ResizeObserver | null = null;
+  private unwatchPixelRatio: (() => void) | null = null;
+  private currentWorldSize: Vec2 | null = null;
+
+  private readonly handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      this.simulationStore.setActiveManualTool(null);
+    }
+  };
+
+  private getTilePositionFromClientPoint(
+    clientX: number,
+    clientY: number,
+  ): Vec2 | null {
+    if (!hasValue(this.app)) {
+      return null;
+    }
+
+    const bounds = this.canvasContainer.getBoundingClientRect();
+    const localX = clientX - bounds.left;
+    const localY = clientY - bounds.top;
+    const scaleX = this.app.screen.width / bounds.width;
+    const scaleY = this.app.screen.height / bounds.height;
+
+    const worldX =
+      (localX * scaleX - this.renderer.root.position.x) /
+      this.renderer.root.scale.x;
+    const worldY =
+      (localY * scaleY - this.renderer.root.position.y) /
+      this.renderer.root.scale.y;
+    const tilePosition = {
+      x: Math.floor(worldX / SIMULATION_TILE_SIZE),
+      y: Math.floor(worldY / SIMULATION_TILE_SIZE),
+    };
+
+    if (
+      !hasValue(this.currentWorldSize) ||
+      tilePosition.x < 0 ||
+      tilePosition.y < 0 ||
+      tilePosition.x >= this.currentWorldSize.x ||
+      tilePosition.y >= this.currentWorldSize.y
+    ) {
+      return null;
+    }
+
+    return tilePosition;
+  }
+
+  private getTilePositionFromEvent(event: DragEvent): Vec2 | null {
+    return this.getTilePositionFromClientPoint(event.clientX, event.clientY);
+  }
+
+  private getDraggedManualTool() {
+    const dragState = this.simulationStore.manualToolDnd.getDraggedItem();
+
+    if (dragState?.originId === this.widgetId) {
+      return dragState.item;
+    } else {
+      return null;
+    }
+  }
+
+  private handleDragOver(event: DragEvent) {
+    if (hasValue(this.getDraggedManualTool())) {
+      event.preventDefault();
+
+      if (event.dataTransfer) {
+        event.dataTransfer.dropEffect = "copy";
+      }
+    }
+  }
+
+  private handleDrop(event: DragEvent) {
+    const tool = this.getDraggedManualTool();
+    const tilePosition = this.getTilePositionFromEvent(event);
+
+    if (!hasValue(tool) || !hasValue(tilePosition)) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (tool === "add-food-source") {
+      this.simulationStore.addFoodSource(tilePosition);
+    } else if (tool === "add-agent") {
+      this.simulationStore.addAgent(tilePosition);
+    } else {
+      this.simulationStore.manualToolDnd.endDrag();
+    }
+  }
+
+  private handleClick(event: MouseEvent) {
+    const tilePosition = this.getTilePositionFromClientPoint(
+      event.clientX,
+      event.clientY,
+    );
+    if (hasNoValue(tilePosition)) return;
+
+    this.activateTile(tilePosition);
+  }
+
+  private activateTile(tilePosition: Vec2) {
+    const activeManualTool = this.simulationStore.activeManualTool.get();
+
+    if (activeManualTool === "remove-entity") {
+      this.simulationStore.removeEntityAt(tilePosition);
+    } else if (activeManualTool === "add-food-source") {
+      this.simulationStore.addFoodSource(tilePosition);
+    } else if (activeManualTool === "add-agent") {
+      this.simulationStore.addAgent(tilePosition);
+    } else {
+      this.simulationStore.selectEntityAt(tilePosition);
+    }
+  }
+
+  private setCursorTile(tile: Vec2 | null) {
+    this.cursorTile = tile;
+    this.renderer.setCursorTile(tile);
+  }
+
+  private handleFocus() {
+    if (hasValue(this.cursorTile) || hasNoValue(this.currentWorldSize)) return;
+    this.setCursorTile({
+      x: Math.floor(this.currentWorldSize.x / 2),
+      y: Math.floor(this.currentWorldSize.y / 2),
+    });
+  }
+
+  private handleCanvasKeyDown(event: KeyboardEvent) {
+    const world = this.currentWorldSize;
+    if (
+      hasNoValue(world) ||
+      event.altKey ||
+      event.ctrlKey ||
+      event.metaKey
+    ) {
+      return;
+    }
+
+    const cursor = this.cursorTile ?? { x: 0, y: 0 };
+    const step = event.shiftKey ? 5 : 1;
+    const moves: Record<string, Vec2> = {
+      ArrowLeft: { x: -step, y: 0 },
+      ArrowRight: { x: step, y: 0 },
+      ArrowUp: { x: 0, y: -step },
+      ArrowDown: { x: 0, y: step },
+    };
+    const move = moves[event.key];
+
+    if (hasValue(move)) {
+      event.preventDefault();
+      this.setCursorTile({
+        x: Math.min(world.x - 1, Math.max(0, cursor.x + move.x)),
+        y: Math.min(world.y - 1, Math.max(0, cursor.y + move.y)),
+      });
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      this.activateTile(cursor);
+    }
+  }
+
+  // A WebGL canvas prints blank, so a still picture of the world is kept for the print view.
+  private readonly capturePrintImage = () => {
+    window.clearTimeout(this.printImageTimer);
+    if (hasNoValue(this.app) || hasNoValue(this.printImage)) return;
+    this.app.render();
+    this.printImage.src = this.app.canvas.toDataURL("image/png");
+  };
+
+  private printImageTimer = 0;
+
+  private schedulePrintImage() {
+    window.clearTimeout(this.printImageTimer);
+    this.printImageTimer = window.setTimeout(this.capturePrintImage, 400);
+  }
+
+  private isDeleteMode() {
+    return this.simulationStore.activeManualTool.get() === "remove-entity";
+  }
+
+  private handlePointerMove(event: PointerEvent) {
+    this.renderer.setHoveredTile(
+      this.isDeleteMode()
+        ? this.getTilePositionFromClientPoint(event.clientX, event.clientY)
+        : null,
+    );
+  }
+
+  private fitSimulationToCanvas() {
+    if (!hasValue(this.app) || !hasValue(this.currentWorldSize)) {
+      return;
+    }
+
+    const worldPixelWidth = this.currentWorldSize.x * SIMULATION_TILE_SIZE;
+    const worldPixelHeight = this.currentWorldSize.y * SIMULATION_TILE_SIZE;
+
+    if (worldPixelWidth <= 0 || worldPixelHeight <= 0) {
+      return;
+    }
+
+    const scale = Math.min(
+      this.app.screen.width / worldPixelWidth,
+      this.app.screen.height / worldPixelHeight,
+    );
+
+    this.renderer.root.scale.set(scale);
+    this.renderer.root.position.set(
+      (this.app.screen.width - worldPixelWidth * scale) / 2,
+      (this.app.screen.height - worldPixelHeight * scale) / 2,
+    );
+  }
+
+  private async setupCanvas(): Promise<boolean> {
+    await loadTextures();
+
+    const app = new Application();
+
+    await app.init({
+      resizeTo: this.canvasContainer,
+      background: "#FFFFFF",
+      resolution: window.devicePixelRatio || 1,
+      autoDensity: true,
+    });
+
+    if (!this.isConnected || hasValue(this.app)) {
+      app.destroy({ removeView: true });
+      return false;
+    }
+
+    this.canvasContainer.appendChild(app.canvas);
+
+    this.app = app;
+    app.stage.addChild(this.renderer.root);
+
+    this.resizeObserver = new ResizeObserver(() => {
+      this.app?.resize();
+      this.fitSimulationToCanvas();
+    });
+    this.resizeObserver.observe(this.canvasContainer);
+
+    this.watchPixelRatio();
+    return true;
+  }
+
+  private watchPixelRatio() {
+    const query = window.matchMedia(
+      `(resolution: ${window.devicePixelRatio}dppx)`,
+    );
+    const handleChange = () => {
+      query.removeEventListener("change", handleChange);
+
+      if (hasValue(this.app)) {
+        this.app.renderer.resolution = window.devicePixelRatio || 1;
+        this.app.resize();
+        this.fitSimulationToCanvas();
+      }
+
+      this.watchPixelRatio();
+    };
+
+    query.addEventListener("change", handleChange);
+    this.unwatchPixelRatio = () =>
+      query.removeEventListener("change", handleChange);
+  }
+
+  render() {
+    const isDeleteMode = this.isDeleteMode();
+    const worldSize =
+      this.simulationStore.currentActiveSimulationData.get()?.metadata
+        .worldSize;
+    const aspectRatio =
+      hasValue(worldSize) && worldSize.x > 0 && worldSize.y > 0
+        ? `${worldSize.x} / ${worldSize.y}`
+        : "16 / 9";
+
+    return html`
+      <div
+        id="simulation-container"
+        part="simulation"
+        tabindex="0"
+        role="group"
+        aria-label=${this.msg("Simulation world")}
+        class=${classMap({ "delete-mode": isDeleteMode })}
+        @focus=${this.handleFocus}
+        @blur=${() => this.setCursorTile(null)}
+        @keydown=${this.handleCanvasKeyDown}
+        style=${styleMap({
+          "aspect-ratio": aspectRatio,
+        })}
+        @dragover=${this.handleDragOver}
+        @drop=${this.handleDrop}
+        @click=${this.handleClick}
+        @pointermove=${this.handlePointerMove}
+        @pointerleave=${() => this.renderer.setHoveredTile(null)}
+      ></div>
+      <img id="print-image" alt=${this.msg("Simulation world")} />
+      <output class="visually-hidden" aria-live="polite">${this.cursorTile
+        ? this.msg(str`Column ${this.cursorTile.x + 1}, row ${this.cursorTile.y + 1}`)
+        : ""}</output>
+    `;
+  }
+
+  updated() {
+    if (!this.isDeleteMode()) {
+      this.renderer.setHoveredTile(null);
+    }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    window.addEventListener("keydown", this.handleKeyDown);
+    window.addEventListener("beforeprint", this.capturePrintImage);
+
+    // The shadow DOM survives a move in the document; only the app and the watchers were torn down.
+    if (this.hasUpdated) void this.start();
+  }
+
+  firstUpdated() {
+    void this.start();
+  }
+
+  private async start() {
+    if (!(await this.setupCanvas())) {
+      return;
+    }
+
+    this.unwatchSelection = effect(() => {
+      const selection = this.simulationStore.currentSelection.get();
+      this.renderer.setSelectedEntity(selection?.entityId ?? null);
+    });
+
+    this.unwatch = effect(() => {
+      const data = this.simulationStore.currentActiveSimulationData.get();
+
+      if (hasValue(data)) {
+        const previousWorldSize = this.currentWorldSize;
+        this.currentWorldSize = data.metadata.worldSize;
+        this.renderer.update(data.metadata, data.snapshot);
+        this.schedulePrintImage();
+
+        if (
+          !hasValue(previousWorldSize) ||
+          previousWorldSize.x !== data.metadata.worldSize.x ||
+          previousWorldSize.y !== data.metadata.worldSize.y
+        ) {
+          this.fitSimulationToCanvas();
+        }
+      }
+    });
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = null;
+    this.unwatchPixelRatio?.();
+    this.unwatchPixelRatio = null;
+    this.app?.destroy({ removeView: true });
+    this.app = null;
+    this.currentWorldSize = null;
+    this.unwatch?.();
+    this.unwatch = null;
+    this.unwatchSelection?.();
+    this.unwatchSelection = null;
+    window.removeEventListener("keydown", this.handleKeyDown);
+    window.removeEventListener("beforeprint", this.capturePrintImage);
+    window.clearTimeout(this.printImageTimer);
+  }
+}

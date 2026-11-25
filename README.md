@@ -1,7 +1,7 @@
-# Evolution Sim (`@webwriter/evolution-sim@1.0.0`)
-[License: MIT](LICENSE) | Version: 1.0.0
+# Evolution Sim (`@webwriter/evolution-sim@2.0.0`)
+[License: MIT](LICENSE) | Version: 2.0.0
 
-Simulate evolution with agents that search for food, reproduce and pass on mutating genes. Inspect individual agents and analyze population and gene distribution in charts.
+Explore evolution and natural selection through interactive simulations.
 
 ## Snippets
 [Snippets](https://webwriter.app/docs/snippets/snippets/) are examples and templates using the package's widgets.
@@ -30,6 +30,24 @@ behavior is a composition of actions and simple logic, based on the agent's
 inner and perceived external state. An action is the most basic unit of
 behavior.
 
+### Signals
+
+Other widgets in the document can read these through `signals`:
+- `population` (number): the number of agents in the current tick.
+- `history` (table `{columns, rows}`): one row per recorded tick with
+  `tick`, `population`, `food_sources`, `available_food_sources` and the
+  mean allele of each gene (`mean_vision_range`, `mean_energy_capacity`;
+  an empty cell when nobody is alive). A chart can take it with `data-from`.
+  The history starts again with every new or reset simulation.
+
+### Import and export
+
+- Export `text/csv`: the history table above. It is a snapshot of the running
+  simulation and is not stored in the document.
+- Export and import `.json`: the configuration in the format of the data
+  block (`{"configuration": {...}}`). Import checks the whole file and starts
+  a new simulation with it; the file is rejected if values are out of range.
+
 ### Usage
 
 Use with a CDN (e.g. [jsdelivr](https://jsdelivr.com)):
@@ -54,9 +72,23 @@ npm install @webwriter/evolution-sim
 ## Fields
 | Name (Attribute Name) | Type | Description | Default | Reflects |
 | :-------------------: | :--: | :---------: | :-----: | :------: |
-| `simulationConfiguration` (`simulationConfiguration`) | `SimulationConfiguration` | Configuration of the simulation, serialized as JSON in the attribute.<br><br>- `initOptions`: Initial options of the simulation (`seed`, `worldSize`, `initialAgentsAmount`, `initialFoodSourcesAmount`, `mutationRate`). Each option is an object `{ value, locked }`. A locked option cannot be changed by users, e.g. when creating a new simulation.<br>- `graphs`: Which analysis charts are shown (`enabled`, `showPopulationGraph`, `showFoodAvailabilityGraph`, `showAlleleShareGraph`, `showAlleleHistoricShareGraph`). | `DEFAULT_SIMULATION_CONFIGURATION` | ✓ |
+| `WebwriterEvolutionSim.scopedElements` | `object` | - | `{ "simulation-run-view": SimulationRunView, "simulation-pre-configuration-aside": SimulationPreConfigurationAside, "simulation-creation-dialog": SimulationCreationDialog, }` | ✗ |
+| `WebwriterEvolutionSim.convertFrom` | `object` | - | `{ ".json": "importConfiguration" }` | ✗ |
+| `WebwriterEvolutionSim.convertTo` | `object` | - | `{ "text/csv": "exportHistoryCsv", ".json": "exportConfiguration" }` | ✗ |
+| `WebwriterEvolutionSim.actions` | `object` | - | `{ configureSimulation: { label: (widget: { msg: MsgFn }) => widget.msg("Configure simulation"), }, }` | ✗ |
+| `signals` | `object` | - | `{ population: computed(() => this.simulationStore.currentActiveSimulationData.get()?.snapshot.agents.length ?? 0), history: computed(() => createHistoryTable(Array.from(this.simulationStore.simulationHistory))), }` | ✗ |
 
 *Fields including [properties](https://developer.mozilla.org/en-US/docs/Glossary/Property/JavaScript) and [attributes](https://developer.mozilla.org/en-US/docs/Glossary/Attribute) define the current state of the widget and offer customization options.*
+
+## Methods
+| Name | Description | Parameters |
+| :--: | :---------: | :-------: |
+| `configureSimulation` | - | -
+| `importConfiguration` | - | `file: File`
+| `exportConfiguration` | - | -
+| `exportHistoryCsv` | - | -
+
+*[Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) allow programmatic access to the widget.*
 
 ## Events
 | Name | Description |
@@ -65,15 +97,24 @@ npm install @webwriter/evolution-sim
 
 *[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
 
+## CSS parts
+| Name | Description |
+| :--: | :---------: |
+| simulation | The container with the simulation world. |
+
+*[CSS parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) allow freely styling internals of the widget with CSS.*
+
 ## Editing config
 | Name | Value |
 | :--: | :---------: |
-
+| `importFormats` | `.json` |
+| `exportFormats` | `text/csv,.json` |
+| `label` | `[object Object]` |
 
 *The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
 
-*No public methods, slots, custom CSS properties, or CSS parts.*
+*No public slots, or custom CSS properties.*
 
 
 ---
-*Generated with @webwriter/build@1.9.1*
+*Generated with @webwriter/build@1.15.0*

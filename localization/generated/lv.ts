@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+    import {str} from '@lit/localize';
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -12,8 +12,10 @@
       's03d851a0433270c8': `Izcelsme`,
 's061cc20e3432dead': `Pauze`,
 's08e69a3bb96b795b': `Enerģijas kapacitāte`,
+'s1114f41d8856dcf2': `Konfigurēt simulāciju`,
 's111aabf3a7ebf23c': `Pārtikas pieejamība`,
 's17cff5f101712ef8': `Pasaules izmērs`,
+'s1c9f46a3747a6e5e': `Simulācijas pasaule`,
 's1dfd6319b50f4cd7': `Min`,
 's1e187119b5262c59': `Maks`,
 's21e31bdc9713e7fd': `Bērns`,
@@ -65,12 +67,14 @@
 'saf640a4c86023ab6': `P`,
 'sb32e400c09253d64': `Izveidot simulāciju`,
 'sb3ea3e951f441e44': `Mutāciju ātrums`,
+'sb3f0a9162cc71c0c': `Šis nav derīgs simulācijas konfigurācijas fails.`,
 'sbe990627921a7485': `Ģenētika`,
 'sc1611c0558728a2a': `Pozīcija`,
 'sc52f2a1b6d5ddff9': `Cik tālu aģents var uztvert tuvumā esošos aģentus un barības avotus.`,
 'sc5343d7a7a98dd5a': `Ilgstošu simulāciju laikā pilnā vēsture var tikt parādīta ar nelielu kavēšanos.`,
 'sc5465585d761fc7c': `Grafiki`,
 'sc892fa54f1de1674': `Pēdējie 50 takti`,
+'scbcac468431b981d': str`Kolonna ${0}, rinda ${1}`,
 'sd049237343c44e47': `Miris`,
 'sd75d6fb3ddf8bb38': `Nav pieejami dati par izcelsmi.`,
 'sd9994f251f1280cf': `Solis`,
@@ -84,4 +88,3 @@
 'sf9cb2ac6821de9c6': `Maksimālais enerģijas daudzums, ko aģents var uzkrāt.`,
 'sfd33bc6d839533b3': `Sākotnējie aģenti`,
     };
-  

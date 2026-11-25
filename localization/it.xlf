@@ -299,6 +299,22 @@
         <source>Close</source>
         <target>Chiudi</target>
       </trans-unit>
+      <trans-unit id="s1114f41d8856dcf2">
+        <source>Configure simulation</source>
+        <target>Configura simulazione</target>
+      </trans-unit>
+<trans-unit id="s1c9f46a3747a6e5e">
+  <source>Simulation world</source>
+  <target>Mondo della simulazione</target>
+</trans-unit>
+<trans-unit id="scbcac468431b981d">
+  <source>Column <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, row <x id="1" equiv-text="${this.cursorTile.y + 1}"/></source>
+  <target>Colonna <x id="0" equiv-text="${this.cursorTile.x + 1}"/>, riga <x id="1" equiv-text="${this.cursorTile.y + 1}"/></target>
+</trans-unit>
+<trans-unit id="sb3f0a9162cc71c0c">
+  <source>This is not a valid simulation configuration file.</source>
+  <target>Questo non è un file di configurazione valido per la simulazione.</target>
+</trans-unit>
     </body>
   </file>
 </xliff>
