@@ -1,5 +1,5 @@
-# Evolution Sim (`@webwriter/evolution-sim@2.0.0`)
-[License: MIT](LICENSE) | Version: 2.0.0
+# Evolution Sim (`@webwriter/evolution-sim@2.1.0`)
+[License: MIT](LICENSE) | Version: 2.1.0
 
 Explore evolution and natural selection through interactive simulations.
 
