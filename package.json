@@ -1,6 +1,6 @@
 {
   "name": "@webwriter/evolution-sim",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Explore evolution and natural selection through interactive simulations.",
   "keywords": [
     "webwriter-widget",
@@ -165,6 +165,7 @@
     "./snippets/island-evolution.html": "./snippets/island-evolution.html",
     "./icon": "./icon.svg",
     "./preview": "./assets/preview.mp4",
+    "./preview/de": "./assets/preview-de.mp4",
     "./custom-elements.json": "./custom-elements.json",
     "./tests/widget.*": {
       "source": "./tests/widget.test.ts",
